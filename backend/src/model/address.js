@@ -35,7 +35,8 @@ const addressSchema = new mongoose.Schema(
 		addressType: {
 			type: String,
 			required: true,
-			enum: [ 'home', 'work', 'friend' ]
+			enum: [ 'home', 'work', 'friend' ],
+			default: 'home'
 		},
 		dotcolor: {
 			type: String,

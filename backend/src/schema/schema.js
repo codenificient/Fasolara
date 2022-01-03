@@ -24,7 +24,10 @@ const UserType = new GraphQLObjectType({
 		username: { type: GraphQLString },
 		dob: { type: GraphQLString },
 		email: { type: GraphQLString },
-		addressId: { type: GraphQLID },
+		address: { type: AddressType,
+		resolve(parent, args) {
+			Address.findById(parent.addressId)
+		} },
 		password: { type: GraphQLString },
 		confpassword: { type: GraphQLString },
 		hash_password: { type: GraphQLString },
@@ -77,13 +80,12 @@ const AddressType = new GraphQLObjectType({
 		streetAddress: { type: GraphQLString },
 		city: { type: GraphQLString },
 		addressType: { type: GraphQLString },
-		village: { type: GraphQLString },
 		postalCode: { type: GraphQLString },
 		created: { type: GraphQLString },
-		villages: {
-			type: new GraphQLList(VillageType),
+		village: {
+			type:  VillageType,
 			resolve(parent, args) {
-				return Village.find({ provinceId: parent.id })
+				return Village.findById(parent.villageId )
 			}
 		}
 	})
@@ -130,7 +132,20 @@ const RootQuery = new GraphQLObjectType({
 			resolve(parent, args) {
 				return Province.find({})
 			}
-		}
+		},
+		address: {
+			type: AddressType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Address.findById(args.id)
+			}
+		},
+		addresses: {
+			type: new GraphQLList(AddressType),
+			resolve(parent, args) {
+				return Address.find({})
+			}
+		},
 	}
 })
 
@@ -148,7 +163,8 @@ const Mutation = new GraphQLObjectType({
 				email: { type: new GraphQLNonNull(GraphQLString) },
 				password: { type: new GraphQLNonNull(GraphQLString) },
 				confpassword: { type: new GraphQLNonNull(GraphQLString) },
-				accountId: { type: GraphQLID }
+				accountId: { type: GraphQLID },
+				addressId: { type: GraphQLID }
 			},
 			resolve(parent, args) {
 				if (args.password !== args.confpassword) {
@@ -194,6 +210,7 @@ const Mutation = new GraphQLObjectType({
 			args: {
 				name: { type: new GraphQLNonNull(GraphQLString) },
 				region: { type: new GraphQLNonNull(GraphQLString) },
+				zone: { type: new GraphQLNonNull(GraphQLString) },
 				seat: { type: new GraphQLNonNull(GraphQLString) },
 				polycolor: { type: new GraphQLNonNull(GraphQLString) }
 			},
@@ -201,13 +218,37 @@ const Mutation = new GraphQLObjectType({
 				let province = new Province({
 					name: args.name,
 					region: args.region,
+					zone: args.zone,
 					seat: args.seat,
 					polycolor: args.polycolor
 				})
 				province.created = new Date()
 				return province.save()
 			}
-		}
+		},
+		addAddress: {
+			type: AddressType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				mobileNumber: { type: new GraphQLNonNull(GraphQLString) },
+				streetAddress: { type: new GraphQLNonNull(GraphQLString) },
+				addressType: { type: new GraphQLNonNull(GraphQLString) },
+				postalCode: { type: new GraphQLNonNull(GraphQLString) },
+				created: { type: new GraphQLNonNull(GraphQLString) },
+				villageId: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				let address = new Address({
+					name: args.name,
+					region: args.region,
+					zone: args.zone,
+					seat: args.seat,
+					polycolor: args.polycolor
+				})
+				address.created = new Date()
+				return address.save()
+			}
+		},
 	}
 })
 

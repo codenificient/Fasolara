@@ -39,7 +39,11 @@ const userSchema = new mongoose.Schema(
 		},
 		accountId: {
 			type: String,
-			required: true
+			trim: true
+		},
+		addressId: {
+			type: String,
+			trim: true
 		},
 		created: {
 			type: Date,

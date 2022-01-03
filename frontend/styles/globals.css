@@ -19,3 +19,30 @@ a {
 	justify-content: center;
 	align-items: center;
 }
+
+#users {
+	font-size: larger;
+	list-style: none;
+	font-weight: bold;
+	z-index: 2;
+}
+
+#provinces {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	flex-wrap: wrap;
+	list-style: none;
+	z-index: 2;
+}
+
+#provinces li {
+	min-width: 15%;
+	margin: 1rem;
+	opacity: 1;
+	background: #fde5b8;
+	color: #410318;
+	border: 0 ;
+	box-shadow: 5px 5px 17px rgba(0, 0, 0, 0.3);
+	padding: 0.8rem;
+}

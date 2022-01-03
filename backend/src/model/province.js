@@ -24,6 +24,10 @@ const provinceSchema = new mongoose.Schema(
 		created: {
 			type: Date,
 			required: true
+		},
+		zone: {
+			type: String,
+			enum: ["sahelienne", "soudanaise", "subsoudainaise"]
 		}
 	},
 	{
