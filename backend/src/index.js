@@ -1,6 +1,9 @@
-import dotenv from 'dotenv'
-import express from 'express'
-import mongoose from 'mongoose'
+const cors = require('cors')
+const dotenv = require('dotenv')
+const express = require('express')
+const mongoose = require('mongoose')
+const schema = require('./schema/schema')
+const { graphqlHTTP } = require('express-graphql');
 
 dotenv.config()
 
@@ -9,12 +12,21 @@ const db = process.env.MONGO_URI || 'mongodb://localhost:27017/fasolara'
 
 // MIDDLEWARES
 app.use(express.json())
+app.use(cors())
 
 const port = process.env.PORT || 3001
 
 app.get('/', (req, res) => {
 	res.send('<h1>Hello from Nodemon</h1>')
 })
+
+app.use(
+	'/graphql',
+	graphqlHTTP({
+		schema,
+		graphiql: true
+	})
+)
 
 mongoose
 	.connect(db, {
