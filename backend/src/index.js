@@ -3,7 +3,7 @@ const dotenv = require('dotenv')
 const express = require('express')
 const mongoose = require('mongoose')
 const schema = require('./schema/schema')
-const { graphqlHTTP } = require('express-graphql');
+const { graphqlHTTP } = require('express-graphql')
 
 dotenv.config()
 

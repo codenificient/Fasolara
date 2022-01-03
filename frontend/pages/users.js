@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Users() {
-	return <div>Users</div>
+	return <h1 className="center">Users</h1>
 }
 
 export default Users

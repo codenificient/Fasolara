@@ -2,11 +2,11 @@ const mongoose = require( 'mongoose')
 
 const villageSchema = new mongoose.Schema(
 	{
-		geo: {
-			type: String,
-			required: true,
-			trim: true
-		},
+		// geo: {
+		// 	type: String,
+		// 	required: true,
+		// 	trim: true
+		// },
 		name: {
 			type: String,
 			required: true,
