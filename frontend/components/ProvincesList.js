@@ -15,10 +15,10 @@ class ProvincesList extends Component {
 					<li key={province.id}>
 						<h2>Province: {province.name}</h2>
 						<h3>Region: {province.region}</h3>
-						<p>Chef-lieu: {province.seat}</p>
+						<strong>Chef-lieu: {province.seat}</strong>
 						{province.villages.length > 0 && (
-							<strong>
-								Les villages situes dans cette province sont:{' '}
+							<strong><br /><br />
+								Listes des Villages:
 								{province.villages.map((village) => {
 									return <ul key={village.id}>{village.name}</ul>
 								})}
@@ -33,7 +33,7 @@ class ProvincesList extends Component {
 		return (
 			<div className={styles.gridcontainer}>
 				<h1>Provinces List</h1>
-				<ul id="provinces">{this.displayProvinces()}</ul>
+				<ul id="provinces" className='center'>{this.displayProvinces()}</ul>
 			</div>
 		)
 	}
