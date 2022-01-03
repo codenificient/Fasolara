@@ -1,4 +1,15 @@
-const mongoose = require( 'mongoose')
+const mongoose = require('mongoose')
+
+const supplierSchema = new mongoose.Schema({
+	name: {
+		type: String,
+		required: true
+	},
+	accountId: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Account'
+	}
+})
 
 const projectSchema = new mongoose.Schema(
 	{
@@ -12,17 +23,25 @@ const projectSchema = new mongoose.Schema(
 			required: true,
 			trim: true
 		},
-		population: {
-			type: Number,
+		zone: {
+			type: String,
 			required: true
 		},
 		dotcolor: {
 			type: String,
 			required: true
 		},
-		provinceId: {
+		impact: {
+			type: Number,
+			default: 0
+		},
+		villageId: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "Province"
+			ref: 'Village'
+		},
+		suppliers: {
+			type: [supplierSchema],
+			required: true
 		},
 		created: {
 			type: Date,

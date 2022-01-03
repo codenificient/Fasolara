@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 html,
 body {
 	padding: 0;
@@ -33,16 +34,17 @@ a {
 	width: 100%;
 	flex-wrap: wrap;
 	list-style: none;
+	overflow: hidden;
 	z-index: 2;
 }
 
 #provinces li {
-	min-width: 15%;
-	margin: 1rem;
+	min-width: 19%;
+	margin: 0.5rem;
 	opacity: 1;
 	background: #fde5b8;
 	color: #410318;
-	border: 0 ;
+	border: 0;
 	box-shadow: 3px 5px 17px rgba(65, 3, 24, 0.4);
-	padding: 0.8rem;
+	padding: 0.7rem;
 }
