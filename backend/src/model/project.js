@@ -13,7 +13,8 @@ const projectSchema = new mongoose.Schema(
 		},
 		dotcolor: {
 			type: String,
-			required: true
+			required: true,
+			default: 'default'
 		},
 		impact: {
 			type: Number,
@@ -23,10 +24,18 @@ const projectSchema = new mongoose.Schema(
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Address'
 		},
-		suppliers: {
-			type: [supplierSchema],
-			required: true
-		},
+		suppliers: [
+			{
+				supplier: {
+					type: mongoose.Schema.Types.ObjectId,
+					ref: 'Supplier'
+				},
+				hiringDate: {
+					type: Date,
+					
+				}
+			}
+		],
 		created: {
 			type: Date,
 			required: true

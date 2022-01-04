@@ -17,7 +17,7 @@ app.use(cors())
 const port = process.env.PORT || 3001
 
 app.get('/', (req, res) => {
-	res.send('<h1>Hello from Nodemon</h1>')
+	res.send('<h1>Hello from Express backend</h1>')
 })
 
 app.use(

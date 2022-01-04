@@ -142,7 +142,6 @@ const BankType = new GraphQLObjectType({
 	})
 })
 
-
 const PanelType = new GraphQLObjectType({
 	name: 'Panel',
 	fields: () => ({
@@ -163,7 +162,7 @@ const PanelType = new GraphQLObjectType({
 	})
 })
 
-// #TODO SupplyerType
+// #TODO SupplierType
 
 /**
  * #TODO employeeType

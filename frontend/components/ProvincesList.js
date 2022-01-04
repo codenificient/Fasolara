@@ -13,7 +13,7 @@ class ProvincesList extends Component {
 			return data.provinces.map((province) => {
 				return (
 					<li key={province.id}>
-						<h2>Province: {province.name}</h2>
+						<h1>Province: {province.name}</h1>
 						<h3>Region: {province.region}</h3>
 						<p>Chef-lieu: {province.seat}</p>
 						{province.villages.length > 0 && (

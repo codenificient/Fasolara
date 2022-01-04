@@ -20,19 +20,20 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	z-index: 2;
 }
 
 .main::before {
 	content: " ";
 	background-image: url('/assets/sun.jpg');
 	background-blend-mode: normal;
-	display: flexbox;
+	display: flex;
 	position: absolute;
 	left: 0;
 	top: 0;
 	width: 100vw;
-	height: 190vh;
-	opacity: 0.4;
+	height: 220vh;
+	opacity: 0.8;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
