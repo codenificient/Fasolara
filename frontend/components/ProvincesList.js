@@ -15,9 +15,9 @@ class ProvincesList extends Component {
 					<li key={province.id}>
 						<h2>Province: {province.name}</h2>
 						<h3>Region: {province.region}</h3>
-						<strong>Chef-lieu: {province.seat}</strong>
+						<p>Chef-lieu: {province.seat}</p>
 						{province.villages.length > 0 && (
-							<strong><br /><br />
+							<strong>
 								Listes des Villages:
 								{province.villages.map((village) => {
 									return <ul key={village.id}>{village.name}</ul>

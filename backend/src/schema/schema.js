@@ -14,6 +14,15 @@ const Village = require('../model/village')
 const Address = require('../model/address')
 const bcrypt = require('bcrypt')
 
+/**
+ * #TODO AccountType
+ * #TODO employeeType
+ * #TODO SupplyerType
+ * #TODO ProjectType
+ * #TODO PanelType
+ * #TODO InvestorType
+ *  */
+
 const UserType = new GraphQLObjectType({
 	name: 'User',
 	fields: () => ({
@@ -24,10 +33,12 @@ const UserType = new GraphQLObjectType({
 		username: { type: GraphQLString },
 		dob: { type: GraphQLString },
 		email: { type: GraphQLString },
-		address: { type: AddressType,
-		resolve(parent, args) {
-			Address.findById(parent.addressId)
-		} },
+		address: {
+			type: AddressType,
+			resolve(parent, args) {
+				Address.findById(parent.addressId)
+			}
+		},
 		password: { type: GraphQLString },
 		confpassword: { type: GraphQLString },
 		hash_password: { type: GraphQLString },
@@ -59,6 +70,7 @@ const ProvinceType = new GraphQLObjectType({
 		name: { type: GraphQLString },
 		seat: { type: GraphQLString },
 		region: { type: GraphQLString },
+		zone: { type: GraphQLString },
 		polycolor: { type: GraphQLString },
 		dotcolor: { type: GraphQLString },
 		created: { type: GraphQLString },
@@ -82,14 +94,17 @@ const AddressType = new GraphQLObjectType({
 		addressType: { type: GraphQLString },
 		postalCode: { type: GraphQLString },
 		created: { type: GraphQLString },
+		dotcolor: { type: GraphQLString },
 		village: {
-			type:  VillageType,
+			type: VillageType,
 			resolve(parent, args) {
-				return Village.findById(parent.villageId )
+				return Village.findById(parent.villageId)
 			}
 		}
 	})
 })
+
+// #TODO AddressType
 
 const RootQuery = new GraphQLObjectType({
 	name: 'RootQueryType',
@@ -145,7 +160,7 @@ const RootQuery = new GraphQLObjectType({
 			resolve(parent, args) {
 				return Address.find({})
 			}
-		},
+		}
 	}
 })
 
@@ -232,23 +247,28 @@ const Mutation = new GraphQLObjectType({
 				name: { type: new GraphQLNonNull(GraphQLString) },
 				mobileNumber: { type: new GraphQLNonNull(GraphQLString) },
 				streetAddress: { type: new GraphQLNonNull(GraphQLString) },
-				addressType: { type: new GraphQLNonNull(GraphQLString) },
+				city: { type: GraphQLString },
+				addressType: { type:  GraphQLString },
 				postalCode: { type: new GraphQLNonNull(GraphQLString) },
-				created: { type: new GraphQLNonNull(GraphQLString) },
+				postalCode: { type: new GraphQLNonNull(GraphQLString) },
+				created: { type: GraphQLString },
+				dotcolor: { type: GraphQLString },
 				villageId: { type: new GraphQLNonNull(GraphQLID) }
 			},
 			resolve(parent, args) {
 				let address = new Address({
 					name: args.name,
-					region: args.region,
-					zone: args.zone,
-					seat: args.seat,
-					polycolor: args.polycolor
+					mobileNumber: args.mobileNumber,
+					streetAddress: args.streetAddress,
+					postalCode: args.postalCode,
+					city: args.city,
+					villageId: args.villageId,
+					dotcolor: args.dotcolor
 				})
 				address.created = new Date()
 				return address.save()
 			}
-		},
+		}
 	}
 })
 

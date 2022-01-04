@@ -1,23 +1,7 @@
 const mongoose = require('mongoose')
 
-const supplierSchema = new mongoose.Schema({
-	name: {
-		type: String,
-		required: true
-	},
-	accountId: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Account'
-	}
-})
-
 const projectSchema = new mongoose.Schema(
 	{
-		// geo: {
-		// 	type: String,
-		// 	required: true,
-		// 	trim: true
-		// },
 		name: {
 			type: String,
 			required: true,
@@ -35,9 +19,9 @@ const projectSchema = new mongoose.Schema(
 			type: Number,
 			default: 0
 		},
-		villageId: {
+		addressId: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: 'Village'
+			ref: 'Address'
 		},
 		suppliers: {
 			type: [supplierSchema],

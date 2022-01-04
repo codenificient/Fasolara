@@ -40,7 +40,7 @@ const addressSchema = new mongoose.Schema(
 		},
 		dotcolor: {
 			type: String,
-			required: true
+			default: 'default'
 		},
 		created: {
 			type: Date,
