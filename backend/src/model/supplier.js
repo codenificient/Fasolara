@@ -13,6 +13,18 @@ const supplierSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Address'
 	},
+	isActive: {
+		type: Boolean,
+		default: false
+	},
+	created: {
+		type: Date,
+		required: true
+	},
+	area: {
+		type: String,
+		trim: true
+	}
 })
 
 module.exports = mongoose.model('Supplier', supplierSchema)

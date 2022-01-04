@@ -18,6 +18,8 @@ const bcrypt = require('bcrypt')
 const Account = require('../model/account')
 const Bank = require('../model/bank')
 const Panel = require('../model/panel')
+const Project = require('../model/project')
+const Supplier = require('../model/supplier')
 
 const UserType = new GraphQLObjectType({
 	name: 'User',
@@ -163,10 +165,52 @@ const PanelType = new GraphQLObjectType({
 })
 
 // #TODO SupplierType
+const SupplierType = new GraphQLObjectType({
+	name: 'Supplier',
+	fields: () => ({
+		id: { type: GraphQLID },
+		name: { type: GraphQLString },
+		area: { type: GraphQLString },
+		address: {
+			type: AddressType,
+			resolve(parent, args) {
+				return Address.findById(parent.addressId)
+			}
+		},
+		account: {
+			type: AccountType,
+			resolve(parent, args) {
+				return Account.findById(parent.accountId)
+			}
+		}
+	})
+})
 
+const ProjectType = new GraphQLObjectType({
+	name: 'Project',
+	fields: () => ({
+		id: { type: GraphQLID },
+		name: { type: GraphQLString },
+		zone: { type: GraphQLString },
+		dotcolor: { type: GraphQLString },
+		impact: { type: GraphQLFloat },
+		created: { type: GraphQLString },
+		address: {
+			type: AddressType,
+			resolve(parent, args) {
+				return Address.findById(parent.addressId)
+			}
+		},
+		suppliers: {
+			type: new GraphQLList(SupplierType),
+			resolve(parent, args) {
+				return Supplier.find({ id: parent.suppliers.supplierId })
+			}
+		}
+	})
+})
 /**
  * #TODO employeeType
- * #TODO ProjectType
  * #TODO InvestorType
  *  */
 
@@ -264,6 +308,32 @@ const RootQuery = new GraphQLObjectType({
 				return Panel.find({})
 			}
 		},
+		project: {
+			type: ProjectType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Project.findById(args.id)
+			}
+		},
+		projects: {
+			type: new GraphQLList(ProjectType),
+			resolve(parent, args) {
+				return Project.find({})
+			}
+		},
+		supplier: {
+			type: SupplierType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Supplier.findById(args.id)
+			}
+		},
+		suppliers: {
+			type: new GraphQLList(SupplierType),
+			resolve(parent, args) {
+				return Supplier.find({})
+			}
+		}
 	}
 })
 
@@ -424,7 +494,7 @@ const Mutation = new GraphQLObjectType({
 				groupId: { type: new GraphQLNonNull(GraphQLString) },
 				customerId: { type: new GraphQLNonNull(GraphQLID) },
 				installDate: { type: GraphQLString },
-				installCost: { type: GraphQLString },
+				installCost: { type: GraphQLFloat },
 				isReplacement: { type: GraphQLBoolean },
 				isInstalled: { type: GraphQLBoolean },
 				isActive: { type: GraphQLBoolean }
@@ -442,6 +512,63 @@ const Mutation = new GraphQLObjectType({
 				})
 				panel.created = new Date()
 				return panel.save()
+			}
+		},
+		addProject: {
+			type: ProjectType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				zone: { type: new GraphQLNonNull(GraphQLString) },
+				addressId: { type: new GraphQLNonNull(GraphQLID) },
+				dotcolor: { type: GraphQLString },
+				impact: { type: GraphQLFloat },
+				created: { type: GraphQLString },
+				supplierId: { type: GraphQLID },
+				isActive: { type: GraphQLBoolean },
+				isComplete: { type: GraphQLBoolean }
+			},
+			resolve(parent, args) {
+				let project = new Project({
+					name: args.name,
+					zone: args.zone,
+					dotcolor: args.dotcolor,
+					impact: args.impact,
+					created: args.created,
+					addressId: args.addressId,
+					isComplete: args.isComplete,
+					isActive: args.isActive
+				})
+				project.created = new Date()
+				if (args.supplierId) {
+					project.suppliers.push({
+						supplierId: args.supplierId,
+						hiringDate: new Date()
+					})
+				}
+				return project.save()
+			}
+		},
+		addSupplier: {
+			type: SupplierType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				accountId: { type: new GraphQLNonNull(GraphQLID) },
+				addressId: { type: new GraphQLNonNull(GraphQLID) },
+				created: { type: GraphQLString },
+				area: { type: GraphQLString },
+				isActive: { type: GraphQLBoolean }
+			},
+			resolve(parent, args) {
+				let supplier = new Supplier({
+					name: args.name,
+					accountId: args.accountId,
+					addressId: args.addressId,
+					created: args.created,
+					area: args.area,
+					isActive: args.isActive
+				})
+				supplier.created = new Date()
+				return supplier.save()
 			}
 		}
 	}

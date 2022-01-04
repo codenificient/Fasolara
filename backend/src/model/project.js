@@ -26,19 +26,26 @@ const projectSchema = new mongoose.Schema(
 		},
 		suppliers: [
 			{
-				supplier: {
+				supplierId: {
 					type: mongoose.Schema.Types.ObjectId,
 					ref: 'Supplier'
 				},
 				hiringDate: {
-					type: Date,
-					
+					type: Date
 				}
 			}
 		],
 		created: {
 			type: Date,
 			required: true
+		},
+		isComplete: {
+			type: Boolean,
+			default: false
+		},
+		isActive: {
+			type: Boolean,
+			default: false
 		}
 	},
 	{
