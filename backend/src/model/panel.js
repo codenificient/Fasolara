@@ -2,7 +2,10 @@ const mongoose = require('mongoose')
 
 const panelSchema = new mongoose.Schema(
 	{
-		customerId: String,
+		customerId: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Account'
+		},
 		serialNumber: String,
 		installCost: Number,
 		installDate: Date,

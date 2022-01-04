@@ -6,16 +6,17 @@ const {
 	GraphQLNonNull,
 	GraphQLObjectType,
 	GraphQLSchema,
-	GraphQLString
+	GraphQLString,
+	GraphQLFloat
 } = require('graphql')
 const Province = require('../model/province')
 const User = require('../model/user')
 const Village = require('../model/village')
 const Address = require('../model/address')
 const bcrypt = require('bcrypt')
+const Account = require('../model/account')
 
 /**
- * #TODO AccountType
  * #TODO employeeType
  * #TODO SupplyerType
  * #TODO ProjectType
@@ -27,7 +28,12 @@ const UserType = new GraphQLObjectType({
 	name: 'User',
 	fields: () => ({
 		id: { type: GraphQLID },
-		accountId: { type: GraphQLID },
+		account: {
+			type: AccountType,
+			resolve(parent, args) {
+				return Account.findById(parent.accountId)
+			}
+		},
 		cnib: { type: GraphQLString },
 		fullname: { type: GraphQLString },
 		username: { type: GraphQLString },
@@ -36,7 +42,7 @@ const UserType = new GraphQLObjectType({
 		address: {
 			type: AddressType,
 			resolve(parent, args) {
-				Address.findById(parent.addressId)
+				return Address.findById(parent.addressId)
 			}
 		},
 		password: { type: GraphQLString },
@@ -104,7 +110,49 @@ const AddressType = new GraphQLObjectType({
 	})
 })
 
-// #TODO AddressType
+// #TODO AccountType
+const AccountType = new GraphQLObjectType({
+	name: 'Account',
+	fields: () => ({
+		id: { type: GraphQLID },
+		accountNumber: { type: GraphQLInt },
+		customerId: { type: GraphQLID },
+		balance: { type: GraphQLFloat },
+		carrier: { type: GraphQLString },
+		solarGroup: { type: GraphQLString },
+		debtAmount: { type: GraphQLFloat },
+		lifetimeEarning: { type: GraphQLFloat },
+		created: { type: GraphQLString },
+		loaningBankId: { type: GraphQLID },
+		owner: {
+			type: UserType,
+			resolve(parent, args) {
+				return User.findById(parent.customerId)
+			}
+		}
+	})
+})
+const BankType = new GraphQLObjectType({
+	name: 'Bank',
+	fields: () => ({
+		id: { type: GraphQLID },
+		accountNumber: { type: GraphQLInt },
+		customerId: { type: GraphQLString },
+		balance: { type: GraphQLFloat },
+		signedUpDate: { type: GraphQLString },
+		solarGroup: { type: GraphQLString },
+		debtAmount: { type: GraphQLString },
+		loaningBankId: { type: GraphQLString },
+		lifetimeEarning: { type: GraphQLString },
+		created: { type: GraphQLString },
+		owner: {
+			type: UserType,
+			resolve(parent, args) {
+				return User.findById(parent.customerId)
+			}
+		}
+	})
+})
 
 const RootQuery = new GraphQLObjectType({
 	name: 'RootQueryType',
@@ -159,6 +207,19 @@ const RootQuery = new GraphQLObjectType({
 			type: new GraphQLList(AddressType),
 			resolve(parent, args) {
 				return Address.find({})
+			}
+		},
+		account: {
+			type: AccountType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Account.findById(args.id)
+			}
+		},
+		accounts: {
+			type: new GraphQLList(AccountType),
+			resolve(parent, args) {
+				return Account.find({})
 			}
 		}
 	}
@@ -248,7 +309,7 @@ const Mutation = new GraphQLObjectType({
 				mobileNumber: { type: new GraphQLNonNull(GraphQLString) },
 				streetAddress: { type: new GraphQLNonNull(GraphQLString) },
 				city: { type: GraphQLString },
-				addressType: { type:  GraphQLString },
+				addressType: { type: GraphQLString },
 				postalCode: { type: new GraphQLNonNull(GraphQLString) },
 				postalCode: { type: new GraphQLNonNull(GraphQLString) },
 				created: { type: GraphQLString },
@@ -267,6 +328,34 @@ const Mutation = new GraphQLObjectType({
 				})
 				address.created = new Date()
 				return address.save()
+			}
+		},
+		addAccount: {
+			type: AccountType,
+			args: {
+				customerId: { type: new GraphQLNonNull(GraphQLID) },
+				accountNumber: { type: new GraphQLNonNull(GraphQLInt) },
+				carrier: { type: new GraphQLNonNull(GraphQLString) },
+				debtAmount: { type: GraphQLFloat },
+				balance: { type: GraphQLFloat },
+				lifetimeEarning: { type: GraphQLFloat },
+				loaningBankId: { type: new GraphQLNonNull(GraphQLID) },
+				created: { type: GraphQLString },
+				solarGroup: { type: new GraphQLNonNull(GraphQLString) }
+			},
+			resolve(parent, args) {
+				let account = new Account({
+					customerId: args.customerId,
+					accountNumber: args.accountNumber,
+					carrier: args.carrier,
+					debtAmount: args.debtAmount,
+					balance: args.balance,
+					loaningBankId: args.loaningBankId,
+					villageId: args.villageId,
+					solarGroup: args.solarGroup
+				})
+				account.created = new Date()
+				return account.save()
 			}
 		}
 	}

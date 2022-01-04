@@ -2,13 +2,29 @@ const mongoose = require('mongoose')
 
 const accountSchema = new mongoose.Schema(
 	{
-		customerId: String,
+		customerId: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User'
+		},
+		loaningBankId: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Bank'
+		},
+		balance : {
+			type: Number,
+			default: 0
+		},
+		debtAmount : {
+			type: Number,
+			default: 0
+		},
+		lifetimeEarning : {
+			type: Number,
+			default: 0
+		},
 		accountNumber: Number,
-		balance: Number,
-		installDate: Date,
 		solarGroup: String,
-		debt: Number,
-		lifetimeEarning: Number
+		carrier: String,
 	},
 	{
 		timestamps: true

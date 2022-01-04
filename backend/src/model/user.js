@@ -20,7 +20,8 @@ const userSchema = new mongoose.Schema(
 		},
 		username: {
 			type: String,
-			required: true
+			required: true,
+			trim: true
 		},
 		email: {
 			type: String,
@@ -38,12 +39,12 @@ const userSchema = new mongoose.Schema(
 			required: true
 		},
 		accountId: {
-			type: String,
-			trim: true
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Account'
 		},
 		addressId: {
-			type: String,
-			trim: true
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Address'
 		},
 		created: {
 			type: Date,
