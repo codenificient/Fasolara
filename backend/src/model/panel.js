@@ -7,10 +7,24 @@ const panelSchema = new mongoose.Schema(
 			ref: 'Account'
 		},
 		serialNumber: String,
-		installCost: Number,
+		installCost: {
+			type: Number,
+			default: 0
+		},
 		installDate: Date,
-		isReplacement: Boolean,
-		isActive: Boolean,
+		created: Date,
+		isReplacement: {
+			type: Boolean,
+			default: false
+		},
+		isActive: {
+			type: Boolean,
+			default: false
+		},
+		isInstalled: {
+			type: Boolean,
+			default: false
+		},
 		groupId: String
 	},
 	{

@@ -22,7 +22,7 @@ const accountSchema = new mongoose.Schema(
 			type: Number,
 			default: 0
 		},
-		accountNumber: Number,
+		accountNumber: String,
 		solarGroup: String,
 		carrier: String,
 	},
