@@ -10,6 +10,9 @@ const {
 	GraphQLFloat,
 	GraphQLBoolean
 } = require('graphql')
+const { nanoid } = require('nanoid')
+
+// Import schemas
 const Province = require('../model/province')
 const User = require('../model/user')
 const Village = require('../model/village')
@@ -20,7 +23,9 @@ const Bank = require('../model/bank')
 const Panel = require('../model/panel')
 const Project = require('../model/project')
 const Supplier = require('../model/supplier')
+const Location = require('../model/geojson')
 
+// SETUP GRAPHQL TYPES
 const UserType = new GraphQLObjectType({
 	name: 'User',
 	fields: () => ({
@@ -54,7 +59,6 @@ const VillageType = new GraphQLObjectType({
 	fields: () => ({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
-		geo: { type: GraphQLString },
 		population: { type: GraphQLInt },
 		province: {
 			type: ProvinceType,
@@ -92,10 +96,7 @@ const AddressType = new GraphQLObjectType({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
 		mobileNumber: { type: GraphQLString },
-		streetAddress: { type: GraphQLString },
-		city: { type: GraphQLString },
 		addressType: { type: GraphQLString },
-		postalCode: { type: GraphQLString },
 		created: { type: GraphQLString },
 		dotcolor: { type: GraphQLString },
 		village: {
@@ -103,7 +104,23 @@ const AddressType = new GraphQLObjectType({
 			resolve(parent, args) {
 				return Village.findById(parent.villageId)
 			}
+		},
+		location: {
+			type: LocationType,
+			resolve(parent, args) {
+				return Location.findById(parent.locationId)
+			}
 		}
+	})
+})
+const LocationType = new GraphQLObjectType({
+	name: 'Location',
+	fields: () => ({
+		id: { type: GraphQLID },
+		locationId: { type: GraphQLID },
+		address: { type: GraphQLString }, 
+		created: { type: GraphQLString },
+		location: { type: GraphQLString }
 	})
 })
 
@@ -164,7 +181,6 @@ const PanelType = new GraphQLObjectType({
 	})
 })
 
-// #TODO SupplierType
 const SupplierType = new GraphQLObjectType({
 	name: 'Supplier',
 	fields: () => ({
@@ -209,11 +225,13 @@ const ProjectType = new GraphQLObjectType({
 		}
 	})
 })
+
+//#TODO employeeType
+
 /**
- * #TODO employeeType
+ * 
  * #TODO InvestorType
  *  */
-
 const RootQuery = new GraphQLObjectType({
 	name: 'RootQueryType',
 	fields: {
@@ -419,27 +437,39 @@ const Mutation = new GraphQLObjectType({
 			args: {
 				name: { type: new GraphQLNonNull(GraphQLString) },
 				mobileNumber: { type: new GraphQLNonNull(GraphQLString) },
-				streetAddress: { type: new GraphQLNonNull(GraphQLString) },
-				city: { type: GraphQLString },
+				address: { type: new GraphQLNonNull(GraphQLString) },
 				addressType: { type: GraphQLString },
-				postalCode: { type: new GraphQLNonNull(GraphQLString) },
-				postalCode: { type: new GraphQLNonNull(GraphQLString) },
 				created: { type: GraphQLString },
 				dotcolor: { type: GraphQLString },
-				villageId: { type: new GraphQLNonNull(GraphQLID) }
+				villageId: { type: new GraphQLNonNull(GraphQLID) },
+				locationId: { type: new GraphQLNonNull(GraphQLID) }
 			},
 			resolve(parent, args) {
 				let address = new Address({
 					name: args.name,
 					mobileNumber: args.mobileNumber,
-					streetAddress: args.streetAddress,
-					postalCode: args.postalCode,
-					city: args.city,
+					addressType: args.addressType,
+					locationId: args.locationId,
 					villageId: args.villageId,
 					dotcolor: args.dotcolor
 				})
 				address.created = new Date()
 				return address.save()
+			}
+		},
+		addLocation: {
+			type: LocationType,
+			args: {
+				address: { type: new GraphQLNonNull(GraphQLString) },
+				created: { type: GraphQLString }
+			},
+			resolve(parent, args) {
+				let location = new Location({
+					address: args.address,
+					locationId: nanoid()
+				})
+				location.created = new Date()
+				return location.save()
 			}
 		},
 		addAccount: {

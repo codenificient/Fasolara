@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const geocoder = require('../utils/geocoder')
 
 const addressSchema = new mongoose.Schema(
 	{
@@ -12,25 +13,13 @@ const addressSchema = new mongoose.Schema(
 			required: true,
 			trim: true
 		},
-		streetAddress: {
-			type: String,
-			required: true,
-			trim: true
-		},
-		city: {
-			type: String,
-			required: true,
-			trim: true
+		location: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Location'
 		},
 		villageId: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Village'
-		},
-		postalCode: {
-			type: String,
-			required: true,
-			trim: true,
-			min: 5
 		},
 		addressType: {
 			type: String,

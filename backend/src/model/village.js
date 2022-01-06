@@ -1,12 +1,7 @@
-const mongoose = require( 'mongoose')
+const mongoose = require('mongoose')
 
 const villageSchema = new mongoose.Schema(
 	{
-		// geo: {
-		// 	type: String,
-		// 	required: true,
-		// 	trim: true
-		// },
 		name: {
 			type: String,
 			required: true,
@@ -22,7 +17,7 @@ const villageSchema = new mongoose.Schema(
 		},
 		provinceId: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "Province"
+			ref: 'Province'
 		},
 		created: {
 			type: Date,
@@ -33,5 +28,7 @@ const villageSchema = new mongoose.Schema(
 		timestamps: true
 	}
 )
+
+
 
 module.exports = mongoose.model('Village', villageSchema)
