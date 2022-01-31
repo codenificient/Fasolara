@@ -41,6 +41,7 @@ const UserType = new GraphQLObjectType({
 		username: { type: GraphQLString },
 		dob: { type: GraphQLString },
 		email: { type: GraphQLString },
+		role: { type: GraphQLString },
 		address: {
 			type: AddressType,
 			resolve(parent, args) {
@@ -118,7 +119,7 @@ const LocationType = new GraphQLObjectType({
 	fields: () => ({
 		id: { type: GraphQLID },
 		locationId: { type: GraphQLID },
-		address: { type: GraphQLString }, 
+		address: { type: GraphQLString },
 		created: { type: GraphQLString },
 		location: { type: GraphQLString }
 	})
@@ -366,6 +367,7 @@ const Mutation = new GraphQLObjectType({
 				lastname: { type: new GraphQLNonNull(GraphQLString) },
 				username: { type: new GraphQLNonNull(GraphQLString) },
 				dob: { type: GraphQLString },
+				role: { type: GraphQLString },
 				email: { type: new GraphQLNonNull(GraphQLString) },
 				password: { type: new GraphQLNonNull(GraphQLString) },
 				confpassword: { type: new GraphQLNonNull(GraphQLString) },
@@ -383,6 +385,7 @@ const Mutation = new GraphQLObjectType({
 					cnib: args.cnib,
 					username: args.username,
 					dob: args.dob,
+					role: args.role,
 					email: args.email,
 					accountId: args.accountId,
 					cnib: args.cnib
@@ -501,6 +504,8 @@ const Mutation = new GraphQLObjectType({
 			}
 		},
 		addBank: {
+			// Allows users to add a new bank
+
 			type: BankType,
 			args: {
 				name: { type: new GraphQLNonNull(GraphQLString) },
