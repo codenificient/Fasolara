@@ -11,13 +11,13 @@ const {
 	GraphQLBoolean
 } = require('graphql')
 const { nanoid } = require('nanoid')
+const bcrypt = require('bcrypt')
 
 // Import schemas
 const Province = require('../model/province')
 const User = require('../model/user')
 const Village = require('../model/village')
 const Address = require('../model/address')
-const bcrypt = require('bcrypt')
 const Account = require('../model/account')
 const Bank = require('../model/bank')
 const Panel = require('../model/panel')
@@ -627,10 +627,10 @@ const Mutation = new GraphQLObjectType({
 		addSalary: {
 			type: SalaryType,
 			args: {
-				startDate: args.startDate,
-				endDate: args.endDate,
-				amount: args.amount,
-				amount: args.amount
+				startDate: { type: GraphQLString },
+				endDate: { type: GraphQLString },
+				amount: { type: new GraphQLNonNull(GraphQLID) },
+				employeeId: { type: new GraphQLNonNull(GraphQLID) }
 			},
 			resolve(parent, args) {
 				let salary = new Salary({
