@@ -43,14 +43,16 @@ a {
 	min-width: 19%;
 	margin: 0.6rem;
 	opacity: 1;
-	/* background: #fde5b8; */
-	background-color: #fbab7e;
-	background-image: linear-gradient(45deg, #fbab7e 0%, #f7ce68 100%);
-	/* background-color: #ffe53b;
-	background-image: linear-gradient(220deg, #ffe53b 0%, #ff252590 74%); */
+	background: #fde5b8;
+	/* background-color: #fbab7e; */
+	/* background-image: linear-gradient(45deg, #fbab7e 0%, #f7ce68 100%); */
+	/* background-color: #ffe53b; */
+	background-image: linear-gradient(220deg, #ffe53b 0%, #ff252590 100%);
 
 	color: #410318;
+	border-radius: 0.5rem;
+
 	border: 0;
 	box-shadow: 3px 5px 17px rgba(65, 3, 24, 0.4);
-	padding: 0.5rem;
+	padding: 0.8rem;
 }

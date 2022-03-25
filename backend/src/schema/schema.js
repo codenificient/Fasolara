@@ -23,6 +23,7 @@ const Bank = require('../model/bank')
 const Panel = require('../model/panel')
 const Project = require('../model/project')
 const Supplier = require('../model/supplier')
+const Salary = require('../model/salary')
 const Location = require('../model/geojson')
 
 // SETUP GRAPHQL TYPES
@@ -71,6 +72,22 @@ const VillageType = new GraphQLObjectType({
 	})
 })
 
+const SalaryType = new GraphQLObjectType({
+	name: 'Salary',
+	fields: () => ({
+		id: { type: GraphQLID },
+		startDate: { type: GraphQLString },
+		endDate: { type: GraphQLString },
+		amount: { type: GraphQLInt },
+		employee: {
+			type: UserType,
+			resolve(parent, args) {
+				return User.findById(parent.employeeId)
+			}
+		}
+	})
+})
+
 const ProvinceType = new GraphQLObjectType({
 	name: 'Province',
 	fields: () => ({
@@ -114,6 +131,7 @@ const AddressType = new GraphQLObjectType({
 		}
 	})
 })
+
 const LocationType = new GraphQLObjectType({
 	name: 'Location',
 	fields: () => ({
@@ -604,6 +622,24 @@ const Mutation = new GraphQLObjectType({
 				})
 				supplier.created = new Date()
 				return supplier.save()
+			}
+		},
+		addSalary: {
+			type: SalaryType,
+			args: {
+				startDate: args.startDate,
+				endDate: args.endDate,
+				amount: args.amount,
+				amount: args.amount
+			},
+			resolve(parent, args) {
+				let salary = new Salary({
+					endDate: args.endDate,
+					amount: args.amount,
+					employeeId: args.employeeId
+				})
+				salary.startDate = new Date()
+				return salary.save()
 			}
 		}
 	}
