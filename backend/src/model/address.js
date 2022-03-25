@@ -13,7 +13,7 @@ const addressSchema = new mongoose.Schema(
 			required: true,
 			trim: true
 		},
-		location: {
+		locationId: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Location'
 		},
