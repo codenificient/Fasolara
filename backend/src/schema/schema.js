@@ -17,6 +17,7 @@ const bcrypt = require('bcrypt')
 const Account = require('../model/account')
 const Address = require('../model/address')
 const Bank = require('../model/bank')
+const Country = require('../model/country')
 const Location = require('../model/geojson')
 const Panel = require('../model/panel')
 const Project = require('../model/project')
@@ -98,6 +99,7 @@ const ProvinceType = new GraphQLObjectType({
 		seat: { type: GraphQLString },
 		region: { type: GraphQLString },
 		zone: { type: GraphQLString },
+		provinceId: { type: GraphQLString },
 		polycolor: { type: GraphQLString },
 		dotcolor: { type: GraphQLString },
 		created: { type: GraphQLString },
@@ -105,6 +107,23 @@ const ProvinceType = new GraphQLObjectType({
 			type: new GraphQLList(VillageType),
 			resolve(parent, args) {
 				return Village.find({ provinceId: parent.id })
+			}
+		}
+	})
+})
+
+const CountryType = new GraphQLObjectType({
+	name: 'Country',
+	fields: () => ({
+		id: { type: GraphQLID },
+		name: { type: GraphQLString },
+		population: { type: GraphQLInt },
+		continent: { type: GraphQLString },
+		polycolor: { type: GraphQLString },
+		provinces: {
+			type: new GraphQLList(ProvinceType),
+			resolve(parent, args) {
+				return Province.find({ countryId: parent.id })
 			}
 		}
 	})
@@ -392,8 +411,8 @@ const Mutation = new GraphQLObjectType({
 				email: { type: new GraphQLNonNull(GraphQLString) },
 				password: { type: new GraphQLNonNull(GraphQLString) },
 				confpassword: { type: new GraphQLNonNull(GraphQLString) },
-				accountId: { type: GraphQLBoolean },
-				isActive: { type: GraphQLID },
+				accountId: { type: GraphQLID },
+				isActive: { type: GraphQLBoolean },
 				addressId: { type: GraphQLID }
 			},
 			resolve(parent, args) {
@@ -446,6 +465,7 @@ const Mutation = new GraphQLObjectType({
 				region: { type: new GraphQLNonNull(GraphQLString) },
 				zone: { type: new GraphQLNonNull(GraphQLString) },
 				seat: { type: new GraphQLNonNull(GraphQLString) },
+				countryId: { type: new GraphQLNonNull(GraphQLID) },
 				polycolor: { type: new GraphQLNonNull(GraphQLString) }
 			},
 			resolve(parent, args) {
@@ -453,10 +473,10 @@ const Mutation = new GraphQLObjectType({
 					name: args.name,
 					region: args.region,
 					zone: args.zone,
+					countryId: args.countryId,
 					seat: args.seat,
 					polycolor: args.polycolor
 				})
-				province.created = new Date()
 				return province.save()
 			}
 		},
@@ -481,7 +501,6 @@ const Mutation = new GraphQLObjectType({
 					villageId: args.villageId,
 					dotcolor: args.dotcolor
 				})
-				address.created = new Date()
 				return address.save()
 			}
 		},
@@ -504,7 +523,7 @@ const Mutation = new GraphQLObjectType({
 			type: AccountType,
 			args: {
 				customerId: { type: new GraphQLNonNull(GraphQLID) },
-				accountNumber: { type: new GraphQLNonNull(GraphQLID) },
+				accountNumber: { type: new GraphQLNonNull(GraphQLString) },
 				carrier: { type: new GraphQLNonNull(GraphQLString) },
 				debtAmount: { type: GraphQLFloat },
 				balance: { type: GraphQLFloat },
@@ -637,7 +656,7 @@ const Mutation = new GraphQLObjectType({
 			args: {
 				startDate: { type: GraphQLString },
 				endDate: { type: GraphQLString },
-				amount: { type: new GraphQLNonNull(GraphQLID) },
+				amount: { type: new GraphQLNonNull(GraphQLFloat) },
 				employeeId: { type: new GraphQLNonNull(GraphQLID) }
 			},
 			resolve(parent, args) {
@@ -648,6 +667,25 @@ const Mutation = new GraphQLObjectType({
 				})
 				salary.startDate = new Date()
 				return salary.save()
+			}
+		},
+		addCountry: {
+			type: CountryType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				polycolor: { type: GraphQLString },
+				polycolor: { type: GraphQLString },
+				continent: { type: new GraphQLNonNull(GraphQLString) },
+				population: { type: GraphQLInt }
+			},
+			resolve(parent, args) {
+				let country = new Country({
+					name: args.name,
+					population: args.population,
+					continent: args.continent,
+					polycolor: args.polycolor
+				})
+				return country.save()
 			}
 		}
 	}

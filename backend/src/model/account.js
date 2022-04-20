@@ -10,23 +10,25 @@ const accountSchema = new mongoose.Schema(
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Bank'
 		},
-		balance : {
+		balance: {
 			type: Number,
 			default: 0
 		},
-		debtAmount : {
+		debtAmount: {
 			type: Number,
 			default: 0
 		},
-		lifetimeEarning : {
+		lifetimeEarning: {
 			type: Number,
 			default: 0
 		},
 		accountNumber: String,
 		solarGroup: String,
-		carrier: String,
+		carrier: String
 	},
-
+	{
+		timestamps: true
+	}
 )
 
 module.exports = mongoose.model('Account', accountSchema)

@@ -10,6 +10,10 @@ const countrySchema = new mongoose.Schema(
 		continent: {
 			type: String,
 			default: 'Africa'
+		},
+		polycolor: {
+			type: String,
+			default: 'yellow'
 		}
 	},
 	{

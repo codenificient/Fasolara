@@ -17,13 +17,17 @@ const provinceSchema = new mongoose.Schema(
 			required: true,
 			trim: true
 		},
+		countryId: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Country'
+		},
 		polycolor: {
 			type: String,
 			default: 'beige'
 		},
 		zone: {
 			type: String,
-			enum: ["sahelienne", "soudanaise", "subsoudainaise"]
+			enum: [ 'sahelienne', 'soudanaise', 'subsoudainaise' ]
 		}
 	},
 	{

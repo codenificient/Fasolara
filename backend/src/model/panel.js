@@ -12,7 +12,7 @@ const panelSchema = new mongoose.Schema(
 			default: 0
 		},
 		installDate: Date,
-		orderDate: Date,
+		created: Date,
 		isReplacement: {
 			type: Boolean,
 			default: false
