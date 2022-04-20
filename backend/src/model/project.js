@@ -35,10 +35,6 @@ const projectSchema = new mongoose.Schema(
 				}
 			}
 		],
-		created: {
-			type: Date,
-			required: true
-		},
 		isComplete: {
 			type: Boolean,
 			default: false

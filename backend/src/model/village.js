@@ -22,10 +22,6 @@ const villageSchema = new mongoose.Schema(
 		urbanCommune: {
 			type: Boolean,
 			default: false
-		},
-		created: {
-			type: Date,
-			required: true
 		}
 	},
 	{

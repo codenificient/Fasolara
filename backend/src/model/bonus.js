@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const accountSchema = new mongoose.Schema(
+const bonusSchema = new mongoose.Schema(
 	{
 		customerId: String,
 		accountNumber: Number,
@@ -15,4 +15,4 @@ const accountSchema = new mongoose.Schema(
 	}
 )
 
-module.exports = mongoose.model('Account', accountSchema)
+module.exports = mongoose.model('Bonus', bonusSchema)

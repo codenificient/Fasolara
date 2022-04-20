@@ -49,11 +49,11 @@ const userSchema = new mongoose.Schema(
 		role: {
 			type: String,
 			default: 'user',
-			enum: [ 'admin', 'employee', 'manager', 'investor' ]
+			enum: [ 'admin', 'employee', 'manager', 'investor', 'supplier', 'bank' ]
 		},
-		created: {
-			type: Date,
-			required: true
+		isActive: {
+			type: Boolean,
+			default: true
 		}
 	},
 	{

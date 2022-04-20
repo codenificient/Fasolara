@@ -1,33 +1,34 @@
 const mongoose = require('mongoose')
 const geocoder = require('../utils/geocoder')
 
-const locationSchema = new mongoose.Schema({
-	locationId: {
-		type: String,
-		required: [ true, 'Please add a location ID' ],
-		unique: true,
-		trim: true
-	},
-	address: {
-		type: String,
-		required: [ true, 'Please provide a valid address' ]
-	},
-	location: {
-		type: {
+const locationSchema = new mongoose.Schema(
+	{
+		locationId: {
 			type: String,
-			enum: [ 'Point' ]
+			required: [ true, 'Please add a location ID' ],
+			unique: true,
+			trim: true
 		},
-		coordinates: {
-			type: [ Number ],
-			index: '2dsphere'
+		address: {
+			type: String,
+			required: [ true, 'Please provide a valid address' ]
 		},
-		formattedAddress: String
+		location: {
+			type: {
+				type: String,
+				enum: [ 'Point' ]
+			},
+			coordinates: {
+				type: [ Number ],
+				index: '2dsphere'
+			},
+			formattedAddress: String
+		}
 	},
-	created: {
-		type: Date,
-		required: true
+	{
+		timestamps: true
 	}
-})
+)
 
 // Geocode and create a location
 locationSchema.pre('save', async function(next) {

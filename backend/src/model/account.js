@@ -26,9 +26,7 @@ const accountSchema = new mongoose.Schema(
 		solarGroup: String,
 		carrier: String,
 	},
-	{
-		timestamps: true
-	}
+
 )
 
 module.exports = mongoose.model('Account', accountSchema)

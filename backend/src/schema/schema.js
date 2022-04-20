@@ -51,6 +51,7 @@ const UserType = new GraphQLObjectType({
 		},
 		password: { type: GraphQLString },
 		confpassword: { type: GraphQLString },
+		isActive: { type: GraphQLBoolean },
 		hash_password: { type: GraphQLString },
 		created: { type: GraphQLString }
 	})
@@ -188,6 +189,7 @@ const PanelType = new GraphQLObjectType({
 		serialNumber: { type: GraphQLString },
 		groupId: { type: GraphQLString },
 		installDate: { type: GraphQLString },
+		orderDate: { type: GraphQLString },
 		installCost: { type: GraphQLFloat },
 		isReplacement: { type: GraphQLBoolean },
 		isInstalled: { type: GraphQLBoolean },
@@ -390,7 +392,8 @@ const Mutation = new GraphQLObjectType({
 				email: { type: new GraphQLNonNull(GraphQLString) },
 				password: { type: new GraphQLNonNull(GraphQLString) },
 				confpassword: { type: new GraphQLNonNull(GraphQLString) },
-				accountId: { type: GraphQLID },
+				accountId: { type: GraphQLBoolean },
+				isActive: { type: GraphQLID },
 				addressId: { type: GraphQLID }
 			},
 			resolve(parent, args) {
@@ -405,6 +408,7 @@ const Mutation = new GraphQLObjectType({
 					username: args.username,
 					dob: args.dob,
 					role: args.role,
+					isActive: args.isActive,
 					email: args.email,
 					accountId: args.accountId,
 					cnib: args.cnib
@@ -549,6 +553,7 @@ const Mutation = new GraphQLObjectType({
 				serialNumber: { type: new GraphQLNonNull(GraphQLString) },
 				groupId: { type: new GraphQLNonNull(GraphQLString) },
 				customerId: { type: new GraphQLNonNull(GraphQLID) },
+				orderDate: { type: GraphQLString },
 				installDate: { type: GraphQLString },
 				installCost: { type: GraphQLFloat },
 				isReplacement: { type: GraphQLBoolean },
@@ -560,13 +565,13 @@ const Mutation = new GraphQLObjectType({
 					serialNumber: args.serialNumber,
 					groupId: args.groupId,
 					customerId: args.customerId,
+					orderDate: args.orderDate,
 					installDate: args.installDate,
 					installCost: args.installCost,
 					isReplacement: args.isReplacement,
 					isInstalled: args.isInstalled,
 					isActive: args.isActive
 				})
-				panel.created = new Date()
 				return panel.save()
 			}
 		},

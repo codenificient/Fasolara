@@ -16,10 +16,7 @@ const bankSchema = new mongoose.Schema(
 			required: true,
 			trim: true
 		},
-		created: {
-			type: Date,
-			required: true
-		}
+
 	},
 	{
 		timestamps: true
