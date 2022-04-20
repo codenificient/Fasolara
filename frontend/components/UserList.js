@@ -18,7 +18,7 @@ class UserList extends Component {
 		return (
 			<div>
 				<h1>Users List</h1>
-				<ul id='users'>{this.displayUsers()}</ul>
+				<ul id="users">{this.displayUsers()}</ul>
 			</div>
 		)
 	}

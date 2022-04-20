@@ -7,7 +7,10 @@ const countrySchema = new mongoose.Schema(
 			type: Number,
 			default: 0
 		},
-
+		continent: {
+			type: String,
+			default: 'Africa'
+		}
 	},
 	{
 		timestamps: true

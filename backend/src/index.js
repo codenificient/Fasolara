@@ -44,10 +44,7 @@ app.use(
 	})
 )
 
-
 app.use('/api', addressRoutes)
-
-
 
 app.listen(port, () => {
 	console.log(`App running on port ${port}`)

@@ -14,17 +14,17 @@ const { nanoid } = require('nanoid')
 const bcrypt = require('bcrypt')
 
 // Import schemas
-const Province = require('../model/province')
-const User = require('../model/user')
-const Village = require('../model/village')
-const Address = require('../model/address')
 const Account = require('../model/account')
+const Address = require('../model/address')
 const Bank = require('../model/bank')
+const Location = require('../model/geojson')
 const Panel = require('../model/panel')
 const Project = require('../model/project')
-const Supplier = require('../model/supplier')
+const Province = require('../model/province')
 const Salary = require('../model/salary')
-const Location = require('../model/geojson')
+const Supplier = require('../model/supplier')
+const User = require('../model/user')
+const Village = require('../model/village')
 
 // SETUP GRAPHQL TYPES
 const UserType = new GraphQLObjectType({
@@ -62,6 +62,7 @@ const VillageType = new GraphQLObjectType({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
 		population: { type: GraphQLInt },
+		urbanCommune: { type: GraphQLBoolean },
 		province: {
 			type: ProvinceType,
 			resolve(parent, args) {
@@ -419,14 +420,16 @@ const Mutation = new GraphQLObjectType({
 				name: { type: new GraphQLNonNull(GraphQLString) },
 				population: { type: new GraphQLNonNull(GraphQLInt) },
 				provinceId: { type: new GraphQLNonNull(GraphQLID) },
-				dotcolor: { type: new GraphQLNonNull(GraphQLString) }
+				dotcolor: { type: GraphQLString },
+				urbanCommune: { type: GraphQLBoolean }
 			},
 			resolve(parent, args) {
 				let village = new Village({
 					name: args.name,
 					dotcolor: args.dotcolor,
 					population: args.population,
-					provinceId: args.provinceId
+					provinceId: args.provinceId,
+					urbanCommune: args.urbanCommune
 				})
 				village.created = new Date()
 				return village.save()

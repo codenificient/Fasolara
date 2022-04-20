@@ -10,6 +10,7 @@
 	grid-gap: 2rem;
 	background: transparent;
 	padding: 2rem;
+	background-image: linear-gradient(45deg, #fbab7e 0%, #f7ce68 100%);
 }
 
 .main {

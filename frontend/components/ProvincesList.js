@@ -20,7 +20,11 @@ class ProvincesList extends Component {
 							<strong>
 								Listes des Villages:
 								{province.villages.map((village) => {
-									return <ul key={village.id}>{village.name}</ul>
+									return (
+										<span key={village.id} id="villagelist">
+											{village.name}
+										</span>
+									)
 								})}
 							</strong>
 						)}
@@ -33,7 +37,9 @@ class ProvincesList extends Component {
 		return (
 			<div className={styles.gridcontainer}>
 				<h1>Provinces List</h1>
-				<ul id="provinces" className='center'>{this.displayProvinces()}</ul>
+				<ul id="provinces" className="center">
+					{this.displayProvinces()}
+				</ul>
 			</div>
 		)
 	}

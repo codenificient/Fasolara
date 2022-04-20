@@ -13,11 +13,15 @@ const villageSchema = new mongoose.Schema(
 		},
 		dotcolor: {
 			type: String,
-			required: true
+			default: 'brown'
 		},
 		provinceId: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Province'
+		},
+		urbanCommune: {
+			type: Boolean,
+			default: false
 		},
 		created: {
 			type: Date,
@@ -28,7 +32,5 @@ const villageSchema = new mongoose.Schema(
 		timestamps: true
 	}
 )
-
-
 
 module.exports = mongoose.model('Village', villageSchema)
