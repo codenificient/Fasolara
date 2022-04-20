@@ -2,13 +2,18 @@ const mongoose = require('mongoose')
 
 const bonusSchema = new mongoose.Schema(
 	{
-		customerId: String,
-		accountNumber: Number,
-		balance: Number,
-		installDate: Date,
-		solarGroup: String,
-		debt: Number,
-		lifetimeEarning: Number
+		customerId: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User'
+		},
+		accountId: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Account'
+		},
+		amount: Number,
+		Reason: String,
+		tax: Number,
+		taxRate: Number
 	},
 	{
 		timestamps: true

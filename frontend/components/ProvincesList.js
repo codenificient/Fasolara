@@ -14,7 +14,7 @@ class ProvincesList extends Component {
 				return (
 					<li key={province.id}>
 						<h1>Province: {province.name}</h1>
-						<h3>Region: {province.region}</h3>
+						<h3>Région: {province.region}</h3>
 						<p>Chef-lieu: {province.seat}</p>
 						{province.villages.length > 0 && (
 							<strong>
