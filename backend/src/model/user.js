@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema(
 			required: true,
 			trim: true
 		},
+		midname: {
+			type: String,
+			trim: true
+		},
 		lastname: {
 			type: String,
 			required: true,
@@ -66,7 +70,7 @@ const userSchema = new mongoose.Schema(
 // });
 
 userSchema.virtual('fullname').get(function() {
-	return `${this.firstname} ${this.lastname}`
+	return `${this.firstname} ${this.midname} ${this.lastname}`
 })
 
 userSchema.pre('save', async function(next) {

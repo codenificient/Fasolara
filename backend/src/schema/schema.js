@@ -687,6 +687,46 @@ const Mutation = new GraphQLObjectType({
 				})
 				return country.save()
 			}
+		},
+		// UPDATE ALL THE ITEMS
+		updateUser: {
+// "Allows User to update a User object"
+			type: UserType,
+						  
+
+    
+			args: {
+				id: { type: GraphQLID },
+				accountId: { type: GraphQLID },
+				addressId: { type: GraphQLID },
+				role: { type: GraphQLString },
+				dob: { type: GraphQLString },
+				cnib: { type: GraphQLString },
+				firstname: { type: GraphQLString },
+				midname: { type: GraphQLString },
+				lastname: { type: GraphQLString },
+				username: { type: GraphQLString },
+				email: { type: GraphQLString },
+				password: { type: GraphQLString },
+				confpassword: { type: GraphQLString },
+				isActive: { type: GraphQLBoolean }
+			},
+			resolve(parent, args) {
+				let localUser = {}
+				if (args.accountId) localUser.accountId = args.accountId
+				if (args.addressId) localUser.addressId = args.addressId
+				if (args.cnib) localUser.cnib = args.cnib
+				if (args.role) localUser.role = args.role
+				if (args.dob) localUser.dob = args.dob
+				if (args.firstname) localUser.firstname = args.firstname
+				if (args.midname) localUser.midname = args.midname
+				if (args.lastname) localUser.lastname = args.lastname
+				if (args.email) localUser.email = args.email
+				if (args.password) localUser.password = args.password
+				if (args.confpassword) localUser.confpassword = args.confpassword
+				if (args.isActive) localUser.isActive = args.isActive
+				return User.findOneAndUpdate(args.id, localUser, { new: true })
+			}
 		}
 	}
 })
