@@ -11,6 +11,10 @@ const countrySchema = new mongoose.Schema(
 			type: String,
 			default: 'Africa'
 		},
+		locationId: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Location'
+		},
 		polycolor: {
 			type: String,
 			default: 'yellow'

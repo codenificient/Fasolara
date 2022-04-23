@@ -10,6 +10,7 @@ const salarySchema = new mongoose.Schema(
 			type: Number,
 			default: 0
 		},
+		jobTitle: String,
 		startDate: String,
 		endDate: String
 	},

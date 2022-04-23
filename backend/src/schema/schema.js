@@ -654,6 +654,7 @@ const Mutation = new GraphQLObjectType({
 		addSalary: {
 			type: SalaryType,
 			args: {
+				jobTitle: { type: GraphQLString },
 				startDate: { type: GraphQLString },
 				endDate: { type: GraphQLString },
 				amount: { type: new GraphQLNonNull(GraphQLFloat) },
@@ -661,6 +662,7 @@ const Mutation = new GraphQLObjectType({
 			},
 			resolve(parent, args) {
 				let salary = new Salary({
+					jobTitle: args.jobTitle,
 					endDate: args.endDate,
 					amount: args.amount,
 					employeeId: args.employeeId
@@ -673,7 +675,7 @@ const Mutation = new GraphQLObjectType({
 			type: CountryType,
 			args: {
 				name: { type: new GraphQLNonNull(GraphQLString) },
-				polycolor: { type: GraphQLString },
+				locationId: { type: GraphQLID },
 				polycolor: { type: GraphQLString },
 				continent: { type: new GraphQLNonNull(GraphQLString) },
 				population: { type: GraphQLInt }
@@ -682,6 +684,7 @@ const Mutation = new GraphQLObjectType({
 				let country = new Country({
 					name: args.name,
 					population: args.population,
+					locationId: args.locationId,
 					continent: args.continent,
 					polycolor: args.polycolor
 				})
@@ -690,13 +693,9 @@ const Mutation = new GraphQLObjectType({
 		},
 		// UPDATE ALL THE ITEMS
 		updateUser: {
-// "Allows User to update a User object"
 			type: UserType,
-						  
-
-    
 			args: {
-				id: { type: GraphQLID },
+				id: { type: new GraphQLNonNull(GraphQLID) },
 				accountId: { type: GraphQLID },
 				addressId: { type: GraphQLID },
 				role: { type: GraphQLString },
@@ -726,6 +725,56 @@ const Mutation = new GraphQLObjectType({
 				if (args.confpassword) localUser.confpassword = args.confpassword
 				if (args.isActive) localUser.isActive = args.isActive
 				return User.findOneAndUpdate(args.id, localUser, { new: true })
+			}
+		},
+		updateSupplier: {
+			type: SupplierType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) },
+				name: { type: GraphQLString },
+				accountId: { type: GraphQLID },
+				addressId: { type: GraphQLID },
+				created: { type: GraphQLString },
+				area: { type: GraphQLString },
+				isActive: { type: GraphQLBoolean }
+			},
+			resolve(parent, args) {
+				let localSupplier = {}
+				if (args.name) localSupplier.name = args.name
+				if (args.accountId) localSupplier.accountId = args.accountId
+				if (args.addressId) localSupplier.addressId = args.addressId
+				if (args.created) localSupplier.created = args.created
+				if (args.area) localSupplier.area = args.area
+				if (args.isActive) localSupplier.isActive = args.isActive
+				return Supplier.findOneAndUpdate(args.id, localSupplier, { new: true })
+			}
+		},
+		updateProject: {
+			type: ProjectType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) },
+				name: { type: GraphQLString },
+				zone: { type: GraphQLString },
+				addressId: { type: GraphQLID },
+				dotcolor: { type: GraphQLString },
+				impact: { type: GraphQLFloat },
+				created: { type: GraphQLString },
+				supplierId: { type: GraphQLID },
+				isActive: { type: GraphQLBoolean },
+				isComplete: { type: GraphQLBoolean }
+			},
+			resolve(parent, args) {
+				let localProject = {}
+				if (args.name) localProject.name = args.name
+				if (args.zone) localProject.zone = args.zone
+				if (args.addressId) localProject.addressId = args.addressId
+				if (args.dotcolor) localProject.dotcolor = args.dotcolor
+				if (args.impact) localProject.impact = args.impact
+				if (args.created) localProject.created = args.created
+				if (args.supplierId) localProject.supplierId = args.supplierId
+				if (args.isActive) localProject.isActive = args.isActive
+				if (args.isComplete) localProject.isComplete = args.isComplete
+				return Project.findOneAndUpdate(args.id, localProject, { new: true })
 			}
 		}
 	}
