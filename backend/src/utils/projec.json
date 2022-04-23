@@ -1,0 +1,70 @@
+{
+
+    "suppliers": [
+        {
+            "supplierId": {
+                "$oid": "61d4da6eb659aebdcbd709d5"
+            },
+            "hiringDate": {
+                "$date": {
+                    "$numberLong": "1650679678408"
+                }
+            },
+            "_id": {
+                "$oid": "62635f7e997e8ea964894fc5"
+            }
+        },
+        {
+            "supplierId": {
+                "$oid": "61d4da6eb659aebdcbd709d5"
+            },
+            "hiringDate": {
+                "$date": {
+                    "$numberLong": "1650679733835"
+                }
+            },
+            "_id": {
+                "$oid": "62635fb55f8a913d94e4b2d3"
+            }
+        },
+        {
+            "supplierId": {
+                "$oid": "61d4da6eb659aebdcbd709d5"
+            },
+            "hiringDate": {
+                "$date": {
+                    "$numberLong": "1650679912662"
+                }
+            },
+            "_id": {
+                "$oid": "626360685f8a913d94e4b2d5"
+            }
+        },
+        {
+            "supplierId": {
+                "$oid": "61d4da6eb659aebdcbd709d5"
+            },
+            "hiringDate": {
+                "$date": {
+                    "$numberLong": "1650680114122"
+                }
+            },
+            "_id": {
+                "$oid": "6263613241d070d9e41be731"
+            }
+        },
+        {
+            "supplierId": {
+                "$oid": "61d4da6eb659aebdcbd709d5"
+            },
+            "hiringDate": {
+                "$date": {
+                    "$numberLong": "1650680280135"
+                }
+            },
+            "_id": {
+                "$oid": "626361d87aa9f0c4b67afcf1"
+            }
+        }
+    ]
+}

@@ -228,6 +228,7 @@ const SupplierType = new GraphQLObjectType({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
 		area: { type: GraphQLString },
+		isActive: { type: GraphQLBoolean },
 		address: {
 			type: AddressType,
 			resolve(parent, args) {
@@ -252,6 +253,8 @@ const ProjectType = new GraphQLObjectType({
 		dotcolor: { type: GraphQLString },
 		impact: { type: GraphQLFloat },
 		created: { type: GraphQLString },
+		isActive: { type: GraphQLBoolean },
+		isComplete: { type: GraphQLBoolean },
 		address: {
 			type: AddressType,
 			resolve(parent, args) {
@@ -261,7 +264,8 @@ const ProjectType = new GraphQLObjectType({
 		suppliers: {
 			type: new GraphQLList(SupplierType),
 			resolve(parent, args) {
-				return Supplier.find({ id: parent.suppliers.supplierId })
+				const obj_ids = parent.suppliers.map((obj) => obj.supplierId)
+				return Supplier.find({ _id: { $in: obj_ids } })
 			}
 		}
 	})
@@ -603,6 +607,7 @@ const Mutation = new GraphQLObjectType({
 				dotcolor: { type: GraphQLString },
 				impact: { type: GraphQLFloat },
 				created: { type: GraphQLString },
+				suppliers: { type: new GraphQLList(GraphQLID) },
 				supplierId: { type: GraphQLID },
 				isActive: { type: GraphQLBoolean },
 				isComplete: { type: GraphQLBoolean }
@@ -759,7 +764,6 @@ const Mutation = new GraphQLObjectType({
 				dotcolor: { type: GraphQLString },
 				impact: { type: GraphQLFloat },
 				created: { type: GraphQLString },
-				supplierId: { type: GraphQLID },
 				isActive: { type: GraphQLBoolean },
 				isComplete: { type: GraphQLBoolean }
 			},
@@ -771,10 +775,31 @@ const Mutation = new GraphQLObjectType({
 				if (args.dotcolor) localProject.dotcolor = args.dotcolor
 				if (args.impact) localProject.impact = args.impact
 				if (args.created) localProject.created = args.created
-				if (args.supplierId) localProject.supplierId = args.supplierId
 				if (args.isActive) localProject.isActive = args.isActive
 				if (args.isComplete) localProject.isComplete = args.isComplete
 				return Project.findOneAndUpdate(args.id, localProject, { new: true })
+			}
+		},
+		updateProjectSupplier: {
+			type: ProjectType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) },
+				supplierId: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Project.findOneAndUpdate(
+					{ _id: args.id },
+					{
+						$push: {
+							suppliers: {
+								$each: [ { supplierId: args.supplierId, hiringDate: new Date() } ]
+							}
+						}
+					},
+					{
+						new: true
+					}
+				)
 			}
 		}
 	}
