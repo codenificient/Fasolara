@@ -50,12 +50,6 @@ const UserType = new GraphQLObjectType({
 				return Address.findById(parent.addressId)
 			}
 		},
-		salary: {
-			type: SalaryType,
-			resolve(parent, args) {
-				return Salary.find({ employeeId: parent.id })
-			}
-		},
 		password: { type: GraphQLString },
 		confpassword: { type: GraphQLString },
 		isActive: { type: GraphQLBoolean },
