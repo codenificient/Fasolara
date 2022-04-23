@@ -1,57 +1,629 @@
-[{"id":{"$oid":"62637d23fc13ae60f200046a"},"name":"Algeria","population":59596048,"polycolor":"Teal","locationId":{"$oid":"62637d23fc13ae60f200046b"}},
-{"id":{"$oid":"62637d23fc13ae60f200046c"},"name":"Angola","population":168961728,"polycolor":"Goldenrod","locationId":{"$oid":"62637d23fc13ae60f200046d"}},
-{"id":{"$oid":"62637d23fc13ae60f200046e"},"name":"Benin","population":179913530,"polycolor":"Orange","locationId":{"$oid":"62637d23fc13ae60f200046f"}},
-{"id":{"$oid":"62637d23fc13ae60f2000470"},"name":"Botswana","population":23484738,"polycolor":"Indigo","locationId":{"$oid":"62637d23fc13ae60f2000471"}},
-{"id":{"$oid":"62637d23fc13ae60f2000472"},"name":"Burkina Faso","population":144257703,"polycolor":"Fuscia","locationId":{"$oid":"62637d23fc13ae60f2000473"}},
-{"id":{"$oid":"62637d23fc13ae60f2000474"},"name":"Burundi","population":143311807,"polycolor":"Purple","locationId":{"$oid":"62637d23fc13ae60f2000475"}},
-{"id":{"$oid":"62637d23fc13ae60f2000476"},"name":"Cabo Verde","population":73581513,"polycolor":"Maroon","locationId":{"$oid":"62637d23fc13ae60f2000477"}},
-{"id":{"$oid":"62637d23fc13ae60f2000478"},"name":"Cameroon","population":100924252,"polycolor":"Orange","locationId":{"$oid":"62637d23fc13ae60f2000479"}},
-{"id":{"$oid":"62637d23fc13ae60f200047a"},"name":"Central African Republic","population":188394817,"polycolor":"Crimson","locationId":{"$oid":"62637d23fc13ae60f200047b"}},
-{"id":{"$oid":"62637d23fc13ae60f200047c"},"name":"Chad","population":54004506,"polycolor":"Orange","locationId":{"$oid":"62637d23fc13ae60f200047d"}},
-{"id":{"$oid":"62637d23fc13ae60f200047e"},"name":"Comoros","population":139338345,"polycolor":"Orange","locationId":{"$oid":"62637d23fc13ae60f200047f"}},
-{"id":{"$oid":"62637d23fc13ae60f2000480"},"name":"Congo","population":184900139,"polycolor":"Green","locationId":{"$oid":"62637d23fc13ae60f2000481"}},
-{"id":{"$oid":"62637d23fc13ae60f2000482"},"name":"Côte d'Ivoire","population":4175332,"polycolor":"Blue","locationId":{"$oid":"62637d23fc13ae60f2000483"}},
-{"id":{"$oid":"62637d23fc13ae60f2000484"},"name":"Djibouti","population":42618441,"polycolor":"Violet","locationId":{"$oid":"62637d23fc13ae60f2000485"}},
-{"id":{"$oid":"62637d23fc13ae60f2000486"},"name":"DR Congo","population":85810871,"polycolor":"Turquoise","locationId":{"$oid":"62637d23fc13ae60f2000487"}},
-{"id":{"$oid":"62637d23fc13ae60f2000488"},"name":"Egypt","population":6991065,"polycolor":"Khaki","locationId":{"$oid":"62637d23fc13ae60f2000489"}},
-{"id":{"$oid":"62637d23fc13ae60f200048a"},"name":"Equatorial Guinea","population":1857867,"polycolor":"Aquamarine","locationId":{"$oid":"62637d23fc13ae60f200048b"}},
-{"id":{"$oid":"62637d23fc13ae60f200048c"},"name":"Eritrea","population":48421679,"polycolor":"Fuscia","locationId":{"$oid":"62637d23fc13ae60f200048d"}},
-{"id":{"$oid":"62637d23fc13ae60f200048e"},"name":"Eswatini","population":119334653,"polycolor":"Pink","locationId":{"$oid":"62637d23fc13ae60f200048f"}},
-{"id":{"$oid":"62637d23fc13ae60f2000490"},"name":"Ethiopia","population":121941189,"polycolor":"Red","locationId":{"$oid":"62637d23fc13ae60f2000491"}},
-{"id":{"$oid":"62637d23fc13ae60f2000492"},"name":"Gabon","population":160123174,"polycolor":"Crimson","locationId":{"$oid":"62637d23fc13ae60f2000493"}},
-{"id":{"$oid":"62637d23fc13ae60f2000494"},"name":"Gambia","population":140773241,"polycolor":"Teal","locationId":{"$oid":"62637d23fc13ae60f2000495"}},
-{"id":{"$oid":"62637d23fc13ae60f2000496"},"name":"Ghana","population":147925471,"polycolor":"Maroon","locationId":{"$oid":"62637d23fc13ae60f2000497"}},
-{"id":{"$oid":"62637d23fc13ae60f2000498"},"name":"Guinea","population":137177820,"polycolor":"Teal","locationId":{"$oid":"62637d23fc13ae60f2000499"}},
-{"id":{"$oid":"62637d23fc13ae60f200049a"},"name":"Guinea-Bissau","population":172414189,"polycolor":"Mauv","locationId":{"$oid":"62637d23fc13ae60f200049b"}},
-{"id":{"$oid":"62637d23fc13ae60f200049c"},"name":"Kenya","population":2077196,"polycolor":"Purple","locationId":{"$oid":"62637d23fc13ae60f200049d"}},
-{"id":{"$oid":"62637d23fc13ae60f200049e"},"name":"Lesotho","population":45290004,"polycolor":"Green","locationId":{"$oid":"62637d23fc13ae60f200049f"}},
-{"id":{"$oid":"62637d23fc13ae60f20004a0"},"name":"Liberia","population":91909571,"polycolor":"Turquoise","locationId":{"$oid":"62637d23fc13ae60f20004a1"}},
-{"id":{"$oid":"62637d23fc13ae60f20004a2"},"name":"Libya","population":156377355,"polycolor":"Goldenrod","locationId":{"$oid":"62637d23fc13ae60f20004a3"}},
-{"id":{"$oid":"62637d23fc13ae60f20004a4"},"name":"Madagascar","population":76734269,"polycolor":"Indigo","locationId":{"$oid":"62637d23fc13ae60f20004a5"}},
-{"id":{"$oid":"62637d23fc13ae60f20004a6"},"name":"Malawi","population":113004262,"polycolor":"Pink","locationId":{"$oid":"62637d23fc13ae60f20004a7"}},
-{"id":{"$oid":"62637d23fc13ae60f20004a8"},"name":"Mali","population":188084805,"polycolor":"Crimson","locationId":{"$oid":"62637d23fc13ae60f20004a9"}},
-{"id":{"$oid":"62637d23fc13ae60f20004aa"},"name":"Mauritania","population":38101989,"polycolor":"Indigo","locationId":{"$oid":"62637d23fc13ae60f20004ab"}},
-{"id":{"$oid":"62637d23fc13ae60f20004ac"},"name":"Mauritius","population":127752847,"polycolor":"Violet","locationId":{"$oid":"62637d23fc13ae60f20004ad"}},
-{"id":{"$oid":"62637d23fc13ae60f20004ae"},"name":"Mayotte","population":56540974,"polycolor":"Turquoise","locationId":{"$oid":"62637d23fc13ae60f20004af"}},
-{"id":{"$oid":"62637d23fc13ae60f20004b0"},"name":"Morocco","population":101471667,"polycolor":"Indigo","locationId":{"$oid":"62637d23fc13ae60f20004b1"}},
-{"id":{"$oid":"62637d23fc13ae60f20004b2"},"name":"Mozambique","population":14801432,"polycolor":"Turquoise","locationId":{"$oid":"62637d23fc13ae60f20004b3"}},
-{"id":{"$oid":"62637d23fc13ae60f20004b4"},"name":"Namibia","population":61865043,"polycolor":"Violet","locationId":{"$oid":"62637d23fc13ae60f20004b5"}},
-{"id":{"$oid":"62637d23fc13ae60f20004b6"},"name":"Niger","population":113861206,"polycolor":"Fuscia","locationId":{"$oid":"62637d23fc13ae60f20004b7"}},
-{"id":{"$oid":"62637d23fc13ae60f20004b8"},"name":"Nigeria","population":121166348,"polycolor":"Pink","locationId":{"$oid":"62637d23fc13ae60f20004b9"}},
-{"id":{"$oid":"62637d23fc13ae60f20004ba"},"name":"Réunion","population":163733457,"polycolor":"Violet","locationId":{"$oid":"62637d23fc13ae60f20004bb"}},
-{"id":{"$oid":"62637d23fc13ae60f20004bc"},"name":"Rwanda","population":16377934,"polycolor":"Indigo","locationId":{"$oid":"62637d23fc13ae60f20004bd"}},
-{"id":{"$oid":"62637d23fc13ae60f20004be"},"name":"Saint Helena","population":38088789,"polycolor":"Fuscia","locationId":{"$oid":"62637d23fc13ae60f20004bf"}},
-{"id":{"$oid":"62637d23fc13ae60f20004c0"},"name":"Sao Tome & Principe","population":52374004,"polycolor":"Khaki","locationId":{"$oid":"62637d23fc13ae60f20004c1"}},
-{"id":{"$oid":"62637d23fc13ae60f20004c2"},"name":"Senegal","population":24924111,"polycolor":"Goldenrod","locationId":{"$oid":"62637d23fc13ae60f20004c3"}},
-{"id":{"$oid":"62637d23fc13ae60f20004c4"},"name":"Seychelles","population":3526361,"polycolor":"Pink","locationId":{"$oid":"62637d23fc13ae60f20004c5"}},
-{"id":{"$oid":"62637d23fc13ae60f20004c6"},"name":"Sierra Leone","population":119772714,"polycolor":"Violet","locationId":{"$oid":"62637d23fc13ae60f20004c7"}},
-{"id":{"$oid":"62637d23fc13ae60f20004c8"},"name":"Somalia","population":68428768,"polycolor":"Aquamarine","locationId":{"$oid":"62637d23fc13ae60f20004c9"}},
-{"id":{"$oid":"62637d23fc13ae60f20004ca"},"name":"South Africa","population":40460139,"polycolor":"Purple","locationId":{"$oid":"62637d23fc13ae60f20004cb"}},
-{"id":{"$oid":"62637d23fc13ae60f20004cc"},"name":"South Sudan","population":50205775,"polycolor":"Goldenrod","locationId":{"$oid":"62637d23fc13ae60f20004cd"}},
-{"id":{"$oid":"62637d23fc13ae60f20004ce"},"name":"Sudan","population":30904461,"polycolor":"Violet","locationId":{"$oid":"62637d23fc13ae60f20004cf"}},
-{"id":{"$oid":"62637d23fc13ae60f20004d0"},"name":"Tanzania","population":138305467,"polycolor":"Indigo","locationId":{"$oid":"62637d23fc13ae60f20004d1"}},
-{"id":{"$oid":"62637d23fc13ae60f20004d2"},"name":"Togo","population":173315448,"polycolor":"Yellow","locationId":{"$oid":"62637d23fc13ae60f20004d3"}},
-{"id":{"$oid":"62637d23fc13ae60f20004d4"},"name":"Tunisia","population":132639795,"polycolor":"Yellow","locationId":{"$oid":"62637d23fc13ae60f20004d5"}},
-{"id":{"$oid":"62637d23fc13ae60f20004d6"},"name":"Uganda","population":41813014,"polycolor":"Pink","locationId":{"$oid":"62637d23fc13ae60f20004d7"}},
-{"id":{"$oid":"62637d23fc13ae60f20004d8"},"name":"Western Sahara","population":55035965,"polycolor":"Teal","locationId":{"$oid":"62637d23fc13ae60f20004d9"}},
-{"id":{"$oid":"62637d23fc13ae60f20004da"},"name":"Zambia","population":22149236,"polycolor":"Blue","locationId":{"$oid":"62637d23fc13ae60f20004db"}}]
+[
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200046a"
+        },
+        "name": "Algeria",
+        "population": 59596048,
+        "polycolor": "Teal",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200046b"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200046c"
+        },
+        "name": "Angola",
+        "population": 168961728,
+        "polycolor": "Goldenrod",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200046d"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200046e"
+        },
+        "name": "Benin",
+        "population": 179913530,
+        "polycolor": "Orange",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200046f"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000470"
+        },
+        "name": "Botswana",
+        "population": 23484738,
+        "polycolor": "Indigo",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000471"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000472"
+        },
+        "name": "Burkina Faso",
+        "population": 144257703,
+        "polycolor": "Fuscia",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000473"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000474"
+        },
+        "name": "Burundi",
+        "population": 143311807,
+        "polycolor": "Purple",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000475"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000476"
+        },
+        "name": "Cabo Verde",
+        "population": 73581513,
+        "polycolor": "Maroon",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000477"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000478"
+        },
+        "name": "Cameroon",
+        "population": 100924252,
+        "polycolor": "Orange",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000479"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200047a"
+        },
+        "name": "Central African Republic",
+        "population": 188394817,
+        "polycolor": "Crimson",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200047b"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200047c"
+        },
+        "name": "Chad",
+        "population": 54004506,
+        "polycolor": "Orange",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200047d"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200047e"
+        },
+        "name": "Comoros",
+        "population": 139338345,
+        "polycolor": "Orange",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200047f"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000480"
+        },
+        "name": "Congo",
+        "population": 184900139,
+        "polycolor": "Green",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000481"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000482"
+        },
+        "name": "Côte d'Ivoire",
+        "population": 4175332,
+        "polycolor": "Blue",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000483"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000484"
+        },
+        "name": "Djibouti",
+        "population": 42618441,
+        "polycolor": "Violet",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000485"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000486"
+        },
+        "name": "DR Congo",
+        "population": 85810871,
+        "polycolor": "Turquoise",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000487"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000488"
+        },
+        "name": "Egypt",
+        "population": 6991065,
+        "polycolor": "Khaki",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000489"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200048a"
+        },
+        "name": "Equatorial Guinea",
+        "population": 1857867,
+        "polycolor": "Aquamarine",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200048b"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200048c"
+        },
+        "name": "Eritrea",
+        "population": 48421679,
+        "polycolor": "Fuscia",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200048d"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200048e"
+        },
+        "name": "Eswatini",
+        "population": 119334653,
+        "polycolor": "Pink",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200048f"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000490"
+        },
+        "name": "Ethiopia",
+        "population": 121941189,
+        "polycolor": "Red",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000491"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000492"
+        },
+        "name": "Gabon",
+        "population": 160123174,
+        "polycolor": "Crimson",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000493"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000494"
+        },
+        "name": "Gambia",
+        "population": 140773241,
+        "polycolor": "Teal",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000495"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000496"
+        },
+        "name": "Ghana",
+        "population": 147925471,
+        "polycolor": "Maroon",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000497"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f2000498"
+        },
+        "name": "Guinea",
+        "population": 137177820,
+        "polycolor": "Teal",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f2000499"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200049a"
+        },
+        "name": "Guinea-Bissau",
+        "population": 172414189,
+        "polycolor": "Mauv",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200049b"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200049c"
+        },
+        "name": "Kenya",
+        "population": 2077196,
+        "polycolor": "Purple",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200049d"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f200049e"
+        },
+        "name": "Lesotho",
+        "population": 45290004,
+        "polycolor": "Green",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f200049f"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004a0"
+        },
+        "name": "Liberia",
+        "population": 91909571,
+        "polycolor": "Turquoise",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004a1"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004a2"
+        },
+        "name": "Libya",
+        "population": 156377355,
+        "polycolor": "Goldenrod",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004a3"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004a4"
+        },
+        "name": "Madagascar",
+        "population": 76734269,
+        "polycolor": "Indigo",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004a5"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004a6"
+        },
+        "name": "Malawi",
+        "population": 113004262,
+        "polycolor": "Pink",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004a7"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004a8"
+        },
+        "name": "Mali",
+        "population": 188084805,
+        "polycolor": "Crimson",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004a9"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004aa"
+        },
+        "name": "Mauritania",
+        "population": 38101989,
+        "polycolor": "Indigo",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004ab"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004ac"
+        },
+        "name": "Mauritius",
+        "population": 127752847,
+        "polycolor": "Violet",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004ad"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004ae"
+        },
+        "name": "Mayotte",
+        "population": 56540974,
+        "polycolor": "Turquoise",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004af"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004b0"
+        },
+        "name": "Morocco",
+        "population": 101471667,
+        "polycolor": "Indigo",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004b1"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004b2"
+        },
+        "name": "Mozambique",
+        "population": 14801432,
+        "polycolor": "Turquoise",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004b3"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004b4"
+        },
+        "name": "Namibia",
+        "population": 61865043,
+        "polycolor": "Violet",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004b5"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004b6"
+        },
+        "name": "Niger",
+        "population": 113861206,
+        "polycolor": "Fuscia",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004b7"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004b8"
+        },
+        "name": "Nigeria",
+        "population": 121166348,
+        "polycolor": "Pink",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004b9"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004ba"
+        },
+        "name": "Réunion",
+        "population": 163733457,
+        "polycolor": "Violet",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004bb"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004bc"
+        },
+        "name": "Rwanda",
+        "population": 16377934,
+        "polycolor": "Indigo",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004bd"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004be"
+        },
+        "name": "Saint Helena",
+        "population": 38088789,
+        "polycolor": "Fuscia",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004bf"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004c0"
+        },
+        "name": "Sao Tome & Principe",
+        "population": 52374004,
+        "polycolor": "Khaki",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004c1"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004c2"
+        },
+        "name": "Senegal",
+        "population": 24924111,
+        "polycolor": "Goldenrod",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004c3"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004c4"
+        },
+        "name": "Seychelles",
+        "population": 3526361,
+        "polycolor": "Pink",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004c5"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004c6"
+        },
+        "name": "Sierra Leone",
+        "population": 119772714,
+        "polycolor": "Violet",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004c7"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004c8"
+        },
+        "name": "Somalia",
+        "population": 68428768,
+        "polycolor": "Aquamarine",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004c9"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004ca"
+        },
+        "name": "South Africa",
+        "population": 40460139,
+        "polycolor": "Purple",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004cb"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004cc"
+        },
+        "name": "South Sudan",
+        "population": 50205775,
+        "polycolor": "Goldenrod",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004cd"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004ce"
+        },
+        "name": "Sudan",
+        "population": 30904461,
+        "polycolor": "Violet",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004cf"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004d0"
+        },
+        "name": "Tanzania",
+        "population": 138305467,
+        "polycolor": "Indigo",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004d1"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004d2"
+        },
+        "name": "Togo",
+        "population": 173315448,
+        "polycolor": "Yellow",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004d3"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004d4"
+        },
+        "name": "Tunisia",
+        "population": 132639795,
+        "polycolor": "Yellow",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004d5"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004d6"
+        },
+        "name": "Uganda",
+        "population": 41813014,
+        "polycolor": "Pink",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004d7"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004d8"
+        },
+        "name": "Western Sahara",
+        "population": 55035965,
+        "polycolor": "Teal",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004d9"
+        }
+    },
+    {
+        "id": {
+            "$oid": "62637d23fc13ae60f20004da"
+        },
+        "name": "Zambia",
+        "population": 22149236,
+        "polycolor": "Blue",
+        "locationId": {
+            "$oid": "62637d23fc13ae60f20004db"
+        }
+    }
+]

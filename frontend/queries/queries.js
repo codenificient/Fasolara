@@ -59,7 +59,6 @@ const getUserQuery = gql`
 
 export { getUserQuery, getUsersQuery, getProvincesQuery, getVillagesQuery }
 
-
 // TODO Complete GET Query
 /* 
     #TODO get village

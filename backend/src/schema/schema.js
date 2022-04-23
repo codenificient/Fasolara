@@ -50,6 +50,12 @@ const UserType = new GraphQLObjectType({
 				return Address.findById(parent.addressId)
 			}
 		},
+		salary: {
+			type: SalaryType,
+			resolve(parent, args) {
+				return Salary.find({ employeeId: parent.id })
+			}
+		},
 		password: { type: GraphQLString },
 		confpassword: { type: GraphQLString },
 		isActive: { type: GraphQLBoolean },
@@ -79,6 +85,7 @@ const SalaryType = new GraphQLObjectType({
 	name: 'Salary',
 	fields: () => ({
 		id: { type: GraphQLID },
+		jobTitle: { type: GraphQLString },
 		startDate: { type: GraphQLString },
 		endDate: { type: GraphQLString },
 		amount: { type: GraphQLInt },
@@ -395,6 +402,19 @@ const RootQuery = new GraphQLObjectType({
 			type: new GraphQLList(SupplierType),
 			resolve(parent, args) {
 				return Supplier.find({})
+			}
+		},
+		salary: {
+			type: new GraphQLList(SalaryType),
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Salary.findById(args.id)
+			}
+		},
+		salaries: {
+			type: new GraphQLList(SalaryType),
+			resolve(parent, args) {
+				return Salary.find({})
 			}
 		}
 	}

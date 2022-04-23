@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const salarySchema = new mongoose.Schema(
 	{
-		employeeid: {
+		employeeId: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User'
 		},
