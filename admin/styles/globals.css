@@ -1,0 +1,37 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+		Helvetica Neue, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+	color: red;
+}
+
+#__next {
+	background-color: #010101;
+	width: 100vw;
+	height: 100vh;
+  display: flex;
+  position: relative;
+
+	justify-content: center;
+	align-items: center;
+}
+
+.ext_wrapper {
+  width: 95vw;
+  height: 95vh;
+  background-color: #141414;
+  display: flex;
+  margin: auto;
+	border-radius: 40px;
+}
