@@ -9,10 +9,10 @@ const panelSchema = new mongoose.Schema(
 		serialNumber: String,
 		installCost: {
 			type: Number,
-			default: 0
+			default: 0.0
 		},
 		installDate: Date,
-		created: Date,
+		orderDate: Date,
 		isReplacement: {
 			type: Boolean,
 			default: false

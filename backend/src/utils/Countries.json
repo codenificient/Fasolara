@@ -1,0 +1,686 @@
+[
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001517"
+        },
+        "name": "Algeria",
+        "population": 62187811,
+        "polycolor": "Crimson",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001518"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001519"
+        },
+        "name": "Angola",
+        "population": 55418943,
+        "polycolor": "Violet",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200151a"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200151b"
+        },
+        "name": "Benin",
+        "population": 38289127,
+        "polycolor": "Khaki",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200151c"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200151d"
+        },
+        "name": "Botswana",
+        "population": 183115174,
+        "polycolor": "Violet",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200151e"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200151f"
+        },
+        "name": "Burkina Faso",
+        "population": 32672893,
+        "polycolor": "Red",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001520"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001521"
+        },
+        "name": "Burundi",
+        "population": 40809970,
+        "polycolor": "Aquamarine",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001522"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001523"
+        },
+        "name": "Cabo Verde",
+        "population": 174285524,
+        "polycolor": "Maroon",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001524"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001525"
+        },
+        "name": "Cameroon",
+        "population": 89381546,
+        "polycolor": "Pink",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001526"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001527"
+        },
+        "name": "Central African Republic",
+        "population": 71736250,
+        "polycolor": "Red",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001528"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001529"
+        },
+        "name": "Chad",
+        "population": 21913462,
+        "polycolor": "Puce",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200152a"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200152b"
+        },
+        "name": "Comoros",
+        "population": 25656635,
+        "polycolor": "Blue",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200152c"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200152d"
+        },
+        "name": "Congo",
+        "population": 590146,
+        "polycolor": "Indigo",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200152e"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200152f"
+        },
+        "name": "Côte d'Ivoire",
+        "population": 10283974,
+        "polycolor": "Purple",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001530"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001531"
+        },
+        "name": "Djibouti",
+        "population": 2309460,
+        "polycolor": "Goldenrod",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001532"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001533"
+        },
+        "name": "DR Congo",
+        "population": 29704019,
+        "polycolor": "Yellow",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001534"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001535"
+        },
+        "name": "Egypt",
+        "population": 144001576,
+        "polycolor": "Green",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001536"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001537"
+        },
+        "name": "Equatorial Guinea",
+        "population": 96890681,
+        "polycolor": "Indigo",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001538"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001539"
+        },
+        "name": "Eritrea",
+        "population": 84951124,
+        "polycolor": "Purple",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200153a"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200153b"
+        },
+        "name": "Eswatini",
+        "population": 141020281,
+        "polycolor": "Yellow",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200153c"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200153d"
+        },
+        "name": "Ethiopia",
+        "population": 35020123,
+        "polycolor": "Yellow",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200153e"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200153f"
+        },
+        "name": "Gabon",
+        "population": 171245850,
+        "polycolor": "Mauv",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001540"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001541"
+        },
+        "name": "Gambia",
+        "population": 173432310,
+        "polycolor": "Orange",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001542"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001543"
+        },
+        "name": "Ghana",
+        "population": 76815624,
+        "polycolor": "Violet",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001544"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001545"
+        },
+        "name": "Guinea",
+        "population": 115740245,
+        "polycolor": "Red",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001546"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001547"
+        },
+        "name": "Guinea-Bissau",
+        "population": 76830275,
+        "polycolor": "Blue",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001548"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001549"
+        },
+        "name": "Kenya",
+        "population": 83037187,
+        "polycolor": "Crimson",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200154a"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200154b"
+        },
+        "name": "Lesotho",
+        "population": 168990796,
+        "polycolor": "Fuscia",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200154c"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200154d"
+        },
+        "name": "Liberia",
+        "population": 115081628,
+        "polycolor": "Mauv",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200154e"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200154f"
+        },
+        "name": "Libya",
+        "population": 188631255,
+        "polycolor": "Red",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001550"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001551"
+        },
+        "name": "Madagascar",
+        "population": 30156822,
+        "polycolor": "Turquoise",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001552"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001553"
+        },
+        "name": "Malawi",
+        "population": 190435936,
+        "polycolor": "Mauv",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001554"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001555"
+        },
+        "name": "Mali",
+        "population": 113515706,
+        "polycolor": "Indigo",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001556"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001557"
+        },
+        "name": "Mauritania",
+        "population": 162853977,
+        "polycolor": "Purple",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001558"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001559"
+        },
+        "name": "Mauritius",
+        "population": 77248735,
+        "polycolor": "Mauv",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200155a"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200155b"
+        },
+        "name": "Mayotte",
+        "population": 149663403,
+        "polycolor": "Teal",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200155c"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200155d"
+        },
+        "name": "Morocco",
+        "population": 161758081,
+        "polycolor": "Aquamarine",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200155e"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200155f"
+        },
+        "name": "Mozambique",
+        "population": 23849773,
+        "polycolor": "Orange",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001560"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001561"
+        },
+        "name": "Namibia",
+        "population": 178773986,
+        "polycolor": "Crimson",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001562"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001563"
+        },
+        "name": "Niger",
+        "population": 88731690,
+        "polycolor": "Turquoise",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001564"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001565"
+        },
+        "name": "Nigeria",
+        "population": 7510175,
+        "polycolor": "Teal",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001566"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001567"
+        },
+        "name": "Réunion",
+        "population": 117032957,
+        "polycolor": "Turquoise",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001568"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001569"
+        },
+        "name": "Rwanda",
+        "population": 19073367,
+        "polycolor": "Aquamarine",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200156a"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200156b"
+        },
+        "name": "Saint Helena",
+        "population": 151082590,
+        "polycolor": "Maroon",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200156c"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200156d"
+        },
+        "name": "Sao Tome & Principe",
+        "population": 150940179,
+        "polycolor": "Blue",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200156e"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200156f"
+        },
+        "name": "Senegal",
+        "population": 52374401,
+        "polycolor": "Orange",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001570"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001571"
+        },
+        "name": "Seychelles",
+        "population": 118627298,
+        "polycolor": "Fuscia",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001572"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001573"
+        },
+        "name": "Sierra Leone",
+        "population": 69385110,
+        "polycolor": "Indigo",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001574"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001575"
+        },
+        "name": "Somalia",
+        "population": 21219278,
+        "polycolor": "Mauv",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001576"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001577"
+        },
+        "name": "South Africa",
+        "population": 186481143,
+        "polycolor": "Maroon",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001578"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001579"
+        },
+        "name": "South Sudan",
+        "population": 151704197,
+        "polycolor": "Purple",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200157a"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200157b"
+        },
+        "name": "Sudan",
+        "population": 205298563,
+        "polycolor": "Red",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200157c"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200157d"
+        },
+        "name": "Tanzania",
+        "population": 185669269,
+        "polycolor": "Pink",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f200157e"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f200157f"
+        },
+        "name": "Togo",
+        "population": 10625753,
+        "polycolor": "Aquamarine",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001580"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001581"
+        },
+        "name": "Tunisia",
+        "population": 58856295,
+        "polycolor": "Puce",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001582"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001583"
+        },
+        "name": "Uganda",
+        "population": 66703783,
+        "polycolor": "Green",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001584"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001585"
+        },
+        "name": "Western Sahara",
+        "population": 33406262,
+        "polycolor": "Red",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001586"
+        },
+        "continent": "Africa"
+    },
+    {
+        "_id": {
+            "$oid": "6263a321fc13ae60f2001587"
+        },
+        "name": "Zambia",
+        "population": 127242168,
+        "polycolor": "Puce",
+        "locationId": {
+            "$oid": "6263a321fc13ae60f2001588"
+        },
+        "continent": "Africa"
+    }
+]

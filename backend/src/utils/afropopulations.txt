@@ -1,0 +1,58 @@
+Nigeria	211,400,704	
+Ethiopia	117,876,226
+Egypt	104,258,327
+Democratic Republic of theCongo	92,377,986
+United Republic of Tanzania	61,498,438	
+South Africa	60,041,996	
+Kenya		54,985,702	
+Uganda		47,123,533	
+Sudan		44,909,351	
+Algeria		44,616,626	
+Morocco	37,344,787	
+Angola		33,933,611	
+Mozambique		32,163,045
+Ghana	31,732,128	
+Madagascar		28,427,333
+Cameroon		27,224,262	
+Côte d'Ivoire		27,053,629	
+Niger		25,130,810	
+Burkina Faso		21,497,097	
+Mali		20,855,724
+Malawi		19,647,681	
+Zambia		18,920,657	
+Senegal	17,196,308	
+Chad		16,914,985	
+Somalia		16,359,500	
+Zimbabwe		15,092,171	
+Guinea		13,497,237
+Rwanda	13,276,517
+Benin	12,451,031	
+Burundi	12,255,429	
+Tunisia		11,935,764	
+South Sudan	11,381,377
+Togo		8,478,242	
+Sierra Leone	8,141,343	
+Libya	6,958,538	
+Congo	5,657,017	
+Liberia		5,180,208	
+Central African Republic		4,919,987	
+Mauritania		4,775,110
+Eritrea		3,601,462	
+Namibia		2,587,344	
+Gambia		2,486,937	
+Botswana		2,397,240	
+Gabon		2,278,829	
+Lesotho	2,159,067	
+Guinea-Bissau		2,015,490	
+Equatorial Guinea		1,449,891	
+Mauritius	1,273,428	
+Eswatini	1,172,369	
+Djibouti		1,002,197	
+Réunion		901,696	
+Comoros	888,456	
+Western Sahara		611,872	
+Cabo Verde		561,901	
+Mayotte		279,507	
+Sao Tome and Principe		223,364	
+Seychelles		98,910	
+Saint Helena		6,095	
