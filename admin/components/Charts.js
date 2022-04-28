@@ -1,6 +1,5 @@
 import styles from '../styles/Charts.module.css'
 import Chart from './Chart'
-import Project from './Project'
 
 export default function Charts() {
 	return (

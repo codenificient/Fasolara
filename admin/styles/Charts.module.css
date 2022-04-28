@@ -15,8 +15,8 @@
 	justify-content: center;
 	flex-direction: row;
 	flex-wrap: wrap;
-    grid-gap: 1rem;
-    padding: 1rem;
+	grid-gap: 1rem;
+	padding: 0.5rem;
 	/* max-width: 800px; */
 }
 
@@ -28,11 +28,20 @@
 }
 
 .chart_container {
-    display: inline-flex;
-    width: 21vw;
-    height: 28vh;
+	display: inline-flex;
+	width: 21vw;
+	height: 28vh;
 	background: #1f1f1f;
 	border: 1px solid #8d8d8d80;
 	padding-right: 40px;
+}
 
+.title {
+	font-size: larger;
+	text-align: center;
+}
+
+.upper {
+    text-transform: uppercase;
+    font-weight: bold;
 }

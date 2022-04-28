@@ -1,3 +1,4 @@
+import ActiveProjects from '../components/ActiveProjects'
 import Charts from '../components/Charts'
 import Layout from '../components/layout'
 import Projects from '../components/Projects'
@@ -10,6 +11,7 @@ function Home() {
 			<div >
 				<Projects />
         <Charts />
+        <ActiveProjects />
 			</div>
 		</Layout>
 	)
