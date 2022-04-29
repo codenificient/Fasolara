@@ -13,23 +13,10 @@ function Layout({ user, loading = false, children }) {
 			<Sidebar />
 
 			<main>
-				<div className="inn_wrapper">{children}</div>
+				<div >{children}</div>
 			</main>
 			<Sidebare />
-			<style jsx>{`
-				.container {
-					width: 100vw;
-					margin: auto;
-				}
-			`}</style>
-			<style jsx global>{`
-				body {
-					margin: 0;
-					color: #333;
-					font-family: -apple-system, BlinkMacSystemFont, 'Poppins', Roboto, Oxygen, Ubuntu, Cantarell,
-						'Open Sans', 'Helvetica Neue', sans-serif;
-				}
-			`}</style>
+	
 		</div>
 	)
 }

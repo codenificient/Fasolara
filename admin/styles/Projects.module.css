@@ -29,10 +29,9 @@
 
 .project_container {
     display: inline-flex;
-    width: 12vw;
+    width: 13.4vw;
     height: 18vh;
-	background: #1f1f1f;
+	background: #100c08;
 	border: 1px solid #8d8d8d80;
 	padding-right: 40px;
-
 }

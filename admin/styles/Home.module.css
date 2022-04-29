@@ -2,15 +2,6 @@
 	display: flex;
 }
 
-.main_app {
-	display: flex;
-	margin: auto;
-	background: brown;
-	height: 95vh;
-	width: 95vw;
-	position: relative;
-}
-
 .main {
 	min-height: 100vh;
 	/* padding: 4rem 0; */
@@ -19,14 +10,13 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-  color: red;
+	color: red;
 }
 
 .title {
-    font-size: larger;
-    text-align: center;
+	font-size: larger;
+	text-align: center;
 }
-
 
 .footer {
 	display: flex;
