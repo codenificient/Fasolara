@@ -1,6 +1,6 @@
 .sidebar_container {
 	background: #1f1f1f;
-	color: #8d8d8d80;
+	color: #8d8d8d99;
 	height: 100%;
 	width: 13vw;
 	border-radius: 40px 0 0 40px;
@@ -35,7 +35,6 @@
 	text-transform: uppercase;
 	color: #f24e1e;
 	font-weight: 800;
-
 	cursor: pointer;
 	align-items: center;
 	text-align: center;
@@ -52,4 +51,8 @@
 .Link {
 	margin: auto;
 	cursor: pointer;
+}
+
+.Logout a::hover {
+	color: #8d8d8d99;
 }

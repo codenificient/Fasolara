@@ -1,5 +1,6 @@
 .projects_container {
 	background: #1f1f1f;
+	color: #8d8d8d99;
 	width: 100%;
 	height: 100%;
 	/* bottom: -5rem; */
@@ -32,6 +33,7 @@
     width: 13.6vw;
     height: 22vh;
 	background: #100c08;
-	border: 1px solid #8d8d8d80;
 	padding-right: 40px;
+	border-radius: 10px;
+	/* border: 1px solid #8d8d8d80; */
 }

@@ -1,6 +1,6 @@
 .sidebare_container {
 	background: transparent;
-	color: rebeccapurple;
+	color: rosybrown;
 	width: 13vw;
 	height: inherit;
 	position: absolute;
@@ -9,37 +9,38 @@
 }
 
 .activites_container {
-	background: #1f1f1f;
+	background: #010101;
 	width: 100%;
 	height: 50%;
 	border-radius: 10px;
-	border: 1px solid #8d8d8d80;
+	/* border: 1px solid #8d8d8d80; */
 	margin-right: 0.5rem;
 }
 
 .agenda_container {
-	background: #1f1f1f;
+	background: #010101;
 	width: 100%;
 	height: 42%;
 	/* bottom: -5rem; */
 	margin-top: 0.5rem;
 	border-radius: 10px;
 	position: relative;
-	border: 1px solid #8d8d8d80;
+	/* border: 1px solid #8d8d8d80; */
 	padding-right: 40px;
 }
 .profilemenu_container {
-	background: transparent;
+	background: #010101;
 	width: 100%;
 	height: 6%;
 	/* bottom: -5rem; */
 	border-radius: 10px;
 	position: relative;
-	border: 1px solid #8d8d8d80;
+	/* border: 1px solid #8d8d8d80; */
 	padding-right: 40px;
 }
 
 .title {
 	font-size: larger;
 	text-align: center;
+	/* margin-top: 1rem; */
 }
