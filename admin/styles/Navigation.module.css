@@ -1,0 +1,34 @@
+.navigation_container {
+	margin-top: 5rem;
+	margin-left: 3.5vw;
+    height: 85%;
+}
+
+
+.Name {
+	margin-left: 1.5rem;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+
+.Inline,
+.MenuItem {
+	font-size: larger;
+	cursor: pointer;
+    margin: 3.5rem 0;
+}
+
+
+.MenuItem {
+	margin: auto;
+	cursor: pointer;
+}
+
+.Inline {
+	display: block;
+	cursor: pointer;
+}
+
+
+

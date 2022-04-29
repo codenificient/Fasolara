@@ -39,7 +39,7 @@
 
 .project_details {
 	display: flex;
-	width: 64.6vw;
+	width: 70vw;
 	justify-content: space-around;
 }
 
@@ -58,6 +58,6 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	display: flex;
-	width: 64.6vw;
+	width: 70vw;
 	justify-content: space-around;
 }
