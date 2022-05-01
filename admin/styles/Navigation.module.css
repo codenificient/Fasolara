@@ -1,7 +1,6 @@
 .navigation_container {
-	margin-top: 5rem;
-	margin-left: 3.5vw;
-    height: 88%;
+	padding: 0 3vw;
+    height: 80%;
 }
 
 
@@ -16,7 +15,7 @@
 .MenuItem {
 	font-size: larger;
 	cursor: pointer;
-    margin: 3.5rem 0;
+    margin: 3rem 0;
 }
 
 

@@ -56,3 +56,13 @@
 .Logout a::hover {
 	color: #8d8d8d99;
 }
+
+.logo {
+	height: 200px;
+	width: 100%;
+	object-fit: contain;
+}
+
+.logo img {
+	max-width: 100px;
+}

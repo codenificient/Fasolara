@@ -5,7 +5,9 @@ import Navigation from './Navigation'
 export default function Sidebar() {
 	return (
 		<div className={styles.sidebar_container}>
-			<div className={styles.title}>Lara</div>
+			<div className={styles.title}>
+				<img className={styles.logo} src='assets/logoOne.png' alt='fasolara logo' />
+			</div>
 			<Navigation />
 			<Link key="13-931-2871" href="/logout" className={styles.Logout}>
 				<a className={styles.Line}>
