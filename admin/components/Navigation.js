@@ -6,7 +6,7 @@ const icons = [{
   "id": "18-625-4152",
   "icon": "fas fa-home",
   "name": "accueil",
-  "to": "/home",
+  "to": "/",
   "color": "Mauv"
 }, {
   "id": "04-562-3505",
@@ -47,8 +47,8 @@ const icons = [{
 }, {
   "id": "88-435-4328",
   "icon": "fa-solid fa-money-check-dollar",
-  "name": "investor",
-  "to": "/investor",
+  "name": "investors",
+  "to": "/investors",
   "color": "Mauv"
 }, {
   "id": "07-126-4512",
