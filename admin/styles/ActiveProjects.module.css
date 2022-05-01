@@ -27,7 +27,7 @@
 
 .activeproject_container {
 	display: inline-flex;
-	background: #8e203b;
+	background: #141414;
 	justify-content: space-around;
 	border-radius: 10px;
 }

@@ -8,6 +8,7 @@
 	border-radius: 10px;
 	/* border: 1px solid #8d8d8d80; */
 	padding: 10px;
+	font-size: large;
 }
 
 .grid {
@@ -30,11 +31,11 @@
 
 .chart_container {
 	display: inline-flex;
-	width: 23vw;
+	width: 32%;
 	height: 40vh;
-	background: #010727;
+	background: #141414;
 	/* border: 1px solid #8d8d8d80; */
-	padding-right: 40px;
+	padding: 20px;
 	border-radius: 10px;
 }
 

@@ -8,6 +8,7 @@
 	border-radius: 10px;
 	/* border: 1px solid #8d8d8d80; */
 	padding: 10px;
+	font-size: larger;
 }
 
 .grid {
@@ -16,8 +17,8 @@
 	justify-content: center;
 	flex-direction: row;
 	flex-wrap: wrap;
-    grid-gap: 1rem;
-    padding: 1rem;
+	grid-gap: 1rem;
+	padding: 1rem;
 	/* max-width: 800px; */
 }
 
@@ -29,9 +30,10 @@
 }
 
 .project_container {
-    display: inline-flex;
-    width: 13.6vw;
-    height: 22vh;
+	display: inline-flex;
+	width: 15%;
+	padding: 10px;
+	height: 20vh;
 	background: #100c08;
 	padding-right: 40px;
 	border-radius: 10px;

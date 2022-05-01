@@ -48,7 +48,7 @@
 
 .Name {
 	font-size: 22px;
-	margin: 10px;
+	margin: 5px;
 	width: max-content;
 	word-wrap: break-word;
 }
@@ -72,13 +72,11 @@
 
 .icon_wrapper {
 	display: flex;
-	flex-direction: row;
 	/* border: 1px solid red; */
 	margin: auto;
-	padding: 1rem;
 }
 
-.icon_indicator {
+/* .icon_indicator {
 	display: flex;
 	position: relative;
 	background: #f28821;
@@ -88,7 +86,7 @@
 	height: 15px;
 	border-radius: 8px;
 	transform: translate(-9px, -1px);
-}
+} */
 
 .avatar_container {
 	width: 80px;

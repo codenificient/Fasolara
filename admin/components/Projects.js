@@ -11,6 +11,7 @@ export default function Projects() {
                 <Project  number={'3'} />
                 <Project  number={'4'} />
                 <Project  number={'5'} />
+                <Project  number={'6'} />
             </div>
 		</div>
 	)
