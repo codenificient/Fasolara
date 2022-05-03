@@ -11,7 +11,7 @@ export default function Sidebar() {
 			<Navigation />
 			<Link key="13-931-2871" href="/logout" className={styles.Logout}>
 				<a className={styles.Line}>
-					<i className="fas fa-sign-out-alt" style={{ color: '#f24e1e', fontSize: '20px' }} />
+					<i className="fas fa-sign-out-alt Icon" style={{ color: '#f24e1e', fontSize: '25px' }} />
 					<span className={styles.Name}>Logout</span>
 				</a>
 			</Link>

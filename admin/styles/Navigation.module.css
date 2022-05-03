@@ -1,8 +1,11 @@
 .navigation_container {
-	padding: 0 3vw;
-    height: 80%;
+	display: flex;
+	margin: auto;
+	height: 88%;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
 }
-
 
 .Name {
 	margin-left: 1rem;
@@ -10,14 +13,12 @@
 	font-weight: bold;
 }
 
-
 .Inline,
 .MenuItem {
 	font-size: larger;
 	cursor: pointer;
-    margin: 3rem 0;
+	margin: 3rem 0;
 }
-
 
 .MenuItem {
 	margin: auto;
@@ -28,6 +29,3 @@
 	display: block;
 	cursor: pointer;
 }
-
-
-

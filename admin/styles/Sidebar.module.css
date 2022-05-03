@@ -1,9 +1,12 @@
 .sidebar_container {
 	background: #1f1f1f;
 	color: #8d8d8d99;
+	display: block;
+	overflow: hidden;
 	height: 100%;
 	width: 13vw;
 	border-radius: 40px 0 0 40px;
+	clear: both;
 }
 
 .title {
@@ -15,7 +18,7 @@
 }
 
 .Name {
-	margin-left: 1rem;
+	margin-left: 1.5rem;
 	text-transform: uppercase;
 	font-weight: bold;
 	color: #f24e1e;
@@ -30,7 +33,7 @@
 .Logout {
 	display: block;
 	position: absolute;
-	bottom: 1rem;
+	bottom: 0;
 	text-transform: uppercase;
 	color: #f24e1e;
 	font-weight: 800;

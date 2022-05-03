@@ -88,24 +88,3 @@
 	transform: translate(-9px, -1px);
 } */
 
-.avatar_container {
-	width: 80px;
-	height: 80px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #2c2f33;
-	box-shadow: inset -12.446px -12.446px 31.1151px #fca320, inset 12.446px 12.446px 31.1151px #000000;
-	border-radius: 40px;
-}
-
-.avatar {
-	width: 65px;
-	height: 65px;
-	border-radius: 33px;
-	display: flex;
-	left: 36.71%;
-	right: 10.43%;
-	top: 2.59%;
-	bottom: 92.32%;
-}
