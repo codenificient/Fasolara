@@ -41,6 +41,7 @@
 	display: flex;
 	width: 70vw;
 	justify-content: space-around;
+	
 }
 
 .project_detail {
@@ -60,4 +61,5 @@
 	display: flex;
 	width: 70vw;
 	justify-content: space-around;
+	
 }

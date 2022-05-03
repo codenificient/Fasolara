@@ -1,5 +1,5 @@
 .charts_container {
-	background: #1f1f1f;
+	/* background: #1f1f1f; */
 	color: #8d8d8d99;
 	width: 100%;
 	height: 100%;
@@ -17,7 +17,7 @@
 	justify-content: center;
 	flex-direction: row;
 	flex-wrap: wrap;
-	grid-gap: 1rem;
+	grid-gap: 0.5rem;
 	padding: 0.5rem;
 	/* max-width: 800px; */
 }
@@ -31,12 +31,14 @@
 
 .chart_container {
 	display: inline-flex;
-	width: 32%;
+	width: 23.3vw;
 	height: 40vh;
 	background: #141414;
 	/* border: 1px solid #8d8d8d80; */
-	padding: 20px;
+	/* padding: 20px; */
 	border-radius: 10px;
+	/* box-shadow: 8px 8px 4px #1c1c1c, -8px -8px 4px #222222; */
+	box-shadow: -7px -7px 19px 0px #FCA3201A;
 }
 
 .title {
@@ -47,6 +49,6 @@
 }
 
 .upper {
-    text-transform: uppercase;
-    font-weight: bold;
+	text-transform: uppercase;
+	font-weight: bold;
 }

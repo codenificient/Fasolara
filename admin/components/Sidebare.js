@@ -7,7 +7,6 @@ export default function Sidebar() {
 	return (
 		<div className={styles.sidebare_container}>
             <ProfileMenu />
-			<div className={styles.title}>Sidebare</div>
             <Activities />
             <Agenda />
 		</div>

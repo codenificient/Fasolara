@@ -4,7 +4,6 @@ import Chart from './Chart'
 export default function Charts() {
 	return (
 		<div className={styles.charts_container}>
-			<div className={styles.title}>Charts</div>
             <div className={styles.grid}>
                 <Chart number={'1'} />
                 <Chart  number={'2'} />
