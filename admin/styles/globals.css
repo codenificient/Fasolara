@@ -40,6 +40,16 @@ a {
 	background-color: #141414;
 }
 
+.inn_wrapper input {
+	background-color: #141414;
+	color: #aaa;
+	width: 50vw;
+	border: 1px solid #8d8d8d99;
+	margin-left: 1.5rem;
+	line-height: 3rem;
+	margin-bottom: 0.5rem;
+}
+
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Poppins', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
