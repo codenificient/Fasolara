@@ -45,9 +45,15 @@ a {
 	color: #aaa;
 	width: 50vw;
 	border: 1px solid #8d8d8d99;
-	margin-left: 1.5rem;
+	margin-left:2rem;
 	line-height: 3rem;
 	margin-bottom: 0.5rem;
+	margin-top: 1rem;
+}
+
+.inn_wrapper label {
+	color: #aaa;
+
 }
 
 body {

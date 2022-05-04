@@ -13,6 +13,11 @@
 	font-weight: bold;
 }
 
+.Logout .fas:hover,
+.Name:hover {
+	color: #FCA320;
+}
+
 .Inline,
 .MenuItem {
 	font-size: larger;

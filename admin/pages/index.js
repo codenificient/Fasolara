@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import ActiveProjects from '../components/ActiveProjects'
 import Charts from '../components/Charts'
 import Layout from '../components/Layout'
@@ -8,10 +9,18 @@ import styles from '../styles/Home.module.css'
 function Home() {
 	return (
 		<Layout>
-			<h1 className={styles.title}>Lara admin Dashboard - April 2022</h1>
+			{/* <h1 className={styles.title}>Lara admin Dashboard - April 2022</h1> */}
 
 			<div className="inn_wrapper">
-				<Input placeholder="réchercher les comptes, projets, investisseurs..." label="Recherches"  />
+				<span className={styles.InlineRow}>
+					<Input placeholder="réchercher les comptes, projets, investisseurs..." />
+					<Link href={'/messages'}>
+						<a className={styles.Navs}>Messages</a>
+					</Link>
+					<Link href={'/help'}>
+						<a className={styles.Navs}>Besoin d'assistance?</a>
+					</Link>
+				</span>
 				<Projects />
 				<Charts />
 				<ActiveProjects />
