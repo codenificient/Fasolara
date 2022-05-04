@@ -7,7 +7,7 @@ function Member({name, jobTitle, imageUrl}) {
 	return (
 		<div className={styles.teammate}>
 			<Avatar className={styles.avatar_img} image={imageUrl} iSize="50" wSize="65" />
-			<h4 className={styles.name}>{name}</h4>
+			<h5 className={styles.name}>{name}</h5>
 			<p className={styles.jobTitle}>{jobTitle}</p>
 		</div>
 	)

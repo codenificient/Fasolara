@@ -2,7 +2,7 @@
 	display: block;
 	/* background: #1f1f1f; */
 	color: #8d8d8d;
-	width: 100%;
+	width: 72vw;
 	height: 100%;
 	text-align: center;
 	margin: 0.5rem;
@@ -10,6 +10,7 @@
 	/* border: 1px solid #8d8d8d80; */
 	padding: 10px;
 }
+
 
 .grid {
 	display: inline-flex;
@@ -33,7 +34,7 @@
 .project_container {
 	display: block;
 	width: 444px;
-	height: 500px;
+	height: 480px;
 	padding: 5px;
 	background: #141414;
 	/* background-color: #f1bd89; */
@@ -58,8 +59,9 @@
 }
 
 .heading {
-	margin: 5px;
+	margin: 10px;
 	color: #8d8d8d;
+	font-size: x-large;
 }
 
 .teammate {

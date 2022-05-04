@@ -14,7 +14,7 @@
 	flex-direction: column;
 	flex-wrap: wrap;
 	grid-gap: .5rem;
-	padding: 1rem;
+	padding: 0.5rem;
 	/* max-width: 800px; */
 }
 
@@ -39,7 +39,7 @@
 
 .project_details {
 	display: flex;
-	width: 70vw;
+	width: 70.5vw;
 	justify-content: space-around;
 	
 }
@@ -48,6 +48,13 @@
 	display: inline-block;
 	text-align: center;
 	color: #8d8d8d90;
+	height: 39px;
+}
+
+.project_details img {
+	width: 150px;
+	max-height: 40px;
+	object-fit: contain;
 }
 
 .project_list {
