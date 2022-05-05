@@ -19,17 +19,27 @@
 
 .InlineRow {
 	display: inline-flex;
-}
-
-.Navs {
 	font-weight: bold;
 	font-size: x-large;
 	color: #8d8d8d;
-	margin: auto;
-	padding-left: 1.5rem;
-	width: 350px;
 }
 
+.Navs,
+.Navs1 {
+	margin-top: 1.9rem;
+}
+
+.Navs {
+	display: block;
+	width: 200px;
+}
+
+.Navs1 {
+	display: block;
+	width: 400px;
+}
+
+.Navs1:hover,
 .Navs:hover {
 	color: #fca320;
 }
