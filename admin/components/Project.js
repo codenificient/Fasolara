@@ -1,7 +1,7 @@
-import styles from '../styles/Projects.module.css'
 import Member from './Member'
 import Progress from './Progress'
 import Image from 'next/image'
+import styles from '../styles/components/Projects.module.css'
 
 export default function Project({ number, members, image, progress }) {
 	

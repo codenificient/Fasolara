@@ -1,8 +1,10 @@
+import Layout from "../components/Layout"
+import styles from "../styles/pages/reports.module.css"
 function Reports() {
 	return (
-		<div>
-			<h1>Reports coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className={styles.text_center}>Reports coming soon</h1>
+		</Layout>
 	)
 }
 

@@ -1,8 +1,10 @@
+import Layout from "../components/Layout"
+import styles from "../styles/pages/employees.module.css"
 function Employees() {
 	return (
-		<div>
-			<h1>Employees coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className={styles.text_center}>Employees coming soon</h1>
+		</Layout>
 	)
 }
 

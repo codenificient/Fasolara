@@ -1,8 +1,10 @@
+import Layout from "../components/Layout"
+import styles from "../styles/pages/suppliers.module.css"
 function Suppliers() {
 	return (
-		<div>
-			<h1>Suppliers coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className={styles.text_center}>Suppliers coming soon</h1>
+		</Layout>
 	)
 }
 

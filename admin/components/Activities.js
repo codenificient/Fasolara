@@ -1,4 +1,4 @@
-import styles from '../styles/Sidebare.module.css'
+import styles from '../styles/components/Sidebare.module.css'
 
 export default function Activities() {
 	return (

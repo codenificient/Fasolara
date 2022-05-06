@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import Project from '../components/Project'
-import styles from '../styles/Projects.module.css'
+import styles from '../styles/components/Projects.module.css'
 
 const members = [
 	{
@@ -39,7 +39,7 @@ const projects = [
 	{
 		id: 4,
 		imageUrl: '/assets/powergo.png',
-		progress:   79
+		progress: 79
 	},
 	{
 		id: 5,

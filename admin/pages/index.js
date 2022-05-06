@@ -4,7 +4,7 @@ import Charts from '../components/Charts'
 import Layout from '../components/Layout'
 import Projects from '../components/Projects'
 import Input from '../components/UI/Input'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/pages/Home.module.css'
 
 function Home() {
 	return (

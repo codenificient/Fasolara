@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/Projects.module.css'
+import styles from '../styles/components/Projects.module.css'
 import Avatar from './Avatar'
 
 function Member({name, jobTitle, imageUrl}) {

@@ -1,4 +1,4 @@
-import styles from '../styles/ActiveProjects.module.css'
+import styles from '../styles/components/ActiveProjects.module.css'
 import Image from 'next/image'
 
 export default function ActiveProject({ img = '', date, leader, due, status, featured = false }) {

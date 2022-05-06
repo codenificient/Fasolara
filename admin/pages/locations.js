@@ -1,8 +1,11 @@
+import Layout from "../components/Layout"
+import styles from "../styles/pages/locations.module.css"
+
 function Locations() {
 	return (
-		<div>
-			<h1>Locations coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className={styles.text_center}>Locations coming soon</h1>
+		</Layout>
 	)
 }
 

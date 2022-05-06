@@ -1,5 +1,6 @@
 import React from 'react'
-import styles from '../styles/Sidebare.module.css'
+import styles from '../styles/components/Sidebare.module.css'
+
 
 function Icon({classes, colors, size}) {
 	return (

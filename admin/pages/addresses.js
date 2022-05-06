@@ -1,8 +1,11 @@
+import styles from "../styles/pages/addresses.module.css"
+import Layout from "../components/Layout"
+
 function Addresses() {
 	return (
-		<div>
-			<h1>Addresses coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className={styles.text_center}>Addresses coming soon</h1>
+		</Layout>
 	)
 }
 

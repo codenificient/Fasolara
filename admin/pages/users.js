@@ -1,8 +1,10 @@
+import Layout from "../components/Layout"
+import styles from "../styles/pages/users.module.css"
 function Users() {
 	return (
-		<div>
-			<h1>Users coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className={styles.text_center}>Users coming soon</h1>
+		</Layout>
 	)
 }
 

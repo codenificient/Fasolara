@@ -1,8 +1,10 @@
+import Layout from "../components/Layout"
+import styles from "../styles/pages/partners.module.css"
 function Partners() {
 	return (
-		<div>
-			<h1>Partners coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className={styles.text_center}>Partners coming soon</h1>
+		</Layout>
 	)
 }
 

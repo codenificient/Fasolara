@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import styles from '../styles/Sidebar.module.css'
 import Navigation from './Navigation'
 import Image from 'next/image'
+import styles from '../styles/components/Sidebar.module.css'
 
 export default function Sidebar() {
 	return (

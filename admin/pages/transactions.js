@@ -1,8 +1,10 @@
+import Layout from "../components/Layout"
+import styles from "../styles/pages/transactions.module.css"
 function Transactions() {
 	return (
-		<div>
-			<h1>Transactions coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className={styles.text_center}>Transactions coming soon</h1>
+		</Layout>
 	)
 }
 

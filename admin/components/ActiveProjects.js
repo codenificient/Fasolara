@@ -1,4 +1,4 @@
-import styles from '../styles/ActiveProjects.module.css'
+import styles from '../styles/components/ActiveProjects.module.css'
 import ActiveProject from './ActiceProject'
 
 const projects = [

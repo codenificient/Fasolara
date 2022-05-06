@@ -1,5 +1,5 @@
-import styles from '../styles/Projects.module.css'
 import Project from './Project'
+import styles from '../styles/components/Projects.module.css'
 
 const members = [
 	{

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/Progress.module.css'
+import styles from '../styles/components/Progress.module.css'
 
 function Progress({ progress }) {
 	return (

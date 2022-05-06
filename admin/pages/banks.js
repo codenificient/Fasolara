@@ -1,8 +1,11 @@
+import Layout from "../components/Layout"
+import styles from "../styles/pages/banks.module.css"
+
 function Banks() {
 	return (
-		<div>
-			<h1>Banks coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className={styles.text_center}>Banks coming soon</h1>
+		</Layout>
 	)
 }
 

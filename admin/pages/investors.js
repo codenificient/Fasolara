@@ -1,8 +1,11 @@
+import Layout from "../components/Layout"
+import styles from "../styles/pages/accounts.module.css"
+
 function Investors() {
 	return (
-		<div>
-			<h1>Investors coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className={styles.text_center}>Investors coming soon</h1>
+		</Layout>
 	)
 }
 
