@@ -3,6 +3,7 @@ import styles from '../styles/components/Projects.module.css'
 import Icon from './Icon'
 import Member from './Member'
 import NewProgress from './NewProgress'
+import Progress from './Progress'
 
 export default function Project({ number, members, image, progress }) {
 	return (
@@ -27,7 +28,7 @@ export default function Project({ number, members, image, progress }) {
 				<h4 className={styles.heading}>Progress:</h4>
 				<div>
 					{/* <Progress progress={progress} /> */}
-					<NewProgress percentage={progress} sqSize="125" strokeWidth="10" />
+					<NewProgress percentage={progress} sqSize="125" strokeWidth="15" />
 				</div>
 			</div>
 		</div>

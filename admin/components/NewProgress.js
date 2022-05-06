@@ -27,7 +27,6 @@ export default function NewProgress({ sqSize, strokeWidth, percentage }) {
 					cy={sqSize / 2}
 					r={radius}
 					strokeWidth={`${strokeWidth}px`}
-					// Start progress marker at 12 O'Clock
 					transform={`rotate(-90 ${sqSize / 2} ${sqSize / 2})`}
 					style={{
 						strokeDasharray: dashArray,
@@ -55,3 +54,4 @@ export default function NewProgress({ sqSize, strokeWidth, percentage }) {
 		</div>
 	)
 }
+
