@@ -7,10 +7,9 @@ function Avatar({ image, wSize, iSize }) {
 			<Image
 				className={styles.avatar}
 				src={image}
-				width={wSize}
-				height={wSize}
+				width={iSize}
+				height={iSize}
 				alt={`image of ${image}`}
-				style={{ width: iSize + 'px', height: iSize + 'px' }}
 			/>
 		</span>
 	)
