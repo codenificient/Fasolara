@@ -19,35 +19,36 @@ const members = [
 		imageUrl: 'https://randomuser.me/api/portraits/women/2.jpg'
 	}
 ]
+
 const projects = [
 	{
 		id: 1,
-		imageUrl: 'assets/astronergy.png',
+		imageUrl: '/assets/astronergy.png',
 		progress: 100
 	},
 	{
 		id: 2,
-		imageUrl: 'assets/CanadianSolar.png',
+		imageUrl: '/assets/CanadianSolar.png',
 		progress: 100
 	},
 	{
 		id: 3,
-		imageUrl: 'assets/JASolar.png',
+		imageUrl: '/assets/JASolar.png',
 		progress: 96
 	},
 	{
 		id: 4,
-		imageUrl: 'assets/powergo.png',
-		progress: 79
+		imageUrl: '/assets/powergo.png',
+		progress:   79
 	},
 	{
 		id: 5,
-		imageUrl: 'assets/renesola.png',
+		imageUrl: '/assets/renesola.png',
 		progress: 58
 	},
 	{
 		id: 6,
-		imageUrl: 'assets/Vikram.png',
+		imageUrl: '/assets/Vikram.png',
 		progress: 32
 	}
 ]

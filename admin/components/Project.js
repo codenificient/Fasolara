@@ -9,7 +9,7 @@ export default function Project({ number, members, image, progress }) {
 		<div className={styles.project_container}>
 			<div className={styles.title}>
 				<h4 className={styles.heading}>Project {number}</h4>
-				<Image className={styles.project_img} src={image} alt={image} width={200} height={50} />
+				<Image className={styles.project_img} src={image} alt={image} width={200} height={45} layout="raw" />
 			</div>
 			<div>
 				<h4 className={styles.heading}>Team Members:</h4>
