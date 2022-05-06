@@ -6,7 +6,7 @@ import Projects from '../components/Projects'
 import Input from '../components/UI/Input'
 import styles from '../styles/pages/Home.module.css'
 
-function Home() {
+export default function Home() {
 	return (
 		<Layout>
 			<div className="inn_wrapper">
@@ -36,5 +36,3 @@ function Home() {
 		</Layout>
 	)
 }
-
-export default Home

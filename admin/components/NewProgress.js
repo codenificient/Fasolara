@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../styles/components/Projects.module.css'
 
 
-function NewProgress() {
+export default function NewProgress() {
   return (
     <div className={styles.circular_progress}>
   <div className={styles.circular_progress_circle}>
@@ -16,5 +16,3 @@ function NewProgress() {
 </div>
   )
 }
-
-export default NewProgress

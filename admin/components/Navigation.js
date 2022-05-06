@@ -145,12 +145,10 @@ const icons = [
 	}
 ]
 
-function Navigation() {
+export default function Navigation() {
 	return (
 		<div className={styles.navigation_container}>
 			<NavMenu icons={icons} />
 		</div>
 	)
 }
-
-export default Navigation

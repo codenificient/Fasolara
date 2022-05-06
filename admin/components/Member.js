@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../styles/components/Projects.module.css'
 import Avatar from './Avatar'
 
-function Member({name, jobTitle, imageUrl}) {
+export default function Member({name, jobTitle, imageUrl}) {
 	// console.log({ name })
 	return (
 		<div className={styles.teammate}>
@@ -12,5 +12,3 @@ function Member({name, jobTitle, imageUrl}) {
 		</div>
 	)
 }
-
-export default Member

@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/components/Progress.module.css'
 
-function Progress({ progress }) {
+export default function Progress({ progress }) {
 	return (
 		<div className={styles.progress_container}>
 			<div className={styles.ellipse}>
@@ -14,5 +14,3 @@ function Progress({ progress }) {
 		</div>
 	)
 }
-
-export default Progress

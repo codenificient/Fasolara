@@ -1,7 +1,7 @@
 import styles from '../styles/components/Avatar.module.css'
 import Image from 'next/image'
 
-function Avatar({ image, wSize, iSize }) {
+export default function Avatar({ image, wSize, iSize }) {
 	return (
 		<span className={styles.avatar_container} style={{ width: wSize + 'px', height: wSize + 'px' }}>
 			<Image
@@ -14,5 +14,3 @@ function Avatar({ image, wSize, iSize }) {
 		</span>
 	)
 }
-
-export default Avatar
