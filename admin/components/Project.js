@@ -1,6 +1,7 @@
 import styles from '../styles/Projects.module.css'
 import Member from './Member'
 import Progress from './Progress'
+import Image from 'next/image'
 
 export default function Project({ number, members, image, progress }) {
 	
@@ -8,7 +9,7 @@ export default function Project({ number, members, image, progress }) {
 		<div className={styles.project_container}>
 			<div className={styles.title}>
 				<h4 className={styles.heading}>Project {number}</h4>
-				<img className={styles.project_img} src={image} alt={image} />
+				<Image className={styles.project_img} src={image} alt={image} width={200} height={50} />
 			</div>
 			<div>
 				<h4 className={styles.heading}>Team Members:</h4>

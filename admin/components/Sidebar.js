@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import styles from '../styles/Sidebar.module.css'
 import Navigation from './Navigation'
+import Image from 'next/image'
 
 export default function Sidebar() {
 	return (
 		<div className={styles.sidebar_container}>
 			<div className={styles.title}>
-				<img className={styles.logo} src='laraOne.png' alt='fasolara logo' />
+				<Image className={styles.logo} src='laraOne.png' alt='fasolara logo'  width={500}     height={500} />
 			</div>
 			<Navigation />
 			<Link key="13-931-2871" href="/logout" className={styles.Logout}>
