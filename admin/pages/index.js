@@ -26,7 +26,7 @@ function Home() {
 						<a className={styles.Navs}>Messages</a>
 					</Link>
 					<Link href={'/help'} passHref>
-						<a className={styles.Navs1}>Besoin d'assistance?</a>
+						<a className={styles.Navs1}>Besoin d&apos;assistance?</a>
 					</Link>
 				</span>
 				<Projects />
