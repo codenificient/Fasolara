@@ -82,3 +82,9 @@
 	font-size: smaller;
 	margin-bottom: 10px;
 }
+
+.between {
+	display: inline-flex;
+	width: 100%;
+	justify-content: space-between;
+}

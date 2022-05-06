@@ -77,7 +77,8 @@
 .icon_wrapper {
 	display: flex;
 	/* border: 1px solid red; */
-	margin: auto;
+	margin: 10px;
+	cursor: pointer;
 }
 
 /* .icon_indicator {
