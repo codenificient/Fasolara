@@ -1,8 +1,10 @@
+import Layout from "../components/Layout"
+
 function Accounts() {
 	return (
-		<div>
-			<h1>accounts coming soon</h1>
-		</div>
+		<Layout>
+			<h1 className="text-center">accounts coming soon</h1>
+		</Layout>
 	)
 }
 

@@ -8,7 +8,7 @@ export default function NavMenu({ icons }) {
 			{icons.map((icon) => (
 				<Link key={icon.id} href={icon.to} className={styles.MenuItem} passHref>
 					<p className={styles.Inline}>
-						<i className={`Icon ${icon.icon}`} style={{ color: icon.color, fontSize: '20px' }} />
+						<i className={`Icon ${icon.icon}`} style={{  fontSize: '22px' }} />
 						<span className={styles.Name}>{icon.name}</span>
 					</p>
 				</Link>

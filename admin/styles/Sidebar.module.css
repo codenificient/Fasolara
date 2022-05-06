@@ -10,7 +10,7 @@
 }
 
 .title {
-	font-size: larger;
+	font-size: medium;
 	text-align: center;
 	font-weight: 800;
 	text-transform: uppercase;
@@ -22,7 +22,7 @@
 	text-transform: uppercase;
 	font-weight: bold;
 	color: #f24e1e;
-	font-size: 22px;
+	font-size: larger;
 }
 
 .MenuItem {
@@ -30,17 +30,6 @@
 	cursor: pointer;
 }
 
-.Logout {
-	display: block;
-	position: absolute;
-	bottom: 0;
-	text-transform: uppercase;
-	color: #f24e1e;
-	font-weight: 800;
-	cursor: pointer;
-	align-items: center;
-	text-align: center;
-}
 
 .Name:hover {
 	color: #FCA320;
@@ -59,9 +48,6 @@
 	cursor: pointer;
 }
 
-.Logout a::hover {
-	color: #8d8d8d99;
-}
 
 .logo {
 	height: 150px;
