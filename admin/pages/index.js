@@ -9,8 +9,6 @@ import styles from '../styles/Home.module.css'
 function Home() {
 	return (
 		<Layout>
-			{/* <h1 className={styles.title}>Lara admin Dashboard - April 2022</h1> */}
-
 			<div className="inn_wrapper">
 				<span className={styles.InlineRow}>
 					<span className={styles.search}>

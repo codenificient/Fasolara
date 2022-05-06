@@ -7,7 +7,7 @@ export default function Sidebar() {
 	return (
 		<div className={styles.sidebar_container}>
 			<div className={styles.title}>
-				<Image className={styles.logo} src='laraOne.png' alt='fasolara logo'  width={500}     height={500} />
+				<Image className={styles.logo} src="laraOne.png" alt="fasolara logo" width={500} height={500} />
 			</div>
 			<Navigation />
 			<Link key="13-931-2871" href="/logout" className={styles.Logout} passHref>

@@ -19,7 +19,6 @@ export default function Project({ number, members, image, progress }) {
 				<h4 className={styles.heading}>Progress:</h4>
 				<div>
 					<Progress progress={progress} />
-					{/* <NewProgress /> */}
 				</div>
 			</div>
 		</div>
