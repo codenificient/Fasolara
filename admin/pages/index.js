@@ -20,10 +20,10 @@ function Home() {
 						</button>
 					</span>
 
-					<Link href={'/messages'}>
+					<Link href={'/messages'} passHref>
 						<a className={styles.Navs}>Messages</a>
 					</Link>
-					<Link href={'/help'}>
+					<Link href={'/help'} passHref>
 						<a className={styles.Navs1}>Besoin d'assistance?</a>
 					</Link>
 				</span>

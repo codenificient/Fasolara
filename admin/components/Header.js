@@ -6,12 +6,12 @@ function Header({ user, loading }) {
       <nav>
         <ul>
           <li>
-            <Link href="/">
+            <Link href="/" passHref>
               <a>Home</a>
             </Link>
           </li>
           <li>
-            <Link href="/about">
+            <Link href="/about" passHref>
               <a>About</a>
             </Link>
           </li>
@@ -19,12 +19,12 @@ function Header({ user, loading }) {
             (user ? (
               <>
                 <li>
-                  <Link href="/profile">
+                  <Link href="/profile" passHref>
                     <a>Client-rendered profile</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/advanced/ssr-profile">
+                  <Link href="/advanced/ssr-profile" passHref>
                     <a>Server rendered profile (advanced)</a>
                   </Link>
                 </li>
