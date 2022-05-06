@@ -2,7 +2,7 @@ const cors = require('cors')
 const dotenv = require('dotenv')
 const express = require('express')
 const mongoose = require('mongoose')
-const schema = require('./src/schema/schema')
+const schema = require('./schema/schema')
 const { graphqlHTTP } = require('express-graphql')
 
 dotenv.config()
@@ -21,7 +21,7 @@ mongoose
 	.catch((err) => console.log(err))
 
 // Import application routes
-const addressRoutes = require('./src/routes/address')
+const addressRoutes = require('./routes/address')
 
 const app = express()
 
