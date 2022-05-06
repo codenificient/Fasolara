@@ -14,9 +14,13 @@ function Home() {
 			<div className="inn_wrapper">
 				<span className={styles.InlineRow}>
 					<span className={styles.search}>
-						<Input type="text" placeholder="réchercher les comptes, projets, investisseurs..." className={styles.searchTerm} />
+						<Input
+							type="text"
+							placeholder="réchercher les comptes, projets, investisseurs..."
+							className={styles.searchTerm}
+						/>
 						<button type="submit" className={styles.searchButton}>
-							<i className="fa fa-search Icon"  />
+							<i className="fa fa-search Icon" />
 						</button>
 					</span>
 
