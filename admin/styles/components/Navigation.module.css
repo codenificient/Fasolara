@@ -16,15 +16,15 @@
 
 .Logout .fas:hover,
 .Name:hover {
-	color: #FCA320;
+	color: #fca320;
 }
 
 .Inline i {
-	color: #FCA320;	
+	color: #fca320;
 }
 
 .Inline .MenuItem:active {
-	color: #FCA320;
+	color: #fca320;
 }
 
 .Inline,
@@ -43,3 +43,4 @@
 	display: block;
 	cursor: pointer;
 }
+

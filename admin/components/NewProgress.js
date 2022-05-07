@@ -54,4 +54,3 @@ export default function NewProgress({ sqSize, strokeWidth, percentage }) {
 		</div>
 	)
 }
-

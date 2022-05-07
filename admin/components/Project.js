@@ -3,7 +3,6 @@ import styles from '../styles/components/Projects.module.css'
 import Icon from './Icon'
 import Member from './Member'
 import NewProgress from './NewProgress'
-import Progress from './Progress'
 
 export default function Project({ number, members, image, progress }) {
 	return (
@@ -11,7 +10,7 @@ export default function Project({ number, members, image, progress }) {
 			<div className={styles.title}>
 				<span className={styles.between}>
 					<h4 className={styles.heading}>Project {number}</h4>
-					<Icon classes={'fa-solid fa-pen-to-square'} colors="#FCA320" size={'25px'} />
+					<Icon classes={'fa-solid fa-pen-to-square'} colors="#FCA320" size={'23px'} />
 				</span>
 
 				<Image className={styles.project_img} src={image} alt={image} width={200} height={45} layout="raw" />
@@ -28,7 +27,7 @@ export default function Project({ number, members, image, progress }) {
 				<h4 className={styles.heading}>Progress:</h4>
 				<div>
 					{/* <Progress progress={progress} /> */}
-					<NewProgress percentage={progress} sqSize="125" strokeWidth="15" />
+					<NewProgress percentage={progress} sqSize="125" strokeWidth="11" />
 				</div>
 			</div>
 		</div>
