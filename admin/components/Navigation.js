@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/components/Navigation.module.css'
+import styles from '../styles/components/Navigation.module.scss'
 import { icons } from './data/navlinks'
 import NavMenu from './NavMenu'
 

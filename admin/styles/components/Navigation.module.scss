@@ -12,18 +12,29 @@
 .Name {
 	margin-left: 1rem;
 	text-transform: uppercase;
+	&:hover {
+		color: #fca320;
+	}
 }
 
-.Logout .fas:hover,
-.Name:hover {
-	color: #fca320;
+span .Center:hover {
+		color: #fca320;
+}
+
+.Active {
+		color: #fca320;
+}
+
+.Inactive {
+		color: #8d8d8d;
 }
 
 .Inline i {
 	color: #fca320;
 }
 
-.Inline .MenuItem:active {
+.Inline a:hover,
+.MenuItem a:hover {
 	color: #fca320;
 }
 

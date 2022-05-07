@@ -78,3 +78,7 @@ main {
 main::-webkit-scrollbar {
 	display: none;
 }
+
+.Center a:hover {
+	color: #fca320;
+}
