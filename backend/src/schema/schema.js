@@ -24,13 +24,15 @@ const Project = require('../model/project')
 const Province = require('../model/province')
 const Salary = require('../model/salary')
 const Supplier = require('../model/supplier')
+const Transaction = require('../model/transaction')
 const User = require('../model/user')
 const Village = require('../model/village')
 
 // SETUP GRAPHQL TYPES
 const AccountType = new GraphQLObjectType({
 	name: 'Account',
-	description: "This represent an Account type for storing relevant information regarding the ownership of investment accounts as well as salaries for employees and various other stakeholders",
+	description:
+		'This represent an Account type for storing relevant information regarding the ownership of investment accounts as well as salaries for employees and various other stakeholders',
 	fields: () => ({
 		id: { type: GraphQLID },
 		accountNumber: { type: GraphQLID },
@@ -53,7 +55,8 @@ const AccountType = new GraphQLObjectType({
 
 const AddressType = new GraphQLObjectType({
 	name: 'Address',
-	description: "This represent an Address type. For delivery and home address purposes, we need to help the country better locate people\'s addresses",
+	description:
+		"This represent an Address type. For delivery and home address purposes, we need to help the country better locate people's addresses",
 	fields: () => ({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
@@ -78,7 +81,8 @@ const AddressType = new GraphQLObjectType({
 
 const BankType = new GraphQLObjectType({
 	name: 'Bank',
-	description: "This represent a Bank type or any other financial instituation which can provide loans to FasoLara investors as part of the wealth creation scheme",
+	description:
+		'This represent a Bank type or any other financial instituation which can provide loans to FasoLara investors as part of the wealth creation scheme',
 	fields: () => ({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
@@ -94,7 +98,8 @@ const BankType = new GraphQLObjectType({
 
 const CountryType = new GraphQLObjectType({
 	name: 'Country',
-	description: "This represent a Country type. Added as a way to futureproof the company which might end up expanding to other countries beyond the borders of Burkina",
+	description:
+		'This represent a Country type. Added as a way to futureproof the company which might end up expanding to other countries beyond the borders of Burkina',
 	fields: () => ({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
@@ -112,7 +117,8 @@ const CountryType = new GraphQLObjectType({
 
 const LocationType = new GraphQLObjectType({
 	name: 'Location',
-	description: "This represent a Location type. It is a placeholder for how to handle GEOJson data which is used for drawing polygons on a map to represent a region, province, country or even an entire continent",
+	description:
+		'This represent a Location type. It is a placeholder for how to handle GEOJson data which is used for drawing polygons on a map to represent a region, province, country or even an entire continent',
 	fields: () => ({
 		id: { type: GraphQLID },
 		locationId: { type: GraphQLID },
@@ -124,7 +130,8 @@ const LocationType = new GraphQLObjectType({
 
 const PanelType = new GraphQLObjectType({
 	name: 'Panel',
-	description: "This represent a Panel type, pointing to an individual solar panel. Stores several properties and attributes during the lifetime of a solar panel",
+	description:
+		'This represent a Panel type, pointing to an individual solar panel. Stores several properties and attributes during the lifetime of a solar panel',
 	fields: () => ({
 		id: { type: GraphQLID },
 		serialNumber: { type: GraphQLString },
@@ -146,7 +153,8 @@ const PanelType = new GraphQLObjectType({
 
 const ProjectType = new GraphQLObjectType({
 	name: 'Project',
-	description: "This represent a Project type representing a FasoLara permanent and semi perminent installation for producting energy. Tracks various people and organisations involved in the success of each venture",
+	description:
+		'This represent a Project type representing a FasoLara permanent and semi perminent installation for producting energy. Tracks various people and organisations involved in the success of each venture',
 	fields: () => ({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
@@ -174,7 +182,8 @@ const ProjectType = new GraphQLObjectType({
 
 const ProvinceType = new GraphQLObjectType({
 	name: 'Province',
-	description: "This represent a Province type. Every province contains several villages and has a regional seat for administrative purposes which can serve as the main city to base so regional FasoLara offices",
+	description:
+		'This represent a Province type. Every province contains several villages and has a regional seat for administrative purposes which can serve as the main city to base so regional FasoLara offices',
 	fields: () => ({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
@@ -196,7 +205,8 @@ const ProvinceType = new GraphQLObjectType({
 
 const SalaryType = new GraphQLObjectType({
 	name: 'Salary',
-	description: "This represent a Salary type for the employees of the company. It is used to track the progress of the carreer of each team member and pay is determined by job title and promotion dates",
+	description:
+		'This represent a Salary type for the employees of the company. It is used to track the progress of the carreer of each team member and pay is determined by job title and promotion dates',
 	fields: () => ({
 		id: { type: GraphQLID },
 		jobTitle: { type: GraphQLString },
@@ -214,7 +224,8 @@ const SalaryType = new GraphQLObjectType({
 
 const SupplierType = new GraphQLObjectType({
 	name: 'Supplier',
-	description: "This represent a Supplier type for tracking all kinds of business entities who will one day supply various items needed to the mission of FasoLara. Food, to panels, equipment,e tc.",
+	description:
+		'This represent a Supplier type for tracking all kinds of business entities who will one day supply various items needed to the mission of FasoLara. Food, to panels, equipment,e tc.',
 	fields: () => ({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
@@ -235,9 +246,37 @@ const SupplierType = new GraphQLObjectType({
 	})
 })
 
+const TransactionType = new GraphQLObjectType({
+	name: 'Transaction',
+	description:
+		'This represent a Transaction type for tracking every monetary transaction within the company ranging from orders to salaries and bonuses to donations',
+	fields: () => ({
+		id: { type: GraphQLID },
+		amount: { type: GraphQLFloat },
+		memo: { type: GraphQLString },
+		tax: { type: GraphQLFloat },
+		status: { type: GraphQLString },
+		kind: { type: GraphQLString },
+		isActive: { type: GraphQLBoolean },
+		receiver: {
+			type: UserType,
+			resolve(parent, args) {
+				return User.findById(parent.customerId)
+			}
+		},
+		account: {
+			type: AccountType,
+			resolve(parent, args) {
+				return Account.findById(parent.accountId)
+			}
+		}
+	})
+})
+
 const UserType = new GraphQLObjectType({
 	name: 'User',
-	description: "This represent a User with name, national ID, full name, username, date of birth for calculating age, as well as role to determine admins from employees and investors",
+	description:
+		'This represent a User with name, national ID, full name, username, date of birth for calculating age, as well as role to determine admins from employees and investors',
 	fields: () => ({
 		id: { type: GraphQLID },
 		account: {
@@ -268,7 +307,8 @@ const UserType = new GraphQLObjectType({
 
 const VillageType = new GraphQLObjectType({
 	name: 'Village',
-	description: "This represent a Village type. There are 8 thousand villages in Burkina, but 355 will be used as the base locations from where we can determine the exact geolocation of every FasoLara project",
+	description:
+		'This represent a Village type. There are 8 thousand villages in Burkina, but 355 will be used as the base locations from where we can determine the exact geolocation of every FasoLara project',
 	fields: () => ({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
@@ -291,45 +331,19 @@ const VillageType = new GraphQLObjectType({
  * #TODO InvestorType
  *  */
 const RootQuery = new GraphQLObjectType({
-	name: 'RootQueryType',
+	name: 'RootType',
 	fields: {
-		user: {
-			type: UserType,
+		account: {
+			type: AccountType,
 			args: { id: { type: GraphQLID } },
 			resolve(parent, args) {
-				return User.findById(args.id)
+				return Account.findById(args.id)
 			}
 		},
-		users: {
-			type: new GraphQLList(UserType),
+		accounts: {
+			type: new GraphQLList(AccountType),
 			resolve(parent, args) {
-				return User.find({})
-			}
-		},
-		village: {
-			type: VillageType,
-			args: { id: { type: GraphQLID } },
-			resolve(parent, args) {
-				return Village.findById(args.id)
-			}
-		},
-		villages: {
-			type: new GraphQLList(VillageType),
-			resolve(parent, args) {
-				return Village.find({})
-			}
-		},
-		province: {
-			type: ProvinceType,
-			args: { id: { type: GraphQLID } },
-			resolve(parent, args) {
-				return Province.findById(args.id)
-			}
-		},
-		provinces: {
-			type: new GraphQLList(ProvinceType),
-			resolve(parent, args) {
-				return Province.find({})
+				return Account.find({})
 			}
 		},
 		address: {
@@ -345,19 +359,6 @@ const RootQuery = new GraphQLObjectType({
 				return Address.find({})
 			}
 		},
-		account: {
-			type: AccountType,
-			args: { id: { type: GraphQLID } },
-			resolve(parent, args) {
-				return Account.findById(args.id)
-			}
-		},
-		accounts: {
-			type: new GraphQLList(AccountType),
-			resolve(parent, args) {
-				return Account.find({})
-			}
-		},
 		bank: {
 			type: BankType,
 			args: { id: { type: GraphQLID } },
@@ -369,6 +370,32 @@ const RootQuery = new GraphQLObjectType({
 			type: new GraphQLList(BankType),
 			resolve(parent, args) {
 				return Bank.find({})
+			}
+		},
+		country: {
+			type: CountryType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Country.findById(args.id)
+			}
+		},
+		countries: {
+			type: new GraphQLList(CountryType),
+			resolve(parent, args) {
+				return Country.find({})
+			}
+		},
+		location: {
+			type: LocationType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Location.findById(args.id)
+			}
+		},
+		locations: {
+			type: new GraphQLList(LocationType),
+			resolve(parent, args) {
+				return Location.find({})
 			}
 		},
 		panel: {
@@ -397,17 +424,17 @@ const RootQuery = new GraphQLObjectType({
 				return Project.find({})
 			}
 		},
-		supplier: {
-			type: SupplierType,
+		province: {
+			type: ProvinceType,
 			args: { id: { type: GraphQLID } },
 			resolve(parent, args) {
-				return Supplier.findById(args.id)
+				return Province.findById(args.id)
 			}
 		},
-		suppliers: {
-			type: new GraphQLList(SupplierType),
+		provinces: {
+			type: new GraphQLList(ProvinceType),
 			resolve(parent, args) {
-				return Supplier.find({})
+				return Province.find({})
 			}
 		},
 		salary: {
@@ -422,6 +449,58 @@ const RootQuery = new GraphQLObjectType({
 			resolve(parent, args) {
 				return Salary.find({})
 			}
+		},
+		supplier: {
+			type: SupplierType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Supplier.findById(args.id)
+			}
+		},
+		suppliers: {
+			type: new GraphQLList(SupplierType),
+			resolve(parent, args) {
+				return Supplier.find({})
+			}
+		},
+		transaction: {
+			type: TransactionType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Transaction.findById(args.id)
+			}
+		},
+		transactions: {
+			type: new GraphQLList(TransactionType),
+			resolve(parent, args) {
+				return Transaction.find({})
+			}
+		},
+		user: {
+			type: UserType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return User.findById(args.id)
+			}
+		},
+		users: {
+			type: new GraphQLList(UserType),
+			resolve(parent, args) {
+				return User.find({})
+			}
+		},
+		village: {
+			type: VillageType,
+			args: { id: { type: GraphQLID } },
+			resolve(parent, args) {
+				return Village.findById(args.id)
+			}
+		},
+		villages: {
+			type: new GraphQLList(VillageType),
+			resolve(parent, args) {
+				return Village.find({})
+			}
 		}
 	}
 })
@@ -429,126 +508,6 @@ const RootQuery = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
 	name: 'Mutation',
 	fields: {
-		addUser: {
-			type: UserType,
-			args: {
-				cnib: { type: new GraphQLNonNull(GraphQLString) },
-				firstname: { type: new GraphQLNonNull(GraphQLString) },
-				lastname: { type: new GraphQLNonNull(GraphQLString) },
-				username: { type: new GraphQLNonNull(GraphQLString) },
-				dob: { type: GraphQLString },
-				role: { type: GraphQLString },
-				email: { type: new GraphQLNonNull(GraphQLString) },
-				password: { type: new GraphQLNonNull(GraphQLString) },
-				confpassword: { type: new GraphQLNonNull(GraphQLString) },
-				accountId: { type: GraphQLID },
-				isActive: { type: GraphQLBoolean },
-				addressId: { type: GraphQLID }
-			},
-			resolve(parent, args) {
-				if (args.password !== args.confpassword) {
-					return new GraphQLError("Passwords don't match")
-				}
-				let hashed = bcrypt.hashSync(args.password, 10)
-				let user = new User({
-					firstname: args.firstname,
-					lastname: args.lastname,
-					cnib: args.cnib,
-					username: args.username,
-					dob: args.dob,
-					role: args.role,
-					isActive: args.isActive,
-					email: args.email,
-					accountId: args.accountId,
-					cnib: args.cnib
-				})
-				if (hashed !== '') user.hash_password = hashed
-				user.created = new Date()
-				return user.save()
-			}
-		},
-		addVillage: {
-			type: VillageType,
-			args: {
-				name: { type: new GraphQLNonNull(GraphQLString) },
-				population: { type: new GraphQLNonNull(GraphQLInt) },
-				provinceId: { type: new GraphQLNonNull(GraphQLID) },
-				dotcolor: { type: GraphQLString },
-				urbanCommune: { type: GraphQLBoolean }
-			},
-			resolve(parent, args) {
-				let village = new Village({
-					name: args.name,
-					dotcolor: args.dotcolor,
-					population: args.population,
-					provinceId: args.provinceId,
-					urbanCommune: args.urbanCommune
-				})
-				village.created = new Date()
-				return village.save()
-			}
-		},
-		addProvince: {
-			type: ProvinceType,
-			args: {
-				name: { type: new GraphQLNonNull(GraphQLString) },
-				region: { type: new GraphQLNonNull(GraphQLString) },
-				zone: { type: new GraphQLNonNull(GraphQLString) },
-				seat: { type: new GraphQLNonNull(GraphQLString) },
-				countryId: { type: new GraphQLNonNull(GraphQLID) },
-				polycolor: { type: new GraphQLNonNull(GraphQLString) }
-			},
-			resolve(parent, args) {
-				let province = new Province({
-					name: args.name,
-					region: args.region,
-					zone: args.zone,
-					countryId: args.countryId,
-					seat: args.seat,
-					polycolor: args.polycolor
-				})
-				return province.save()
-			}
-		},
-		addAddress: {
-			type: AddressType,
-			args: {
-				name: { type: new GraphQLNonNull(GraphQLString) },
-				mobileNumber: { type: new GraphQLNonNull(GraphQLString) },
-				address: { type: new GraphQLNonNull(GraphQLString) },
-				addressType: { type: GraphQLString },
-				created: { type: GraphQLString },
-				dotcolor: { type: GraphQLString },
-				villageId: { type: new GraphQLNonNull(GraphQLID) },
-				locationId: { type: new GraphQLNonNull(GraphQLID) }
-			},
-			resolve(parent, args) {
-				let address = new Address({
-					name: args.name,
-					mobileNumber: args.mobileNumber,
-					addressType: args.addressType,
-					locationId: args.locationId,
-					villageId: args.villageId,
-					dotcolor: args.dotcolor
-				})
-				return address.save()
-			}
-		},
-		addLocation: {
-			type: LocationType,
-			args: {
-				address: { type: new GraphQLNonNull(GraphQLString) },
-				created: { type: GraphQLString }
-			},
-			resolve(parent, args) {
-				let location = new Location({
-					address: args.address,
-					locationId: nanoid()
-				})
-				location.created = new Date()
-				return location.save()
-			}
-		},
 		addAccount: {
 			type: AccountType,
 			args: {
@@ -577,9 +536,31 @@ const Mutation = new GraphQLObjectType({
 				return account.save()
 			}
 		},
+		addAddress: {
+			type: AddressType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				mobileNumber: { type: new GraphQLNonNull(GraphQLString) },
+				address: { type: new GraphQLNonNull(GraphQLString) },
+				addressType: { type: GraphQLString },
+				created: { type: GraphQLString },
+				dotcolor: { type: GraphQLString },
+				villageId: { type: new GraphQLNonNull(GraphQLID) },
+				locationId: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				let address = new Address({
+					name: args.name,
+					mobileNumber: args.mobileNumber,
+					addressType: args.addressType,
+					locationId: args.locationId,
+					villageId: args.villageId,
+					dotcolor: args.dotcolor
+				})
+				return address.save()
+			}
+		},
 		addBank: {
-			// Allows users to add a new bank
-
 			type: BankType,
 			args: {
 				name: { type: new GraphQLNonNull(GraphQLString) },
@@ -594,6 +575,41 @@ const Mutation = new GraphQLObjectType({
 				})
 				bank.created = new Date()
 				return bank.save()
+			}
+		},
+		addCountry: {
+			type: CountryType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				locationId: { type: GraphQLID },
+				polycolor: { type: GraphQLString },
+				continent: { type: new GraphQLNonNull(GraphQLString) },
+				population: { type: GraphQLInt }
+			},
+			resolve(parent, args) {
+				let country = new Country({
+					name: args.name,
+					population: args.population,
+					locationId: args.locationId,
+					continent: args.continent,
+					polycolor: args.polycolor
+				})
+				return country.save()
+			}
+		},
+		addLocation: {
+			type: LocationType,
+			args: {
+				address: { type: new GraphQLNonNull(GraphQLString) },
+				created: { type: GraphQLString }
+			},
+			resolve(parent, args) {
+				let location = new Location({
+					address: args.address,
+					locationId: nanoid()
+				})
+				location.created = new Date()
+				return location.save()
 			}
 		},
 		addPanel: {
@@ -659,6 +675,48 @@ const Mutation = new GraphQLObjectType({
 				return project.save()
 			}
 		},
+		addProvince: {
+			type: ProvinceType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				region: { type: new GraphQLNonNull(GraphQLString) },
+				zone: { type: new GraphQLNonNull(GraphQLString) },
+				seat: { type: new GraphQLNonNull(GraphQLString) },
+				countryId: { type: new GraphQLNonNull(GraphQLID) },
+				polycolor: { type: new GraphQLNonNull(GraphQLString) }
+			},
+			resolve(parent, args) {
+				let province = new Province({
+					name: args.name,
+					region: args.region,
+					zone: args.zone,
+					countryId: args.countryId,
+					seat: args.seat,
+					polycolor: args.polycolor
+				})
+				return province.save()
+			}
+		},
+		addSalary: {
+			type: SalaryType,
+			args: {
+				jobTitle: { type: GraphQLString },
+				startDate: { type: GraphQLString },
+				endDate: { type: GraphQLString },
+				amount: { type: new GraphQLNonNull(GraphQLFloat) },
+				employeeId: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				let salary = new Salary({
+					jobTitle: args.jobTitle,
+					endDate: args.endDate,
+					amount: args.amount,
+					employeeId: args.employeeId
+				})
+				salary.startDate = new Date()
+				return salary.save()
+			}
+		},
 		addSupplier: {
 			type: SupplierType,
 			args: {
@@ -682,27 +740,165 @@ const Mutation = new GraphQLObjectType({
 				return supplier.save()
 			}
 		},
-		addSalary: {
-			type: SalaryType,
+		addTransaction: {
+			type: TransactionType,
 			args: {
-				jobTitle: { type: GraphQLString },
-				startDate: { type: GraphQLString },
-				endDate: { type: GraphQLString },
 				amount: { type: new GraphQLNonNull(GraphQLFloat) },
-				employeeId: { type: new GraphQLNonNull(GraphQLID) }
+				accountId: { type: new GraphQLNonNull(GraphQLID) },
+				taxRate: { type: new GraphQLNonNull(GraphQLFloat) },
+				kind: { type: new GraphQLNonNull(GraphQLString) },
+				status: { type: GraphQLString },
+				memo: { type: GraphQLString },
+				customerId: { type: GraphQLID },
+				tax: { type: GraphQLFloat }
 			},
 			resolve(parent, args) {
-				let salary = new Salary({
-					jobTitle: args.jobTitle,
-					endDate: args.endDate,
+				let transaction = new Transaction({
 					amount: args.amount,
-					employeeId: args.employeeId
+					accountId: args.accountId,
+					customerId: args.customerId,
+					taxRate: args.taxRate,
+					status: args.status,
+					kind: args.kind,
+					memo: args.memo,
+					tax: args.tax
 				})
-				salary.startDate = new Date()
-				return salary.save()
+				return transaction.save()
 			}
 		},
-		addCountry: {
+		addUser: {
+			type: UserType,
+			args: {
+				cnib: { type: new GraphQLNonNull(GraphQLString) },
+				firstname: { type: new GraphQLNonNull(GraphQLString) },
+				lastname: { type: new GraphQLNonNull(GraphQLString) },
+				username: { type: new GraphQLNonNull(GraphQLString) },
+				dob: { type: GraphQLString },
+				role: { type: GraphQLString },
+				email: { type: new GraphQLNonNull(GraphQLString) },
+				password: { type: new GraphQLNonNull(GraphQLString) },
+				confpassword: { type: new GraphQLNonNull(GraphQLString) },
+				accountId: { type: GraphQLID },
+				isActive: { type: GraphQLBoolean },
+				addressId: { type: GraphQLID }
+			},
+			resolve(parent, args) {
+				if (args.password !== args.confpassword) {
+					return new GraphQLError("Passwords don't match")
+				}
+				let hashed = bcrypt.hashSync(args.password, 10)
+				let user = new User({
+					firstname: args.firstname,
+					lastname: args.lastname,
+					cnib: args.cnib,
+					username: args.username,
+					dob: args.dob,
+					role: args.role,
+					isActive: args.isActive,
+					email: args.email,
+					accountId: args.accountId,
+					cnib: args.cnib
+				})
+				if (hashed !== '') user.hash_password = hashed
+				user.created = new Date()
+				return user.save()
+			}
+		},
+		addVillage: {
+			type: VillageType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				population: { type: new GraphQLNonNull(GraphQLInt) },
+				provinceId: { type: new GraphQLNonNull(GraphQLID) },
+				dotcolor: { type: GraphQLString },
+				urbanCommune: { type: GraphQLBoolean }
+			},
+			resolve(parent, args) {
+				let village = new Village({
+					name: args.name,
+					dotcolor: args.dotcolor,
+					population: args.population,
+					provinceId: args.provinceId,
+					urbanCommune: args.urbanCommune
+				})
+				village.created = new Date()
+				return village.save()
+			}
+		},
+
+		// UPDATE ALL THE ITEMS
+		updateAccount: {
+			type: AccountType,
+			args: {
+				customerId: { type: new GraphQLNonNull(GraphQLID) },
+				accountNumber: { type: new GraphQLNonNull(GraphQLString) },
+				carrier: { type: new GraphQLNonNull(GraphQLString) },
+				debtAmount: { type: GraphQLFloat },
+				balance: { type: GraphQLFloat },
+				lifetimeEarning: { type: GraphQLFloat },
+				loaningBankId: { type: new GraphQLNonNull(GraphQLID) },
+				created: { type: GraphQLString },
+				solarGroup: { type: new GraphQLNonNull(GraphQLString) }
+			},
+			resolve(parent, args) {
+				let account = new Account({
+					customerId: args.customerId,
+					accountNumber: args.accountNumber,
+					carrier: args.carrier,
+					debtAmount: args.debtAmount,
+					balance: args.balance,
+					loaningBankId: args.loaningBankId,
+					villageId: args.villageId,
+					solarGroup: args.solarGroup
+				})
+				account.created = new Date()
+				return account.save()
+			}
+		},
+		updateAddress: {
+			type: AddressType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				mobileNumber: { type: new GraphQLNonNull(GraphQLString) },
+				address: { type: new GraphQLNonNull(GraphQLString) },
+				addressType: { type: GraphQLString },
+				created: { type: GraphQLString },
+				dotcolor: { type: GraphQLString },
+				villageId: { type: new GraphQLNonNull(GraphQLID) },
+				locationId: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				let address = new Address({
+					name: args.name,
+					mobileNumber: args.mobileNumber,
+					addressType: args.addressType,
+					locationId: args.locationId,
+					villageId: args.villageId,
+					dotcolor: args.dotcolor
+				})
+				return address.save()
+			}
+		},
+		updateBank: {
+			// Allows users to add a new bank
+
+			type: BankType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				addressId: { type: new GraphQLNonNull(GraphQLID) },
+				branch: { type: new GraphQLNonNull(GraphQLString) }
+			},
+			resolve(parent, args) {
+				let bank = new Bank({
+					name: args.name,
+					addressId: args.addressId,
+					branch: args.branch
+				})
+				bank.created = new Date()
+				return bank.save()
+			}
+		},
+		updateCountry: {
 			type: CountryType,
 			args: {
 				name: { type: new GraphQLNonNull(GraphQLString) },
@@ -722,7 +918,159 @@ const Mutation = new GraphQLObjectType({
 				return country.save()
 			}
 		},
-		// UPDATE ALL THE ITEMS
+		updateLocation: {
+			type: LocationType,
+			args: {
+				address: { type: new GraphQLNonNull(GraphQLString) },
+				created: { type: GraphQLString }
+			},
+			resolve(parent, args) {
+				let location = new Location({
+					address: args.address,
+					locationId: nanoid()
+				})
+				location.created = new Date()
+				return location.save()
+			}
+		},
+		updatePanel: {
+			type: PanelType,
+			args: {
+				serialNumber: { type: new GraphQLNonNull(GraphQLString) },
+				groupId: { type: new GraphQLNonNull(GraphQLString) },
+				customerId: { type: new GraphQLNonNull(GraphQLID) },
+				orderDate: { type: GraphQLString },
+				installDate: { type: GraphQLString },
+				installCost: { type: GraphQLFloat },
+				isReplacement: { type: GraphQLBoolean },
+				isInstalled: { type: GraphQLBoolean },
+				isActive: { type: GraphQLBoolean }
+			},
+			resolve(parent, args) {
+				let panel = new Panel({
+					serialNumber: args.serialNumber,
+					groupId: args.groupId,
+					customerId: args.customerId,
+					orderDate: args.orderDate,
+					installDate: args.installDate,
+					installCost: args.installCost,
+					isReplacement: args.isReplacement,
+					isInstalled: args.isInstalled,
+					isActive: args.isActive
+				})
+				return panel.save()
+			}
+		},
+		updateProject: {
+			type: ProjectType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) },
+				name: { type: GraphQLString },
+				zone: { type: GraphQLString },
+				addressId: { type: GraphQLID },
+				dotcolor: { type: GraphQLString },
+				impact: { type: GraphQLFloat },
+				created: { type: GraphQLString },
+				isActive: { type: GraphQLBoolean },
+				isComplete: { type: GraphQLBoolean }
+			},
+			resolve(parent, args) {
+				let localProject = {}
+				if (args.name) localProject.name = args.name
+				if (args.zone) localProject.zone = args.zone
+				if (args.addressId) localProject.addressId = args.addressId
+				if (args.dotcolor) localProject.dotcolor = args.dotcolor
+				if (args.impact) localProject.impact = args.impact
+				if (args.created) localProject.created = args.created
+				if (args.isActive) localProject.isActive = args.isActive
+				if (args.isComplete) localProject.isComplete = args.isComplete
+				return Project.findOneAndUpdate(args.id, localProject, { new: true })
+			}
+		},
+		updateProvince: {
+			type: ProvinceType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				region: { type: new GraphQLNonNull(GraphQLString) },
+				zone: { type: new GraphQLNonNull(GraphQLString) },
+				seat: { type: new GraphQLNonNull(GraphQLString) },
+				countryId: { type: new GraphQLNonNull(GraphQLID) },
+				polycolor: { type: new GraphQLNonNull(GraphQLString) }
+			},
+			resolve(parent, args) {
+				let province = new Province({
+					name: args.name,
+					region: args.region,
+					zone: args.zone,
+					countryId: args.countryId,
+					seat: args.seat,
+					polycolor: args.polycolor
+				})
+				return province.save()
+			}
+		},
+		updateSalary: {
+			type: SalaryType,
+			args: {
+				jobTitle: { type: GraphQLString },
+				startDate: { type: GraphQLString },
+				endDate: { type: GraphQLString },
+				amount: { type: new GraphQLNonNull(GraphQLFloat) },
+				employeeId: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				let salary = new Salary({
+					jobTitle: args.jobTitle,
+					endDate: args.endDate,
+					amount: args.amount,
+					employeeId: args.employeeId
+				})
+				salary.startDate = new Date()
+				return salary.save()
+			}
+		},
+		updateTransaction: {
+			type: TransactionType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				accountId: { type: new GraphQLNonNull(GraphQLID) },
+				addressId: { type: new GraphQLNonNull(GraphQLID) },
+				created: { type: GraphQLString },
+				area: { type: GraphQLString },
+				isActive: { type: GraphQLBoolean }
+			},
+			resolve(parent, args) {
+				let supplier = new Supplier({
+					name: args.name,
+					accountId: args.accountId,
+					addressId: args.addressId,
+					created: args.created,
+					area: args.area,
+					isActive: args.isActive
+				})
+				supplier.created = new Date()
+				return supplier.save()
+			}
+		},
+		updateVillage: {
+			type: VillageType,
+			args: {
+				name: { type: new GraphQLNonNull(GraphQLString) },
+				population: { type: new GraphQLNonNull(GraphQLInt) },
+				provinceId: { type: new GraphQLNonNull(GraphQLID) },
+				dotcolor: { type: GraphQLString },
+				urbanCommune: { type: GraphQLBoolean }
+			},
+			resolve(parent, args) {
+				let localVillage = {}
+				if (args.name) localVillage.name = args.name
+				if (args.population) localVillage.population = args.population
+				if (args.urbanCommune) localVillage.urbanCommune = args.urbanCommune
+				if (args.dotcolor) localVillage.dotcolor = args.dotcolor
+				if (args.provinceId) localVillage.provinceId = args.provinceId
+				return Village.findOneAndUpdate(args.id, localVillage, { new: true })
+			}
+		},
 		updateUser: {
 			type: UserType,
 			args: {
@@ -778,32 +1126,6 @@ const Mutation = new GraphQLObjectType({
 				if (args.area) localSupplier.area = args.area
 				if (args.isActive) localSupplier.isActive = args.isActive
 				return Supplier.findOneAndUpdate(args.id, localSupplier, { new: true })
-			}
-		},
-		updateProject: {
-			type: ProjectType,
-			args: {
-				id: { type: new GraphQLNonNull(GraphQLID) },
-				name: { type: GraphQLString },
-				zone: { type: GraphQLString },
-				addressId: { type: GraphQLID },
-				dotcolor: { type: GraphQLString },
-				impact: { type: GraphQLFloat },
-				created: { type: GraphQLString },
-				isActive: { type: GraphQLBoolean },
-				isComplete: { type: GraphQLBoolean }
-			},
-			resolve(parent, args) {
-				let localProject = {}
-				if (args.name) localProject.name = args.name
-				if (args.zone) localProject.zone = args.zone
-				if (args.addressId) localProject.addressId = args.addressId
-				if (args.dotcolor) localProject.dotcolor = args.dotcolor
-				if (args.impact) localProject.impact = args.impact
-				if (args.created) localProject.created = args.created
-				if (args.isActive) localProject.isActive = args.isActive
-				if (args.isComplete) localProject.isComplete = args.isComplete
-				return Project.findOneAndUpdate(args.id, localProject, { new: true })
 			}
 		},
 		updateProjectSupplier: {
