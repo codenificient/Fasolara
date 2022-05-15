@@ -1142,6 +1142,147 @@ const Mutation = new GraphQLObjectType({
 					}
 				)
 			}
+		},
+
+		// DELETE MUTATION FOR ALL ITEMS
+		deleteAccount: {
+			type: AccountType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Account.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteAddress: {
+			type: AddressType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Address.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteBank: {
+			type: BankType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Bank.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteCountry: {
+			type: CountryType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Country.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteLocation: {
+			type: LocationType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				l
+				return Location.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deletePanel: {
+			type: PanelType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Panel.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteProject: {
+			type: ProjectType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Project.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteProvince: {
+			type: ProvinceType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Province.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteSalary: {
+			type: SalaryType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Salary.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteTransaction: {
+			type: TransactionType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Transaction.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteVillage: {
+			type: VillageType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Village.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteUser: {
+			type: UserType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return User.findByIdAndDelete(args.id)
+			}
+		},
+		deleteSupplier: {
+			type: SupplierType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Supplier.findByIdAndDelete({_id: args.id})
+			}
+		},
+		deleteProjectSupplier: {
+			type: ProjectType,
+			args: {
+				id: { type: new GraphQLNonNull(GraphQLID) }
+			},
+			resolve(parent, args) {
+				return Project.findOneAndUpdate(
+					{ _id: args.id },
+					{
+						$pull: {
+							suppliers: {
+								$each: [ { supplierId: args.supplierId } ]
+							}
+						}
+					},
+					{
+						new: true
+					}
+				)
+			}
 		}
 	}
 })
