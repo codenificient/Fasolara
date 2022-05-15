@@ -5,8 +5,7 @@ import Icon from './Icon'
 export default function ProfileMenu() {
 	return (
 		<div className={styles.profilemenu_container}>
-			<Icon classes={'fa-solid fa-bell'} colors="#8d8d8d" size="30px" />
-			<div className="icon_indicator" />
+		
 
 			<div className={styles.profile}>
 				<Avatar image={'/assets/admin.png'} wSize="90" iSize="70" />

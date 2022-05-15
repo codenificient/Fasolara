@@ -1,12 +1,15 @@
 import Link from 'next/link'
+import { useState } from 'react'
 import ActiveProjects from '../components/ActiveProjects'
 import Charts from '../components/Charts'
+import Icon from '../components/Icon'
 import Layout from '../components/Layout'
 import Projects from '../components/Projects'
 import Input from '../components/UI/Input'
 import styles from '../styles/pages/Home.module.scss'
 
 export default function Home() {
+	const [ notify, setNotify ] = useState(true)
 	return (
 		<Layout>
 			<div className="inn_wrapper">
@@ -28,6 +31,8 @@ export default function Home() {
 					<Link href={'/help'} passHref>
 						<a className={styles.Navs1}>Besoin d&apos;assistance?</a>
 					</Link>
+					<Icon classes={'fa-solid fa-bell'} colors="#8d8d8d" size="30px" />
+					<div className={styles.icon_indicator} style={{ display: notify ? 'block' : 'none' }} />
 				</span>
 				<Projects />
 				<Charts />

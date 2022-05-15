@@ -43,14 +43,14 @@ a {
 .inn_wrapper input {
 	background-color: #141414;
 	color: #aaa;
-	width: 50vw;
+	width: 52vw;
 	border: 1px solid #8d8d8d99;
 	margin-left:2rem;
 	line-height: 3rem;
 	margin-bottom: 0.5rem;
-	margin-top: 1rem;
 	padding-left: 3.5rem;
 }
+
 .inn_wrapper input:focus-visible,
 .inn_wrapper input:hover {
 	color: #f24e1e;
@@ -60,6 +60,8 @@ a {
 .inn_wrapper label {
 	color: #aaa;
 }
+
+
 
 body {
 	margin: 0;

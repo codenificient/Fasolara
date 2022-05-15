@@ -9,7 +9,7 @@ export default function Input(props) {
 			input = (
 				<Form.Group>
 					{props.label && <Form.Label>{props.label}</Form.Label>}
-					<select className="form-control" value={props.value} onChange={props.onChange}>
+					<select className={StyleSheet.form_control} value={props.value} onChange={props.onChange}>
 						<option value="">{props.placeholder}</option>
 						{props.options.length > 0 ? (
 							props.options.map((option, index) => (

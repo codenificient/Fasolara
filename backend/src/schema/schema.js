@@ -28,8 +28,216 @@ const User = require('../model/user')
 const Village = require('../model/village')
 
 // SETUP GRAPHQL TYPES
+const AccountType = new GraphQLObjectType({
+	name: 'Account',
+	description: "This represent an Account type for storing relevant information regarding the ownership of investment accounts as well as salaries for employees and various other stakeholders",
+	fields: () => ({
+		id: { type: GraphQLID },
+		accountNumber: { type: GraphQLID },
+		customerId: { type: GraphQLID },
+		balance: { type: GraphQLFloat },
+		carrier: { type: GraphQLString },
+		solarGroup: { type: GraphQLString },
+		debtAmount: { type: GraphQLFloat },
+		lifetimeEarning: { type: GraphQLFloat },
+		created: { type: GraphQLString },
+		loaningBankId: { type: GraphQLID },
+		owner: {
+			type: UserType,
+			resolve(parent, args) {
+				return User.findById(parent.customerId)
+			}
+		}
+	})
+})
+
+const AddressType = new GraphQLObjectType({
+	name: 'Address',
+	description: "This represent an Address type. For delivery and home address purposes, we need to help the country better locate people\'s addresses",
+	fields: () => ({
+		id: { type: GraphQLID },
+		name: { type: GraphQLString },
+		mobileNumber: { type: GraphQLString },
+		addressType: { type: GraphQLString },
+		created: { type: GraphQLString },
+		dotcolor: { type: GraphQLString },
+		village: {
+			type: VillageType,
+			resolve(parent, args) {
+				return Village.findById(parent.villageId)
+			}
+		},
+		location: {
+			type: LocationType,
+			resolve(parent, args) {
+				return Location.findById(parent.locationId)
+			}
+		}
+	})
+})
+
+const BankType = new GraphQLObjectType({
+	name: 'Bank',
+	description: "This represent a Bank type or any other financial instituation which can provide loans to FasoLara investors as part of the wealth creation scheme",
+	fields: () => ({
+		id: { type: GraphQLID },
+		name: { type: GraphQLString },
+		branch: { type: GraphQLString },
+		address: {
+			type: AddressType,
+			resolve(parent, args) {
+				return Address.findById(parent.addressId)
+			}
+		}
+	})
+})
+
+const CountryType = new GraphQLObjectType({
+	name: 'Country',
+	description: "This represent a Country type. Added as a way to futureproof the company which might end up expanding to other countries beyond the borders of Burkina",
+	fields: () => ({
+		id: { type: GraphQLID },
+		name: { type: GraphQLString },
+		population: { type: GraphQLInt },
+		continent: { type: GraphQLString },
+		polycolor: { type: GraphQLString },
+		provinces: {
+			type: new GraphQLList(ProvinceType),
+			resolve(parent, args) {
+				return Province.find({ countryId: parent.id })
+			}
+		}
+	})
+})
+
+const LocationType = new GraphQLObjectType({
+	name: 'Location',
+	description: "This represent a Location type. It is a placeholder for how to handle GEOJson data which is used for drawing polygons on a map to represent a region, province, country or even an entire continent",
+	fields: () => ({
+		id: { type: GraphQLID },
+		locationId: { type: GraphQLID },
+		address: { type: GraphQLString },
+		created: { type: GraphQLString },
+		location: { type: GraphQLString }
+	})
+})
+
+const PanelType = new GraphQLObjectType({
+	name: 'Panel',
+	description: "This represent a Panel type, pointing to an individual solar panel. Stores several properties and attributes during the lifetime of a solar panel",
+	fields: () => ({
+		id: { type: GraphQLID },
+		serialNumber: { type: GraphQLString },
+		groupId: { type: GraphQLString },
+		installDate: { type: GraphQLString },
+		orderDate: { type: GraphQLString },
+		installCost: { type: GraphQLFloat },
+		isReplacement: { type: GraphQLBoolean },
+		isInstalled: { type: GraphQLBoolean },
+		isActive: { type: GraphQLBoolean },
+		customer: {
+			type: UserType,
+			resolve(parent, args) {
+				return User.findById(parent.customerId)
+			}
+		}
+	})
+})
+
+const ProjectType = new GraphQLObjectType({
+	name: 'Project',
+	description: "This represent a Project type representing a FasoLara permanent and semi perminent installation for producting energy. Tracks various people and organisations involved in the success of each venture",
+	fields: () => ({
+		id: { type: GraphQLID },
+		name: { type: GraphQLString },
+		zone: { type: GraphQLString },
+		dotcolor: { type: GraphQLString },
+		impact: { type: GraphQLFloat },
+		created: { type: GraphQLString },
+		isActive: { type: GraphQLBoolean },
+		isComplete: { type: GraphQLBoolean },
+		address: {
+			type: AddressType,
+			resolve(parent, args) {
+				return Address.findById(parent.addressId)
+			}
+		},
+		suppliers: {
+			type: new GraphQLList(SupplierType),
+			resolve(parent, args) {
+				const obj_ids = parent.suppliers.map((obj) => obj.supplierId)
+				return Supplier.find({ _id: { $in: obj_ids } })
+			}
+		}
+	})
+})
+
+const ProvinceType = new GraphQLObjectType({
+	name: 'Province',
+	description: "This represent a Province type. Every province contains several villages and has a regional seat for administrative purposes which can serve as the main city to base so regional FasoLara offices",
+	fields: () => ({
+		id: { type: GraphQLID },
+		name: { type: GraphQLString },
+		seat: { type: GraphQLString },
+		region: { type: GraphQLString },
+		zone: { type: GraphQLString },
+		provinceId: { type: GraphQLString },
+		polycolor: { type: GraphQLString },
+		dotcolor: { type: GraphQLString },
+		created: { type: GraphQLString },
+		villages: {
+			type: new GraphQLList(VillageType),
+			resolve(parent, args) {
+				return Village.find({ provinceId: parent.id })
+			}
+		}
+	})
+})
+
+const SalaryType = new GraphQLObjectType({
+	name: 'Salary',
+	description: "This represent a Salary type for the employees of the company. It is used to track the progress of the carreer of each team member and pay is determined by job title and promotion dates",
+	fields: () => ({
+		id: { type: GraphQLID },
+		jobTitle: { type: GraphQLString },
+		startDate: { type: GraphQLString },
+		endDate: { type: GraphQLString },
+		amount: { type: GraphQLInt },
+		employee: {
+			type: UserType,
+			resolve(parent, args) {
+				return User.findById(parent.employeeId)
+			}
+		}
+	})
+})
+
+const SupplierType = new GraphQLObjectType({
+	name: 'Supplier',
+	description: "This represent a Supplier type for tracking all kinds of business entities who will one day supply various items needed to the mission of FasoLara. Food, to panels, equipment,e tc.",
+	fields: () => ({
+		id: { type: GraphQLID },
+		name: { type: GraphQLString },
+		area: { type: GraphQLString },
+		isActive: { type: GraphQLBoolean },
+		address: {
+			type: AddressType,
+			resolve(parent, args) {
+				return Address.findById(parent.addressId)
+			}
+		},
+		account: {
+			type: AccountType,
+			resolve(parent, args) {
+				return Account.findById(parent.accountId)
+			}
+		}
+	})
+})
+
 const UserType = new GraphQLObjectType({
 	name: 'User',
+	description: "This represent a User with name, national ID, full name, username, date of birth for calculating age, as well as role to determine admins from employees and investors",
 	fields: () => ({
 		id: { type: GraphQLID },
 		account: {
@@ -60,6 +268,7 @@ const UserType = new GraphQLObjectType({
 
 const VillageType = new GraphQLObjectType({
 	name: 'Village',
+	description: "This represent a Village type. There are 8 thousand villages in Burkina, but 355 will be used as the base locations from where we can determine the exact geolocation of every FasoLara project",
 	fields: () => ({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
@@ -72,203 +281,6 @@ const VillageType = new GraphQLObjectType({
 			}
 		},
 		dotcolor: { type: GraphQLString }
-	})
-})
-
-const SalaryType = new GraphQLObjectType({
-	name: 'Salary',
-	fields: () => ({
-		id: { type: GraphQLID },
-		jobTitle: { type: GraphQLString },
-		startDate: { type: GraphQLString },
-		endDate: { type: GraphQLString },
-		amount: { type: GraphQLInt },
-		employee: {
-			type: UserType,
-			resolve(parent, args) {
-				return User.findById(parent.employeeId)
-			}
-		}
-	})
-})
-
-const ProvinceType = new GraphQLObjectType({
-	name: 'Province',
-	fields: () => ({
-		id: { type: GraphQLID },
-		name: { type: GraphQLString },
-		seat: { type: GraphQLString },
-		region: { type: GraphQLString },
-		zone: { type: GraphQLString },
-		provinceId: { type: GraphQLString },
-		polycolor: { type: GraphQLString },
-		dotcolor: { type: GraphQLString },
-		created: { type: GraphQLString },
-		villages: {
-			type: new GraphQLList(VillageType),
-			resolve(parent, args) {
-				return Village.find({ provinceId: parent.id })
-			}
-		}
-	})
-})
-
-const CountryType = new GraphQLObjectType({
-	name: 'Country',
-	fields: () => ({
-		id: { type: GraphQLID },
-		name: { type: GraphQLString },
-		population: { type: GraphQLInt },
-		continent: { type: GraphQLString },
-		polycolor: { type: GraphQLString },
-		provinces: {
-			type: new GraphQLList(ProvinceType),
-			resolve(parent, args) {
-				return Province.find({ countryId: parent.id })
-			}
-		}
-	})
-})
-
-const AddressType = new GraphQLObjectType({
-	name: 'Address',
-	fields: () => ({
-		id: { type: GraphQLID },
-		name: { type: GraphQLString },
-		mobileNumber: { type: GraphQLString },
-		addressType: { type: GraphQLString },
-		created: { type: GraphQLString },
-		dotcolor: { type: GraphQLString },
-		village: {
-			type: VillageType,
-			resolve(parent, args) {
-				return Village.findById(parent.villageId)
-			}
-		},
-		location: {
-			type: LocationType,
-			resolve(parent, args) {
-				return Location.findById(parent.locationId)
-			}
-		}
-	})
-})
-
-const LocationType = new GraphQLObjectType({
-	name: 'Location',
-	fields: () => ({
-		id: { type: GraphQLID },
-		locationId: { type: GraphQLID },
-		address: { type: GraphQLString },
-		created: { type: GraphQLString },
-		location: { type: GraphQLString }
-	})
-})
-
-const AccountType = new GraphQLObjectType({
-	name: 'Account',
-	fields: () => ({
-		id: { type: GraphQLID },
-		accountNumber: { type: GraphQLID },
-		customerId: { type: GraphQLID },
-		balance: { type: GraphQLFloat },
-		carrier: { type: GraphQLString },
-		solarGroup: { type: GraphQLString },
-		debtAmount: { type: GraphQLFloat },
-		lifetimeEarning: { type: GraphQLFloat },
-		created: { type: GraphQLString },
-		loaningBankId: { type: GraphQLID },
-		owner: {
-			type: UserType,
-			resolve(parent, args) {
-				return User.findById(parent.customerId)
-			}
-		}
-	})
-})
-
-const BankType = new GraphQLObjectType({
-	name: 'Bank',
-	fields: () => ({
-		id: { type: GraphQLID },
-		name: { type: GraphQLString },
-		branch: { type: GraphQLString },
-		address: {
-			type: AddressType,
-			resolve(parent, args) {
-				return Address.findById(parent.addressId)
-			}
-		}
-	})
-})
-
-const PanelType = new GraphQLObjectType({
-	name: 'Panel',
-	fields: () => ({
-		id: { type: GraphQLID },
-		serialNumber: { type: GraphQLString },
-		groupId: { type: GraphQLString },
-		installDate: { type: GraphQLString },
-		orderDate: { type: GraphQLString },
-		installCost: { type: GraphQLFloat },
-		isReplacement: { type: GraphQLBoolean },
-		isInstalled: { type: GraphQLBoolean },
-		isActive: { type: GraphQLBoolean },
-		customer: {
-			type: UserType,
-			resolve(parent, args) {
-				return User.findById(parent.customerId)
-			}
-		}
-	})
-})
-
-const SupplierType = new GraphQLObjectType({
-	name: 'Supplier',
-	fields: () => ({
-		id: { type: GraphQLID },
-		name: { type: GraphQLString },
-		area: { type: GraphQLString },
-		isActive: { type: GraphQLBoolean },
-		address: {
-			type: AddressType,
-			resolve(parent, args) {
-				return Address.findById(parent.addressId)
-			}
-		},
-		account: {
-			type: AccountType,
-			resolve(parent, args) {
-				return Account.findById(parent.accountId)
-			}
-		}
-	})
-})
-
-const ProjectType = new GraphQLObjectType({
-	name: 'Project',
-	fields: () => ({
-		id: { type: GraphQLID },
-		name: { type: GraphQLString },
-		zone: { type: GraphQLString },
-		dotcolor: { type: GraphQLString },
-		impact: { type: GraphQLFloat },
-		created: { type: GraphQLString },
-		isActive: { type: GraphQLBoolean },
-		isComplete: { type: GraphQLBoolean },
-		address: {
-			type: AddressType,
-			resolve(parent, args) {
-				return Address.findById(parent.addressId)
-			}
-		},
-		suppliers: {
-			type: new GraphQLList(SupplierType),
-			resolve(parent, args) {
-				const obj_ids = parent.suppliers.map((obj) => obj.supplierId)
-				return Supplier.find({ _id: { $in: obj_ids } })
-			}
-		}
 	})
 })
 
