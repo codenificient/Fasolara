@@ -837,108 +837,102 @@ const Mutation = new GraphQLObjectType({
 				balance: { type: GraphQLFloat },
 				lifetimeEarning: { type: GraphQLFloat },
 				loaningBankId: { type: new GraphQLNonNull(GraphQLID) },
-				created: { type: GraphQLString },
 				solarGroup: { type: new GraphQLNonNull(GraphQLString) }
 			},
 			resolve(parent, args) {
-				let account = new Account({
-					customerId: args.customerId,
-					accountNumber: args.accountNumber,
-					carrier: args.carrier,
-					debtAmount: args.debtAmount,
-					balance: args.balance,
-					loaningBankId: args.loaningBankId,
-					villageId: args.villageId,
-					solarGroup: args.solarGroup
-				})
-				account.created = new Date()
-				return account.save()
+				let localAccount = {}
+				if (args.customerId) localAccount.customerId = args.customerId
+				if (args.accountNumber) localAccount.accountNumber = args.accountNumber
+				if (args.carrier) localAccount.carrier = args.carrier
+				if (args.debtAmount) localAccount.debtAmount = args.debtAmount
+				if (args.balance) localAccount.balance = args.balance
+				if (args.lifetimeEarning) localAccount.lifetimeEarning = args.lifetimeEarning
+				if (args.solarGroup) localAccount.solarGroup = args.solarGroup
+				return Account.findOneAndUpdate(args.id, localAccount, { new: true })
 			}
 		},
 		updateAddress: {
 			type: AddressType,
 			args: {
-				name: { type: new GraphQLNonNull(GraphQLString) },
-				mobileNumber: { type: new GraphQLNonNull(GraphQLString) },
-				address: { type: new GraphQLNonNull(GraphQLString) },
 				addressType: { type: GraphQLString },
 				created: { type: GraphQLString },
+				name: { type: GraphQLString },
 				dotcolor: { type: GraphQLString },
-				villageId: { type: new GraphQLNonNull(GraphQLID) },
-				locationId: { type: new GraphQLNonNull(GraphQLID) }
+				mobileNumber: { type: GraphQLString },
+				address: { type: GraphQLString },
+				villageId: { type: GraphQLID },
+				locationId: { type: GraphQLID }
 			},
 			resolve(parent, args) {
-				let address = new Address({
-					name: args.name,
-					mobileNumber: args.mobileNumber,
-					addressType: args.addressType,
-					locationId: args.locationId,
-					villageId: args.villageId,
-					dotcolor: args.dotcolor
-				})
-				return address.save()
+				let localAddress = {}
+				if (args.name) localAddress.name = args.name
+				if (args.locationId) localAddress.locationId = args.locationId
+				if (args.villageId) localAddress.villageId = args.villageId
+				if (args.address) localAddress.address = args.address
+				if (args.mobileNumber) localAddress.mobileNumber = args.mobileNumber
+				if (args.dotcolor) localAddress.dotcolor = args.dotcolor
+				if (args.created) localAddress.created = args.created
+				if (args.addressType) localAddress.addressType = args.addressType
+				return Address.findOneAndUpdate(args.id, localAddress, { new: true })
 			}
 		},
 		updateBank: {
-			// Allows users to add a new bank
-
 			type: BankType,
 			args: {
-				name: { type: new GraphQLNonNull(GraphQLString) },
-				addressId: { type: new GraphQLNonNull(GraphQLID) },
-				branch: { type: new GraphQLNonNull(GraphQLString) }
+				name: { type: GraphQLString },
+				addressId: { type: GraphQLID },
+				branch: { type: GraphQLString }
 			},
 			resolve(parent, args) {
-				let bank = new Bank({
-					name: args.name,
-					addressId: args.addressId,
-					branch: args.branch
-				})
-				bank.created = new Date()
-				return bank.save()
+				let localBank = {}
+				if (args.name) localLocation.name = args.name
+				if (args.addressId) localLocation.addressId = args.addressId
+				if (args.branch) localLocation.branch = args.branch
+				return Bank.findOneAndUpdate(args.id, localBank, { new: true })
 			}
 		},
 		updateCountry: {
 			type: CountryType,
 			args: {
-				name: { type: new GraphQLNonNull(GraphQLString) },
 				locationId: { type: GraphQLID },
+				name: { type: GraphQLString },
 				polycolor: { type: GraphQLString },
-				continent: { type: new GraphQLNonNull(GraphQLString) },
+				continent: { type: GraphQLString },
 				population: { type: GraphQLInt }
 			},
 			resolve(parent, args) {
-				let country = new Country({
-					name: args.name,
-					population: args.population,
-					locationId: args.locationId,
-					continent: args.continent,
-					polycolor: args.polycolor
-				})
-				return country.save()
+				let localCountry = {}
+				if (args.name) localLocation.name = args.name
+				if (args.locationId) localLocation.locationId = args.locationId
+				if (args.polycolor) localLocation.polycolor = args.polycolor
+				if (args.population) localLocation.population = args.population
+				if (args.continent) localLocation.continent = args.continent
+				return Country.findOneAndUpdate(args.id, localCountry, { new: true })
 			}
 		},
 		updateLocation: {
 			type: LocationType,
 			args: {
 				address: { type: new GraphQLNonNull(GraphQLString) },
-				created: { type: GraphQLString }
+				locationId: { type: GraphQLID },
+				address: { type: GraphQLString },
+				created: { type: GraphQLString },
+				location: { type: GraphQLString }
 			},
 			resolve(parent, args) {
-				let location = new Location({
-					address: args.address,
-					locationId: nanoid()
-				})
-				location.created = new Date()
-				return location.save()
+				let localLocation = {}
+				if (args.adddressId) localLocation.adddressId = args.adddressId
+				if (args.locationId) localLocation.locationId = args.locationId
+				if (args.created) localLocation.created = args.created
+				return Location.findOneAndUpdate(args.id, localLocation, { new: true })
 			}
 		},
 		updatePanel: {
 			type: PanelType,
 			args: {
-				serialNumber: { type: new GraphQLNonNull(GraphQLString) },
-				groupId: { type: new GraphQLNonNull(GraphQLString) },
-				customerId: { type: new GraphQLNonNull(GraphQLID) },
+				serialNumber: { type: GraphQLString },
+				groupId: { type: GraphQLString },
+				customerId: { type: GraphQLID },
 				orderDate: { type: GraphQLString },
 				installDate: { type: GraphQLString },
 				installCost: { type: GraphQLFloat },
@@ -947,18 +941,17 @@ const Mutation = new GraphQLObjectType({
 				isActive: { type: GraphQLBoolean }
 			},
 			resolve(parent, args) {
-				let panel = new Panel({
-					serialNumber: args.serialNumber,
-					groupId: args.groupId,
-					customerId: args.customerId,
-					orderDate: args.orderDate,
-					installDate: args.installDate,
-					installCost: args.installCost,
-					isReplacement: args.isReplacement,
-					isInstalled: args.isInstalled,
-					isActive: args.isActive
-				})
-				return panel.save()
+				let localPanel = {}
+				if (args.serialNumber) localPanel.serialNumber = args.serialNumber
+				if (args.groupId) localPanel.groupId = args.groupId
+				if (args.customerId) localPanel.customerId = args.customerId
+				if (args.orderDate) localPanel.orderDate = args.orderDate
+				if (args.installDate) localPanel.installDate = args.installDate
+				if (args.installCost) localPanel.installCost = args.installCost
+				if (args.isReplacement) localPanel.isReplacement = args.isReplacement
+				if (args.isInstalled) localPanel.isInstalled = args.isInstalled
+				if (args.isActive) localPanel.isActive = args.isActive
+				return Panel.findOneAndUpdate(args.id, localPanel, { new: true })
 			}
 		},
 		updateProject: {
@@ -990,23 +983,22 @@ const Mutation = new GraphQLObjectType({
 		updateProvince: {
 			type: ProvinceType,
 			args: {
-				name: { type: new GraphQLNonNull(GraphQLString) },
-				region: { type: new GraphQLNonNull(GraphQLString) },
-				zone: { type: new GraphQLNonNull(GraphQLString) },
-				seat: { type: new GraphQLNonNull(GraphQLString) },
-				countryId: { type: new GraphQLNonNull(GraphQLID) },
-				polycolor: { type: new GraphQLNonNull(GraphQLString) }
+				name: { type: GraphQLString },
+				region: { type: GraphQLString },
+				zone: { type: GraphQLString },
+				seat: { type: GraphQLString },
+				countryId: { type: GraphQLID },
+				polycolor: { type: GraphQLString }
 			},
 			resolve(parent, args) {
-				let province = new Province({
-					name: args.name,
-					region: args.region,
-					zone: args.zone,
-					countryId: args.countryId,
-					seat: args.seat,
-					polycolor: args.polycolor
-				})
-				return province.save()
+				let localProvince = {}
+				if (args.name) localProvince.name = args.name
+				if (args.region) localProvince.region = args.region
+				if (args.zone) localProvince.zone = args.zone
+				if (args.seat) localProvince.seat = args.seat
+				if (args.countryId) localProvince.countryId = args.countryId
+				if (args.polycolor) localProvince.polycolor = args.polycolor
+				return Province.findOneAndUpdate(args.id, localProvince, { new: true })
 			}
 		},
 		updateSalary: {
@@ -1015,27 +1007,26 @@ const Mutation = new GraphQLObjectType({
 				jobTitle: { type: GraphQLString },
 				startDate: { type: GraphQLString },
 				endDate: { type: GraphQLString },
-				amount: { type: new GraphQLNonNull(GraphQLFloat) },
-				employeeId: { type: new GraphQLNonNull(GraphQLID) }
+				amount: { type: GraphQLFloat },
+				employeeId: { type: GraphQLID }
 			},
 			resolve(parent, args) {
-				let salary = new Salary({
-					jobTitle: args.jobTitle,
-					endDate: args.endDate,
-					amount: args.amount,
-					employeeId: args.employeeId
-				})
-				salary.startDate = new Date()
-				return salary.save()
+				let localSalary = {}
+				if (args.jobTitle) localSalary.jobTitle = args.jobTitle
+				if (args.startDate) localSalary.startDate = args.startDate
+				if (args.endDate) localSalary.endDate = args.endDate
+				if (args.amount) localSalary.amount = args.amount
+				if (args.employeeId) localSalary.employeeId = args.employeeId
+				return Salary.findOneAndUpdate(args.id, localSalary, { new: true })
 			}
 		},
 		updateTransaction: {
 			type: TransactionType,
 			args: {
-				amount: { type: new GraphQLNonNull(GraphQLFloat) },
-				accountId: { type: new GraphQLNonNull(GraphQLID) },
-				taxRate: { type: new GraphQLNonNull(GraphQLFloat) },
-				kind: { type: new GraphQLNonNull(GraphQLString) },
+				amount: { type: GraphQLFloat },
+				accountId: { type: GraphQLID },
+				taxRate: { type: GraphQLFloat },
+				kind: { type: GraphQLString },
 				status: { type: GraphQLString },
 				memo: { type: GraphQLString },
 				customerId: { type: GraphQLID },
