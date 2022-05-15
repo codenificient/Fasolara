@@ -1032,24 +1032,26 @@ const Mutation = new GraphQLObjectType({
 		updateTransaction: {
 			type: TransactionType,
 			args: {
-				name: { type: new GraphQLNonNull(GraphQLString) },
+				amount: { type: new GraphQLNonNull(GraphQLFloat) },
 				accountId: { type: new GraphQLNonNull(GraphQLID) },
-				addressId: { type: new GraphQLNonNull(GraphQLID) },
-				created: { type: GraphQLString },
-				area: { type: GraphQLString },
-				isActive: { type: GraphQLBoolean }
+				taxRate: { type: new GraphQLNonNull(GraphQLFloat) },
+				kind: { type: new GraphQLNonNull(GraphQLString) },
+				status: { type: GraphQLString },
+				memo: { type: GraphQLString },
+				customerId: { type: GraphQLID },
+				tax: { type: GraphQLFloat }
 			},
 			resolve(parent, args) {
-				let supplier = new Supplier({
-					name: args.name,
-					accountId: args.accountId,
-					addressId: args.addressId,
-					created: args.created,
-					area: args.area,
-					isActive: args.isActive
-				})
-				supplier.created = new Date()
-				return supplier.save()
+				let localTransaction = {}
+				if (args.amount) localTransaction.amount = args.amount
+				if (args.accountId) localTransaction.accountId = args.accountId
+				if (args.taxRate) localTransaction.taxRate = args.taxRate
+				if (args.kind) localTransaction.kind = args.kind
+				if (args.status) localTransaction.status = args.status
+				if (args.memo) localTransaction.memo = args.memo
+				if (args.customerId) localTransaction.customerId = args.customerId
+				if (args.tax) localTransaction.tax = args.tax
+				return Transaction.findOneAndUpdate(args.id, localTransaction, { new: true })
 			}
 		},
 		updateVillage: {
