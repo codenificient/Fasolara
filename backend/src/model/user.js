@@ -74,7 +74,7 @@ const userSchema = new mongoose.Schema(
 // });
 
 userSchema.virtual('fullname').get(function() {
-	return `${this.firstname} ${this.midname} ${this.lastname}`
+	return `${this.firstname} ${this.midname ? this.midname : ''} ${this.lastname}`
 })
 
 userSchema.pre('save', async function(next) {

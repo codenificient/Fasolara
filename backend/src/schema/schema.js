@@ -39,15 +39,27 @@ const AccountType = new GraphQLObjectType({
 		customerId: { type: GraphQLID },
 		balance: { type: GraphQLFloat },
 		carrier: { type: GraphQLString },
-		solarGroup: { type: GraphQLString },
+		solarGroup: { type: GraphQLID },
 		debtAmount: { type: GraphQLFloat },
 		lifetimeEarning: { type: GraphQLFloat },
-		created: { type: GraphQLString },
-		loaningBankId: { type: GraphQLID },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
+		bank: {
+			type: BankType,
+			resolve(parent, args) {
+				return Bank.findById(parent.loaningBankId)
+			}
+		},
 		owner: {
 			type: UserType,
 			resolve(parent, args) {
 				return User.findById(parent.customerId)
+			}
+		},
+		panels: {
+			type: new GraphQLList(PanelType),
+			resolve(parent, args) {
+				return Panel.find({ groupId: parent.solarGroup })
 			}
 		}
 	})
@@ -62,7 +74,8 @@ const AddressType = new GraphQLObjectType({
 		name: { type: GraphQLString },
 		mobileNumber: { type: GraphQLString },
 		addressType: { type: GraphQLString },
-		created: { type: GraphQLString },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		dotcolor: { type: GraphQLString },
 		village: {
 			type: VillageType,
@@ -87,6 +100,8 @@ const BankType = new GraphQLObjectType({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },
 		branch: { type: GraphQLString },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		address: {
 			type: AddressType,
 			resolve(parent, args) {
@@ -106,6 +121,8 @@ const CountryType = new GraphQLObjectType({
 		population: { type: GraphQLInt },
 		continent: { type: GraphQLString },
 		polycolor: { type: GraphQLString },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		provinces: {
 			type: new GraphQLList(ProvinceType),
 			resolve(parent, args) {
@@ -123,7 +140,8 @@ const LocationType = new GraphQLObjectType({
 		id: { type: GraphQLID },
 		locationId: { type: GraphQLID },
 		address: { type: GraphQLString },
-		created: { type: GraphQLString },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		location: { type: GraphQLString }
 	})
 })
@@ -142,6 +160,8 @@ const PanelType = new GraphQLObjectType({
 		isReplacement: { type: GraphQLBoolean },
 		isInstalled: { type: GraphQLBoolean },
 		isActive: { type: GraphQLBoolean },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		customer: {
 			type: UserType,
 			resolve(parent, args) {
@@ -161,7 +181,8 @@ const ProjectType = new GraphQLObjectType({
 		zone: { type: GraphQLString },
 		dotcolor: { type: GraphQLString },
 		impact: { type: GraphQLFloat },
-		created: { type: GraphQLString },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		isActive: { type: GraphQLBoolean },
 		isComplete: { type: GraphQLBoolean },
 		address: {
@@ -193,7 +214,8 @@ const ProvinceType = new GraphQLObjectType({
 		provinceId: { type: GraphQLString },
 		polycolor: { type: GraphQLString },
 		dotcolor: { type: GraphQLString },
-		created: { type: GraphQLString },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		villages: {
 			type: new GraphQLList(VillageType),
 			resolve(parent, args) {
@@ -213,6 +235,8 @@ const SalaryType = new GraphQLObjectType({
 		startDate: { type: GraphQLString },
 		endDate: { type: GraphQLString },
 		amount: { type: GraphQLInt },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		employee: {
 			type: UserType,
 			resolve(parent, args) {
@@ -231,6 +255,8 @@ const SupplierType = new GraphQLObjectType({
 		name: { type: GraphQLString },
 		area: { type: GraphQLString },
 		isActive: { type: GraphQLBoolean },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		address: {
 			type: AddressType,
 			resolve(parent, args) {
@@ -258,6 +284,8 @@ const TransactionType = new GraphQLObjectType({
 		status: { type: GraphQLString },
 		kind: { type: GraphQLString },
 		isActive: { type: GraphQLBoolean },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		receiver: {
 			type: UserType,
 			resolve(parent, args) {
@@ -291,6 +319,8 @@ const UserType = new GraphQLObjectType({
 		dob: { type: GraphQLString },
 		email: { type: GraphQLString },
 		role: { type: GraphQLString },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		address: {
 			type: AddressType,
 			resolve(parent, args) {
@@ -301,7 +331,6 @@ const UserType = new GraphQLObjectType({
 		confpassword: { type: GraphQLString },
 		isActive: { type: GraphQLBoolean },
 		hash_password: { type: GraphQLString },
-		created: { type: GraphQLString }
 	})
 })
 
@@ -314,6 +343,8 @@ const VillageType = new GraphQLObjectType({
 		name: { type: GraphQLString },
 		population: { type: GraphQLInt },
 		urbanCommune: { type: GraphQLBoolean },
+		createdAt: { type: GraphQLString },
+		updatedAt: { type: GraphQLString },
 		province: {
 			type: ProvinceType,
 			resolve(parent, args) {
@@ -519,7 +550,7 @@ const Mutation = new GraphQLObjectType({
 				lifetimeEarning: { type: GraphQLFloat },
 				loaningBankId: { type: new GraphQLNonNull(GraphQLID) },
 				created: { type: GraphQLString },
-				solarGroup: { type: new GraphQLNonNull(GraphQLString) }
+				solarGroup: { type: new GraphQLNonNull(GraphQLID) }
 			},
 			resolve(parent, args) {
 				let account = new Account({
