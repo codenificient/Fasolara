@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import Projects from '../components/Projects'
+import CreateProject from '../components/UI/CreateProject'
 import styles from '../styles/components/Projects.module.css'
 
 
@@ -8,6 +9,7 @@ export default function ProjectsList() {
 		<Layout>
 			<div className={styles.projects_container}>
 				<div className={styles.grid}>
+					<CreateProject />
 					<Projects />
 					<Projects />
 					<Projects />

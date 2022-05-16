@@ -17,6 +17,7 @@ class MyDocument extends Document {
 						crossOrigin="anonymous"
 						referrerpolicy="no-referrer"
 					/>
+					<script src="https://unpkg.com/react/umd/react.production.min.js"></script>
 				</Head>
 				<body>
 					<Main />
