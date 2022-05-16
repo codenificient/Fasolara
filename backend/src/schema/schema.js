@@ -39,7 +39,7 @@ const AccountType = new GraphQLObjectType({
 		customerId: { type: GraphQLID },
 		balance: { type: GraphQLFloat },
 		carrier: { type: GraphQLString },
-		solarGroup: { type: GraphQLID },
+		solarGroup: { type: GraphQLString },
 		debtAmount: { type: GraphQLFloat },
 		lifetimeEarning: { type: GraphQLFloat },
 		createdAt: { type: GraphQLString },
@@ -330,7 +330,7 @@ const UserType = new GraphQLObjectType({
 		password: { type: GraphQLString },
 		confpassword: { type: GraphQLString },
 		isActive: { type: GraphQLBoolean },
-		hash_password: { type: GraphQLString },
+		hash_password: { type: GraphQLString }
 	})
 })
 
