@@ -1,12 +1,16 @@
-import Email from "../components/email/Email"
-import Layout from "../components/Layout"
-import styles from "../styles/pages/messages.module.css"
+import Layout from '../components/Layout'
+import Conversations from '../components/messages/Conversations'
+import MessageContent from '../components/messages/MessageContent'
+import styles from '../styles/pages/messages.module.css'
 
 function Messages() {
 	return (
 		<Layout>
-			<h1 className={styles.text_center}>Messages coming soon</h1>
-			<Email />
+			<span className={styles.messages_wrapper}>
+				<h3>Conversations</h3>
+				<Conversations />
+				<MessageContent />
+			</span>
 		</Layout>
 	)
 }

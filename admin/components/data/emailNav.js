@@ -10,14 +10,14 @@ export const menus = [
 		id: '41-733-7317',
 		icon: 'fas fa-university',
 		name: 'Starred',
-		to: '/starred',
+		to: '/messages/starred',
 		color: 'Pink'
 	},
 	{
 		id: '34-012-6726',
 		icon: 'fas fa-users',
 		name: 'Draft',
-		to: '/draft',
+		to: '/messages/draft',
 		color: 'Blue'
 	},
 

@@ -1,6 +1,7 @@
-.text_center {
-    display: block;
-    margin: auto;
-    text-align: center;
-    width: 78vw;
+.messages_wrapper {
+	display: block;
+	margin: auto;
+	width: 78vw;
+	/* background: #f85656; */
+    padding: 0.1vw;
 }
