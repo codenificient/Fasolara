@@ -7,7 +7,6 @@ function Messages() {
 	return (
 		<Layout>
 			<span className={styles.messages_wrapper}>
-				<h3>Conversations</h3>
 				<Conversations />
 				<MessageContent />
 			</span>

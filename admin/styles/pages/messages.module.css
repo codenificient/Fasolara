@@ -1,7 +1,9 @@
 .messages_wrapper {
-	display: block;
-	margin: auto;
+	display: flex;
 	width: 78vw;
+      height: 97vh;
 	/* background: #f85656; */
-    padding: 0.1vw;
+	margin-left: 0.5rem;
+    align-items: start;
+    justify-content: space-between;
 }
