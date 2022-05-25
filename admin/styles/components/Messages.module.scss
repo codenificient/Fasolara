@@ -1,21 +1,50 @@
 .conversations_container {
-	width: 21vw;
+	width: 22vw;
 	background: #1f1f1f;
 	display: inline-block;
 	font-weight: bold;
 	flex-direction: column;
 	margin:  auto;
-	height: 96vh;
+	height: 97vh;
 	justify-content: space-between;
+    padding: 0.5rem;
+    overflow: hidden;
+    z-index: 2;
 }
 
 .content_container {
 	display: inline-block;
-	width: 56.5vmax;
+	width: 55vw;
 	height: 96vh;
 	background: #1f1f1f;
 	margin-left: 0.5rem;
 	margin: auto;
+    padding-left: 0.5rem;
+}
+
+.conversations_list {
+    display: block;
+    position: fixed;
+    width: 21vw;
+    height: 100%;
+    z-index: 3;
+    overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.conversations_list::-webkit-scrollbar {
+    display: none;
+}
+
+.conversation_container {
+    display: inline-flex;
+    margin-bottom: 1.8rem;
+    width: max-content;
+    width: 20vw;
+    align-items: start;
+    justify-content: baseline;
 }
 
 .Menu {
@@ -27,53 +56,6 @@
 
 .Link {
 	display: block;
-}
-
-.Name {
-	margin-left: 1rem;
-	text-transform: uppercase;
-
-	&:hover {
-		color: #fca320;
-	}
-}
-
-span .Center:hover {
-	color: #fca320;
-}
-
-.Active {
-	color: #fca320;
-}
-
-.Inactive {
-	color: #8d8d8d;
-}
-
-.Inline i {
-	color: #fca320;
-}
-
-.Inline a:hover,
-.MenuItem a:hover {
-	color: #fca320;
-}
-
-.Inline,
-.MenuItem {
-	font-size: large;
-	cursor: pointer;
-	margin: 2.8rem 0;
-}
-
-.MenuItem {
-	margin: auto;
-	cursor: pointer;
-}
-
-.Inline {
-	display: block;
-	cursor: pointer;
 }
 
 .searchBox {
@@ -109,21 +91,33 @@ span .Center:hover {
     padding: 0.8rem;
 }
 
+.message,
 .profile {
     display: flex;
     flex-direction: row;
     margin-right: 0.5rem;
 }
 
+.MessageInfo,
 .UserInfo {
     display: flex;
     flex-direction: column;
     margin-left: 0.5rem;
 }
 
+.MessageInfo {
+    width: 18.9vw;
+}
+
+.NameTime {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .UserName {
     font-weight: bold;
-    color: #8c98a5;
+    color: #999;
     font-size: large;
 }
 
@@ -150,4 +144,8 @@ span .Center:hover {
 .Settings {
     font-size: x-large;
     margin-right: 0.5rem;
+}
+
+.title {
+    text-transform: uppercase;
 }
