@@ -1,6 +1,7 @@
+import human from 'human-time'
 import React from 'react'
 import styles from '../../styles/components/Messages.module.scss'
-import { formatDate, shorten } from '../../utils/helpers'
+import { shorten } from '../../utils/helpers'
 import Avatar from '../Avatar'
 
 function Conversation({ conversation }) {
@@ -11,7 +12,7 @@ function Conversation({ conversation }) {
 				<span className={styles.MessageInfo}>
 					<span className={styles.NameTime}>
 						<span className={styles.UserName}>{conversation.user}</span>
-						<span className={styles.Time}>{formatDate(conversation.date)}</span>
+						<span className={styles.Time}>{human(new Date(conversation.date))}</span>
 					</span>
 					<span className={styles.StatusContainer}>
 						<span lassName={styles.content}>{shorten(conversation.message, 80)}</span>
