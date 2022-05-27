@@ -45,10 +45,13 @@ a {
 	color: #aaa;
 	width: 52vw;
 	border: 1px solid #8d8d8d99;
-	margin-left:2rem;
+	margin-left: 2rem;
 	line-height: 3rem;
 	margin-bottom: 0.5rem;
 	padding-left: 3.5rem;
+	border-radius: 30px;
+	font-size: large;
+	font-family: "Poppins Semibold";
 }
 
 .inn_wrapper input:focus-visible,
@@ -60,8 +63,6 @@ a {
 .inn_wrapper label {
 	color: #aaa;
 }
-
-
 
 body {
 	margin: 0;

@@ -17,7 +17,7 @@ export default function Home() {
 					<span className={styles.search}>
 						<Input
 							type="text"
-							placeholder="réchercher les comptes, projets, investisseurs..."
+							placeholder="comptes, projets, investisseurs..."
 							className={styles.searchTerm}
 						/>
 						<button type="submit" className={styles.searchButton}>
