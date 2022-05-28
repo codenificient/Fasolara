@@ -41,11 +41,14 @@ a {
 }
 
 .inn_wrapper input {
-	background-color: #141414;
+	/* background-color: #141414; */
+	background-color: #303030;
 	color: #aaa;
+	border: 0;
 	width: 52vw;
-	border: 1px solid #8d8d8d99;
+	/* border: 1px solid #8d8d8d99; */
 	margin-left: 2rem;
+		padding-left: 4rem;
 	line-height: 3rem;
 	margin-bottom: 0.5rem;
 	padding-left: 3.5rem;

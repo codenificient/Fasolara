@@ -15,7 +15,7 @@ function Conversation({ conversation }) {
 						<span className={styles.Time}>{human(new Date(conversation.date))}</span>
 					</span>
 					<span className={styles.StatusContainer}>
-						<span lassName={styles.content}>{shorten(conversation.message, 80)}</span>
+						<span lassName={styles.content}>{shorten(conversation.message, 70)}</span>
 					</span>
 				</span>
 			</div>
