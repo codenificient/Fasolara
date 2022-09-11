@@ -1,9 +1,11 @@
+@import  '../variables.scss';
+
 .progress_container {
 	display: flex;
 	height: 155px;
 	width: 155px;
-	background: #2c2f33;
-	box-shadow: inset -16.5697px -16.5697px 41.4243px #3b4451, inset 16.5697px 16.5697px 41.4243px #000000;
+	background: $bg-lighter;
+	box-shadow: $box-shadow-inset;
 	border-radius: 50%;
 	z-index: 4;
 	margin: auto;
@@ -15,7 +17,7 @@
 	margin: auto;
 	width: 125px;
 	height: 125px;
-	background: linear-gradient(180deg, #f24e1e 68.69%, #fca320 100%);
+	background: linear-gradient(180deg, $theme-orange 68.69%, $theme-yellow 100%);
 	border-radius: 50%;
 }
 
@@ -28,8 +30,8 @@
 	z-index: 4;
 	width: 97px;
 	height: 97px;
-	background: #2c2f33;
-	box-shadow: 16.5697px 16.5697px 41.4243px rgba(0, 0, 0, 0.5);
+	background: $bg-lighter;
+	box-shadow: $box-shadow;
 	border-radius: 50%;
 }
 
@@ -40,14 +42,13 @@
 	width: 75px;
 	height: 75px;
 	background: #2c2f33;
-	box-shadow: inset -16.5697px -16.5697px 41.4243px rgba(59, 68, 81, 0.5),
-		inset 16.5697px 16.5697px 41.4243px rgba(0, 0, 0, 0.5);
+	box-shadow: $box-shadow-inset;
 	border-radius: 50%;
 }
 
 .progress_percent {
 	font-weight: bold;
-	color: #777;
+	color: $text-grey;
 	margin: auto;
 	font-size: 25px;
 	z-index: 5;

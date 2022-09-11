@@ -18,7 +18,7 @@ a {
 }
 
 #__next {
-	background-color: $black-primary;
+	background-color: $bg-primary;
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -31,7 +31,7 @@ a {
 .ext_wrapper {
 	width: 98vw;
 	height: 98vh;
-	background-color: $black-secondary;
+	background-color: $bg-secondary;
 	display: flex;
 	margin: auto;
 	border-radius: 40px;
@@ -39,7 +39,7 @@ a {
 
 .inn_wrapper {
 	width: 79vw;
-	background-color: $black-secondary;
+	background-color: $bg-secondary;
 }
 
 .inn_wrapper input {
@@ -62,7 +62,7 @@ a {
 .inn_wrapper input:focus-visible,
 .inn_wrapper input:hover {
 	color: #f24e1e;
-	background-color: $black-dark;
+	background-color: $bg-dark;
 }
 
 .inn_wrapper label {

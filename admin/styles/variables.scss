@@ -1,8 +1,14 @@
-$black-primary:  #010101;
-$black-secondary:  #141414;
-$black-dark: #1f1f1f;
+$bg-primary:  #010101;
+$bg-secondary:  #141414;
+$bg-dark: #1f1f1f;
 $bg-gray: #303030;
+$bg-lighter: #2c2f33;
+$bg-pureblack: #000000;
+
 $text-color: #aaa;
+$text-lighter: #8d8d8d;
+$text-darker: #8d8d8d79;
+$text-grey: #777;
 $text-dark: #8d8d8d99;
 $theme-yellow: #fca320;
 $theme-orange: #f24e1e;
@@ -10,3 +16,11 @@ $theme-orange: #f24e1e;
 $theme-font: "Poppins Semibold";
 
 $box-shadow-yellow: #FCA3201A;
+$box-shadow-black: #3b4451;
+
+$box-shadow: 16.5697px 16.5697px 41.4243px rgba(0, 0, 0, 0.5);
+
+$box-shadow-inset: inset -16.5697px -16.5697px 41.4243px rgba(59, 68, 81, 0.5),
+inset 16.5697px 16.5697px 41.4243px rgba(0, 0, 0, 0.5);
+
+$box-shadow-inset-lighter:   inset -16.5697px -16.5697px 41.4243px #3b4451, inset 16.5697px 16.5697px 41.4243px #000000;

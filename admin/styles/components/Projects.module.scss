@@ -1,6 +1,8 @@
+@import  '../variables.scss';
+
 .projects_container {
 	display: block;
-	color: #8d8d8d;
+	color: $text-lighter;
 	width: 78vw;
 	height: 100%;
 	text-align: center;
@@ -36,16 +38,16 @@
 	width: 12.6vw;
 	height: 480px;
 	padding: 5px;
-	background: #141414;
+	background: $bg-secondary;
 	/* background-color: #f1bd89; */
 	/* background-color: #fffdd0; */
-	color: #8d8d8d79;
+	color: $text-darker;
 	border-radius: 10px;
 	text-align: left;
 	/* box-shadow: 6px 6px 17px #1d1b1c, -6px -6px 17px #141414; */
 	/* box-shadow: 8px 8px 4px #1c1c1c, -8px -8px 4px #222222; */
 	
-	box-shadow: -7px -7px 19px 0px #FCA32010;
+	box-shadow: -7px -7px 19px 0px $box-shadow-yellow;
 	/* border: 1px solid #8d8d8d80; */
 }
 
@@ -60,7 +62,7 @@
 
 .heading {
 	margin: 10px;
-	color: #8d8d8d;
+	color: $text-lighter;
 	font-size: large;
 }
 
@@ -73,7 +75,7 @@
 
 .name {
 	margin: 7px 0;
-	color: #777;
+	color: $text-grey;
 	font-size: large;
 }
 
