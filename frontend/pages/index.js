@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import ProvincesList from '../components/ProvincesList'
 import UserList from '../components/UserList'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 export default function Home() {
 	return (
 		<div className={styles.container}>

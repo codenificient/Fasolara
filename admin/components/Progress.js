@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/components/Progress.module.css'
+import styles from '../styles/components/Progress.module.scss'
 
 export default function Progress({ progress }) {
 	return (

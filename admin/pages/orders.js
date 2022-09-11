@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/orders.module.css"
+import styles from "../styles/pages/orders.module.scss"
 function Orders() {
 	return (
 		<Layout>

@@ -1,5 +1,5 @@
-import styles from '../styles/components/Avatar.module.css'
 import Image from 'next/image'
+import styles from '../styles/components/Avatar.module.scss'
 
 export default function Avatar({ image, wSize, iSize }) {
 	return (

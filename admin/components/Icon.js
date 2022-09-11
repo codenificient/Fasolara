@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/components/design.module.css'
+import styles from '../styles/components/design.module.scss'
 
 export default function Icon({ classes, colors, size }) {
 	return (

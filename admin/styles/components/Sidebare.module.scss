@@ -1,3 +1,5 @@
+@import  '../variables.scss';
+
 .sidebare_container {
 	background: transparent;
 	color: rosybrown;
@@ -16,7 +18,7 @@
 	/* border: 1px solid #8d8d8d80; */
 	margin-right: 0.5rem;
 	/* box-shadow: 8px 8px 4px #1c1c1c, -8px -8px 2px #fca32010; */
-	box-shadow: -7px -7px 19px 0px #FCA3201A;
+	box-shadow: -7px -7px 19px 0px $box-shadow-yellow;
 }
 
 .agenda_container {
@@ -30,7 +32,7 @@
 	/* border: 1px solid #8d8d8d80; */
 	padding-right: 40px;
 	/* box-shadow: 8px 8px 4px #1c1c1c, -8px -8px 2px #fca32010; */
-	box-shadow: -7px -7px 19px 0px #FCA3201A;
+	box-shadow: -7px -7px 19px 0px  $box-shadow-yellow;
 }
 .profilemenu_container {
 	background: transparent;

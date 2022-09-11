@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/partners.module.css"
+import styles from "../styles/pages/partners.module.scss"
 
 export default function Partners() {
 	return (

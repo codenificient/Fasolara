@@ -1,7 +1,7 @@
 import Activities from './Activities'
 import Agenda from './Agenda'
 import ProfileMenu from './ProfileMenu'
-import styles from '../styles/components/Sidebare.module.css'
+import styles from '../styles/components/Sidebare.module.scss'
 
 export default function Sidebar() {
 	return (

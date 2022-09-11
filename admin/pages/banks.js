@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/banks.module.css"
+import styles from "../styles/pages/banks.module.scss"
 
 function Banks() {
 	return (

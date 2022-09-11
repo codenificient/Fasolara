@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/components/NewProgress.module.css'
+import styles from '../styles/components/NewProgress.module.scss'
 
 export default function NewProgress({ sqSize, strokeWidth, percentage }) {
 	// Size of the enclosing square

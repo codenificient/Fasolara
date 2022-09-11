@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/accounts.module.css"
+import styles from "../styles/pages/accounts.module.scss"
 
 function Accounts() {
 	return (

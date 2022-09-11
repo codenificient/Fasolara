@@ -1,5 +1,5 @@
-import styles from "../styles/pages/addresses.module.css"
 import Layout from "../components/Layout"
+import styles from "../styles/pages/addresses.module.scss"
 
 function Addresses() {
 	return (

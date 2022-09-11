@@ -1,5 +1,7 @@
-html,
-body {
+@import  './variables.scss';
+
+
+html {
 	padding: 0;
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
@@ -16,7 +18,7 @@ a {
 }
 
 #__next {
-	background-color: #010101;
+	background-color: $black-primary;
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -29,7 +31,7 @@ a {
 .ext_wrapper {
 	width: 98vw;
 	height: 98vh;
-	background-color: #141414;
+	background-color: $black-secondary;
 	display: flex;
 	margin: auto;
 	border-radius: 40px;
@@ -37,13 +39,13 @@ a {
 
 .inn_wrapper {
 	width: 79vw;
-	background-color: #141414;
+	background-color: $black-secondary;
 }
 
 .inn_wrapper input {
 	/* background-color: #141414; */
-	background-color: #303030;
-	color: #aaa;
+	background-color: $bg-gray;
+	color: $text-color;
 	border: 0;
 	width: 52vw;
 	/* border: 1px solid #8d8d8d99; */
@@ -54,24 +56,24 @@ a {
 	padding-left: 3.5rem;
 	border-radius: 30px;
 	font-size: large;
-	font-family: "Poppins Semibold";
+	font-family: $theme-font;
 }
 
 .inn_wrapper input:focus-visible,
 .inn_wrapper input:hover {
 	color: #f24e1e;
-	background-color: #1f1f1f;
+	background-color: $black-dark;
 }
 
 .inn_wrapper label {
-	color: #aaa;
+	color: $text-color;
 }
 
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Poppins', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
 		'Helvetica Neue', sans-serif;
-	color: #8d8d8d99;
+	color: $text-dark;
 }
 
 main {
@@ -86,5 +88,5 @@ main::-webkit-scrollbar {
 }
 
 .Center a:hover {
-	color: #fca320;
+	color: $theme-yellow;
 }

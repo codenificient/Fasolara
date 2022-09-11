@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/components/Projects.module.css'
+import styles from '../styles/components/Projects.module.scss'
 import Avatar from './Avatar'
 
 export default function Member({name, jobTitle, imageUrl}) {

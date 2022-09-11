@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from '../styles/components/Projects.module.css'
+import styles from '../styles/components/Projects.module.scss'
 import Icon from './Icon'
 import Member from './Member'
 import NewProgress from './NewProgress'

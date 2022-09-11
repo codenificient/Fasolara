@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import { getVillagesQuery } from '../queries/queries'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 
 class VillagesList extends Component {
 	displayVillages() {

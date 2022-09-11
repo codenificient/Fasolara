@@ -1,4 +1,4 @@
-import styles from '../styles/components/Sidebare.module.css'
+import styles from '../styles/components/Sidebare.module.scss'
 
 export default function Agenda() {
 	return (

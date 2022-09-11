@@ -1,4 +1,4 @@
-import styles from '../styles/components/Sidebare.module.css'
+import styles from '../styles/components/Sidebare.module.scss'
 import Avatar from './Avatar'
 import Icon from './Icon'
 

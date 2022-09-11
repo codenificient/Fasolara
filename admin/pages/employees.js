@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/employees.module.css"
+import styles from "../styles/pages/employees.module.scss"
 function Employees() {
 	return (
 		<Layout>

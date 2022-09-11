@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/panels.module.css"
+import styles from "../styles/pages/panels.module.scss"
 
 function Panels() {
 	return (

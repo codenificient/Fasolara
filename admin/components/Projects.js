@@ -1,4 +1,4 @@
-import styles from '../styles/components/Projects.module.css'
+import styles from '../styles/components/Projects.module.scss'
 import { members } from './data/members'
 import { projects } from './data/projectlist'
 import Project from './Project'

@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/transactions.module.css"
+import styles from "../styles/pages/transactions.module.scss"
 
 export default function Transactions() {
 	return (

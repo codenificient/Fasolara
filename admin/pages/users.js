@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/users.module.css"
+import styles from "../styles/pages/users.module.scss"
 
 export default function Users() {
 	return (

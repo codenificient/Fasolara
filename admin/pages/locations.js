@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/locations.module.css"
+import styles from "../styles/pages/locations.module.scss"
 
 function Locations() {
 	return (

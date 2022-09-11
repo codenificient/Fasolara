@@ -1,4 +1,4 @@
-import styles from '../styles/components/Charts.module.css'
+import styles from '../styles/components/Charts.module.scss'
 import Chart from './Chart'
 
 export default function Charts() {

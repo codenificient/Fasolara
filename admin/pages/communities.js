@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/communities.module.css"
+import styles from "../styles/pages/communities.module.scss"
 
 function Communities() {
 	return (

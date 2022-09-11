@@ -1,7 +1,7 @@
 import Layout from '../components/Layout'
 import Projects from '../components/Projects'
 import CreateProject from '../components/UI/CreateProject'
-import styles from '../styles/components/Projects.module.css'
+import styles from '../styles/components/Projects.module.scss'
 
 
 export default function ProjectsList() {

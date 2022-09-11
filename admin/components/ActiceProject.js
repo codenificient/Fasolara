@@ -1,5 +1,5 @@
-import styles from '../styles/components/ActiveProjects.module.css'
 import Image from 'next/image'
+import styles from '../styles/components/ActiveProjects.module.scss'
 
 export default function ActiveProject({ img = '', date, leader, due, status, featured = false }) {
 	return (

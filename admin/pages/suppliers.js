@@ -1,5 +1,5 @@
 import Layout from "../components/Layout"
-import styles from "../styles/pages/suppliers.module.css"
+import styles from "../styles/pages/suppliers.module.scss"
 
 export default function Suppliers() {
 	return (
