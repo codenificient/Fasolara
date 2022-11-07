@@ -2,6 +2,8 @@ const { ApolloError } = require("apollo-server-errors")
 const User = require("../../models/User")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+const { combineResolvers } = require("graphql-resolvers")
+const { isAuthenticated } = require("./middleware")
 
 module.exports = {
   Mutation: {
@@ -80,7 +82,18 @@ module.exports = {
     },
   },
   Query: {
-    user: (_, { id }) => User.findById(id),
-    users: () => User.find({}),
+    user: combineResolvers(isAuthenticated, async (_, __, { email }) => {
+      try {
+        const user = await User.findOne({ email })
+        if (!user) {
+          throw new ApolloError("User not found", "USER_NOT_FOUND")
+        }
+        return user
+      } catch (error) {
+        console.log(error)
+        throw error
+      }
+    }),
+    users: async () => await User.find({}),
   },
 }

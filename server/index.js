@@ -5,11 +5,18 @@ require("dotenv").config()
 
 const typeDefs = require("./graphql/typeDefs")
 const resolvers = require("./graphql/resolvers")
-
+const { verifyUser } = require("./helpers/context")
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: async ({ req }) => {
+    await verifyUser(req)
+    return {
+      email: req.email,
+      userId: req.userId,
+    }
+  },
 })
 
 mongoose
@@ -24,3 +31,4 @@ mongoose
   .then((res) => {
     console.log(`Server running at ${res.url}`)
   })
+.catch(error => console.log(error))
