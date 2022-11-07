@@ -74,5 +74,6 @@ module.exports = {
   },
   Query: {
     user: (_, { ID }) => User.findById(ID),
+    users: () => User.find({})
   },
 }
