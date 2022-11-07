@@ -1,5 +1,6 @@
 const { gql } = require("apollo-server")
 const userTypes = require("./user")
+const accountTypes = require("./account")
 
 const typeDefs = gql`
   scalar Date
@@ -11,4 +12,4 @@ const typeDefs = gql`
     _: String
   }
 `
-module.exports = [typeDefs, userTypes]
+module.exports = [accountTypes, typeDefs, userTypes]
