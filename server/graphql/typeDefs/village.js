@@ -1,38 +1,45 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
-  type Bank {
+  type Village {
     id: ID
     name: String
-    addressId: ID
-    branch: String
+    population: Int
+    provinceId: ID
+    dotcolor: String
+    urbanCommune: Boolean
     createdAt: Date
     updatedAt: Date
   }
 
-  input CreateBankInput {
+  input CreateVillageInput {
     id: ID
     name: String
-    addressId: ID
-    branch: String
+    population: Int
+    provinceId: ID
+    dotcolor: String
+    urbanCommune: Boolean
     updatedAt: Date
   }
 
-  input UpdateBankInput {
+  input UpdateVillageInput {
+    id: ID
     name: String
-    addressId: ID
-    branch: String
+    population: Int
+    provinceId: ID
+    dotcolor: String
+    urbanCommune: Boolean
     updatedAt: Date
   }
 
   extend type Query {
-    bank: Bank
-    getBank(id: ID): Bank
-    banks: [Bank!]
+    village: Village
+    getVillage(id: ID): Village
+    villages: [Village!]
   }
 
   extend type Mutation {
-    createBank(createBankInput: CreateBankInput): Bank
-    updatBank(updateBankInput: UpdateBankInput): Bank
+    createVillage(createVillageInput: CreateVillageInput): Village
+    updatVillage(updateVillageInput: UpdateVillageInput): Village
   }
 `
