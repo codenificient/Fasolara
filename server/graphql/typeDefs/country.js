@@ -6,7 +6,8 @@ module.exports = gql`
     name: String
     population: ID
     continent: String
-	polycolor: String
+    polycolor: String
+    locationId: ID
     createdAt: Date
     updatedAt: Date
   }
@@ -14,15 +15,19 @@ module.exports = gql`
   input CreateCountryInput {
     id: ID
     name: String
-    addressId: ID
-    branch: String
+    population: ID
+    continent: String
+    locationId: ID
+    polycolor: String
     updatedAt: Date
   }
 
   input UpdateCountryInput {
     name: String
-    addressId: ID
-    branch: String
+    population: ID
+    continent: String
+    locationId: ID
+    polycolor: String
     updatedAt: Date
   }
 
