@@ -3,32 +3,46 @@ const { gql } = require("apollo-server")
 module.exports = gql`
   type Panel {
     id: ID
-    name: String
-    customerId: ID
+    accountId: ID
     serialNumber: String
-	installCost: Float
-	installDate: Date
-	orderID: Date
-	groupId: ID
-	isActive: Boolean
-	isInstalled: Boolean
-	isReplacement: Boolean
+    installCost: Float
+    installDate: Date
+    orderID: Date
+    groupId: ID
+    isActive: Boolean
+    isInstalled: Boolean
+    isReplacement: Boolean
+    maintenanceDates: [Date]
     createdAt: Date
     updatedAt: Date
   }
 
   input CreatePanelInput {
     id: ID
-    name: String
-    addressId: ID
-    branch: String
+    accountId: ID
+    serialNumber: String
+    installCost: Float
+    installDate: Date
+    orderID: Date
+    groupId: ID
+    isActive: Boolean
+    isInstalled: Boolean
+    isReplacement: Boolean
+    maintenanceDate: Date
     updatedAt: Date
   }
 
   input UpdatePanelInput {
-    name: String
-    addressId: ID
-    branch: String
+    accountId: ID
+    serialNumber: String
+    installCost: Float
+    installDate: Date
+    orderID: Date
+    groupId: ID
+    isActive: Boolean
+    isInstalled: Boolean
+    isReplacement: Boolean
+    maintenanceDate: Date
     updatedAt: Date
   }
 

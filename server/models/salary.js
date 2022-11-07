@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const salarySchema = new mongoose.Schema(
   {
-    employeeId: {
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
@@ -11,8 +11,11 @@ const salarySchema = new mongoose.Schema(
       default: 0,
     },
     jobTitle: String,
-    startDate: String,
-    endDate: String,
+    startDate: {
+      type: Date,
+      default: Date.now,
+    },
+    endDate: Date,
   },
   {
     timestamps: true,

@@ -5,26 +5,43 @@ module.exports = gql`
     id: ID
     orderDate: Date
     userId: ID
+    deliveryUserId: ID
     supplierId: ID
     quantity: Float
-	purchaseCost: Float
-	currency: String
+    purchaseCost: Float
+    finalCost: Float
+    currency: String
+    finalCurrency: String
+    status: String
     createdAt: Date
     updatedAt: Date
   }
 
   input CreateOrderInput {
     id: ID
-    name: String
-    addressId: ID
-    branch: String
+    orderDate: Date
+    userId: ID
+    supplierId: ID
+    quantity: Float
+    purchaseCost: Float
+    finalCost: Float
+    finalCurrency: String
+    currency: String
+    status: String
     updatedAt: Date
   }
 
   input UpdateOrderInput {
-    name: String
-    addressId: ID
-    branch: String
+    orderDate: Date
+    userId: ID
+    supplierId: ID
+    deliveryUserId: ID
+    quantity: Float
+    purchaseCost: Float
+    currency: String
+    status: String
+    finalCost: Float
+    finalCurrency: String
     updatedAt: Date
   }
 

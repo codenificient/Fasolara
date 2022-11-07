@@ -21,3 +21,20 @@ module.exports.verifyUser = async (req) => {
     throw error
   }
 }
+
+module.exports.getEducationLevel = async (level) => {
+  const levelsMap = [
+    { 1: "Aucune education formal" },
+    { 2: "Some primary education" },
+    { 3: "CEP" },
+    { 4: "Education Informel" },
+    { 5: "BEPC" },
+    { 6: "Bachelier" },
+    { 7: "Un peu d'education universitaire ou Bac Pro" },
+    { 8: "DEUG II" },
+    { 9: "License Universitaire" },
+    { 10: "2 Licenses ou 1 Master Universitaire" },
+    { 11: "Doctorat Universitaire" },
+  ]
+  return levelsMap[level]
+}

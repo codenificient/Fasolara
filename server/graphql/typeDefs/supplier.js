@@ -4,6 +4,7 @@ module.exports = gql`
   type Bank {
     id: ID
     name: String
+    accountID: ID
     addressId: ID
     branch: String
     createdAt: Date

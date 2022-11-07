@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const panelSchema = new mongoose.Schema(
   {
-    customerId: {
+    accountId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Account",
     },
@@ -13,6 +13,11 @@ const panelSchema = new mongoose.Schema(
     },
     installDate: Date,
     orderDate: Date,
+    maintenanceDates: [
+      {
+        type: Date
+      }
+    ],
     isReplacement: {
       type: Boolean,
       default: false,
