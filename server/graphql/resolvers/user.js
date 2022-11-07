@@ -42,38 +42,45 @@ module.exports = {
         ...res._doc,
       }
     },
-    async loginUser(_, { loginInput: { email, password } }) {
-      // See if this user exists
-      const user = await User.findOne({ email })
-
-      // check correct password
-      if (user && (await bcrypt.compare(password, user.password))) {
-        const token = jwt.sign(
-          { user_id: user._id, email },
-          process.env.JWT_SECRET,
-          {
-            expiresIn: "7d",
-          }
-        )
-        // create a new token and attach
-        user.token = token
-
-        // return found user
-        return {
-          id: user.id,
-          ...user._doc,
+    loginUser: async (_, { loginInput: { email, password } }) => {
+      try {
+        // See if this user exists
+        const user = await User.findOne({ email })
+        if (!user) {
+          throw new ApolloError("User not found", "USER_NOT_FOUND")
         }
-      } else {
-        // Return incorrect password
-        throw new ApolloError(
-          "Email or password is incorrect",
-          "INCORRECT_PASSWORD"
-        )
+        // check correct password
+        if (user && (await bcrypt.compare(password, user.password))) {
+          const token = jwt.sign(
+            { user_id: user._id, email },
+            process.env.JWT_SECRET,
+            {
+              expiresIn: "7d",
+            }
+          )
+          // create a new token and attach
+          user.token = token
+
+          // return found user
+          return {
+            id: user.id,
+            ...user._doc,
+          }
+        } else {
+          // Return incorrect password
+          throw new ApolloError(
+            "Email or password is incorrect",
+            "INCORRECT_PASSWORD"
+          )
+        }
+      } catch (error) {
+        console.log(error)
+        throw error
       }
     },
   },
   Query: {
-    user: (_, { ID }) => User.findById(ID),
-    users: () => User.find({})
+    user: (_, { id }) => User.findById(id),
+    users: () => User.find({}),
   },
 }
