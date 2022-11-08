@@ -7,13 +7,13 @@ module.exports = gql`
   type Account {
     id: ID
     balance: Float
-    debtAmount: Float!
+    debtAmount: Float
     lifetimeEarning: Float
     accountNumber: String
-    solarGroup: ID!
+    solarGroup: ID
     carrier: String
-    customerId: ID!
-    loaningBankId: ID!
+    customerId: ID
+    loaningBankId: ID
     createdAt: Date
     updatedAt: Date
     customer: User
@@ -21,10 +21,10 @@ module.exports = gql`
 
   input CreateAccountInput {
     balance: Float
-    debtAmount: Float!
+    debtAmount: Float
     lifetimeEarning: Float
     accountNumber: String
-    solarGroup: ID!
+    solarGroup: ID
     carrier: String
     customerId: ID!
     loaningBankId: ID!
