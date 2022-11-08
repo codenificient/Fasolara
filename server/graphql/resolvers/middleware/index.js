@@ -12,5 +12,5 @@ module.exports.isAuthenticated = (_, __, { email }) => {
 }
 
 module.exports.isPanelOwner = (_, __, {}) => {
-  return
+  return skip
 }

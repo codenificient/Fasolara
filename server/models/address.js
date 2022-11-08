@@ -19,7 +19,7 @@ const addressSchema = new Schema(
     addressType: {
       type: String,
       required: true,
-      enum: ["home", "work", "friend"],
+      enum: ["home", "work", "friend", "office", "doctor", "hq", "branch"],
       default: "home",
     },
     address: {

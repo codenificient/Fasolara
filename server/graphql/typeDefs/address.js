@@ -38,7 +38,7 @@ module.exports = gql`
   extend type Query {
     address: Address
     getAddress(id: ID): Address
-    addressses: [Address!]
+    addresses: [Address!]
   }
 
   extend type Mutation {

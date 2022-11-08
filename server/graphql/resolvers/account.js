@@ -7,17 +7,17 @@ const { isAuthenticated } = require("./middleware")
 
 module.exports = {
   Mutation: {
-    createAccount: async (_, { createAccountInput: { accountNumber } }) => {
+    createAccount: async (_, { createAccountInput }) => {
       try {
-        // See if an old user exists with same email
-        const oldAccount = await Account.findOne({ accountNumber })
+        // // See if an old user exists with same email
+        // const oldAccount = await Account.findOne({ accountNumber })
 
-        if (oldAccount) {
-          throw new ApolloError(
-            "An account already exists with number" + accountNumber,
-            "USER_ALREADY_EXISTS"
-          )
-        }
+        // if (oldAccount) {
+        //   throw new ApolloError(
+        //     "An account already exists with number" + accountNumber,
+        //     "USER_ALREADY_EXISTS"
+        //   )
+        // }
 
         // Build mongoose model
         const newAccount = new Account({
