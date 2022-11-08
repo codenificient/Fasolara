@@ -21,24 +21,24 @@ module.exports = gql`
 
   input CreateAccountInput {
     balance: Float
-    debtAmount: Float
+    debtAmount: Float!
     lifetimeEarning: Float
     accountNumber: String
-    solarGroup: ID
+    solarGroup: ID!
     carrier: String
-    customerId: ID
-    loaningBankId: ID
+    customerId: ID!
+    loaningBankId: ID!
   }
 
   input UpdateAccountInput {
     balance: Float
-    debtAmount: Float
+    debtAmount: Float!
     lifetimeEarning: Float
     accountNumber: String
-    solarGroup: ID
+    solarGroup: ID!
     carrier: String
-    customerId: ID
-    loaningBankId: ID
+    customerId: ID!
+    loaningBankId: ID!
   }
 
   extend type Query {
