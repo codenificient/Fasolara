@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Employee model is a superset of user for partners employeed at the company. Education, promotions, salary info
+  """
   type Employee {
     id: ID
     userId: String

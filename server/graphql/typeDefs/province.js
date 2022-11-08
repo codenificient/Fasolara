@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Province model is a necessary component of Location services for projects. Refactored so we can draw polygon on a map
+  """
   type Province {
     id: ID
     name: String

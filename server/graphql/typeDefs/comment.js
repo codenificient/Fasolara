@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Comment model is a simple way to add comments to other models during normal business operations.
+  """
   type Comment {
     id: ID
     is_removed: Boolean

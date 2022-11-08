@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Address model stores a lot homes and business addresses for mailing and geospatial computations
+  """
   type Address {
     id: ID
     name: String

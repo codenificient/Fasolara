@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Salary model tracks employee Salaries for easier computations and aggregate data operations
+  """
   type Salary {
     id: ID
     userId: ID

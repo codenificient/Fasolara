@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Village model stores basic information about villages where projects will be located. The basic unit of location. These may need to be created on site with a smartphone to capture gps coordinates
+  """
   type Village {
     id: ID
     name: String

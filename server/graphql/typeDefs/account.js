@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Account model stores a lot of necessary information to support Lara transactions
+  """
   type Account {
     id: ID
     balance: Float

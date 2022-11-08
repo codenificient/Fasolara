@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Transaction model stores every monetary transaction, any money moving in and out of the business. Enables data science
+  """
   type Transaction {
     id: ID
     customerId: ID

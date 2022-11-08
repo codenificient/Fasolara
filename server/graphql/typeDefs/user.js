@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The User model stores a lot of user information to support Lara operations. Considering the need of a separate server to store PII for privacy purposes. Can locally store unique ID, token and the remainder offsite
+  """
   type User {
     id: ID
     cnib: String

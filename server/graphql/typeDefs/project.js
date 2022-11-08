@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Project model stores information to track various business activities. Everything is a project, for management purposes
+  """
   type Project {
     id: ID
     name: String

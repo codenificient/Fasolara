@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Bank model stores information about partner banks to support admin tasks
+  """
   type Bank {
     id: ID
     name: String

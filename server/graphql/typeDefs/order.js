@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Order model is used for procurement of necessary goods and services
+  """
   type Order {
     id: ID
     orderDate: Date

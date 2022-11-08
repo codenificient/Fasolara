@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Country model stores some countries of interest for business purposes. Can use this to draw maps and poligons in frontend
+  """
   type Country {
     id: ID
     name: String

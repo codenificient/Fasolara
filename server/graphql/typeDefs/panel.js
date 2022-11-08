@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Panel model stores granular information about panels used for business. Main source of business intelligence
+  """
   type Panel {
     id: ID
     accountId: ID

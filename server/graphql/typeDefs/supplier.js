@@ -1,6 +1,9 @@
 const { gql } = require("apollo-server")
 
 module.exports = gql`
+  """
+  The Supplier model stores contact information about any business that provides goods and services to our business
+  """
   type Supplier {
     id: ID
     name: String
