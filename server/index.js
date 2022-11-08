@@ -1,4 +1,5 @@
 const { ApolloServer } = require("apollo-server")
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core"
 const mongoose = require("mongoose")
 
 require("dotenv").config()
@@ -10,6 +11,8 @@ const { verifyUser } = require("./helpers/context")
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  csrfPrevention: true,
+  plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   context: async ({ req }) => {
     await verifyUser(req)
     return {
