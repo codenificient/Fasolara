@@ -4,16 +4,16 @@ module.exports = gql`
   type Account {
     id: ID
     balance: Float
-    debtAmount: Float
+    debtAmount: Float!
     lifetimeEarning: Float
     accountNumber: String
-    solarGroup: ID
+    solarGroup: ID!
     carrier: String
-    customerId: ID
-    loaningBankId: ID
+    customerId: ID!
+    loaningBankId: ID!
     createdAt: Date
     updatedAt: Date
-	customer: User
+    customer: User
   }
 
   input CreateAccountInput {
@@ -40,12 +40,12 @@ module.exports = gql`
 
   extend type Query {
     account: Account
-	getAccount(id: ID): Account
+    getAccount(id: ID): Account
     accounts: [Account!]
   }
 
   extend type Mutation {
-    creatAccount(createAccountInput: CreateAccountInput): Account
+    createAccount(createAccountInput: CreateAccountInput): Account
     updateAccount(updateAccountInput: UpdateAccountInput): Account
   }
 `

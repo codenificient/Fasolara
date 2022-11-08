@@ -41,6 +41,7 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Address",
     },
+    mobileNumber: String,
     role: {
       type: String,
       default: "user",

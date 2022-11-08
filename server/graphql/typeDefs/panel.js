@@ -47,9 +47,9 @@ module.exports = gql`
   }
 
   extend type Query {
-    project: Panel
+    panel: Panel
     getPanel(id: ID): Panel
-    projects: [Panel!]
+    panels: [Panel!]
   }
 
   extend type Mutation {

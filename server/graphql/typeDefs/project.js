@@ -30,7 +30,6 @@ module.exports = gql`
     addressId: ID
     branch: String
     impact: Float
-    supplierIds: [Supplier]
     supplierId: ID
     isComplete: Boolean
     isActive: Boolean
@@ -46,7 +45,6 @@ module.exports = gql`
     branch: String
     impact: Float
     supplierId: ID
-    suppliers: [Supplier]
     isComplete: Boolean
     isActive: Boolean
     createdAt: Date

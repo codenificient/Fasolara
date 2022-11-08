@@ -7,6 +7,7 @@ module.exports = gql`
     mobileNumber: String
     locationId: ID
     villageId: ID
+    address: String
     addressType: String
     dotcolor: String
     createdAt: Date
@@ -41,7 +42,7 @@ module.exports = gql`
   }
 
   extend type Mutation {
-    createAccount(createAddressInput: CreateAddressInput): Address
+    createAddress(createAddressInput: CreateAddressInput): Address
     updateAddress(updateAddressInput: UpdateAddressInput): Address
   }
 `

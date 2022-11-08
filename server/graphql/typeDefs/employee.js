@@ -20,6 +20,12 @@ module.exports = gql`
     endDate: Date
   }
 
+  input PromotionInput {
+    jobTitle: String
+    startDate: Date
+    endDate: Date
+  }
+
   input CreateEmployeeInput {
     id: ID
     userId: String
@@ -28,7 +34,7 @@ module.exports = gql`
     salaryId: ID
     educationLevel: Int
     birthday: String
-    promotion: Promotion
+    promotion: PromotionInput
     updatedAt: Date
   }
 
@@ -40,7 +46,7 @@ module.exports = gql`
     salaryId: ID
     educationLevel: Int
     birthday: String
-    promotion: Promotion
+    promotion: PromotionInput
     updatedAt: Date
   }
 

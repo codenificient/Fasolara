@@ -8,6 +8,7 @@ module.exports = gql`
     midname: String
     lastname: String
     username: String
+    mobileNumber: String
     dob: String
     role: String
     isActive: Boolean
@@ -41,6 +42,7 @@ module.exports = gql`
 
   extend type Query {
     user: User
+    getUser(id: ID): User
     users: [User!]
   }
 

@@ -35,7 +35,7 @@ module.exports = gql`
   extend type Query {
     salary: Salary
     getSalary(id: ID): Salary
-    salary: [Salary!]
+    salaries: [Salary!]
   }
 
   extend type Mutation {

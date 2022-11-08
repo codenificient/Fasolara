@@ -7,11 +7,7 @@ const addressSchema = new Schema(
       required: true,
       trim: true,
     },
-    mobileNumber: {
-      type: String,
-      required: true,
-      trim: true,
-    },
+
     locationId: {
       type: Schema.Types.ObjectId,
       ref: "Location",
@@ -25,6 +21,10 @@ const addressSchema = new Schema(
       required: true,
       enum: ["home", "work", "friend"],
       default: "home",
+    },
+    address: {
+      type: String,
+      trim: true,
     },
     dotcolor: {
       type: String,

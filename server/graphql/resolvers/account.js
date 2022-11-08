@@ -20,10 +20,9 @@ module.exports = {
         }
 
         // Build mongoose model
-        const newAccount = new User({
+        const newAccount = new Account({
           ...createAccountInput,
         })
-
 
         // Save the user object
         const res = await newAccount.save()
@@ -31,42 +30,6 @@ module.exports = {
         return {
           id: res.id,
           ...res._doc,
-        }
-      } catch (error) {
-        console.log(error)
-        throw error
-      }
-    },
-    updateAccount: async (_, { loginInput: { email, password } }) => {
-      try {
-        // See if this user exists
-        const user = await User.findOne({ email })
-        if (!user) {
-          throw new ApolloError("User not found", "USER_NOT_FOUND")
-        }
-        // check correct password
-        if (user && (await bcrypt.compare(password, user.password))) {
-          const token = jwt.sign(
-            { user_id: user._id, email },
-            process.env.JWT_SECRET,
-            {
-              expiresIn: "7d",
-            }
-          )
-          // create a new token and attach
-          user.token = token
-
-          // return found user
-          return {
-            id: user.id,
-            ...user._doc,
-          }
-        } else {
-          // Return incorrect password
-          throw new ApolloError(
-            "Email or password is incorrect",
-            "INCORRECT_PASSWORD"
-          )
         }
       } catch (error) {
         console.log(error)

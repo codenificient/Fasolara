@@ -31,4 +31,6 @@ mongoose
   .then((res) => {
     console.log(`Server running at ${res.url}`)
   })
-.catch(error => console.log(error))
+  .catch((error) => console.log(error))
+
+// console.log(process.env.MONGO_URI)
