@@ -16,6 +16,7 @@ module.exports.verifyUser = async (req) => {
       const user = await User.findOne({ email: payload.email })
       req.userId = user.id
       req.addressId = user.addressId
+      req.role = user.role
     }
   } catch (error) {
     console.log(error)

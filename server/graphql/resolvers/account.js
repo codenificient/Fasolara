@@ -36,6 +36,36 @@ module.exports = {
         throw error
       }
     },
+    updateAccount: combineResolvers(
+      isAuthenticated,
+      async (_, { updateAccountInput }) => {
+        try {
+          // See if an old user exists with same email
+          const oldAccount = await Account.findOne({
+            accountNumber: updateAccountInput.accountNumber,
+          })
+
+          if (oldAccount) {
+            throw new ApolloError(
+              "An account already exists with account number " +
+                updateAccountInput.accountNumber,
+              "ACCOUNT_ALREADY_EXISTS"
+            )
+          }
+
+          // Update old account
+          const res = await Account.findByIdAndUpdate({ id: updateAccountInput.id}, {updateAccountInput})
+
+          return {
+            id: res.id,
+            ...res._doc,
+          }
+        } catch (error) {
+          console.log(error)
+          throw error
+        }
+      }
+    ),
   },
   Query: {
     account: combineResolvers(isAuthenticated, async (_, __, { userId }) => {

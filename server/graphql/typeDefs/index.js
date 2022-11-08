@@ -1,19 +1,19 @@
 const { gql } = require("apollo-server")
-const userTypes = require("./user")
 const accountTypes = require("./account")
 const addressTypes = require("./address")
 const bankTypes = require("./bank")
+const commentTypes = require("./comment")
 const countryTypes = require("./country")
 const employeeTypes = require("./employee")
 const orderTypes = require("./order")
 const panelTypes = require("./panel")
 const projectTypes = require("./project")
-const supplierTypes = require("./supplier")
+const provinceTypes = require("./province")
 const salaryTypes = require("./salary")
-const commentTypes = require("./comment")
+const supplierTypes = require("./supplier")
 const transactionTypes = require("./transaction")
+const userTypes = require("./user")
 const villageTypes = require("./village")
-// const accountTypes = require("./account")
 
 const typeDefs = gql`
   scalar Date
@@ -35,6 +35,7 @@ module.exports = [
   orderTypes,
   panelTypes,
   projectTypes,
+  provinceTypes,
   supplierTypes,
   salaryTypes,
   transactionTypes,
