@@ -1,32 +1,31 @@
 const { ApolloError } = require("apollo-server-errors")
-const Comment = require("../../models/comment")
+const Country = require("../../models/country")
 const { combineResolvers } = require("graphql-resolvers")
 const { isAuthenticated } = require("./middleware")
 const { isValid } = require("../../helpers/validateId")
 
 module.exports = {
   Mutation: {
-    createComment: async (_, { createCommentInput }) => {
+    createCountry: async (_, { createCountryInput }) => {
       try {
         // See if an old comment exists with same user and message
-        const oldCommentByUser = await Bank.findOne({
-          userId: createCommentInput.userId,
-          content: createCommentInput.content,
+        const oldCountry = await Country.findOne({
+          name: createCountryInput.name,
         })
 
-        if (oldCommentByUser) {
+        if (oldCountry) {
           throw new ApolloError(
-            `A comment already exists with user ${createCommentInput.userId} and content ${createCommentInput.content}`,
-            "COMMENT_ALREADY_EXISTS"
+            `A Country already exists with name ${createCountryInput.name}`,
+            "COUNTRY_ALREADY_EXISTS"
           )
         }
         // Build mongoose model
-        const newComment = new Comment({
-          ...createCommentInput,
+        const newCountry = new Country({
+          ...createCountryInput,
         })
 
         // Save the user object
-        const res = await newComment.save()
+        const res = await newCountry.save()
 
         return {
           id: res.id,
@@ -37,24 +36,24 @@ module.exports = {
         throw error
       }
     },
-    updateComment: combineResolvers(
+    updateCountry: combineResolvers(
       isAuthenticated,
-      async (_, { updateCommentInput }) => {
+      async (_, { updateCountryInput }) => {
         try {
           // See if an old user exists with same email
-          const oldComment = await Comment.findById(updateCommentInput.id)
+          const oldCountry = await Country.findById(updateCountryInput.id)
 
-          if (!oldComment) {
+          if (!oldCountry) {
             throw new ApolloError(
-              "No comment was found with ID " + updateCommentInput.id,
-              "COMMENT_NOT_FOUND"
+              "No Country was found with ID " + updateCountryInput.id,
+              "COUNTRY_NOT_FOUND"
             )
           }
 
           // Update old account
-          const res = await Comment.findOneAndUpdate(
-            { id: updateCommentInput.id },
-            { updateCommentInput },
+          const res = await Country.findOneAndUpdate(
+            { id: updateCountryInput.id },
+            { updateCountryInput },
             { new: true }
           )
 
@@ -70,24 +69,12 @@ module.exports = {
     ),
   },
   Query: {
-    comment: combineResolvers(isAuthenticated, async (_, __, { userId }) => {
-      try {
-        const account = await Comment.findOne({ customerId: userId })
-        if (!account) {
-          throw new ApolloError("Account not found", "ACCOUNT_NOT_FOUND")
-        }
-        return account
-      } catch (error) {
-        console.log(error)
-        throw error
-      }
-    }),
-    getComment: async (_, { id }, __) => {
+    country: async (_, { id }, __) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }
       return await Comment.findById(id)
     },
-    comments: async () => await Comment.find({}),
+    countries: async () => await Comment.find({}),
   },
 }
