@@ -5,6 +5,7 @@ module.exports.verifyUser = async (req) => {
   //   console.log(req.headers)
   req.email = null
   req.userId = null
+  req.addressId = null
   try {
     const bearerHeader = req.headers.authorization
 

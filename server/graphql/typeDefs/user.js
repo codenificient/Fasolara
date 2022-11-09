@@ -12,6 +12,7 @@ module.exports = gql`
     lastname: String
     username: String
     mobileNumber: String
+    addressId: ID
     dob: String
     role: String
     isActive: Boolean
@@ -30,6 +31,7 @@ module.exports = gql`
     username: String
     email: String!
     password: String!
+    addressId: ID
     cnib: String
     firstname: String!
     midname: String
@@ -42,6 +44,7 @@ module.exports = gql`
     username: String
     email: String!
     password: String!
+    addressId: ID
     cnib: String
     firstname: String!
     midname: String

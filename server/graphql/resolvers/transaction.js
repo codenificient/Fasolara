@@ -10,13 +10,15 @@ module.exports = {
       try {
         // See if an old comment exists with same user and message
         const oldTransaction = await Transaction.findOne({
-          userId: createTransactionInput.userId,
+          customerId: createTransactionInput.customerId,
+          accountId: createTransactionInput.accountId,
+          createdAt: createTransactionInput.createdAt,
         })
 
         if (oldTransaction) {
           throw new ApolloError(
-            `A Transaction already exists with ID ${createTransactionInput.userId}`,
-            "Transaction_ALREADY_EXISTS"
+            `A Transaction already exists with ID ${oldTransaction.id}`,
+            "TRANSACTION_ALREADY_EXISTS"
           )
         }
         // Build mongoose model
@@ -48,7 +50,7 @@ module.exports = {
           if (!oldTransaction) {
             throw new ApolloError(
               "No Transaction was found with ID " + updateTransactionInput.id,
-              "Transaction_NOT_FOUND"
+              "TRANSACTION_NOT_FOUND"
             )
           }
 
@@ -71,6 +73,21 @@ module.exports = {
     ),
   },
   Query: {
+    pastTransactions: combineResolvers(
+      isAuthenticated,
+      async (_, __, { userId }) => {
+        try {
+          const inTransactions = await Transaction.find({
+            beneficiaryId: userId,
+          })
+          const outTransactions = await Transaction.find({ accountId: userId })
+          return [...inTransactions, ...outTransactions]
+        } catch (error) {
+          console.log(error)
+          throw error
+        }
+      }
+    ),
     getTransaction: async (_, { id }, __) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")

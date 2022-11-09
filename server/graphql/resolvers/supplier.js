@@ -8,15 +8,15 @@ module.exports = {
   Mutation: {
     createSupplier: async (_, { createSupplierInput }) => {
       try {
-        // See if an old comment exists with same user and message
+        // See if an old comment exists with same accountId
         const oldSupplier = await Supplier.findOne({
-          userId: createSupplierInput.userId,
+          accountID: createSupplierInput.accountID,
         })
 
         if (oldSupplier) {
           throw new ApolloError(
-            `A Supplier already exists with ID ${createSupplierInput.userId}`,
-            "Supplier_ALREADY_EXISTS"
+            `A Supplier already exists with ID ${createSupplierInput.accountID}`,
+            "SUPPLIER_ALREADY_EXISTS"
           )
         }
         // Build mongoose model
@@ -46,7 +46,7 @@ module.exports = {
           if (!oldSupplier) {
             throw new ApolloError(
               "No Supplier was found with ID " + updateSupplierInput.id,
-              "Supplier_NOT_FOUND"
+              "SUPPLIER_NOT_FOUND"
             )
           }
 
@@ -69,21 +69,12 @@ module.exports = {
     ),
   },
   Query: {
-    supplier: combineResolvers(isAuthenticated, async (_, __, { teamId }) => {
-      try {
-        // Return all the projects where 1 of the teamIds matches the team this user is part of
-        return await Project.find({ teamIds: { $in: [teamId] } })
-      } catch (error) {
-        console.log(error)
-        throw error
-      }
-    }),
-    getSupplier: async (_, { id }, __) => {
+    supplier: async (_, { id }, __) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }
       return await Supplier.findById(id)
     },
-    Suppliers: async () => await Supplier.find({}),
+    suppliers: async () => await Supplier.find({}),
   },
 }

@@ -69,12 +69,12 @@ module.exports = {
     ),
   },
   Query: {
-    Salary: async (_, { id }, __) => {
+    salary: async (_, { id }, __) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }
       return await Salary.findById(id)
     },
-    Salarys: async () => await Salary.find({}),
+    salaries: async () => await Salary.find({}),
   },
 }

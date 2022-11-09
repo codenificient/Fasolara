@@ -35,8 +35,7 @@ module.exports = gql`
   }
 
   extend type Query {
-    supplier: Supplier
-    getSupplier(id: ID): Supplier
+    supplier(id: ID): Supplier
     suppliers: [Supplier!]
   }
 

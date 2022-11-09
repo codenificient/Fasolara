@@ -69,12 +69,12 @@ module.exports = {
     ),
   },
   Query: {
-    Province: async (_, { id }, __) => {
+    province: async (_, { id }, __) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }
       return await Province.findById(id)
     },
-    Provinces: async () => await Province.find({}),
+    provinces: async () => await Province.find({}),
   },
 }

@@ -51,7 +51,7 @@ module.exports = gql`
   }
 
   extend type Query {
-    transaction: Transaction
+    pastTransactions: [Transaction]
     getTransaction(id: ID): Transaction
     transactions: [Transaction!]
   }
