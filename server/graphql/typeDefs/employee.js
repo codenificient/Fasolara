@@ -6,7 +6,7 @@ module.exports = gql`
   """
   type Employee {
     id: ID
-    userId: String
+    userId: ID
     accountID: ID
     teamId: ID
     salaryId: ID

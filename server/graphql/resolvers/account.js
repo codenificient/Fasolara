@@ -9,15 +9,28 @@ module.exports = {
   Mutation: {
     createAccount: async (_, { createAccountInput }) => {
       try {
-        // // See if an old user exists with same email
-        // const oldAccount = await Account.findOne({ accountNumber })
+        // See if an old account exists with same userId
+        const oldAccountByUser = await Account.findOne({
+          id: createAccountInput.customerId,
+        })
+        // See if an old account exists with same accountNumber
+        const oldAccountByAccount = await Account.findOne({
+          accountNumber: createAccountInput.accountNumber,
+        })
 
-        // if (oldAccount) {
-        //   throw new ApolloError(
-        //     "An account already exists with number" + accountNumber,
-        //     "USER_ALREADY_EXISTS"
-        //   )
-        // }
+        if (oldAccountByUser) {
+          throw new ApolloError(
+            "An account already exists for user  " +
+              createAccountInput.customerId,
+            "ACCOUNT_ALREADY_EXISTS"
+          )
+        } else if (oldAccountByAccount) {
+          throw new ApolloError(
+            "An account already exists for accountNumber  " +
+              createAccountInput.accountNumber,
+            "ACCOUNT_ALREADY_EXISTS"
+          )
+        }
 
         // Build mongoose model
         const newAccount = new Account({
@@ -41,20 +54,21 @@ module.exports = {
       async (_, { updateAccountInput }) => {
         try {
           // See if an old user exists with same email
-          const oldAccount = await Account.findOne({
-            accountNumber: updateAccountInput.accountNumber,
-          })
+          const oldAccount = await Account.findById(updateAccountInput.id)
 
-          if (oldAccount) {
+          if (!oldAccount) {
             throw new ApolloError(
-              "An account already exists with account number " +
-                updateAccountInput.accountNumber,
-              "ACCOUNT_ALREADY_EXISTS"
+              "No account was found with ID " + updateAccountInput.id,
+              "ACCOUNT_NOT_FOUND"
             )
           }
 
           // Update old account
-          const res = await Account.findByIdAndUpdate({ id: updateAccountInput.id}, {updateAccountInput})
+          const res = await Account.findOneAndUpdate(
+            { id: updateAccountInput.id },
+            { updateAccountInput },
+            { new: true }
+          )
 
           return {
             id: res.id,

@@ -40,7 +40,7 @@ module.exports = gql`
   extend type Query {
     province: Province
     getProvince(id: ID): Province
-    province: [Province!]
+    provinces: [Province!]
   }
 
   extend type Mutation {

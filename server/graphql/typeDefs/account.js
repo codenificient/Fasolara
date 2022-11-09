@@ -20,6 +20,7 @@ module.exports = gql`
   }
 
   input CreateAccountInput {
+    id: ID
     balance: Float
     debtAmount: Float
     lifetimeEarning: Float
@@ -31,6 +32,7 @@ module.exports = gql`
   }
 
   input UpdateAccountInput {
+    id: ID!
     balance: Float
     debtAmount: Float!
     lifetimeEarning: Float

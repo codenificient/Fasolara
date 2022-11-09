@@ -29,6 +29,7 @@ module.exports = gql`
   }
 
   input UpdateAddressInput {
+    id: ID!
     name: String
     mobileNumber: String
     locationId: ID

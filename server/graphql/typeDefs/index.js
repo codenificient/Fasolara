@@ -5,6 +5,7 @@ const bankTypes = require("./bank")
 const commentTypes = require("./comment")
 const countryTypes = require("./country")
 const employeeTypes = require("./employee")
+const investorTypes = require("./investor")
 const orderTypes = require("./order")
 const panelTypes = require("./panel")
 const projectTypes = require("./project")
@@ -32,6 +33,7 @@ module.exports = [
   commentTypes,
   countryTypes,
   employeeTypes,
+  investorTypes,
   orderTypes,
   panelTypes,
   projectTypes,

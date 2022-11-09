@@ -40,3 +40,4 @@ module.exports.getEducationLevel = async (level) => {
   ]
   return levelsMap[level]
 }
+
