@@ -25,4 +25,8 @@ This repo replaces Express GraphQL with Apollo GraphQL. Will enventually support
 
 ## Testing
 
-- Upcoming
+- <b>Apollo Server</b>
+	-	Supertest
+	- EasyGraphQLTester
+	- Mocha
+	- Chai
