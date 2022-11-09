@@ -41,6 +41,6 @@ module.exports = gql`
 
   extend type Mutation {
     createCountry(createCountryInput: CreateCountryInput): Country
-    updatCountry(updateCountryInput: UpdateCountryInput): Country
+    updateCountry(updateCountryInput: UpdateCountryInput): Country
   }
 `

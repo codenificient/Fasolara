@@ -6,14 +6,13 @@ module.exports = gql`
   """
   type Investor {
     id: ID
-    startDate: Date
-    endDate: Date
+    role: String
     userId: ID
     accountID: ID
-    teamId: ID
-    salaryId: ID
     bonuses: [ID]
     referrals: [ID]
+    startDate: Date
+    endDate: Date
     createdAt: Date
     updatedAt: Date
   }
@@ -45,13 +44,12 @@ module.exports = gql`
   }
 
   extend type Query {
-    investor: Investor
-    getInvestor(id: ID): Investor
+    investor(id: ID): Investor
     investors: [Investor!]
   }
 
   extend type Mutation {
     createInvestor(createInvestorInput: CreateInvestorInput): Investor
-    updatInvestor(updateInvestorInput: UpdateInvestorInput): Investor
+    updateInvestor(updateInvestorInput: UpdateInvestorInput): Investor
   }
 `

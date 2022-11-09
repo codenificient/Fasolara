@@ -43,6 +43,6 @@ module.exports = gql`
 
   extend type Mutation {
     createVillage(createVillageInput: CreateVillageInput): Village
-    updatVillage(updateVillageInput: UpdateVillageInput): Village
+    updateVillage(updateVillageInput: UpdateVillageInput): Village
   }
 `

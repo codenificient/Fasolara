@@ -60,7 +60,7 @@ module.exports = gql`
     createTransaction(
       createTransactionInput: CreateTransactionInput
     ): Transaction
-    updatTransaction(
+    updateTransaction(
       updateTransactionInput: UpdateTransactionInput
     ): Transaction
   }

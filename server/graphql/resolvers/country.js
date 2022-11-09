@@ -73,8 +73,8 @@ module.exports = {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }
-      return await Comment.findById(id)
+      return await Country.findById(id)
     },
-    countries: async () => await Comment.find({}),
+    countries: async () => await Country.find({}),
   },
 }

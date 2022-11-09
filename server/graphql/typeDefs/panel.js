@@ -57,6 +57,6 @@ module.exports = gql`
 
   extend type Mutation {
     createPanel(createPanelInput: CreatePanelInput): Panel
-    updatPanel(updatePanelInput: UpdatePanelInput): Panel
+    updatePanel(updatePanelInput: UpdatePanelInput): Panel
   }
 `

@@ -38,6 +38,18 @@ module.exports = gql`
     role: String
   }
 
+  input UpdateUserInput {
+    username: String
+    email: String!
+    password: String!
+    cnib: String
+    firstname: String!
+    midname: String
+    lastname: String!
+    dob: String
+    role: String
+  }
+
   input LoginInput {
     email: String
     password: String
@@ -51,6 +63,7 @@ module.exports = gql`
 
   extend type Mutation {
     registerUser(registerInput: RegisterInput): User
+    updateUser(updateUserInput: UpdateUserInput): User
     loginUser(loginInput: LoginInput): Token
   }
 `

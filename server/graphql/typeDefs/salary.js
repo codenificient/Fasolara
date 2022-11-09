@@ -43,6 +43,6 @@ module.exports = gql`
 
   extend type Mutation {
     createSalary(createSalaryInput: CreateSalaryInput): Salary
-    updatSalary(updateSalaryInput: UpdateSalaryInput): Salary
+    updateSalary(updateSalaryInput: UpdateSalaryInput): Salary
   }
 `

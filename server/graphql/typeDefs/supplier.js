@@ -42,6 +42,6 @@ module.exports = gql`
 
   extend type Mutation {
     createSupplier(createSupplierInput: CreateSupplierInput): Supplier
-    updatSupplier(updateSupplierInput: UpdateSupplierInput): Supplier
+    updateSupplier(updateSupplierInput: UpdateSupplierInput): Supplier
   }
 `
