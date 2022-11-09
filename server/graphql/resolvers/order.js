@@ -84,6 +84,6 @@ module.exports = {
       }
       return await Order.findById(id)
     },
-    Orders: async () => await Order.find({}),
+    orders: async () => await Order.find({}),
   },
 }

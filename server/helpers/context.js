@@ -14,6 +14,9 @@ module.exports.verifyUser = async (req) => {
       const payload = jwt.verify(token, process.env.JWT_SECRET)
       req.email = payload.email
       const user = await User.findOne({ email: payload.email })
+      if (user && (user.role == "employee" || user.role == "manager" || user.role == "admin")) {
+        req.teamId = user.teamId
+      }
       req.userId = user.id
       req.addressId = user.addressId
       req.role = user.role

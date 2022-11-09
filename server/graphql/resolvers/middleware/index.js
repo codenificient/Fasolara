@@ -20,3 +20,13 @@ module.exports.canModifyData = (parent, __, { role }) => {
   }
   return skip
 }
+
+module.exports.canViewProject = (_, __, { role }) => {
+  if (role !== "admin" || role !== "manager" || role !== "employee") {
+    throw new ApolloError(
+      "Not authorized to View as Employee",
+      "UNAUTHORIZED_VIEW"
+    )
+  }
+  return skip
+}
