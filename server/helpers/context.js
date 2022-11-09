@@ -5,6 +5,7 @@ module.exports.verifyUser = async (req) => {
   //   console.log(req.headers)
   req.email = null
   req.userId = null
+  req.addressId = null
   try {
     const bearerHeader = req.headers.authorization
 
@@ -14,8 +15,12 @@ module.exports.verifyUser = async (req) => {
       const payload = jwt.verify(token, process.env.JWT_SECRET)
       req.email = payload.email
       const user = await User.findOne({ email: payload.email })
+      if (user && (user.role == "employee" || user.role == "manager" || user.role == "admin")) {
+        req.teamId = user.teamId
+      }
       req.userId = user.id
       req.addressId = user.addressId
+      req.role = user.role
     }
   } catch (error) {
     console.log(error)
@@ -39,3 +44,4 @@ module.exports.getEducationLevel = async (level) => {
   ]
   return levelsMap[level]
 }
+

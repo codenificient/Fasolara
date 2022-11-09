@@ -6,7 +6,7 @@ module.exports = gql`
   """
   type Employee {
     id: ID
-    userId: String
+    userId: ID
     accountID: ID
     teamId: ID
     salaryId: ID
@@ -54,13 +54,12 @@ module.exports = gql`
   }
 
   extend type Query {
-    employee: Employee
-    getEmployee(id: ID): Employee
+    employee(id: ID): Employee
     employees: [Employee!]
   }
 
   extend type Mutation {
     createEmployee(createEmployeeInput: CreateEmployeeInput): Employee
-    updatEmployee(updateEmployeeInput: UpdateEmployeeInput): Employee
+    updateEmployee(updateEmployeeInput: UpdateEmployeeInput): Employee
   }
 `

@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const { combineResolvers } = require("graphql-resolvers")
 const { isAuthenticated } = require("./middleware")
+const { isValid } = require("../../helpers/validateId")
 
 module.exports = {
   Mutation: {
@@ -99,6 +100,12 @@ module.exports = {
         throw error
       }
     }),
+    getUser: async (_, { id }, __) => {
+      if (!isValid(id)) {
+        throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
+      }
+      return await User.findById(id)
+    },
     users: async () => await User.find({}),
   },
 }

@@ -11,6 +11,22 @@ module.exports.isAuthenticated = (_, __, { email }) => {
   return skip
 }
 
-module.exports.isPanelOwner = (_, __, {}) => {
+module.exports.canModifyData = (parent, __, { role }) => {
+  if (parent.createdBy !== userId || role !== "admin" || role !== "manager") {
+    throw new ApolloError(
+      "Not authorized to Edit as Owner",
+      "UNAUTHORIZED_EDIT"
+    )
+  }
+  return skip
+}
+
+module.exports.canViewProject = (_, __, { role }) => {
+  if (role !== "admin" || role !== "manager" || role !== "employee") {
+    throw new ApolloError(
+      "Not authorized to View as Employee",
+      "UNAUTHORIZED_VIEW"
+    )
+  }
   return skip
 }

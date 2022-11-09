@@ -51,7 +51,7 @@ module.exports = gql`
   }
 
   extend type Query {
-    transaction: Transaction
+    pastTransactions: [Transaction]
     getTransaction(id: ID): Transaction
     transactions: [Transaction!]
   }
@@ -60,7 +60,7 @@ module.exports = gql`
     createTransaction(
       createTransactionInput: CreateTransactionInput
     ): Transaction
-    updatTransaction(
+    updateTransaction(
       updateTransactionInput: UpdateTransactionInput
     ): Transaction
   }

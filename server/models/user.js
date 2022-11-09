@@ -37,9 +37,9 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Address",
     },
-    addressId: {
+    createdBy: {
       type: Schema.Types.ObjectId,
-      ref: "Address",
+      ref: "User",
     },
     mobileNumber: String,
     role: {

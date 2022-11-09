@@ -49,13 +49,13 @@ module.exports = gql`
   }
 
   extend type Query {
-    order: Order
+    pastOrders: [Order]
     getOrder(id: ID): Order
     orders: [Order!]
   }
 
   extend type Mutation {
     createOrder(createOrderInput: CreateOrderInput): Order
-    updatOrder(updateOrderInput: UpdateOrderInput): Order
+    updateOrder(updateOrderInput: UpdateOrderInput): Order
   }
 `

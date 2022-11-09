@@ -35,13 +35,12 @@ module.exports = gql`
   }
 
   extend type Query {
-    country: Country
-    getCountry(id: ID): Country
+    country(id: ID): Country
     countries: [Country!]
   }
 
   extend type Mutation {
     createCountry(createCountryInput: CreateCountryInput): Country
-    updatCountry(updateCountryInput: UpdateCountryInput): Country
+    updateCountry(updateCountryInput: UpdateCountryInput): Country
   }
 `

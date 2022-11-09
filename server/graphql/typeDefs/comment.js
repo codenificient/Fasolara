@@ -8,7 +8,9 @@ module.exports = gql`
     id: ID
     is_removed: Boolean
     userId: ID
+    user: User
     index: Int
+    content: String
     createdAt: Date
     updatedAt: Date
   }
@@ -37,6 +39,6 @@ module.exports = gql`
 
   extend type Mutation {
     createComment(createCommentInput: CreateCommentInput): Comment
-    updatComment(updateCommentInput: UpdateCommentInput): Comment
+    updateComment(updateCommentInput: UpdateCommentInput): Comment
   }
 `

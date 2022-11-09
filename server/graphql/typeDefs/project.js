@@ -10,6 +10,8 @@ module.exports = gql`
     zone: String
     dotcolor: String
     addressId: ID
+    managerId: ID
+    teamIds: [ID]
     branch: String
     impact: Float
     suppliers: [Supplier]
@@ -55,13 +57,13 @@ module.exports = gql`
   }
 
   extend type Query {
-    project: Project
+    project: [Project]
     getProject(id: ID): Project
     projects: [Project!]
   }
 
   extend type Mutation {
     createProject(createProjectInput: CreateProjectInput): Project
-    updatProject(updateProjectInput: UpdateProjectInput): Project
+    updateProject(updateProjectInput: UpdateProjectInput): Project
   }
 `
