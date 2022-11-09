@@ -1,3 +1,8 @@
+// TODO fetch all addresses test
+// TODO create new address mutation test
+// TODO fetch single address by ID test
+// TODO get an address with loggedIn user (context obj)
+
 const chai = require("chai")
 const EasyGraphQLTester = require("easygraphql-tester")
 const { describe, it } = require("mocha")

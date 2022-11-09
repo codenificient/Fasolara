@@ -1,60 +1,7 @@
-// const chai = require("chai")
-// const chaiGraphQL = require("chai-graphql")
+// TODO create new account mutation test
+// TODO fetch single account by ID test
+// TODO get an account with loggedIn user (context obj)
 
-// chai.use(chaiGraphQL)
-
-// const { assert } = chai
-// const baseUrl = "http://localhost:3000"
-// const request = require("supertest")(baseUrl)
-// const expect = chai.expect
-
-// describe("Testing GraphQL Server", () => {
-//   it("Should fetch all accounts from database", (done) => {
-//     request
-//       .post("/")
-//       .send({
-//         query: "{  accounts {  id  debtAmount  }}",
-//       })
-//       .set("Accept", "application/json")
-//       .expect(200)
-//       .end((err, res) => {
-//         if (err) return done(err)
-//         expect(res.body && typeof res.body === 'object').toBe(true)
-//         // expect(res.body.data)
-//       })
-//   })
-// })
-
-// const supertest = require("supertest")
-// const app = require("../../index")
-
-// app.server = app.listen(3000)
-
-// describe("Server can Start Normally", () => {
-//   afterEach(() => app.server.close())
-
-//   it("Should listen to HTTP requests", (done) => {
-//     const userId = "636a433969c78a4ab9af94d7"
-//     request(app)
-//       .post("/")
-//       .send({
-//         query: `{  accounts {  id  debtAmount  }}`,
-//       })
-//       .set("Accept", "application/json")
-//       .expect(200)
-//       .end((err, res) => {
-//         if (err) return done(err)
-//         expect(res.body && typeof res.body === "object").toBe(true)
-//         expect(res.body).toHaveProperty("data")
-//         expect(res.body.data).toHaveProperty("accounts")
-//         expect(res.body.data.accounts).toHaveProperty("id")
-
-//         expect(res.body.data.accounts).toHaveProperty("debtAmount")
-
-//         return done()
-//       })
-//   })
-// })
 const chai = require("chai")
 const EasyGraphQLTester = require("easygraphql-tester")
 const { describe, it } = require("mocha")
@@ -80,6 +27,20 @@ describe("Test Queries and Mutations on Account", () => {
       }
     `
     tester.test(true, validQ)
+  })
+
+  it("Returns data if the query is valid ", () => {
+    const validQ = `
+      {
+        accounts {
+          id
+          debtAmount
+        }
+      }
+    `
+    tester.graphql(validQ, undefined, undefined, undefined).then((accounts) => {
+      expect(accounts.length).to.be.eq(2)
+    })
   })
 
   it("Should fail if the query is invalid", () => {
