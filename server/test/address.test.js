@@ -1,6 +1,7 @@
-// TODO create new account mutation test
-// TODO fetch single account by ID test
-// TODO get an account with loggedIn user (context obj)
+// TODO fetch all addresses test
+// TODO create new address mutation test
+// TODO fetch single address by ID test
+// TODO get an address with loggedIn user (context obj)
 
 const chai = require("chai")
 const EasyGraphQLTester = require("easygraphql-tester")
@@ -10,43 +11,48 @@ const typeDefs = require("../graphql/typeDefs")
 
 chai.should()
 
-describe("Test Queries and Mutations on Account", () => {
+describe("Test Queries and Mutations on Address", () => {
   let tester
 
-  before(() => {
+  beforeEach(() => {
     tester = new EasyGraphQLTester(typeDefs, resolvers)
   })
 
   it("schema pass if the query is valid ", () => {
-    const validQ = `
+    const addressQ = `
       {
-        accounts {
+        addresses {
           id
-          debtAmount
+          mobileNumber
+          address
         }
       }
     `
-    tester.test(true, validQ)
+    tester.test(true, addressQ)
   })
 
   it("Returns data if the query is valid ", () => {
-    const validQ = `
+    const addresses = `
       {
-        accounts {
+        addresses {
           id
-          debtAmount
+          mobileNumber
+          address
         }
       }
     `
-    tester.graphql(validQ, undefined, undefined, undefined).then((accounts) => {
-      expect(accounts.length).to.be.eq(2)
-    })
+    tester
+      .graphql(addresses, undefined, undefined, undefined)
+      .then((addresses) => {
+        console.log(addresses)
+        expect(addresses.length).to.be.eq(1)
+      })
   })
 
   it("Should fail if the query is invalid", () => {
     const invalidQuery = `
   {
-    accounts {
+    addresses {
       publicationDate
     }
   }
