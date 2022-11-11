@@ -1,6 +1,6 @@
 import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "react-apollo"
-
+import Layout from "../components/Layout"
 import "../styles/globals.scss"
 
 // Apollo client setup
@@ -11,8 +11,10 @@ const client = new ApolloClient({
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <ApolloProvider client={client}>
-      <Component {...pageProps} />
-    </ApolloProvider>
+    <Layout>
+      <ApolloProvider client={client}>
+        <Component {...pageProps} />
+      </ApolloProvider>
+    </Layout>
   )
 }
