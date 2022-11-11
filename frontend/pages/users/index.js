@@ -1,9 +1,8 @@
 import Head from "next/head"
-import ProvincesList from "../components/ProvincesList"
-import UserList from "../components/UserList"
-import styles from "../styles/Home.module.scss"
+import UserList from "../../components/UserList"
+import styles from "../../styles/Home.module.scss"
 
-export default function Home() {
+export default function Users() {
   return (
     <div className={styles.container}>
       <Head>
@@ -15,7 +14,7 @@ export default function Home() {
         <h1 className={styles.title}>
           Bienvenu a <a href="https://fasolara.com">FasoLara</a>
         </h1>
-        <ProvincesList />
+        <UserList />
       </main>
     </div>
   )
