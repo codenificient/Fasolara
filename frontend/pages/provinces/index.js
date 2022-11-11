@@ -1,9 +1,9 @@
 import Head from "next/head"
-import ProvincesList from "../components/ProvincesList"
-import UserList from "../components/UserList"
-import styles from "../styles/Home.module.scss"
+import ProvincesList from "../../components/ProvincesList"
+// import UserList from "../components/UserList"
+import styles from "../../styles/Home.module.scss"
 
-export default function Home() {
+export default function Provinces() {
   return (
     <div className={styles.container}>
       <Head>

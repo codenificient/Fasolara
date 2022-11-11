@@ -1,6 +1,6 @@
 # FasoLara Website 
 
-The Next.JS based website for the FasoLara platform
+The Next.JS based website for the FasoLara platform. First draft demo hosted on Vercel at https://fasolarafrontend.vercel.app/
 
 We have not yet connected the dashboard to live data from Database. Currently using some generated local JSON data for illustration and frontend styling purposes
 
