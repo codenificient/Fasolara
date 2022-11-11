@@ -29,12 +29,15 @@ This repo encompasses several other repositories for various components on the L
 
 <b>Testing</b>
 - Manual 
-			- PostMan
-			- Apollo Studio
-			- GraphiQL
+		- PostMan
+		- Apollo Studio
+		- GraphiQL
 
 - Automated
 	- Cypress
+	- Jest
+	- Mocha
+	- Chai
 
 ## Learn More
 
