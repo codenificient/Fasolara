@@ -4,6 +4,10 @@ const getUsersQuery = gql`
 	{
 		users {
 			fullname
+            cnib
+            email
+            dob
+            role
 			id
 		}
 	}

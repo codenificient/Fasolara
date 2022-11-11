@@ -7,7 +7,7 @@ This repo encompasses several other repositories for various components on the L
 - <b>admin</b>: The frontent web application for administrative process of the business
 	
 	Sample site is live at https://fasolara.vercel.app/
-	
+
 - <b>backend</b>: The initial backend server to handle operations between the frontend and the company remote database. It uses Express.JS and GraphQL
 	
 	Sample site is live at https://fasolaraserver.vercel.app/graphql
@@ -53,4 +53,4 @@ This repo encompasses several other repositories for various components on the L
 
 ## Learn More
 
-See README.md on each individual subfolder for installing and running the application
+See ```README.md``` on each individual subfolder for installing and running the application
