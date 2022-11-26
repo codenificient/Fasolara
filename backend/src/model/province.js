@@ -27,7 +27,8 @@ const provinceSchema = new mongoose.Schema(
 		},
 		zone: {
 			type: String,
-			enum: [ 'sahelienne', 'soudanaise', 'subsoudainaise' ]
+			enum: [ 'sahelienne', 'soudanaise', 'subsoudainaise' ],
+			default: "sahelienne"
 		}
 	},
 	{

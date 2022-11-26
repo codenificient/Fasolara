@@ -42,6 +42,7 @@ const userSchema = new Schema(
       ref: "User",
     },
     mobileNumber: String,
+    resetToken: String,
     role: {
       type: String,
       default: "user",

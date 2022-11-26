@@ -6,8 +6,8 @@ import "../styles/globals.scss"
 // Apollo client setup
 const client = new ApolloClient({
   //   uri: "http://localhost:3000/graphql",
-  uri: "https://fasolaraserver.vercel.app/graphql",
-})
+  uri: process.env.NEXT_PUBLIC_BACKEND,
+});
 
 export default function MyApp({ Component, pageProps }) {
   return (

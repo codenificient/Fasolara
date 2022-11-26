@@ -29,7 +29,7 @@ const addressSchema = new mongoose.Schema(
 		},
 		dotcolor: {
 			type: String,
-			default: 'default'
+			default: 'yellow'
 		},
 	},
 	{
