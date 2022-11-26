@@ -52,6 +52,7 @@ module.exports = gql`
     lastname: String!
     dob: String
     role: String
+    resetToken: String
   }
 
   input LoginInput {
