@@ -1,8 +1,8 @@
-const { gql } = require("apollo-server")
+const { gql } = require("apollo-server");
 
 module.exports = gql`
   """
-  The Panel model stores granular information about panels used for business. Main source of business intelligence
+  The Panel model stores granular information about panels used for business. Panel keeps track of its own rated capacity so we can see the evolution of panel health over time and determine useful life and projected output for future panels based on empirical data. Also based on location, rain, solar irridiation, maintenance schedule, etc. Main source of business intelligence
   """
   type Panel {
     id: ID
@@ -15,9 +15,21 @@ module.exports = gql`
     isActive: Boolean
     isInstalled: Boolean
     isReplacement: Boolean
-    maintenanceDates: [Date]
+    ratedCapacity: [Capacity]
+    maintenanceDates: [Maintenance]
     createdAt: Date
     updatedAt: Date
+  }
+
+  type Maintenance {
+    start: Date
+    complete: Date
+    comment: String
+  }
+
+  type Capacity {
+    date: Date
+    capacity: Float
   }
 
   input CreatePanelInput {
@@ -35,6 +47,11 @@ module.exports = gql`
     updatedAt: Date
   }
 
+  input AddCapacityInput {
+    date: Date
+    capacity: Float
+  }
+
   input UpdatePanelInput {
     accountId: ID
     serialNumber: String
@@ -45,7 +62,7 @@ module.exports = gql`
     isActive: Boolean
     isInstalled: Boolean
     isReplacement: Boolean
-    maintenanceDate: Date
+    maintenanceDates: Maintenance
     updatedAt: Date
   }
 
@@ -58,5 +75,6 @@ module.exports = gql`
   extend type Mutation {
     createPanel(createPanelInput: CreatePanelInput): Panel
     updatePanel(updatePanelInput: UpdatePanelInput): Panel
+    updatePanelCapacity(addCapacityInput: AddCapacityInput): Panel
   }
-`
+`;

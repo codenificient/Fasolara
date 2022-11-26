@@ -21,7 +21,8 @@ const transactionSchema = new mongoose.Schema(
 		},
 		kind: {
 			type: String,
-			enum: [ 'dividend', 'salary', 'bonus', 'gift', 'purchase', 'tax', 'transfer', 'deposit' ]
+			enum: [ 'dividend', 'salary', 'bonus', 'gift', 'purchase', 'tax', 'transfer', 'deposit' ],
+			default: "deposit"
 		}
 	},
 	{

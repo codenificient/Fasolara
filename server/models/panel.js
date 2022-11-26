@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const panelSchema = new mongoose.Schema(
   {
@@ -15,8 +15,16 @@ const panelSchema = new mongoose.Schema(
     orderDate: Date,
     maintenanceDates: [
       {
-        type: Date
-      }
+        start: Date,
+        complete: Date,
+        comment: String,
+      },
+    ],
+    ratedCapacity: [
+      {
+        date: Date,
+        capacity: Number,
+      },
     ],
     isReplacement: {
       type: Boolean,
@@ -35,6 +43,6 @@ const panelSchema = new mongoose.Schema(
   {
     timestamps: true,
   }
-)
+);
 
-module.exports = mongoose.model("Panel", panelSchema)
+module.exports = mongoose.model("Panel", panelSchema);

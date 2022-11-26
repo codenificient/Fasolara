@@ -17,7 +17,7 @@ const countrySchema = new mongoose.Schema(
 		},
 		polycolor: {
 			type: String,
-			default: 'yellow'
+			default: 'lightyellow'
 		}
 	},
 	{

@@ -19,6 +19,7 @@ module.exports = gql`
     email: String
     password: String
     token: String
+    resetToken: String
     createdAt: Date
     updatedAt: Date
   }
@@ -51,6 +52,7 @@ module.exports = gql`
     lastname: String!
     dob: String
     role: String
+    resetToken: String
   }
 
   input LoginInput {
@@ -69,4 +71,4 @@ module.exports = gql`
     updateUser(updateUserInput: UpdateUserInput): User
     loginUser(loginInput: LoginInput): Token
   }
-`
+`;
