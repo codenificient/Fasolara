@@ -9,7 +9,7 @@ class VillagesList extends Component {
     // console.log(data)
     if (!data.villages) return
     if (data.loading) {
-      return <div>Loading villages..</div>
+      return <div>Chargement des villages...</div>
     } else {
       return data.villages.map((province) => {
         return (

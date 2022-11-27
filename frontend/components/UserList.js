@@ -12,7 +12,7 @@ class UserList extends Component {
     if (!data) return
 
     if (data.loading) {
-      return <div>Loading Users</div>
+      return <div>Chargement en cours...</div>
     } else {
       return data.users.slice(3).map((user) => {
         return (

@@ -9,7 +9,7 @@ class ProvincesList extends Component {
     // console.log(data)
     if (!data.provinces) return
     if (data.loading) {
-      return <div>Loading provinces..</div>
+      return <div>Chargement en cours...</div>;
     } else {
       return data.provinces.map((province) => {
         return (
