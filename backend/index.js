@@ -8,7 +8,7 @@ const { graphqlHTTP } = require('express-graphql')
 dotenv.config()
 
 // Setup database
-const db = process.env.MONGO_URI || 'mongodb://localhost:27017/fasolara'
+const db = process.env.MONGO_URI
 
 mongoose
 	.connect(db, {
