@@ -37,12 +37,12 @@ class ProvincesList extends Component {
   render() {
     return (
       <div className={styles.gridcontainer}>
-        <h1>Provinces List</h1>
+        <h1 className="center">Provinces List</h1>
         <ul id="provinces" className="center">
           {this.displayProvinces()}
         </ul>
       </div>
-    )
+    );
   }
 }
 

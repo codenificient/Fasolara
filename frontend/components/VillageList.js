@@ -27,12 +27,12 @@ class VillagesList extends Component {
   render() {
     return (
       <div className={styles.gridcontainer}>
-        <h1>Villages List</h1>
+        <h1 className="center">Villages List</h1>
         <ul id="villages" className="center">
           {this.displayVillages()}
         </ul>
       </div>
-    )
+    );
   }
 }
 

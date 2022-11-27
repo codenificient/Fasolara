@@ -36,10 +36,10 @@ class UserList extends Component {
   render() {
     return (
       <div className={styles.gridcontainer}>
-        <h1>Users List</h1>
+        <h1 className="center">Users List</h1>
         <ul id="users">{this.displayUsers()}</ul>
       </div>
-    )
+    );
   }
 }
 
