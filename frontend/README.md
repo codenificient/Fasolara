@@ -2,7 +2,7 @@
 
 The Next.JS based website for the FasoLara platform. First draft demo hosted on Vercel at https://fasolarafrontend.vercel.app/
 
-We have not yet connected the dashboard to live data from Database. Currently using some generated local JSON data for illustration and frontend styling purposes
+The frontend page is connected to the original Express version of the server and is displaying temporary data which is on the database. Thousands of sample documents have been created for users, panels, projects and all the other major data models. Current frontend is showing users, villages and provinces.
 
 Curently completed scaffolding the various pages and initial routing
 

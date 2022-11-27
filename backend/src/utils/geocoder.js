@@ -1,13 +1,13 @@
-const NodeGeocoder = require('node-geocoder')
+const NodeGeocoder = require("node-geocoder");
 
 const options = {
-	provider: 'mapquest',
+  provider: "mapquest",
 
-	// Optional depending on the providers
-	apiKey: 'MtyHEsGsEC3tr7QgA79AnEkGOvOEVTPj',
-	formatter: null
-}
+  // Optional depending on the providers
+  apiKey: process.env.MAPBOX_KEY,
+  formatter: null,
+};
 
-const geocoder = NodeGeocoder(options)
+const geocoder = NodeGeocoder(options);
 
-module.exports = geocoder
+module.exports = geocoder;
