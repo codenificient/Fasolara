@@ -6,7 +6,7 @@ module.exports = gql`
   """
   type Comment {
     id: ID
-    is_removed: Boolean
+    isDisabled: Boolean
     userId: ID
     user: User
     index: Int
@@ -17,7 +17,7 @@ module.exports = gql`
 
   input CreateCommentInput {
     id: ID
-    is_removed: Boolean
+    isDisabled: Boolean
     userId: ID
     index: Int
     updatedAt: Date
@@ -25,7 +25,7 @@ module.exports = gql`
 
   input UpdateCommentInput {
     id: ID
-    is_removed: Boolean
+    isDisabled: Boolean
     userId: ID
     index: Int
     updatedAt: Date
@@ -41,4 +41,4 @@ module.exports = gql`
     createComment(createCommentInput: CreateCommentInput): Comment
     updateComment(updateCommentInput: UpdateCommentInput): Comment
   }
-`
+`;

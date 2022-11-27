@@ -37,5 +37,6 @@ module.exports = gql`
   extend type Mutation {
     createBank(createBankInput: CreateBankInput): Bank
     updateBank(updateBankInput: UpdateBankInput): Bank
+    removeBank(id: ID): Boolean
   }
-`
+`;

@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server")
+const { gql } = require("apollo-server");
 
 module.exports = gql`
   """
@@ -13,6 +13,7 @@ module.exports = gql`
     username: String
     mobileNumber: String
     addressId: ID
+    accountId: ID
     dob: String
     role: String
     isActive: Boolean
@@ -20,6 +21,7 @@ module.exports = gql`
     password: String
     token: String
     resetToken: String
+    activationToken: String
     createdAt: Date
     updatedAt: Date
   }
@@ -32,7 +34,9 @@ module.exports = gql`
     username: String
     email: String!
     password: String!
+    mobileNumber: String
     addressId: ID
+    accountId: ID
     cnib: String
     firstname: String!
     midname: String
@@ -46,6 +50,7 @@ module.exports = gql`
     email: String!
     password: String!
     addressId: ID
+    accountId: ID
     cnib: String
     firstname: String!
     midname: String
@@ -53,6 +58,7 @@ module.exports = gql`
     dob: String
     role: String
     resetToken: String
+    activationToken: String
   }
 
   input LoginInput {

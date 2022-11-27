@@ -43,6 +43,7 @@ const userSchema = new Schema(
     },
     mobileNumber: String,
     resetToken: String,
+    activationToken: String,
     role: {
       type: String,
       default: "user",
@@ -62,6 +63,6 @@ const userSchema = new Schema(
     },
   },
   { timestamps: true }
-)
+);
 
 module.exports = model("User", userSchema)

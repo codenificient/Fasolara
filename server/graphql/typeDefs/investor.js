@@ -38,13 +38,15 @@ module.exports = gql`
     accountID: ID
     teamId: ID
     salaryId: ID
+    role: String
     bonuses: [ID]
     referrals: [ID]
     updatedAt: Date
   }
 
   extend type Query {
-    investor(id: ID): Investor
+    investor: Investor
+    getInvestor(id: ID): Investor
     investors: [Investor!]
   }
 
@@ -52,4 +54,4 @@ module.exports = gql`
     createInvestor(createInvestorInput: CreateInvestorInput): Investor
     updateInvestor(updateInvestorInput: UpdateInvestorInput): Investor
   }
-`
+`;

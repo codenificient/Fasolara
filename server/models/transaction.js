@@ -12,6 +12,11 @@ const transactionSchema = new mongoose.Schema(
     },
     amount: Number,
     memo: String,
+    currency: {
+      type: String,
+      enum: ["usd", "eur", "xof", "cny", "rbs"],
+      default: "xof",
+    },
     tax: Number,
     taxRate: Number,
     status: {
@@ -36,6 +41,6 @@ const transactionSchema = new mongoose.Schema(
   {
     timestamps: true,
   }
-)
+);
 
 module.exports = mongoose.model("Transaction", transactionSchema)

@@ -6,11 +6,10 @@ module.exports = gql`
   """
   type Panel {
     id: ID
-    accountId: ID
     serialNumber: String
     installCost: Float
     installDate: Date
-    orderID: Date
+    orderId: ID
     groupId: ID
     isActive: Boolean
     isInstalled: Boolean

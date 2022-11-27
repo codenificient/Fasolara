@@ -23,6 +23,7 @@ module.exports = gql`
     mobileNumber: String
     locationId: ID
     villageId: ID
+    address: String
     addressType: String
     dotcolor: String
     updatedAt: Date
@@ -34,6 +35,7 @@ module.exports = gql`
     mobileNumber: String
     locationId: ID
     villageId: ID
+    address: String
     addressType: String
     dotcolor: String
     updatedAt: Date
@@ -49,4 +51,4 @@ module.exports = gql`
     createAddress(createAddressInput: CreateAddressInput): Address
     updateAddress(updateAddressInput: UpdateAddressInput): Address
   }
-`
+`;

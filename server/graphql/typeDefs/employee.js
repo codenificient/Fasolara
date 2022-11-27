@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server")
+const { gql } = require("apollo-server");
 
 module.exports = gql`
   """
@@ -12,6 +12,7 @@ module.exports = gql`
     salaryId: ID
     educationLevel: Int
     birthday: String
+    role: String
     promotions: [Promotion!]
     createdAt: Date
     updatedAt: Date
@@ -19,6 +20,7 @@ module.exports = gql`
 
   type Promotion {
     jobTitle: String
+    baseSalary: Float
     startDate: Date
     endDate: Date
   }
@@ -37,6 +39,7 @@ module.exports = gql`
     salaryId: ID
     educationLevel: Int
     birthday: String
+    role: String
     promotion: PromotionInput
     updatedAt: Date
   }
@@ -49,6 +52,7 @@ module.exports = gql`
     salaryId: ID
     educationLevel: Int
     birthday: String
+    role: String
     promotion: PromotionInput
     updatedAt: Date
   }
@@ -62,4 +66,4 @@ module.exports = gql`
     createEmployee(createEmployeeInput: CreateEmployeeInput): Employee
     updateEmployee(updateEmployeeInput: UpdateEmployeeInput): Employee
   }
-`
+`;

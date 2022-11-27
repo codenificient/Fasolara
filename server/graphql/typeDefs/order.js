@@ -16,8 +16,15 @@ module.exports = gql`
     currency: String
     finalCurrency: String
     status: String
+    updates: [Update!]
     createdAt: Date
     updatedAt: Date
+  }
+
+  type Update {
+    userId: ID
+    comment: String
+    date: Date
   }
 
   input CreateOrderInput {

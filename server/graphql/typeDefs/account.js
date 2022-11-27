@@ -47,10 +47,13 @@ module.exports = gql`
     account: Account
     getAccount(id: ID): Account
     accounts: [Account!]
+    customer: User
+    panels: [Panel]
+    bank: Bank
   }
 
   extend type Mutation {
     createAccount(createAccountInput: CreateAccountInput): Account
     updateAccount(updateAccountInput: UpdateAccountInput): Account
   }
-`
+`;
