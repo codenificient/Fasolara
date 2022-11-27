@@ -4,7 +4,7 @@ The Next.JS based website for the FasoLara platform. First draft demo hosted on 
 
 The frontend page is connected to the original Express version of the server and is displaying temporary data which is on the database. Thousands of sample documents have been created for users, panels, projects and all the other major data models. Current frontend is showing users, villages and provinces.
 
-Curently completed scaffolding the various pages and initial routing
+Curently completed scaffolding the panels and investor pages and a provinces folder
 
 ## Getting Started
 
