@@ -1,0 +1,59 @@
+.navigation_container {
+  width: max-content;
+  height: 100%;
+  display: flex;
+  font-weight: 600;
+  // margin: 0 1rem;
+
+  .Center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Inline,
+    .MenuItem {
+      font-size: large;
+      cursor: pointer;
+      margin: 2.8rem 0;
+    }
+
+    .Inline {
+      display: block;
+      cursor: pointer;
+    }
+
+    .MenuItem {
+      margin: auto;
+      cursor: pointer;
+    }
+
+    .Active {
+      color: #fca320;
+    }
+
+    .Inactive {
+      color: #8d8d8d;
+    }
+
+    .Inline i {
+      color: #fca320;
+    }
+
+    .Inline a:hover,
+    .MenuItem a:hover {
+      color: #fca320;
+    }
+  }
+
+  .Name {
+    margin-left: 1rem;
+    text-transform: uppercase;
+    &:hover {
+      color: #fca320;
+    }
+  }
+}
+
+span .Center:hover {
+  color: #fca320;
+}

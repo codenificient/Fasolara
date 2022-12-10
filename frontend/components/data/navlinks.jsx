@@ -5,11 +5,11 @@ export const navLinks = [
     to: "/",
   },
 
-//   {
-//     id: "59-761-1912",
-//     name: "provinces",
-//     to: "/provinces",
-//   },
+    {
+      id: "59-761-1912",
+      name: "provinces",
+      to: "/provinces",
+    },
   {
     id: "47-100-1997",
     name: "users",
@@ -20,4 +20,4 @@ export const navLinks = [
     name: "villages",
     to: "/villages",
   },
-]
+];

@@ -1,0 +1,38 @@
+.FooterWrapper {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 100px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #4e1408;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0px -10px 15px rgba(246, 61, 25, 0.7));
+  position: absolute;
+  bottom: 0;
+  color: #aaa;
+
+  .Footer {
+    align-items: center;
+
+    svg {
+      margin: 0 6px;
+      font-size: 6px;
+    }
+  }
+
+  .Copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+  }
+
+  .Socials {
+    display: flex;
+
+    .Social {
+      margin: 0 0.5rem;
+    }
+  }
+}

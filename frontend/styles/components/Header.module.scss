@@ -1,0 +1,21 @@
+.headerWrapper {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+
+  .loginBtn {
+	width: max-content;
+	background-color: #FF3F1F;
+	padding: 10px 20px;
+	border-radius: 30px;
+	display: flex;
+	align-items: center;
+	font-size: medium;
+
+	svg  {
+		margin-right: 5px;
+		font-size: 16px;
+	}
+  }
+}
