@@ -1,6 +1,15 @@
-.homePage {
+.HeroWrapper {
   display: flex;
   flex: 1;
-  flex-basis: content;
-  flex-grow: 1;
+  justify-content: space-around;
+  align-items: center;
+
+  .Hero {
+    flex: 1.5;
+    padding: 1rem;
+  }
+
+  .Photo {
+    flex: 1;
+  }
 }

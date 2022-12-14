@@ -1,23 +1,28 @@
 export const navLinks = [
   {
     id: "18-625-4152",
-    name: "home",
+    name: "Accueil",
     to: "/",
   },
 
     {
       id: "59-761-1912",
-      name: "provinces",
-      to: "/provinces",
+      name: "Entreprise",
+      to: "/entreprise",
     },
   {
     id: "47-100-1997",
-    name: "users",
-    to: "/users",
+    name: "projects",
+    to: "/projects",
   },
   {
     id: "25-471-0345",
-    name: "villages",
-    to: "/villages",
+    name: "nouvelles",
+    to: "/nouvelles",
+  },
+  {
+    id: "2785-471-0345",
+    name: "contact",
+    to: "/contact",
   },
 ];

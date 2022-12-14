@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  overflow: hidden;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  .bg-color {
+    @apply bg-white dark:bg-black;
+  }
+
+  .bg-text {
+    @apply text-light-primary-600 dark:text-dark-primary-500;
+  }
+
+  .border-color {
+    @apply border-black dark:border-white;
+  }
+}

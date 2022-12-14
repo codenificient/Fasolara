@@ -6,6 +6,8 @@ import { FaMoon, FaSun } from 'react-icons/fa'
 import styles from '../styles/components/Navigation.module.scss'
 import { navLinks } from "./data/navlinks"
 import { useRouter } from "next/router"
+import React from 'react'
+
 
 interface Icon
 {
@@ -42,7 +44,7 @@ const NavMenu = () =>
 		else
 		{
 			return (
-				<FaMoon className="w-6 h-6text-gray-900 " role="button" onClick={() => setTheme( 'dark' )} />
+				<FaMoon className="w-6 h-6 text-gray-900 " role="button" onClick={() => setTheme( 'dark' )} />
 			)
 		}
 	}

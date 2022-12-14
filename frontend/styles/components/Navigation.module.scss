@@ -3,7 +3,6 @@
   height: 100%;
   display: flex;
   font-weight: 600;
-  // margin: 0 1rem;
 
   .Center {
     display: flex;
@@ -14,7 +13,7 @@
     .MenuItem {
       font-size: large;
       cursor: pointer;
-      margin: 2.8rem 0;
+      // margin: 2.8rem 0;
     }
 
     .Inline {
@@ -28,7 +27,7 @@
     }
 
     .Active {
-      color: #fca320;
+      color: #FF3F1F;
     }
 
     .Inactive {
@@ -47,9 +46,14 @@
 
   .Name {
     margin-left: 1rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
+
     &:hover {
       color: #fca320;
+    }
+
+    svg {
+      margin-top: 5px;
     }
   }
 }

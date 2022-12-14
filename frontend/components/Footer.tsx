@@ -3,6 +3,7 @@ import Logo from '../public/assets/laraTwo.png'
 import Image from 'next/image'
 import { BsFillCircleFill } from "react-icons/bs";
 import Link from "next/link"
+import React from 'react'
 
 const Footer = () =>
 {
@@ -11,9 +12,8 @@ const Footer = () =>
 			<Image src={Logo} alt="FasoLara Logo" width={220} height={40} />
 			<footer className={styles.Footer}>
 				<div className="text-center text-sm text-gray-500 my-4">
-					<span className={styles.Copy}>Copyright &copy; {new Date().getFullYear()}
-						<BsFillCircleFill />
-						CodenificienT
+					<span className={styles.Copy}>&copy; {new Date().getFullYear()} {" "}
+						 FasoLara LLC
 						<BsFillCircleFill />
 						Tous droits reservés
 						<BsFillCircleFill />

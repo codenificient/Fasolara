@@ -1,23 +1,11 @@
 import { ThemeProvider } from 'next-themes'
-import { useEffect, useState } from "react"
 import RootLayout from '../components/Layout'
-import "../styles/globals.css"
+import "../styles/globals.scss"
+import type { AppProps } from 'next/app'
+import React from 'react'
 
-function MyApp( { Component, pageProps } )
+function MyApp( { Component, pageProps }: AppProps )
 {
-  const [darkMode, setDarkMode] = useState( false )
-
-  useEffect( () =>
-  {
-    if ( darkMode )
-    {
-      document.documentElement.classList.add( 'dark' )
-    } else
-    {
-      document.documentElement.classList.remove( 'dark' )
-    }
-  }, [darkMode] )
-
   return (
     <ThemeProvider attribute="class" enableSystem={false}>
       <RootLayout>
