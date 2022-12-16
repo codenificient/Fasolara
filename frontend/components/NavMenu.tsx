@@ -16,8 +16,7 @@ interface Icon
 	to: string
 }
 
-
-const NavMenu = () =>
+export default function NavMenu(): JSX.Element
 {
 	const { systemTheme, theme, setTheme } = useTheme()
 	const router = useRouter()
@@ -49,7 +48,7 @@ const NavMenu = () =>
 		}
 	}
 
-	if ( !navLinks ) return
+	if ( !navLinks ) return <></>
 
 
 	return (
@@ -70,5 +69,3 @@ const NavMenu = () =>
 		</div>
 	)
 }
-
-export default NavMenu

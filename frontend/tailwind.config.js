@@ -9,32 +9,15 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    screens: {
-      sm: "480px",
-      md: "768px",
-      lg: "976px",
-      xl: "1440px",
-    },
     colors: {
-      blue: "#1fb6ff",
-      purple: "#7e5bef",
-      pink: "#ff49db",
-      orange: "#ff7849",
-      green: "#13ce66",
-      yellow: "#ffc82c",
-      "gray-dark": "#273444",
-      gray: "#8492a6",
-      "gray-light": "#d3dce6",
       dark: {
-        primary: colors.black,
         default: "#000000",
       },
     },
     fontFamily: {
-      sans: ["Graphik", "sans-serif"],
+      sans: ["Poppins", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
-
     opacity: {
       0: "0",
       20: "0.2",

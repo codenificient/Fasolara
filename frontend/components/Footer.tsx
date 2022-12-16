@@ -1,31 +1,32 @@
-import styles from "../styles/components/Footer.module.scss"
-import Logo from '../public/assets/laraTwo.png'
 import Image from 'next/image'
-import { BsFillCircleFill } from "react-icons/bs";
 import Link from "next/link"
-import React from 'react'
+import { BsFillCircleFill } from "react-icons/bs"
+import Logo from '../public/assets/laraTwo.png'
+import styles from "../styles/components/Footer.module.scss"
 
 const Footer = () =>
 {
 	return (
 		<div className={styles.FooterWrapper}>
-			<Image src={Logo} alt="FasoLara Logo" width={220} height={40} />
+
 			<footer className={styles.Footer}>
+				<Image src={Logo} alt="FasoLara Logo" width={220} height={40} />
 				<div className="text-center text-sm text-gray-500 my-4">
 					<span className={styles.Copy}>&copy; {new Date().getFullYear()} {" "}
-						 FasoLara LLC
+						FasoLara LLC
 						<BsFillCircleFill />
 						Tous droits reservés
 						<BsFillCircleFill />
 						<Link href={"/privacy"}> Politique de Confidentialité</Link>
 					</span>
 				</div>
+				<span className={styles.Socials}>
+					<span className={styles.Social}>tw</span>
+					<span className={styles.Social}>yt</span>
+					<span className={styles.Social}>li</span>
+				</span>
 			</footer>
-			<span className={styles.Socials}>
-				<span className={styles.Social}>tw</span>
-				<span className={styles.Social}>yt</span>
-				<span className={styles.Social}>li</span>
-			</span>
+
 		</div>
 	)
 }
