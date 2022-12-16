@@ -1,4 +1,4 @@
-export const steps = [
+export const steps: Array<string> = [
 "Enrollement",
 "Préparation",
 "Installation",

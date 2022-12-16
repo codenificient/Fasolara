@@ -2,7 +2,7 @@
 import { useTheme } from 'next-themes'
 import React from 'react'
 
-const ThemeChanger = () =>
+const ThemeChanger = (): JSX.Element =>
 {
 	const { theme, setTheme } = useTheme()
 

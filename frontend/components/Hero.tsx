@@ -2,8 +2,9 @@ import Image from "next/image"
 import { useRouter } from 'next/router'
 import Sun from "../public/assets/theSun.gif"
 import styles from "../styles/Home.module.scss"
+import React from "react"
 
-const Hero = () =>
+const Hero = (): JSX.Element =>
 {
   const router = useRouter()
   return (

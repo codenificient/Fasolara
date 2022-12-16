@@ -5,7 +5,7 @@ import Logo from '../public/assets/laraTwo.png'
 import styles from "../styles/components/Header.module.scss"
 import NavMenu from './NavMenu'
 
-const Header = () =>
+const Header = (): JSX.Element =>
 {
 	return (
 		<div className={`${styles.headerWrapper}`}>

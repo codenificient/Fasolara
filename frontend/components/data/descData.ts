@@ -1,4 +1,10 @@
-export const features = [
+type Feature = {
+  icon: string
+  name: string
+  content: string
+}
+
+export const features: Array<Feature> = [
   {
     icon: "GiElectricalResistance",
     name: "Microgrid",

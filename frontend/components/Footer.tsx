@@ -4,7 +4,7 @@ import { BsFillCircleFill } from "react-icons/bs"
 import Logo from '../public/assets/laraTwo.png'
 import styles from "../styles/components/Footer.module.scss"
 
-const Footer = () =>
+const Footer = (): JSX.Element =>
 {
 	return (
 		<div className={styles.FooterWrapper}>

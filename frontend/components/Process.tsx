@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.scss"
 import { steps } from './data/step'
 import Step from './Step'
 
-const Process = () =>
+const Process = (): JSX.Element =>
 {
 	const router = useRouter()
 	return (

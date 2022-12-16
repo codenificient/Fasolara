@@ -1,4 +1,10 @@
-export const navLinks = [
+type Link = {
+  id: string
+  name: string
+  to: string
+}
+
+export const navLinks: Array<Link> = [
     {
       id: "59-761-1912",
       name: "Entreprise",
