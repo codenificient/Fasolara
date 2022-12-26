@@ -4,9 +4,9 @@ const mongoose = require("mongoose")
 
 require("dotenv").config()
 
-const typeDefs = require("./graphql/typeDefs")
-const resolvers = require("./graphql/resolvers")
-const { verifyUser } = require("./helpers/context")
+const typeDefs = require("../graphql/typeDefs")
+const resolvers = require("../graphql/resolvers")
+const { verifyUser } = require("../helpers/context")
 
 const server = new ApolloServer({
   typeDefs,
@@ -40,3 +40,5 @@ mongoose
   .catch((error) => console.log(error))
 
 // console.log(process.env.MONGO_URI)
+
+module.exports = server

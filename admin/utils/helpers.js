@@ -1,6 +1,5 @@
 export const formatDate = (date) => {
-    let date = new Date(date).toLocaleString()
-    return date
+    return new Date(date).toLocaleString()
 }
 
 export const shorten = (str, maxLen, separator = ' ') => {

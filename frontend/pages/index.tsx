@@ -2,6 +2,7 @@ import Head from "next/head"
 import Description from "../components/Description"
 import Hero from "../components/Hero"
 import Process from "../components/Process"
+import Visitor from "../components/Visitor.js"
 import styles from "../styles/Home.module.scss"
 
 const Landing = () =>
@@ -15,6 +16,7 @@ const Landing = () =>
 
       <Hero />
       <Description />
+      <Visitor />
       <Process />
     </div>
   )
