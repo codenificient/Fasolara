@@ -35,9 +35,13 @@ yarn-error.log*
 .vercel
 
 # IntelliJ
+<<<<<<< HEAD
 .idea
 
 // files
 provinces
 villages
 dist
+=======
+.idea
+>>>>>>> 45843a2 (server updates)
