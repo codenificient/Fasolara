@@ -26,6 +26,12 @@ module.exports = gql`
     comment: String
   }
 
+  input MaintenanceInput {
+    start: Date
+    complete: Date
+    comment: String
+  }
+
   type Capacity {
     date: Date
     capacity: Float
@@ -61,7 +67,7 @@ module.exports = gql`
     isActive: Boolean
     isInstalled: Boolean
     isReplacement: Boolean
-    maintenanceDates: Maintenance
+    maintenanceDates: MaintenanceInput
     updatedAt: Date
   }
 

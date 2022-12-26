@@ -15,7 +15,7 @@ const server = new ApolloServer({
   cache: "bounded",
   introspection: true,
   playground: true,
-  // plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
+  plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   context: async ({ req }) => {
     await verifyUser(req)
     return {
