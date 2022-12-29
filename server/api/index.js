@@ -1,5 +1,5 @@
 const { ApolloServer } = require("apollo-server")
-const { ApolloServerPluginLandingPageGraphQLPlayground } = require( "apollo-server-core")
+const { ApolloServerPluginLandingPageGraphQLPlayground,  } = require( "apollo-server-core")
 const mongoose = require("mongoose")
 
 require("dotenv").config()
