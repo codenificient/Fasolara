@@ -1,77 +1,80 @@
+@import  '../variables.scss';
+
 .activeprojects_container {
-	/* background: #1f1f1f; */
-	width: 100%;
-	height: 100%;
-	margin: 0.5rem;
-	border-radius: 10px;
-	padding: 10px;
-	box-shadow: -7px -7px 19px 0px #FCA3201A;
+  /* background: #1f1f1f; */
+  width: 100%;
+  height: 100%;
+  margin: 0.5rem;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: -7px -7px 19px 0px $box-shadow-yellow;
 }
 
 .project_list {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	flex-wrap: wrap;
-	grid-gap: .5rem;
-	padding: 0.5rem;
-	/* max-width: 800px; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  grid-gap: 0.5rem;
+  padding: 0.5rem;
+  /* max-width: 800px; */
 }
 
 @media (max-width: 600px) {
-	.grid {
-		width: 100%;
-		flex-direction: column;
-	}
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
 }
 
 .activeproject_container {
-	display: inline-flex;
-	background: #1f1f1f;
+  display: inline-flex;
+  background: $bg-dark;
 
-	/* background: #141414; */
-	justify-content: space-around;
-	border-radius: 10px;
+  /* background: #141414; */
+  justify-content: space-around;
+  border-radius: 10px;
 }
 
 .title {
-	font-size: larger;
-	text-align: center;
+  font-size: larger;
+  text-align: center;
 }
 
 .project_details {
-	display: flex;
-	width: 76vw;
-	justify-content: space-around;
-	text-align: center;
+  display: flex;
+ width: 76vw;
+  justify-content: space-around;
+  text-align: center;
 }
 
 .project_detail {
-	display: flex;
-	margin: auto;
-	text-align: center;
-	color: #8d8d8d90;
-	line-height: 59px;
+  display: flex;
+  flex: 1;
+  margin: auto;
+  text-align: center;
+  color: $text-dark;
+  line-height: 59px;
 }
 
 .project_details img {
-	width: 150px;
-	max-height: 40px;
-	object-fit: contain;
+  width: 150px;
+  max-height: 40px;
+  object-fit: contain;
 }
 
 .project_list {
-	text-align: center;
+  text-align: center;
 }
 
 .project_featured {
-	display: flex;
-	font-weight: bold;
-	text-transform: uppercase;
-	width: 76vw;
-	color: #6d6d6d;
-	text-align: center;
-	justify-content: space-around;
-	line-height: 30px;
+  display: flex;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 76%;
+  color: $text-lightest;
+  text-align: center;
+  justify-content: space-around;
+  line-height: 30px;
 }

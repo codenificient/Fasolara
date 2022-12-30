@@ -1,26 +1,37 @@
-$bg-primary:  #010101;
-$bg-secondary:  #141414;
+$bg-primary: #010101;
+$bg-secondary: #141414;
 $bg-dark: #1f1f1f;
 $bg-gray: #303030;
+$bg-green: green;
 $bg-lighter: #2c2f33;
 $bg-pureblack: #000000;
 
 $text-color: #aaa;
+$text-secondary: #ccc;
 $text-lighter: #8d8d8d;
+$text-light: #8c98a5;
+$text-lightest: #6d6d6d;
 $text-darker: #8d8d8d79;
+$text-darkest: #8d8d8d90;
 $text-grey: #777;
+$text-greyer: #94a0ad;
+$text-greyest: #999;
 $text-dark: #8d8d8d99;
 $theme-yellow: #fca320;
 $theme-orange: #f24e1e;
 
 $theme-font: "Poppins Semibold";
 
-$box-shadow-yellow: #FCA3201A;
+$box-shadow-yellow: #fca3201a;
 $box-shadow-black: #3b4451;
 
 $box-shadow: 16.5697px 16.5697px 41.4243px rgba(0, 0, 0, 0.5);
 
 $box-shadow-inset: inset -16.5697px -16.5697px 41.4243px rgba(59, 68, 81, 0.5),
-inset 16.5697px 16.5697px 41.4243px rgba(0, 0, 0, 0.5);
+  inset 16.5697px 16.5697px 41.4243px rgba(0, 0, 0, 0.5);
 
-$box-shadow-inset-lighter:   inset -16.5697px -16.5697px 41.4243px #3b4451, inset 16.5697px 16.5697px 41.4243px #000000;
+$box-shadow-inset-lighter: inset -16.5697px -16.5697px 41.4243px #3b4451,
+  inset 16.5697px 16.5697px 41.4243px #000000;
+$box-shadow-avatar: inset -12.446px -12.446px 31.1151px #fca320,
+  inset 12.446px 12.446px 31.1151px #000000;
+$box-shadow-sidebare:  -7px -7px 19px 0px #fca3201a;

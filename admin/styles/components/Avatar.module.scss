@@ -1,10 +1,12 @@
+@import  '../variables.scss';
+
 .avatar_container {
 	display: flex;
     margin: auto;
 	justify-content: center;
 	align-items: center;
-	background: #2c2f33;
-	box-shadow: inset -12.446px -12.446px 31.1151px #fca320, inset 12.446px 12.446px 31.1151px #000000;
+	background: $bg-lighter;
+	box-shadow: $box-shadow-avatar;
 	border-radius: 50%;
 }
 

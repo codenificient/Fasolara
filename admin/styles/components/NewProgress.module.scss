@@ -1,76 +1,76 @@
-@import  '../variables.scss';
+@import "../variables.scss";
 
 .progress_container {
-	display: flex;
-	height: 155px;
-	width: 155px;
-	background: $bg-lighter;
-	box-shadow: $box-shadow-inset-lighter;
-	border-radius: 50%;
-	margin: auto;
-	margin-top: -1.5rem;
+  display: flex;
+  height: 155px;
+  width: 155px;
+  background: $bg-lighter;
+  box-shadow: $box-shadow-inset-lighter;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: -1.5rem;
 }
 
 .circle_background,
 .circle_progress {
-	fill: none;
-	display: flex;
-	margin: auto;
+  fill: none;
+  display: flex;
+  margin: auto;
 }
 
 .circle_background {
-	stroke: #8d8d8d;
+  stroke: $text-lighter;
 }
 
 .circle_progress {
-	stroke: #f24e1e;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	z-index: 5;
-	display: flex;
-	margin: auto;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-	width: 125px;
-	height: 125px;
-	border-radius: 50%;
+  stroke: $theme-orange;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  z-index: 5;
+  display: flex;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
 }
 
 .svg {
-	transform: translate(12%, 12%);
+  transform: translate(12%, 12%);
 }
 
 .progress_percent {
-	font-size: 1.5em;
-	fill: #8d8d8d;
-	font-weight: bold;
-	margin: auto;
-	font-size: 25px;
-	z-index: 5;
+  font-size: 1.5em;
+  fill: $text-lighter;
+  font-weight: bold;
+  margin: auto;
+  font-size: 25px;
+  z-index: 5;
 }
 
 .outer_circle {
-	display: flex;
-	margin: auto;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-	z-index: 5;
-	width: 97px;
-	height: 97px;
-	fill: #2c2f33;
-	box-shadow: $box-shadow;
-	border-radius: 50%;
+  display: flex;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  width: 97px;
+  height: 97px;
+  fill: $bg-lighter;
+  box-shadow: $box-shadow;
+  border-radius: 50%;
 }
 
 .inner_circle {
-	display: flex;
-	margin: auto;
-	z-index: 4;
-	width: 75px;
-	height: 75px;
-	fill: #2c2f33;
-	box-shadow: $box-shadow-inset;
-	border-radius: 50%;
+  display: flex;
+  margin: auto;
+  z-index: 4;
+  width: 75px;
+  height: 75px;
+  fill: $bg-lighter;
+  box-shadow: $box-shadow-inset;
+  border-radius: 50%;
 }

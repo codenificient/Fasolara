@@ -1,7 +1,9 @@
+@import  '../variables.scss';
+
 .charts_container {
 	/* background: #1f1f1f; */
-	color: #8d8d8d99;
-	width: 100%;
+	color: $text-darkest;
+	width: 76vw;
 	height: 100%;
 	/* bottom: -5rem; */
 	margin: 0.5rem;
@@ -31,14 +33,14 @@
 
 .chart_container {
 	display: inline-flex;
-	width: 25.4vw;
+	width: 24.3vw;
 	height: 40vh;
-	background: #141414;
+	background: $bg-secondary;
 	/* border: 1px solid #8d8d8d80; */
 	/* padding: 20px; */
 	border-radius: 10px;
 	/* box-shadow: 8px 8px 4px #1c1c1c, -8px -8px 4px #222222; */
-	box-shadow: -7px -7px 19px 0px #FCA3201A;
+	box-shadow: -7px -7px 19px 0px $box-shadow-yellow;
 }
 
 .title {

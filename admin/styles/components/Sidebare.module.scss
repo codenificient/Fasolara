@@ -11,7 +11,7 @@
 }
 
 .activites_container {
-	background: #1f1f1f;
+	background: $bg-dark;
 	width: 100%;
 	height: 49%;
 	border-radius: 10px;
@@ -22,7 +22,7 @@
 }
 
 .agenda_container {
-	background: #1f1f1f;
+	background: $bg-dark;
 	width: 100%;
 	height: 42%;
 	/* bottom: -5rem; */
@@ -32,7 +32,7 @@
 	/* border: 1px solid #8d8d8d80; */
 	padding-right: 40px;
 	/* box-shadow: 8px 8px 4px #1c1c1c, -8px -8px 2px #fca32010; */
-	box-shadow: -7px -7px 19px 0px  $box-shadow-yellow;
+	box-shadow:  $box-shadow-sidebare;
 }
 .profilemenu_container {
 	background: transparent;
@@ -62,12 +62,12 @@
 .namerole {
 	display: flex;
 	flex-direction: column;
-	color: #aaa;
+	color: $text-color;
 }
 
 .role {
-	background-color: #fca320;
-	color: #ccc;
+	background-color: $theme-yellow;
+	color: $text-secondary;
 	width: max-content;
 	text-transform: uppercase;
 	padding: 5px 15px;

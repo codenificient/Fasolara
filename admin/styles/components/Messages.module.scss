@@ -1,6 +1,8 @@
+@import  '../variables.scss';
+
 .conversations_container {
 	width: 22vw;
-	background: #1f1f1f;
+	background: $bg-dark;
 	display: inline-block;
 	font-weight: bold;
 	flex-direction: column;
@@ -17,7 +19,7 @@
 	display: inline-block;
 	width: 55vw;
 	height: 96.5vh;
-	background: #1f1f1f;
+	background: $bg-dark;
 	margin-left: 0.5rem;
 	margin: auto;
 	padding-left: 0.5rem;
@@ -28,7 +30,6 @@
 	position: fixed;
 	width: 21vw;
 	height: 86vh;
-	// background-color: rebeccapurple;
 	overflow: hidden;
 	overflow-y: scroll;
 	z-index: 3;
@@ -54,7 +55,7 @@
 .Menu {
 	width: 100%;
 	font-size: large;
-	color: #94a0ad;
+	color: $text-greyer;
 	display: block;
 }
 
@@ -73,8 +74,8 @@
 	line-height: 2.5rem;
 	padding-left: 4rem;
 	border-radius: 30px;
-	background-color: #303030;
-	color: #aaa;
+	background-color: $bg-gray;
+	color: $text-color;
 	font-size: large;
 	border: 0;
 	position: relative;
@@ -85,7 +86,7 @@
 	z-index: 10;
 	font-size: 16px;
 	line-height: calc(1.5em + .9rem + 2px);
-	color: #8c98a5;
+	color: $text-light;
 	transform: translate(30px, -38px);
 }
 
@@ -123,7 +124,7 @@
 
 .UserName {
 	font-weight: bold;
-	color: #999;
+	color: $text-greyest;
 	font-size: large;
 }
 
@@ -142,7 +143,7 @@
 	height: 11px;
 	width: 11px;
 	border-radius: 50%;
-	background-color: green;
+	background-color: $bg-green;
 	transform: translate(10%, 60%);
 	margin-right: 5px;
 }

@@ -1,57 +1,58 @@
+@import "../variables.scss";
+
 .navigation_container {
-	display: flex;
-	margin: auto;
-	height: 85%;
-	width: 100%;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 2rem;
-	font-weight: bold;
+  display: flex;
+  margin: auto;
+  height: 85%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-weight: bold;
 }
 
 .Name {
-	margin-left: 1rem;
-	text-transform: uppercase;
-	&:hover {
-		color: #fca320;
-	}
+  margin-left: 1rem;
+  text-transform: uppercase;
+  &:hover {
+    color: $theme-yellow;
+  }
 }
 
 span .Center:hover {
-		color: #fca320;
+  color: $theme-yellow;
 }
 
 .Active {
-		color: #fca320;
+  color: $theme-yellow;
 }
 
 .Inactive {
-		color: #8d8d8d;
+  color: $text-lighter;
 }
 
 .Inline i {
-	color: #fca320;
+  color: $theme-yellow;
 }
 
 .Inline a:hover,
 .MenuItem a:hover {
-	color: #fca320;
+  color: $theme-yellow;
 }
 
 .Inline,
 .MenuItem {
-	font-size: large;
-	cursor: pointer;
-	margin: 2.8rem 0;
+  font-size: large;
+  cursor: pointer;
+  margin: 2.8rem 0;
 }
 
 .MenuItem {
-	margin: auto;
-	cursor: pointer;
+  margin: auto;
+  cursor: pointer;
 }
 
 .Inline {
-	display: block;
-	cursor: pointer;
+  display: block;
+  cursor: pointer;
 }
-

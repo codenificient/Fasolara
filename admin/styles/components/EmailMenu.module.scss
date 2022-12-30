@@ -1,3 +1,5 @@
+@import  '../variables.scss';
+
 .email_container {
 	display: block;
 	width: 77vw;
@@ -7,7 +9,7 @@
 
 .menu_container {
 	width: 214px;
-	background: #1f1f1f;
+	background: $bg-dark;
 	display: inline-block;
 	font-weight: bold;
 	flex-direction: column;
@@ -19,14 +21,14 @@
 	display: inline-block;
 	width: 70.7vmax;
 	height: 70vh;
-	background: #1f1f1f;
+	background: $bg-dark;
 	margin-left: 0.5rem;
 }
 
 .Menu {
 	width: 100%;
 	font-size: large;
-	color: #94a0ad;
+	color: $text-greyer;
     display: block;
 }
 
@@ -38,29 +40,29 @@
 	margin-left: 1rem;
 	text-transform: uppercase;
 	&:hover {
-		color: #fca320;
+		color: $theme-yellow;
 	}
 }
 
 span .Center:hover {
-		color: #fca320;
+		color: $theme-yellow;
 }
 
 .Active {
-		color: #fca320;
+		color: $theme-yellow;
 }
 
 .Inactive {
-		color: #8d8d8d;
+		color: $text-lightest;
 }
 
 .Inline i {
-	color: #fca320;
+	color: $theme-yellow;
 }
 
 .Inline a:hover,
 .MenuItem a:hover {
-	color: #fca320;
+	color: $theme-yellow;
 }
 
 .Inline,

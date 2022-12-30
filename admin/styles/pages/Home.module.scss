@@ -1,4 +1,6 @@
 @import "../mixins";
+@import  '../variables.scss';
+
 .container {
 	display: flex;
 }
@@ -21,7 +23,7 @@
 	display: inline-flex;
 	font-weight: bold;
 	font-size: x-large;
-	color: #8d8d8d;
+	color: $text-lighter;
 	margin-top: 1rem;
 }
 
@@ -37,7 +39,7 @@
 
 .Navs1:hover,
 .Navs:hover {
-	color: #fca320;
+	color: $theme-yellow;
 }
 
 .search {
@@ -47,8 +49,8 @@
 }
 
 .searchTerm:focus {
-	color: #fca320;
-	background-color: #8d8d8d;
+	color: $theme-yellow;
+	background-color: $text-lighter;
 }
 .searchButton {
 	position: absolute;
@@ -64,11 +66,11 @@
 }
 
 .searchButton i {
-	color: #fca320;
+	color: $theme-yellow;
 }
 
 .searchButton i:hover {
-	color: #f24e1e;
+	color: $theme-orange;
 }
 
 .grid {
@@ -80,7 +82,7 @@
 }
 
 .icon_indicator {
-	background-color: #fca320;
+	background-color: $theme-yellow;
 	border-radius: 20px;
 	width: 15px;
 	height: 10px;

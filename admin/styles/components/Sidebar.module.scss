@@ -1,63 +1,63 @@
-@import  '../variables.scss';
+@import "../variables.scss";
 
 .sidebar_container {
-	background: $bg-dark;
-	color: $text-dark;
-	display: block;
-	overflow: hidden;
-	height: 100%;
-	width: 10vw;
-	border-radius: 40px 0 0 40px;
-	clear: both;
+  background: $bg-dark;
+  color: $text-dark;
+  display: block;
+  overflow: hidden;
+  height: 100%;
+  width: 10vw;
+  border-radius: 40px 0 0 40px;
+  clear: both;
+  box-shadow: $box-shadow-sidebare;
 }
 
 .title {
-	font-size: medium;
-	text-align: center;
-	font-weight: 800;
-	text-transform: uppercase;
-	color: $theme-orange;
-	justify-content: space-between;
+  font-size: medium;
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: $theme-orange;
+  justify-content: space-between;
 }
 
 .Name {
-	margin-left: 1.5rem;
-	text-transform: uppercase;
-	font-weight: bold;
-	color: $theme-orange;
-	font-size: larger;
+  margin-left: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $theme-orange;
+  font-size: larger;
 }
 
 .MenuItem {
-	margin: auto;
-	cursor: pointer;
+  margin: auto;
+  cursor: pointer;
 }
 
-
 .Name:hover {
-	color: $theme-yellow;
+  color: $theme-yellow;
 }
 
 .Icon {
-	font-size: 30px;
+  font-size: 30px;
 }
 
 .Line {
-	margin-left: 3.5vw;
+  margin-left: 3.5vw;
 }
 
 .Link {
-	margin: auto;
-	cursor: pointer;
+  margin: auto;
+  cursor: pointer;
 }
 
-
 .logo {
-	height: 150px;
-	width: 100%;
-	object-fit: contain;
+  height: 150px;
+  width: 100%;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 .logo img {
-	max-width: 100px;
+  max-width: 100px;
 }
