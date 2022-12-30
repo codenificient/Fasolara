@@ -10,7 +10,7 @@ This repo encompasses several other repositories for various components on the L
 
 - <b>backend</b>: The initial backend server to handle operations between the frontend and the company remote database. It uses Express.JS and GraphQL
 	
-	Sample site is live at https://fasolaraserver.vercel.app/graphql
+	Sample site is live at https://fasolarabackend.vercel.app/graphql
 
 - <b>frontend</b>: The repository containing code for the public facing website made with NextJS
 	
@@ -19,7 +19,7 @@ This repo encompasses several other repositories for various components on the L
 - <b>mobile</b>: This repository contains the codebase for the React Native companion mobile application for employees and other public stakeholders
 - <b>server</b>: The updated backend server using Apollo GraphQL starting with user authentication. The backend codebase will be developped independently and eventually will be refactored into the server repository
 	
-	Sample site is live at https://fasolaragraphql.vercel.app/
+	Sample site is live at https://fasolaraapollo.vercel.app/api
 
 
 ## Technology Stack
