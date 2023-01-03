@@ -1,11 +1,12 @@
 import styles from '@css/Sidebare.module.scss'
-import Avatar from './Avatar'
-import Icon from './Icon'
+import Icon from '@ui/Icon'
+import Avatar from './UI/Avatar'
 
-export default function ProfileMenu() {
+export default function ProfileMenu()
+{
 	return (
 		<div className={styles.profilemenu_container}>
-		
+
 
 			<div className={styles.profile}>
 				<Avatar image={'/assets/admin.png'} wSize="90" iSize="70" />

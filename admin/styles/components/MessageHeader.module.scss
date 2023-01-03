@@ -1,0 +1,57 @@
+@import "../variables.scss";
+
+.header_container {
+  display: flex;
+  padding: 0.8rem;
+  z-index: 7;
+  margin: 1rem 0.5rem;
+  justify-content: space-between;
+
+  .profile {
+    display: flex;
+    flex-direction: row;
+    margin-right: 0.5rem;
+    padding-left: 1rem;
+  }
+
+  .UserInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+  }
+
+  .StatusContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .UserStatus {
+    font-weight: normal;
+    font-size: medium;
+  }
+
+  .Online,
+  .Status {
+    display: block;
+    height: 11px;
+    width: 11px;
+    border-radius: 50%;
+
+    transform: translate(10%, 60%);
+    margin-right: 8px;
+  }
+
+  .Status {
+        background-color: $theme-orange;
+  }
+
+  .Online {
+    background-color: $bg-green;
+
+  }
+
+  .Settings {
+    font-size: x-large;
+    margin-right: 0.5rem;
+  }
+}

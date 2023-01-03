@@ -1,0 +1,66 @@
+@import "../variables.scss";
+
+.conversation_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  clear: both;
+  position: fixed;
+  overflow: hidden;
+
+  .correspondant_wrapper {
+    width: max-content;
+    flex: 1;
+    top: 2rem;
+    clear: both;
+    position: absolute;
+  }
+
+  .messages {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    flex: 7;
+    top: 5rem;
+    margin-bottom: 2rem;
+    height: 100%;
+
+    .Outgoing {
+      background-color: $bg-lighter;
+      width: 80%;
+      display: block;
+      right: 2rem;
+      margin: 1rem 0;
+      padding: 2rem;
+      float: right;
+
+      .Date {
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+      .Content {
+        font-weight: 400;
+      }
+    }
+    .Incoming {
+      background-color: $bg-secondary;
+      width: 80%;
+      display: block;
+      left: 2rem;
+      padding: 2rem;
+      .Date {
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+      .Content {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.conversation_wrapper::-webkit-scrollbar,
+.messages::-webkit-scrollbar {
+  display: none;
+}

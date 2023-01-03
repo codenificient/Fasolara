@@ -4,7 +4,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["randomuser.me"],
+    domains: ["randomuser.me", "picsum.photos"],
   },
   experimental: { images: { layoutRaw: true } },
 };

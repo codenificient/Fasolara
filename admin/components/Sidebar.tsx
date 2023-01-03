@@ -1,6 +1,7 @@
-import styles from "@css/Sidebar.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+
+import styles from "@css/Sidebar.module.scss";
 import Navigation from "./Navigation";
 
 export default function Sidebar() {

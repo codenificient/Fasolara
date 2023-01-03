@@ -1,8 +1,8 @@
-import React from 'react'
-import styles from '@css/Messages.module.scss'
-import Avatar from '../Avatar'
+import styles from '@css/MessageHeader.module.scss'
+import Avatar from '../UI/Avatar'
 
-function MessageHeader() {
+function MessageHeader()
+{
 	return (
 		<div className={styles.header_container}>
 			<div className={styles.profile}>

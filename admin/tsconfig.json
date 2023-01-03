@@ -20,6 +20,8 @@
       "@chart/*": ["components/charts/*"],
       "@ui/*": ["components/UI/*"],
       "@em/*": ["components/email/*"],
+      "@data/*": ["components/data/*"],
+      "@proj/*": ["components/projects/*"],
       "@msg/*": ["components/messages/*"],
       "@cs/*": ["styles/pages/*"],
       "@css/*": ["styles/components/*"]

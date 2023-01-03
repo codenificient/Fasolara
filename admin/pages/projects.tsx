@@ -1,4 +1,4 @@
-import Projects from '@c/Projects'
+import Projects from '@proj/Projects'
 import CreateProject from '@ui/CreateProject'
 import styles from '@cs/projects.module.scss'
 

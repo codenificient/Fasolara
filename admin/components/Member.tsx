@@ -1,6 +1,7 @@
 import styles from '@css/Projects.module.scss'
 import React from 'react'
-import Avatar from './Avatar'
+import Avatar from './UI/Avatar'
+import type {NextPage} from "next"
 
 interface Props
 {
@@ -9,7 +10,7 @@ interface Props
 	imageUrl: string
 }
 
-const Member: React.FC<Props> = ( { name, jobTitle, imageUrl } ) =>
+const Member: NextPage<Props> = ( { name, jobTitle, imageUrl } ) =>
 {
 	// console.log({ name })
 	return (
