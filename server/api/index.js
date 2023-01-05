@@ -19,6 +19,7 @@ const server = new ApolloServer({
     return {
       email: req.email,
       userId: req.userId,
+      addressId: req.addressId
     }
   },
 })

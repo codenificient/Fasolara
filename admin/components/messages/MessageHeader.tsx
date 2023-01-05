@@ -10,7 +10,7 @@ function MessageHeader()
 				<span className={styles.UserInfo}>
 					<span className={styles.UserName}>Christian Tioye</span>
 					<span className={styles.StatusContainer}>
-						<span className={styles.Status} />
+						<span className={styles.Online} />
 						<span className={styles.UserStatus}>Connecté</span>
 					</span>
 				</span>

@@ -4,7 +4,6 @@ const userSchema = new Schema(
   {
     cnib: {
       type: String,
-      required: true,
       trim: true,
     },
     firstname: {
@@ -25,6 +24,10 @@ const userSchema = new Schema(
     email: { type: String, unique: true },
     password: {
       type: String,
+    },
+    avatar: {
+      type: String,
+      trim: true,
     },
     token: {
       type: String,
@@ -64,5 +67,11 @@ const userSchema = new Schema(
   },
   { timestamps: true }
 );
+
+userSchema.method("fullName", function fullName() {
+  if (this.midname)
+    return this.firstName + " " + this.midname + " " + this.lastName
+  return this.firstName + " " + this.lastName;
+});
 
 module.exports = model("User", userSchema)

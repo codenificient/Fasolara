@@ -11,6 +11,7 @@ module.exports = gql`
     midname: String
     lastname: String
     username: String
+    fullName: String
     mobileNumber: String
     addressId: ID
     accountId: ID

@@ -15,10 +15,6 @@ const investorSchema = new Schema(
       type: String,
       default: "investor",
     },
-    role: {
-      type: String,
-      default: "investor",
-    },
     startDate: {
       type: Date,
       default: Date.now,

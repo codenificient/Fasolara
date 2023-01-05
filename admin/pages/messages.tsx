@@ -1,40 +1,23 @@
 import styles2 from '@css/Conversation.module.scss'
 import styles from '@css/Messages.module.scss'
-import { conversations } from '@data/chatList'
 import Header from '@msg/ConversationHeader'
+import ConversationItem from '@msg/ConversationItem'
+import InputContainer from '@msg/InputContainer'
+import MessageBubble from '@msg/MessageBubble'
 import MessageHeader from '@msg/MessageHeader'
-import Avatar from '@ui/Avatar'
 import Input from '@ui/Input'
-import human from 'human-time'
+import client from 'lib/client'
+import { GET_CONVERSATIONS } from 'lib/queries'
+import { Message } from 'lib/types'
+
 import { useState } from 'react'
-import { shorten } from 'utils/helpers'
 
-
-interface Message
-{
-	id: string
-	name: string
-	avatr: string
-	phone: string
-	connect: string
-	status?: string
-	date: string
-	messages: [{
-		i: string
-		r: string
-		o: string
-		s: string
-	}]
-}
-
-
-type Convo = {
-	conversation?: Message
-}
-
-function Messages()
+function Messages( { conversations } )
 {
 	const [conversation, setConversation] = useState<Message | null>()
+	const [currentMsg, setCurrentMsg] = useState<number | null>()
+
+	if ( !conversations.length ) return <>No conversations</>
 
 	return (
 		<div className={styles.messages_wrapper}>
@@ -48,44 +31,28 @@ function Messages()
 				</span>
 				<h4 className={styles.title}>Contacts</h4>
 
-				{!conversations && <h4>No conversations</h4>}
+				{!conversations && <h4>Start a conversation</h4>}
 
-				<div className={styles.conversations_list}>{conversations.map( ( convo ) => <div key={convo.id} className={styles.conversation_container} onClick={() =>
-				{
-					setConversation( convo )
-				}}>
-					<div className={styles.message}>
-						<Avatar image={convo.avatr} wSize="43" iSize="35" />
-						<span className={styles.MessageInfo}>
-							<span className={styles.NameTime}>
-								<span className={styles.UserName}>{convo.name}</span>
-								<span className={styles.Time}>{human( new Date( convo.date ) )}</span>
-							</span>
-							<span className={styles.StatusContainer}>
-								<span className={styles.content}>{shorten( convo.messages[0].r, 70 )}</span>
-							</span>
-						</span>
-					</div>
-				</div> )}</div>
+				<div className={styles.conversations_list}>{conversations.map( ( convo, idx ) =>
+					<div key={convo.id}
+						className={`${styles.conversation_container} ${idx == currentMsg ? styles.ActiveConversation : null}`}
+						onClick={() =>
+						{
+							setConversation( convo as Message )
+							setCurrentMsg( idx )
+						}}>
+						<ConversationItem convo={convo} />
+					</div> )}</div>
 			</div>
 
 			<div className={styles.content_container}>
 				{
-					conversation ? ( <div className={styles2.conversation_wrapper}>
-						<Header avatar={conversation.avatr} name={conversation.name} connect={conversation.connect} />
-						{
-							conversation.messages.map( ( message, idx ) => (
-								<div className={styles2.messages}>
-									<div className={styles2.Incoming}>
-										<span className={styles2.Date}>{message.i}</span><span className={styles2.Content}>{message.r}</span>
-									</div>
-									<div className={styles2.Outgoing}>
-										<span className={styles2.Date}>{message.o}</span><span className={styles2.Content}>{message.s}</span>
-
-									</div>
-								</div>
-							) )
-						}
+					conversation ? ( <div className={styles2.conversations_wrapper}>
+						<div className={styles2.correspondant_wrapper}>
+							<Header conversation={conversation} />
+						</div>
+						<MessageBubble conversation={conversation} userId="6368a4c20473019f5c923094" />
+						<InputContainer />
 					</div> ) : ( <p className={styles.NoConvo}>No Conversation Selected</p> )
 				}
 			</div>
@@ -94,3 +61,15 @@ function Messages()
 }
 
 export default Messages
+
+export async function getStaticProps()
+{
+	const data = await client.request( GET_CONVERSATIONS )
+
+	return {
+		props: {
+			conversations: data.conversations
+		},
+		revalidate: 60,
+	}
+}

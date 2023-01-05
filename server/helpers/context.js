@@ -1,32 +1,39 @@
-const jwt = require("jsonwebtoken")
-const User = require("../models/user")
+const jwt = require("jsonwebtoken");
+const User = require("../models/user");
 
 module.exports.verifyUser = async (req) => {
-  //   console.log(req.headers)
-  req.email = null
-  req.userId = null
-  req.addressId = null
+  // console.log(req.headers);
+  req.email = null;
+  req.userId = null;
+  req.addressId = null;
   try {
-    const bearerHeader = req.headers.authorization
+    const bearerHeader = req.headers.authorization;
+    // console.log(bearerHeader);
 
     if (bearerHeader) {
-      const token = bearerHeader.split(" ")[1]
-      //   console.log(token)
-      const payload = jwt.verify(token, process.env.JWT_SECRET)
-      req.email = payload.email
-      const user = await User.findOne({ email: payload.email })
-      if (user && (user.role == "employee" || user.role == "manager" || user.role == "admin")) {
-        req.teamId = user.teamId
+      const token = bearerHeader.split(" ")[1];
+      // console.log(token);
+      const payload = jwt.verify(token, process.env.JWT_SECRET);
+      // const payload = jwt.verify(bearerHeader, process.env.JWT_SECRET);
+      req.email = payload.email;
+      const user = await User.findOne({ email: payload.email });
+      if (
+        user &&
+        (user.role == "employee" ||
+          user.role == "manager" ||
+          user.role == "admin")
+      ) {
+        req.teamId = user.teamId;
       }
-      req.userId = user.id
-      req.addressId = user.addressId
-      req.role = user.role
+      req.userId = user.id;
+      req.addressId = user.addressId;
+      req.role = user.role;
     }
   } catch (error) {
-    console.log(error)
-    throw error
+    console.log(error);
+    throw error;
   }
-}
+};
 
 module.exports.getEducationLevel = async (level) => {
   const levelsMap = [
@@ -41,7 +48,6 @@ module.exports.getEducationLevel = async (level) => {
     { 9: "License Universitaire" },
     { 10: "2 Licenses ou 1 Master Universitaire" },
     { 11: "Doctorat Universitaire" },
-  ]
-  return levelsMap[level]
-}
-
+  ];
+  return levelsMap[level];
+};

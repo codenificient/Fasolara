@@ -7,7 +7,7 @@ module.exports = gql`
   type Employee {
     id: ID
     userId: ID
-    accountID: ID
+    accountId: ID
     teamId: ID
     salaryId: ID
     educationLevel: Int
@@ -26,6 +26,7 @@ module.exports = gql`
   }
 
   input PromotionInput {
+    baseSalary: Float
     jobTitle: String
     startDate: Date
     endDate: Date
@@ -34,20 +35,21 @@ module.exports = gql`
   input CreateEmployeeInput {
     id: ID
     userId: String
-    accountID: ID
+    accountId: ID
     teamId: ID
     salaryId: ID
     educationLevel: Int
     birthday: String
     role: String
     promotion: PromotionInput
+    promotions: [PromotionInput!] 
     updatedAt: Date
   }
 
   input UpdateEmployeeInput {
     id: ID
     userId: String
-    accountID: ID
+    accountId: ID
     teamId: ID
     salaryId: ID
     educationLevel: Int

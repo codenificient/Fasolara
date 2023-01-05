@@ -5,7 +5,7 @@ const employeeSchema = new Schema(
     userId: { type: Schema.ObjectId, ref: "User" },
     accountID: { type: Schema.ObjectId, ref: "Account" },
     teamId: { type: Schema.ObjectId, ref: "Team" },
-    salaryIds: [{ type: Schema.ObjectId, ref: "Salary" }],
+    salaryId: [{ type: Schema.ObjectId, ref: "Salary" }],
     educationLevel: {
       type: Number,
       default: 3,

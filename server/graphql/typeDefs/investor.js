@@ -8,7 +8,7 @@ module.exports = gql`
     id: ID
     role: String
     userId: ID
-    accountID: ID
+    accountId: ID
     bonuses: [ID]
     referrals: [ID]
     startDate: Date
@@ -22,9 +22,8 @@ module.exports = gql`
     startDate: Date
     endDate: Date
     userId: ID
-    accountID: ID
+    accountId: ID
     teamId: ID
-    salaryId: ID
     bonuses: [ID]
     referrals: [ID]
     updatedAt: Date
@@ -35,9 +34,8 @@ module.exports = gql`
     startDate: Date
     endDate: Date
     userId: ID
-    accountID: ID
+    accountId: ID
     teamId: ID
-    salaryId: ID
     role: String
     bonuses: [ID]
     referrals: [ID]

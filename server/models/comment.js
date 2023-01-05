@@ -5,7 +5,8 @@ const commentSchema = new Schema(
     user: { type: Schema.ObjectId, ref: "User" },
     index: { type: Number, default: 0 },
     content: String,
-    isDisabled: { type: Boolean, default: false },
+    isActive: { type: Boolean, default: true },
+    isArchived: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

@@ -25,6 +25,14 @@ module.exports = gql`
     userId: ID
     comment: String
     date: Date
+    isActive: Boolean
+  }
+
+    input UpdateInput {
+    userId: ID
+    comment: String
+    date: Date
+    isActive: Boolean
   }
 
   input CreateOrderInput {
@@ -43,12 +51,15 @@ module.exports = gql`
 
   input UpdateOrderInput {
     orderDate: Date
+    deliveryDate: Date
     userId: ID
     supplierId: ID
     deliveryUserId: ID
     quantity: Float
     purchaseCost: Float
     currency: String
+    update: UpdateInput
+    updates: [UpdateInput!]
     status: String
     finalCost: Float
     finalCurrency: String

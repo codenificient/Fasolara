@@ -3,15 +3,12 @@
 .conversations_container {
   width: 22vw;
   background: $bg-dark;
-  display: inline-block;
+  display: block;
   font-weight: bold;
   flex-direction: column;
   margin: 0 0.15rem 0 0.5rem;
-  height: 97.8vh;
+  height: 98vh;
   justify-content: space-between;
-  padding: 0.5rem;
-  z-index: 2;
-  clear: both;
 
   .message {
     .MessageInfo {
@@ -31,7 +28,7 @@
 
         .Time {
           position: absolute;
-          right: 0.2rem;
+          right: 0.5rem;
         }
       }
     }
@@ -39,15 +36,17 @@
 }
 
 .content_container {
-  display: inline-block;
+  display: inline-flex;
   width: 55vw;
-  height: 98%;
+  height: 98vh;
   background: $bg-dark;
   margin-left: 0.5rem;
   margin: 0 0.25rem;
   padding-left: 0.5rem;
   overflow: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
+  z-index: 2;
+  // background: $theme-orange;
 }
 
 .content_container::-webkit-scrollbar {
@@ -57,7 +56,7 @@
 .conversations_list {
   display: block;
   position: fixed;
-  width: 21vw;
+  width: 22vw;
   height: 86vh;
   overflow: hidden;
   overflow-y: scroll;
@@ -72,12 +71,16 @@
 }
 
 .conversation_container {
-  display: inline-flex;
+  display: inline-block;
   margin-bottom: 1.8rem;
-  width: max-content;
-  width: 20vw;
-  align-items: start;
-  justify-content: baseline;
+  width: 22vw;
+  padding: 0.5rem;
+  align-items: flex-start;
+}
+
+.ActiveConversation {
+  background-color: $bg-gray;
+  // padding: 0 1rem;
 }
 
 .Menu {
@@ -151,11 +154,12 @@
 
 .messages_wrapper {
   display: flex;
-  flex: 1;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  width: 78vw;
+  height: 98%;
   flex-direction: row;
-
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .messages_wrapper::-webkit-scrollbar {

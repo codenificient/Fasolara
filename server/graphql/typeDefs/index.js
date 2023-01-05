@@ -3,6 +3,7 @@ const accountTypes = require("./account")
 const addressTypes = require("./address")
 const bankTypes = require("./bank")
 const commentTypes = require("./comment")
+const conversationTypes = require("./conversation")
 const countryTypes = require("./country")
 const employeeTypes = require("./employee")
 const investorTypes = require("./investor")
@@ -31,6 +32,7 @@ module.exports = [
   addressTypes,
   bankTypes,
   commentTypes,
+  conversationTypes,
   countryTypes,
   employeeTypes,
   investorTypes,

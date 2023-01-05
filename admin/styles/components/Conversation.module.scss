@@ -1,66 +1,197 @@
 @import "../variables.scss";
 
-.conversation_wrapper {
+.conversations_wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  clear: both;
-  position: fixed;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 1rem;
   overflow: hidden;
+  overflow-y: scroll;
 
   .correspondant_wrapper {
-    width: max-content;
-    flex: 1;
-    top: 2rem;
-    clear: both;
-    position: absolute;
+    display: inline-block;
+    position: fixed;
+    width: 53.5vw;
+    // margin-left: -2rem;
+    top: 1.25rem;
+    background-color: $bg-dark;
+    z-index: 8;
+    // margin-bottom: 8rem;
+    // background-color: $theme-orange;
   }
 
-  .messages {
+  .messages_container {
     display: flex;
     flex-direction: column;
+    margin-top: 8rem;
+    // margin-bottom: 2rem;
+    z-index: 2;
+    width: 53.5vw;
     overflow: hidden;
+    height: 90%;
+    overflow-y: scroll;
+    // background-color: $theme-orange;
 
-    flex: 7;
-    top: 5rem;
-    margin-bottom: 2rem;
-    height: 100%;
+    .message {
+      display: flex;
+      flex-direction: column;
+      width: 53vw;
+      height: 100%;
 
-    .Outgoing {
-      background-color: $bg-lighter;
-      width: 80%;
-      display: block;
-      right: 2rem;
-      margin: 1rem 0;
-      padding: 2rem;
-      float: right;
+      .Outgoing {
+        background-color: $bg-lighter;
+        min-width: 70%;
+        max-width: 80%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-self: flex-end;
+        right: 2rem;
+        margin: 0.5rem 0;
+        padding: 1rem;
+        justify-content: flex-end;
+        border-radius: 10px 0 10px 10px;
 
-      .Date {
-        font-weight: bold;
-        margin-right: 0.5rem;
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          right: -1rem;
+          top: 0;
+          background-color: $bg-lighter;
+          width: 20px;
+          height: 20px;
+          z-index: 1;
+          // border-radius: 50%;
+          -webkit-clip-path: polygon(100% 0, 0 0, 0 100%);
+          clip-path: polygon(100% 0, 0 0, 0 100%);
+        }
+
+        .Avt_wrapper {
+          min-width: 70px;
+        }
+
+        .Date {
+          font-weight: bold;
+          margin-right: 0.5rem;
+          min-width: 180px;
+          margin: 0 1rem;
+          display: flex;
+          justify-content: flex-end;
+        }
+        .Content {
+          font-weight: 400;
+          color: $text-greyest;
+          line-height: 1.8;
+        }
       }
-      .Content {
-        font-weight: 400;
+
+      .Incoming {
+        background-color: $bg-gray;
+        min-width: 70%;
+        max-width: 80%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: 2rem;
+        margin: 0.5rem 0;
+        padding: 1rem;
+        justify-content: flex-start;
+        // align-items: center;
+        border-radius: 0 10px 10px 10px;
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          left: -1rem;
+          top: 0;
+          background-color: $bg-gray;
+          width: 20px;
+          height: 20px;
+          z-index: 1;
+          // border-radius: 50%;
+          -webkit-clip-path: polygon(100% 100%, 100% 0, 0 0);
+          clip-path: polygon(100% 100%, 100% 0, 0 0);
+        }
+
+        .Date {
+          font-weight: bold;
+          min-width: 180px;
+          margin: 0 1rem;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-end;
+        }
+        .Content {
+          font-weight: 400;
+          color: $text-greyest;
+          line-height: 1.8;
+        }
+
+        .Avt_wrapper {
+          min-width: 70px;
+        }
       }
     }
-    .Incoming {
-      background-color: $bg-secondary;
+  }
+
+  .input_container {
+    display: flex;
+    // justify-content: space-evenly;
+    // height: 2rem;
+    width: 100%;
+    color: $text-light;
+    background-color: $bg-secondary;
+    padding: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .Attach {
+      cursor: pointer;
+    }
+
+    input {
       width: 80%;
-      display: block;
-      left: 2rem;
-      padding: 2rem;
-      .Date {
-        font-weight: bold;
-        margin-right: 0.5rem;
-      }
-      .Content {
-        font-weight: 400;
+      height: 3rem;
+      background: $bg-gray;
+      border: 0;
+      padding: 0.5rem;
+      font-family: "Poppins Semibold", sans-serif;
+      border-radius: 5px;
+      caret-color: $text-color;
+      color: $text-color;
+    }
+
+    i {
+      font-size: 1.5rem;
+    }
+
+    .Button2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 80px;
+      background: $bg-gray;
+      color: $text-light;
+      border: 0;
+      padding: 0.5rem;
+      cursor: pointer;
+      font-size: medium;
+
+      i {
+        font-size: 1.5rem;
+        margin-left: 0.5rem;
       }
     }
   }
 }
 
-.conversation_wrapper::-webkit-scrollbar,
+.messages_container::-webkit-scrollbar,
+.conversations_wrapper::-webkit-scrollbar,
 .messages::-webkit-scrollbar {
   display: none;
 }

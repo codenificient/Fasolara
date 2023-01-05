@@ -20,7 +20,8 @@ class MyDocument extends Document
 						crossOrigin="anonymous"
 					/>
 					<script src="https://unpkg.com/react/umd/react.production.min.js"></script>
-
+					<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+					<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet" />
 				</Head>
 				<body>
 					<Main />

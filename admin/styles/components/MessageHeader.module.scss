@@ -4,7 +4,7 @@
   display: flex;
   padding: 0.8rem;
   z-index: 7;
-  margin: 1rem 0.5rem;
+  margin: 1rem;
   justify-content: space-between;
 
   .profile {
@@ -42,12 +42,11 @@
   }
 
   .Status {
-        background-color: $theme-orange;
+    background-color: $theme-orange;
   }
 
   .Online {
     background-color: $bg-green;
-
   }
 
   .Settings {
