@@ -41,6 +41,11 @@ module.exports = gql`
     status: String
   }
 
+  input AddMessageInput {
+    id: ID!
+    message: MessageInput
+  }
+
   input CreateConversationInput {
     id: ID
     participants: [ID!]!
@@ -68,5 +73,6 @@ module.exports = gql`
     updateConversation(
       updateConversationInput: UpdateConversationInput
     ): Conversation
+    updateConversationMessage(addMessageInput: AddMessageInput): Conversation
   }
 `;

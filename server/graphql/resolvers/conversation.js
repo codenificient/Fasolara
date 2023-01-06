@@ -93,6 +93,41 @@ module.exports = {
         }
       }
     ),
+    updateConversationMessage: combineResolvers(
+      isAuthenticated,
+      async (_, { addMessageInput }) => {
+        try {
+          // See if an old user exists with same email
+          const oldConversation = await Conversation.findById(
+            addMessageInput.id
+          );
+
+          if (!oldConversation) {
+            throw new ApolloError(
+              "No Conversation was found with ID " + addMessageInput.id,
+              "Conversation_NOT_FOUND"
+            );
+          }
+
+          // Update old account
+          const res = await Conversation.findByIdAndUpdate(
+            { _id: addMessageInput.id },
+            { $addToSet: {
+              messages: addMessageInput.message
+            } },
+            { new: true }
+          );
+
+          return {
+            id: res.id,
+            ...res._doc,
+          };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      }
+    ),
   },
   Query: {
     conversation: combineResolvers(

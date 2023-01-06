@@ -1,6 +1,6 @@
-const mongoose = require("mongoose")
+const { Schema, model } = require("mongoose");
 
-const projectSchema = new mongoose.Schema(
+const projectSchema = new Schema(
   {
     name: {
       type: String,
@@ -10,6 +10,11 @@ const projectSchema = new mongoose.Schema(
     zone: {
       type: String,
       required: true,
+    },
+    branch: {
+      type: String,
+      required: true,
+      trim: true,
     },
     dotcolor: {
       type: String,
@@ -21,13 +26,19 @@ const projectSchema = new mongoose.Schema(
       default: 0,
     },
     addressId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Address",
+    },
+    teamIds: {
+      teamId: {
+        type: Schema.Types.ObjectId,
+        ref: "Team",
+      },
     },
     suppliers: [
       {
         supplierId: {
-          type: mongoose.Schema.Types.ObjectId,
+          type: Schema.Types.ObjectId,
           ref: "Supplier",
         },
         hiringDate: {
@@ -41,12 +52,26 @@ const projectSchema = new mongoose.Schema(
     },
     isActive: {
       type: Boolean,
-      default: false,
+      default: true,
+    },
+    status: {
+      type: String,
+      enum: [
+        "preparation",
+        "financing",
+        "prospecting",
+        "complete",
+        "installation",
+        "clearing",
+        "commissioning",
+        "decommissioned",
+      ],
+      default: "prospecting", // only activate when ready to install
     },
   },
   {
     timestamps: true,
   }
-)
+);
 
-module.exports = mongoose.model("Project", projectSchema)
+module.exports = model("Project", projectSchema);

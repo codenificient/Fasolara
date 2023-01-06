@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server")
+const { gql } = require("apollo-server");
 
 module.exports = gql`
   """
@@ -11,11 +11,10 @@ module.exports = gql`
     dotcolor: String
     addressId: ID
     managerId: ID
-    teamIds: [ID]
+    teamIds: [TeamId]
     branch: String
     impact: Float
     suppliers: [Supplier]
-    supplierId: ID
     isComplete: Boolean
     isActive: Boolean
     createdAt: Date
@@ -36,10 +35,19 @@ module.exports = gql`
     branch: String
     impact: Float
     supplierId: ID
+    teamIds: [ID!]
     isComplete: Boolean
     isActive: Boolean
     createdAt: Date
     updatedAt: Date
+  }
+
+  type TeamId {
+    teamId: ID
+  }
+
+  input TeamIdInput {
+    teamId: ID
   }
 
   input UpdateProjectInput {
@@ -50,10 +58,29 @@ module.exports = gql`
     branch: String
     impact: Float
     supplierId: ID
+    teamId: ID
+    teamIds: [ID!]
     isComplete: Boolean
     isActive: Boolean
     createdAt: Date
     updatedAt: Date
+  }
+
+  input SupplierInput {
+    supplierId: ID
+    hiringDate: Date
+  }
+
+  input AddSupplierInput {
+    id: ID
+    supplier: SupplierInput
+    suppliers: [SupplierInput!]
+  }
+
+  input AddTeamInput {
+    id: ID
+    teamId: TeamIdInput
+    teamIds: [TeamIdInput!]
   }
 
   extend type Query {
@@ -65,5 +92,9 @@ module.exports = gql`
   extend type Mutation {
     createProject(createProjectInput: CreateProjectInput): Project
     updateProject(updateProjectInput: UpdateProjectInput): Project
+    updateProjectSupplier(addSupplierInput: AddSupplierInput): Project
+    updateProjectSuppliers(addSupplierInput: AddSupplierInput): Project
+    updateProjectTeam(addTeamInput: AddTeamInput): Project
+    updateProjectTeams(addTeamInput: AddTeamInput): Project
   }
-`
+`;

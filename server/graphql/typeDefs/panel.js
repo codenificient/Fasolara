@@ -14,7 +14,7 @@ module.exports = gql`
     isActive: Boolean
     isInstalled: Boolean
     isReplacement: Boolean
-    ratedCapacity: [Capacity]
+    ratedCapacities: [Capacity]
     maintenanceDates: [Maintenance]
     createdAt: Date
     updatedAt: Date
@@ -23,14 +23,13 @@ module.exports = gql`
   type Maintenance {
     start: Date
     complete: Date
-    comments: [ID]
+    comments: String
   }
 
   input MaintenanceInput {
     start: Date
     complete: Date
-    comment: ID
-    comments: [ID]
+    comments: String
   }
 
   type Capacity {
@@ -38,8 +37,37 @@ module.exports = gql`
     capacity: Float
   }
 
+  input CapacityInput {
+    date: Date
+    capacity: Float
+  }
+
   input CreatePanelInput {
     id: ID
+    serialNumber: String
+    installCost: Float
+    installDate: Date
+    orderID: Date
+    groupId: ID
+    isActive: Boolean
+    isInstalled: Boolean
+    isReplacement: Boolean
+    maintenanceDate: MaintenanceInput
+    updatedAt: Date
+  }
+
+  input AddCapacityInput {
+    id: ID
+    ratedCapacity: CapacityInput
+  }
+
+  input AddMaintenanceInput {
+    id: ID
+    maintenanceDate: MaintenanceInput
+    maintenanceDates: [MaintenanceInput!]
+  }
+
+  input UpdatePanelInput {
     accountId: ID
     serialNumber: String
     installCost: Float
@@ -54,25 +82,6 @@ module.exports = gql`
     updatedAt: Date
   }
 
-  input AddCapacityInput {
-    date: Date
-    capacity: Float
-  }
-
-  input UpdatePanelInput {
-    accountId: ID
-    serialNumber: String
-    installCost: Float
-    installDate: Date
-    orderID: Date
-    groupId: ID
-    isActive: Boolean
-    isInstalled: Boolean
-    isReplacement: Boolean
-    maintenanceDates: MaintenanceInput
-    updatedAt: Date
-  }
-
   extend type Query {
     panel: Panel
     getPanel(id: ID): Panel
@@ -83,5 +92,7 @@ module.exports = gql`
     createPanel(createPanelInput: CreatePanelInput): Panel
     updatePanel(updatePanelInput: UpdatePanelInput): Panel
     updatePanelCapacity(addCapacityInput: AddCapacityInput): Panel
+    updatePanelMaintenance(addMaintenanceInput: AddMaintenanceInput): Panel
+    updatePanelMaintenances(addMaintenanceInput: AddMaintenanceInput): Panel
   }
 `;

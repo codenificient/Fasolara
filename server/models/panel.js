@@ -2,10 +2,6 @@ const { Schema, model } = require("mongoose");
 
 const panelSchema = new Schema(
   {
-    accountId: {
-      type: Schema.Types.ObjectId,
-      ref: "Account",
-    },
     serialNumber: String,
     installCost: {
       type: Number,
@@ -17,13 +13,10 @@ const panelSchema = new Schema(
       {
         start: Date,
         complete: Date,
-        comments: {
-          type: Schema.Types.ObjectId,
-          ref: "Comment",
-        },
+        comments: String
       },
     ],
-    ratedCapacity: [
+    ratedCapacities: [
       {
         date: Date,
         capacity: Number,
