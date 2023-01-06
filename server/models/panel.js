@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
-const panelSchema = new mongoose.Schema(
+const panelSchema = new Schema(
   {
     accountId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Account",
     },
     serialNumber: String,
@@ -17,7 +17,10 @@ const panelSchema = new mongoose.Schema(
       {
         start: Date,
         complete: Date,
-        comment: String,
+        comments: {
+          type: Schema.Types.ObjectId,
+          ref: "Comment",
+        },
       },
     ],
     ratedCapacity: [
@@ -45,4 +48,4 @@ const panelSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Panel", panelSchema);
+module.exports = model("Panel", panelSchema);
