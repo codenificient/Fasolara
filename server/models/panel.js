@@ -13,7 +13,7 @@ const panelSchema = new Schema(
       {
         start: Date,
         complete: Date,
-        comments: String
+        comments: String,
       },
     ],
     ratedCapacities: [
@@ -35,6 +35,10 @@ const panelSchema = new Schema(
       default: false,
     },
     groupId: String,
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,

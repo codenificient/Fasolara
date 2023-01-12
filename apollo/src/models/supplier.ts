@@ -29,4 +29,5 @@ const supplierSchema = new Schema(
   }
 )
 
-export const SupplierModel = model("Supplier", supplierSchema)
+const Supplier = model("Supplier", supplierSchema)
+export default Supplier

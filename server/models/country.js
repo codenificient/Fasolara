@@ -19,10 +19,14 @@ const countrySchema = new Schema(
       type: String,
       default: "yellow",
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
 module.exports = model("Country", countrySchema)

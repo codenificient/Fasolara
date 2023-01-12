@@ -27,12 +27,16 @@ const provinceSchema = new mongoose.Schema(
     },
     zone: {
       type: String,
-      enum: ["sahelienne", "soudanaise", "subsoudainaise"], // add more
+      enum: ["sahelienne", "soudanaise", "soudano-sahelienne"], // add more
+    },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
   },
   {
     timestamps: true,
   }
-)
+);
 
 module.exports = mongoose.model("Province", provinceSchema)

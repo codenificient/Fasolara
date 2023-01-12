@@ -64,4 +64,4 @@ module.exports = gql`
       updateTransactionInput: UpdateTransactionInput
     ): Transaction
   }
-`
+`;

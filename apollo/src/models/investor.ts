@@ -38,4 +38,5 @@ const investorSchema = new Schema(
   { timestamps: true }
 )
 
-export const InvestorModel = model("Investor", investorSchema)
+const Investor = model("Investor", investorSchema)
+export default Investor

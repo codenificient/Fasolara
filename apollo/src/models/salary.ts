@@ -22,4 +22,5 @@ const salarySchema = new Schema(
   }
 )
 
-export const SalaryModel = model("Salary", salarySchema)
+const Salary = model("Salary", salarySchema)
+export default Salary

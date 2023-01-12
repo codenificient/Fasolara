@@ -1,13 +1,13 @@
 @import  '../variables.scss';
 
 .activeprojects_container {
-  /* background: #1f1f1f; */
+  background: $bg-secondary; 
   width: 100%;
   height: 100%;
   margin: 0.5rem;
   border-radius: 10px;
   padding: 10px;
-  box-shadow: -7px -7px 19px 0px $box-shadow-yellow;
+  // box-shadow: -7px -7px 19px 0px $box-shadow-yellow;
 }
 
 .project_list {
@@ -44,7 +44,7 @@
 
 .project_details {
   display: flex;
- width: 76vw;
+ width: 74vw;
   justify-content: space-around;
   text-align: center;
 }
@@ -72,7 +72,7 @@
   display: flex;
   font-weight: bold;
   text-transform: uppercase;
-  width: 76%;
+  width: 75vw;
   color: $text-lightest;
   text-align: center;
   justify-content: space-around;

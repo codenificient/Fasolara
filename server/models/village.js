@@ -23,10 +23,14 @@ const villageSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
 module.exports = model("Village", villageSchema)

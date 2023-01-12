@@ -13,6 +13,7 @@ const projectResolvers = require("./project");
 const provinceResolvers = require("./province");
 const salaryResolvers = require("./salary");
 const supplierResolvers = require("./supplier");
+const teamResolvers = require("./team");
 const transactionResolvers = require("./transaction");
 const villageResolvers = require("./village");
 
@@ -38,6 +39,7 @@ module.exports = [
   provinceResolvers,
   salaryResolvers,
   supplierResolvers,
+  teamResolvers,
   transactionResolvers,
   userResolvers,
   villageResolvers,

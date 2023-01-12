@@ -28,8 +28,12 @@ const employeeSchema = new Schema(
         endDate: Date,
       },
     ],
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
-)
+);
 
 module.exports = model("Employee", employeeSchema)

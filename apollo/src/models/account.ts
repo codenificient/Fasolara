@@ -54,4 +54,5 @@ accountSchema.methods = {
   }
 }
 
-export const AccountModel = model<IAccount>("Account", accountSchema)
+const Account = model<IAccount>("Account", accountSchema)
+export default Account

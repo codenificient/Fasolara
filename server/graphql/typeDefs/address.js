@@ -7,7 +7,6 @@ module.exports = gql`
   type Address {
     id: ID
     name: String
-    mobileNumber: String
     locationId: ID
     villageId: ID
     address: String
@@ -20,7 +19,6 @@ module.exports = gql`
   input CreateAddressInput {
     id: ID
     name: String
-    mobileNumber: String
     locationId: ID
     villageId: ID
     address: String
@@ -32,7 +30,6 @@ module.exports = gql`
   input UpdateAddressInput {
     id: ID!
     name: String
-    mobileNumber: String
     locationId: ID
     villageId: ID
     address: String

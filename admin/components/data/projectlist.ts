@@ -26,11 +26,11 @@ export const projects: Project[] = [
 		imageUrl: '/assets/powergo.png',
 		progress: 79
     },
-    // {
-	// 	id: "Koudougou",
-	// 	imageUrl: '/assets/renesola.png',
-	// 	progress: 58
-    // },
+    {
+		id: "Koudougou",
+		imageUrl: '/assets/renesola.png',
+		progress: 58
+    },
     // {
 	// 	id: "Tenkodogo",
 	// 	imageUrl: '/assets/Vikram.png',

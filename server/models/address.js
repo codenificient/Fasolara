@@ -30,10 +30,14 @@ const addressSchema = new Schema(
       type: String,
       default: "default",
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
 module.exports = model("Address", addressSchema)

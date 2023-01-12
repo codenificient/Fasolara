@@ -68,6 +68,10 @@ const projectSchema = new Schema(
       ],
       default: "prospecting", // only activate when ready to install
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,

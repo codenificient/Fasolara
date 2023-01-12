@@ -29,4 +29,5 @@ const villageSchema = new Schema(
   }
 )
 
-export const VillageModel = model("Village", villageSchema)
+const Village = model("Village", villageSchema)
+export default Village

@@ -32,4 +32,5 @@ const employeeSchema = new Schema(
   { timestamps: true }
 )
 
-export const EmployeeModel = model("Employee", employeeSchema)
+const Employee = model("Employee", employeeSchema)
+export default Employee

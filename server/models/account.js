@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model } = require("mongoose");
 
 const accountSchema = new Schema(
   {
@@ -25,10 +25,14 @@ const accountSchema = new Schema(
     accountNumber: String,
     solarGroup: String,
     carrier: String,
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
-module.exports = model("Account", accountSchema)
+module.exports = model("Account", accountSchema);

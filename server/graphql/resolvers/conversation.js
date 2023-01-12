@@ -11,36 +11,40 @@ module.exports = {
   Mutation: {
     createConversation: combineResolvers(
       isAuthenticated,
-      async (_, { createConversationInput }) => {
+      async (_, { createConvoInput }) => {
         try {
           // See if an old Conversation exists with same participants
-          //   const oldConversationByParticipants = await Conversation.find({
-          //     participants: {
-          //       userId: { $all: createConversationInput.participants },
-          //     },
-          //   });
-          //   const oldConversationByParticipants = await Conversation.find({})
-          //     .where("participants")
-          //     .all(createConversationInput.participants);
+          const oldConversationByParticipants = await Conversation.find({
+            "participants.userId": {
+              $all: createConvoInput.participants,
+            },
+          });
+          // const oldConversationByParticipants = await Conversation.find({})
+          //   .where("participants")
+          //   .all(createConvoInput.participants);
 
-          //   if (oldConversationByParticipants) {
-          //     return await Conversation.findByIdAndUpdate(
-          //       {
-          //         _id: oldConversationByParticipants._id,
-          //       },
-          //       { createConversationInput },
-          //       { new: true }
-          //     );
-          //   }
+          if (oldConversationByParticipants) {
+            return await Conversation.findByIdAndUpdate(
+              {
+                _id: oldConversationByParticipants._id,
+              },
+              {
+                $addToSet: {
+                  messages: createConvoInput.message,
+                },
+              },
+              { new: true }
+            );
+          }
           // Build mongoose model
           let parts = [],
             part = {},
             mess = {};
-          for (let participant of createConversationInput.participants) {
+          for (let participant of createConvoInput.participants) {
             part.userId = new ObjectId(participant).toString();
             parts.push(part);
           }
-          mess = createConversationInput.messages;
+          mess = createConvoInput.messages;
           //   mess.date = new Date();
           const newConversation = new Conversation({
             participants: [...parts],
@@ -62,24 +66,24 @@ module.exports = {
     ),
     updateConversation: combineResolvers(
       isAuthenticated,
-      async (_, { updateConversationInput }) => {
+      async (_, { updateConvoInput }) => {
         try {
           // See if an old user exists with same email
           const oldConversation = await Conversation.findById(
-            updateConversationInput.id
+            updateConvoInput.id
           );
 
           if (!oldConversation) {
             throw new ApolloError(
-              "No Conversation was found with ID " + updateConversationInput.id,
+              "No Conversation was found with ID " + updateConvoInput.id,
               "Conversation_NOT_FOUND"
             );
           }
 
           // Update old account
           const res = await Conversation.findOneAndUpdate(
-            { id: updateConversationInput.id },
-            { updateConversationInput },
+            { id: updateConvoInput.id },
+            { updateConvoInput },
             { new: true }
           );
 
@@ -93,28 +97,63 @@ module.exports = {
         }
       }
     ),
-    updateConversationMessage: combineResolvers(
+    updateConvoMsg: combineResolvers(
       isAuthenticated,
-      async (_, { addMessageInput }) => {
+      async (_, { addMsgInput }) => {
         try {
           // See if an old user exists with same email
-          const oldConversation = await Conversation.findById(
-            addMessageInput.id
-          );
+          const oldConversation = await Conversation.findById(addMsgInput.id);
 
           if (!oldConversation) {
             throw new ApolloError(
-              "No Conversation was found with ID " + addMessageInput.id,
+              "No Conversation was found with ID " + addMsgInput.id,
               "Conversation_NOT_FOUND"
             );
           }
 
           // Update old account
           const res = await Conversation.findByIdAndUpdate(
-            { _id: addMessageInput.id },
-            { $addToSet: {
-              messages: addMessageInput.message
-            } },
+            { _id: addMsgInput.id },
+            {
+              $addToSet: {
+                messages: addMsgInput.message,
+              },
+            },
+            { new: true }
+          );
+
+          return {
+            id: res.id,
+            ...res._doc,
+          };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      }
+    ),
+    updateConvoPpt: combineResolvers(
+      isAuthenticated,
+      async (_, { addPptInput }) => {
+        try {
+          // See if an old user exists with same email
+          const oldConversation = await Conversation.findById(addPptInput.id);
+
+          if (!oldConversation) {
+            throw new ApolloError(
+              "No Conversation was found with ID " + addPptInput.id,
+              "Conversation_NOT_FOUND"
+            );
+          }
+
+          // Update old account
+          const res = await Conversation.findByIdAndUpdate(
+            { _id: addPptInput.id },
+            {
+              $addToSet: {
+                participants: addPptInput.participant,
+              },
+            },
             { new: true }
           );
 

@@ -45,4 +45,5 @@ const panelSchema = new Schema(
   }
 );
 
-export const PanelModel = model("Panel", panelSchema);
+const Panel = model("Panel", panelSchema);
+export default Panel

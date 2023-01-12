@@ -8,6 +8,7 @@ module.exports = gql`
     id: ID
     name: String
     addressId: ID
+    contactId: ID
     branch: String
     createdAt: Date
     updatedAt: Date
@@ -17,6 +18,7 @@ module.exports = gql`
     id: ID
     name: String
     addressId: ID
+    contactId: ID
     branch: String
     updatedAt: Date
   }
@@ -24,6 +26,7 @@ module.exports = gql`
   input UpdateBankInput {
     name: String
     addressId: ID
+    contactId: ID
     branch: String
     updatedAt: Date
   }

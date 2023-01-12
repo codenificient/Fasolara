@@ -1,8 +1,12 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const transactionSchema = new mongoose.Schema(
   {
     customerId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+    beneficiaryId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
@@ -21,8 +25,15 @@ const transactionSchema = new mongoose.Schema(
     taxRate: Number,
     status: {
       type: String,
-      enum: ["started", "success", "cancelled", "failed", "archived", "active"],
-      default: "started",
+      enum: [
+        "initiated",
+        "success",
+        "cancelled",
+        "failed",
+        "archived",
+        "active",
+      ],
+      default: "initiated",
     },
     kind: {
       type: String,
@@ -37,10 +48,14 @@ const transactionSchema = new mongoose.Schema(
         "deposit",
       ],
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("Transaction", transactionSchema)
+module.exports = mongoose.model("Transaction", transactionSchema);

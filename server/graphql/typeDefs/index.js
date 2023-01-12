@@ -13,6 +13,7 @@ const projectTypes = require("./project")
 const provinceTypes = require("./province")
 const salaryTypes = require("./salary")
 const supplierTypes = require("./supplier")
+const teamTypes = require("./team")
 const transactionTypes = require("./transaction")
 const userTypes = require("./user")
 const villageTypes = require("./village")
@@ -42,6 +43,7 @@ module.exports = [
   provinceTypes,
   supplierTypes,
   salaryTypes,
+  teamTypes,
   transactionTypes,
   villageTypes,
   typeDefs,

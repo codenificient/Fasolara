@@ -43,4 +43,5 @@ const transactionSchema = new Schema(
   }
 );
 
-export const TransactionModel = model("Transaction", transactionSchema)
+const Transaction = model("Transaction", transactionSchema)
+export default Transaction

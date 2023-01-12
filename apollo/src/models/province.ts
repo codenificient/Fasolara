@@ -35,4 +35,5 @@ const provinceSchema = new Schema(
   }
 )
 
-export const ProvinceModel = model("Province", provinceSchema)
+const Province = model("Province", provinceSchema)
+export default Province

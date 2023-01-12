@@ -15,16 +15,18 @@ module.exports = gql`
     mobileNumber: String
     addressId: ID
     accountId: ID
-    dob: String
+    dob: Date
     role: String
     isActive: Boolean
     email: String
     password: String
     token: String
+    avatar: String
     resetToken: String
     activationToken: String
     createdAt: Date
     updatedAt: Date
+    createdBy: String
   }
 
   type Token {
@@ -42,8 +44,13 @@ module.exports = gql`
     firstname: String!
     midname: String
     lastname: String!
-    dob: String
+    dob: Date
     role: String
+    token: String
+    avatar: String
+    resetToken: String
+    activationToken: String
+    createdBy: String
   }
 
   input UpdateUserInput {
@@ -56,10 +63,12 @@ module.exports = gql`
     firstname: String!
     midname: String
     lastname: String!
-    dob: String
+    dob: Date
     role: String
     resetToken: String
     activationToken: String
+    avatar: String
+    createdBy: String
   }
 
   input LoginInput {

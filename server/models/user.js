@@ -1,4 +1,4 @@
-const { model, Schema } = require("mongoose")
+const { model, Schema } = require("mongoose");
 
 const userSchema = new Schema(
   {
@@ -46,6 +46,7 @@ const userSchema = new Schema(
     },
     mobileNumber: String,
     resetToken: String,
+    dob: Date,
     activationToken: String,
     role: {
       type: String,
@@ -64,14 +65,18 @@ const userSchema = new Schema(
       type: Boolean,
       default: true,
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
 );
 
 userSchema.method("fullName", function fullName() {
   if (this.midname)
-    return this.firstName + " " + this.midname + " " + this.lastName
+    return this.firstName + " " + this.midname + " " + this.lastName;
   return this.firstName + " " + this.lastName;
 });
 
-module.exports = model("User", userSchema)
+module.exports = model("User", userSchema);

@@ -16,10 +16,14 @@ const bankSchema = new Schema(
       required: true,
       trim: true,
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
 module.exports = model("Bank", bankSchema)

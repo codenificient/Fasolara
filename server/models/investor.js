@@ -34,8 +34,12 @@ const investorSchema = new Schema(
         ref: "Transaction",
       },
     ],
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
-)
+);
 
 module.exports = model("Investor", investorSchema)

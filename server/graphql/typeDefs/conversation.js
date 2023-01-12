@@ -12,7 +12,7 @@ module.exports = gql`
   }
 
   type Participant {
-    userId: ID
+    userId: ID!
     connect: String
     avatar: String
     name: String
@@ -30,7 +30,7 @@ module.exports = gql`
   type Message {
     senderId: String!
     date: Date
-    content: String
+    content: String!
     status: String
   }
 
@@ -41,19 +41,25 @@ module.exports = gql`
     status: String
   }
 
-  input AddMessageInput {
+  input AddMsgInput {
     id: ID!
     message: MessageInput
   }
 
-  input CreateConversationInput {
+  input AddPptInput {
+    id: ID!
+    participant: ParticipantInput
+    participants: [ParticipantInput!]
+  }
+
+  input CreateConvoInput {
     id: ID
     participants: [ID!]!
     status: String
-    messages: MessageInput!
+    message: MessageInput!
   }
 
-  input UpdateConversationInput {
+  input UpdateConvoInput {
     id: ID!
     participants: [ID!]
     status: String
@@ -67,12 +73,9 @@ module.exports = gql`
   }
 
   extend type Mutation {
-    createConversation(
-      createConversationInput: CreateConversationInput
-    ): Conversation
-    updateConversation(
-      updateConversationInput: UpdateConversationInput
-    ): Conversation
-    updateConversationMessage(addMessageInput: AddMessageInput): Conversation
+    createConversation(createConvoInput: CreateConvoInput): Conversation
+    updateConversation(updateConvoInput: UpdateConvoInput): Conversation
+    updateConvoMsg(addMsgInput: AddMsgInput): Conversation
+    updateConvoPpt(addPptInput: AddPptInput): Conversation
   }
 `;

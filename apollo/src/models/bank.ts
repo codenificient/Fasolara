@@ -43,4 +43,5 @@ bankSchema.methods = {
   }
 }
 
-export const BankModel = model<IBank>( "Bank", bankSchema )
+const Bank = model<IBank>( "Bank", bankSchema )
+export default Bank

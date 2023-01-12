@@ -13,8 +13,8 @@ export default function Home()
 {
 	const [notify, setNotify] = useState( true )
 	return (
-		<div className="inn_wrapper">
-			<span className={styles.InlineRow}>
+		<div className={styles.inn_wrapper}>
+			{/* <span className={styles.InlineRow}>
 				<span className={styles.search}>
 					<Input
 						type="text"
@@ -34,7 +34,7 @@ export default function Home()
 				</Link>
 				<Icon classes={'fa-solid fa-bell'} colors="#8d8d8d" size="30px" />
 				<div className={styles.icon_indicator} style={{ display: notify ? 'block' : 'none' }} />
-			</span>
+			</span> */}
 			<Projects />
 			<Charts />
 			<ActiveProjects />

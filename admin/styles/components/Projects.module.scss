@@ -3,13 +3,12 @@
 .projects_container {
 	display: block;
 	color: $text-lighter;
-	width: 78vw;
+	// width: 78vw;
 	height: 100%;
 	text-align: center;
 	border-radius: 10px;
 	padding: 10px;
-	/* background: #1f1f1f; */
-	/* margin: 0.5rem; */
+	// margin: 0.5rem; 
 	/* border: 1px solid #8d8d8d80; */
 }
 
@@ -35,19 +34,19 @@
 
 .project_container {
 	display: block;
-	width: 18vw;
-	height: 480px;
+	width: 15vw;
+	height: 500px;
 	padding: 5px;
 	background: $bg-secondary;
-	/* background-color: #f1bd89; */
-	/* background-color: #fffdd0; */
+	//  background-color: #f1bd89; 
+	//  background-color: #fffdd0; 
 	color: $text-darker;
 	border-radius: 10px;
 	text-align: left;
 	/* box-shadow: 6px 6px 17px #1d1b1c, -6px -6px 17px #141414; */
 	/* box-shadow: 8px 8px 4px #1c1c1c, -8px -8px 4px #222222; */
 	
-	box-shadow: -7px -7px 19px 0px $box-shadow-yellow;
+	// box-shadow: -7px -7px 19px 0px $box-shadow-yellow;
 	/* border: 1px solid #8d8d8d80; */
 }
 

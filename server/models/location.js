@@ -23,12 +23,16 @@ const locationSchema = new Schema(
         index: "2dsphere",
       },
       formattedAddress: String,
+      createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
     },
   },
   {
     timestamps: true,
   }
-)
+);
 
 // Geocode and create a location
 locationSchema.pre("save", async function (next) {

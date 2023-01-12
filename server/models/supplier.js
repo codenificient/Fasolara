@@ -18,15 +18,18 @@ const supplierSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-
     area: {
       type: String,
       trim: true,
+    },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
   },
   {
     timestamps: true,
   }
-)
+);
 
 module.exports = mongoose.model("Supplier", supplierSchema)

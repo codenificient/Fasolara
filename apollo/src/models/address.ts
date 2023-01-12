@@ -61,4 +61,5 @@ addressSchema.methods = {
   }
 }
 
-export const AddressModel = model<IAddress>( "Address", addressSchema )
+const Address = model<IAddress>( "Address", addressSchema )
+export default Address

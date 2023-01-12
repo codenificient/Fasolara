@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose"
+import { model, Schema } from "mongoose"
 
 
 const countrySchema = new Schema(
@@ -26,4 +26,5 @@ const countrySchema = new Schema(
   }
 )
 
-export const CountryModel = model("Country", countrySchema)
+const Country = model( "Country", countrySchema )
+export default Country
