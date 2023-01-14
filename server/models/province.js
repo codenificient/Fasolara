@@ -1,6 +1,6 @@
-const mongoose = require("mongoose")
+const { Schema, model } = require("mongoose");
 
-const provinceSchema = new mongoose.Schema(
+const provinceSchema = new Schema(
   {
     region: {
       type: String,
@@ -18,7 +18,7 @@ const provinceSchema = new mongoose.Schema(
       trim: true,
     },
     countryId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Country",
     },
     polycolor: {
@@ -39,4 +39,4 @@ const provinceSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Province", provinceSchema)
+module.exports = model("Province", provinceSchema);

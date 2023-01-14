@@ -1,17 +1,17 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
-const transactionSchema = new mongoose.Schema(
+const transactionSchema = new Schema(
   {
     customerId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "User",
     },
     beneficiaryId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "User",
     },
     accountId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Account",
     },
     amount: Number,
@@ -58,4 +58,4 @@ const transactionSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Transaction", transactionSchema);
+module.exports = model("Transaction", transactionSchema);

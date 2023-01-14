@@ -1,17 +1,17 @@
-const mongoose = require("mongoose")
+const { Schema, model } = require("mongoose");
 
-const supplierSchema = new mongoose.Schema(
+const supplierSchema = new Schema(
   {
     name: {
       type: String,
       required: true,
     },
     accountId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Account",
     },
     addressId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Address",
     },
     isActive: {
@@ -32,4 +32,4 @@ const supplierSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Supplier", supplierSchema)
+module.exports = model("Supplier", supplierSchema);
