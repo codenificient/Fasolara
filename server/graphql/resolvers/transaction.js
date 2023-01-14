@@ -56,7 +56,7 @@ module.exports = {
 
           // Update old account
           const res = await Transaction.findOneAndUpdate(
-            { id: updateTransactionInput.id },
+            { _id: updateTransactionInput.id },
             { updateTransactionInput },
             { new: true }
           )
@@ -73,6 +73,7 @@ module.exports = {
     ),
   },
   Query: {
+    /* fieldName:(root, args, context, info) => { result } */
     pastTransactions: combineResolvers(
       isAuthenticated,
       async (_, __, { userId }) => {
@@ -88,7 +89,7 @@ module.exports = {
         }
       }
     ),
-    getTransaction: async (_, { id }, __) => {
+    getTransaction: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }

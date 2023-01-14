@@ -52,7 +52,7 @@ module.exports = {
 
           // Update old account
           const res = await Village.findOneAndUpdate(
-            { id: updateVillageInput.id },
+            { _id: updateVillageInput.id },
             { updateVillageInput },
             { new: true }
           )
@@ -68,22 +68,20 @@ module.exports = {
       }
     ),
   },
+  /* fieldName:(root, args, context, info) => { result } */
   Query: {
     village: combineResolvers(isAuthenticated, async (_, __, { addressId }) => {
       try {
-        const address = await Address.findOne({ id: addressId })
+        const address = await Address.findById(  addressId)
         if (address) {
-          const village = await Village.findOne({
-            villageId: address.villageId,
-          })
-          return village
+          return await Village.findById( address.villageId)
         }
       } catch (error) {
         console.log(error)
         throw error
       }
     }),
-    getVillage: async (_, { id }, __) => {
+    getVillage: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }

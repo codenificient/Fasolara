@@ -1,7 +1,5 @@
 const { ApolloError } = require("apollo-server-errors")
 const Account = require("../../models/account")
-const bcrypt = require("bcryptjs")
-const jwt = require("jsonwebtoken")
 const { combineResolvers } = require("graphql-resolvers")
 const { isAuthenticated } = require("./middleware")
 
@@ -65,7 +63,7 @@ module.exports = {
 
           // Update old account
           const res = await Account.findOneAndUpdate(
-            { id: updateAccountInput.id },
+            { _id: updateAccountInput.id },
             { updateAccountInput },
             { new: true }
           )
@@ -82,6 +80,7 @@ module.exports = {
     ),
   },
   Query: {
+    /* fieldName:(root, args, context, info) => { result } */
     account: combineResolvers(isAuthenticated, async (_, __, { userId }) => {
       try {
         const account = await Account.findOne({ customerId: userId })

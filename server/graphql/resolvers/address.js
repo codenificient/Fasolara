@@ -74,7 +74,7 @@ module.exports = {
             newAddress.updatedAt = updateAddressInput.updatedAt
 
           const res = await Address.findOneAndUpdate(
-            { id: updateAddressInput.id },
+            { _id: updateAddressInput.id },
             { newAddress },
             { new: true }
           )
@@ -91,6 +91,7 @@ module.exports = {
     ),
   },
   Query: {
+    /* fieldName:(root, args, context, info) => { result } */
     address: combineResolvers(isAuthenticated, async (_, __, { addressId }) => {
       try {
         const address = await Address.findById({ addressId })
@@ -103,7 +104,7 @@ module.exports = {
         throw error
       }
     }),
-    getAddress: async (id) => {
+    getAddress: async (_, {id}) => {
       return Address.findById(id)
     },
     addresses: async () => await Address.find({}),

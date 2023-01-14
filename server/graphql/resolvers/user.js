@@ -91,6 +91,7 @@ module.exports = {
     },
   },
   Query: {
+    /* fieldName:(root, args, context, info) => { result } */
     user: combineResolvers(isAuthenticated, async (_, __, { email }) => {
       try {
         const user = await User.findOne({ email });

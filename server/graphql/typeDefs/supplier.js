@@ -7,7 +7,7 @@ module.exports = gql`
   type Supplier {
     id: ID
     name: String
-    accountID: ID
+    accountId: ID
     addressId: ID
     isActive: Boolean
     area: String
@@ -18,7 +18,7 @@ module.exports = gql`
   input CreateSupplierInput {
     id: ID
     name: String
-    accountID: ID
+    accountId: ID
     addressId: ID
     isActive: Boolean
     area: String
@@ -27,7 +27,7 @@ module.exports = gql`
 
   input UpdateSupplierInput {
     name: String
-    accountID: ID
+    accountId: ID
     addressId: ID
     isActive: Boolean
     area: String

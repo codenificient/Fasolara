@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server")
+const {gql} = require("apollo-server")
 
 module.exports = gql`
   """
@@ -11,24 +11,35 @@ module.exports = gql`
     user: User
     index: Int
     content: String
+    createdBy: ID
     createdAt: Date
     updatedAt: Date
+       isActive: Boolean
+    isArchived: Boolean
   }
 
   input CreateCommentInput {
     id: ID
     isDisabled: Boolean
     userId: ID
+        content: String
     index: Int
     updatedAt: Date
+        createdBy: ID
+               isActive: Boolean
+    isArchived: Boolean
   }
 
   input UpdateCommentInput {
     id: ID
     isDisabled: Boolean
+    content: String
     userId: ID
     index: Int
     updatedAt: Date
+    createdBy: ID
+           isActive: Boolean
+    isArchived: Boolean
   }
 
   extend type Query {

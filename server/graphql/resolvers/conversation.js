@@ -82,7 +82,7 @@ module.exports = {
 
           // Update old account
           const res = await Conversation.findOneAndUpdate(
-            { id: updateConvoInput.id },
+            { _id: updateConvoInput.id },
             { updateConvoInput },
             { new: true }
           );
@@ -169,6 +169,7 @@ module.exports = {
     ),
   },
   Query: {
+    /* fieldName:(root, args, context, info) => { result } */
     conversation: combineResolvers(
       isAuthenticated,
       async (_, __, { userId }) => {
@@ -189,7 +190,7 @@ module.exports = {
         }
       }
     ),
-    getConversation: async (_, { id }, __) => {
+    getConversation: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID");
       }

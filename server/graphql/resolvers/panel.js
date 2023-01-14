@@ -52,7 +52,7 @@ module.exports = {
 
           // Update old account
           const res = await Panel.findOneAndUpdate(
-            { id: updatePanelInput.id },
+            { _id: updatePanelInput.id },
             { updatePanelInput },
             { new: true }
           );
@@ -172,6 +172,7 @@ module.exports = {
     ),
   },
   Query: {
+    /* fieldName:(root, args, context, info) => { result } */
     panel: combineResolvers(isAuthenticated, async (_, __, { userId }) => {
       try {
         return await Panel.find({ userId });
@@ -180,7 +181,7 @@ module.exports = {
         throw error;
       }
     }),
-    getPanel: async (_, { id }, __) => {
+    getPanel: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID");
       }

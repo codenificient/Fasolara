@@ -52,7 +52,7 @@ module.exports = {
 
           // Update old account
           const res = await Salary.findOneAndUpdate(
-            { id: updateSalaryInput.id },
+            { _id: updateSalaryInput.id },
             { updateSalaryInput },
             { new: true }
           )
@@ -69,7 +69,8 @@ module.exports = {
     ),
   },
   Query: {
-    salary: async (_, { id }, __) => {
+    /* fieldName:(root, args, context, info) => { result } */
+    salary: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }

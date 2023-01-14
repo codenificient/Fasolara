@@ -54,7 +54,7 @@ module.exports = {
 
           // Update old account
           const res = await Bank.findOneAndUpdate(
-            { id: updateBankInput.id },
+            { _id: updateBankInput.id },
             { updateBankInput },
             { new: true }
           )
@@ -71,6 +71,7 @@ module.exports = {
     ),
   },
   Query: {
+    /* fieldName:(root, args, context, info) => { result } */
     bank: combineResolvers(isAuthenticated, async (_, __, { userId }) => {
       try {
         const account = await Bank.findOne({ customerId: userId })
@@ -83,7 +84,7 @@ module.exports = {
         throw error
       }
     }),
-    getBank: async (_, { id }, __) => {
+    getBank: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }

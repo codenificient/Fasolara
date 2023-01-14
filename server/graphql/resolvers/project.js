@@ -53,7 +53,7 @@ module.exports = {
 
           // Update old account
           const res = await Project.findOneAndUpdate(
-            { id: updateProjectInput.id },
+            { _id: updateProjectInput.id },
             { updateProjectInput },
             { new: true }
           );
@@ -219,7 +219,8 @@ module.exports = {
         throw error;
       }
     }),
-    getProject: async (_, { id }, __) => {
+    /* fieldName:(root, args, context, info) => { result } */
+    getProject: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID");
       }

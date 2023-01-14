@@ -54,7 +54,7 @@ module.exports = {
 
           // Update old account
           const res = await Team.findOneAndUpdate(
-            { id: updateTeamInput.id },
+            { _id: updateTeamInput.id },
             { updateTeamInput },
             { new: true }
           );
@@ -115,6 +115,7 @@ module.exports = {
     ),
   },
   Query: {
+    /* fieldName:(root, args, context, info) => { result } */
     team: combineResolvers(isAuthenticated, async (_, __, { userId }) => {
       try {
         const account = await Team.findOne({ customerId: userId });
@@ -127,7 +128,7 @@ module.exports = {
         throw error;
       }
     }),
-    getTeam: async (_, { id }, __) => {
+    getTeam: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID");
       }

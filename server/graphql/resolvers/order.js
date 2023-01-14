@@ -53,7 +53,7 @@ module.exports = {
 
           // Update old account
           const res = await Order.findOneAndUpdate(
-            { id: updateOrderInput.id },
+            { _id: updateOrderInput.id },
             { updateOrderInput },
             { new: true }
           )
@@ -70,6 +70,7 @@ module.exports = {
     ),
   },
   Query: {
+    /* fieldName:(root, args, context, info) => { result } */
     pastOrders: combineResolvers(isAuthenticated, async (_, __, { userId }) => {
       try {
         return await Order.find({ userId  })
@@ -78,7 +79,7 @@ module.exports = {
         throw error
       }
     }),
-    getOrder: async (_, { id }, __) => {
+    getOrder: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }

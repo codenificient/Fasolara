@@ -9,7 +9,7 @@ module.exports = {
     createComment: async (_, { createCommentInput }) => {
       try {
         // See if an old comment exists with same user and message
-        const oldCommentByUser = await Bank.findOne({
+        const oldCommentByUser = await Comment.findOne({
           userId: createCommentInput.userId,
           content: createCommentInput.content,
         })
@@ -53,7 +53,7 @@ module.exports = {
 
           // Update old account
           const res = await Comment.findOneAndUpdate(
-            { id: updateCommentInput.id },
+            { _id: updateCommentInput.id },
             { updateCommentInput },
             { new: true }
           )
@@ -70,6 +70,7 @@ module.exports = {
     ),
   },
   Query: {
+    /* fieldName:(root, args, context, info) => { result } */
     comment: combineResolvers(isAuthenticated, async (_, __, { userId }) => {
       try {
         const account = await Comment.findOne({ customerId: userId })
@@ -82,7 +83,7 @@ module.exports = {
         throw error
       }
     }),
-    getComment: async (_, { id }, __) => {
+    getComment: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }

@@ -52,7 +52,7 @@ module.exports = {
 
           // Update old account
           const res = await Province.findOneAndUpdate(
-            { id: updateProvinceInput.id },
+            { _id: updateProvinceInput.id },
             { updateProvinceInput },
             { new: true }
           )
@@ -69,7 +69,8 @@ module.exports = {
     ),
   },
   Query: {
-    province: async (_, { id }, __) => {
+    /* fieldName:(root, args, context, info) => { result } */
+    province: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }

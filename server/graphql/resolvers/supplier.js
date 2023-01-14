@@ -10,12 +10,12 @@ module.exports = {
       try {
         // See if an old comment exists with same accountId
         const oldSupplier = await Supplier.findOne({
-          accountID: createSupplierInput.accountID,
+          accountId: createSupplierInput.accountId,
         })
 
         if (oldSupplier) {
           throw new ApolloError(
-            `A Supplier already exists with ID ${createSupplierInput.accountID}`,
+            `A Supplier already exists with ID ${createSupplierInput.accountId}`,
             "SUPPLIER_ALREADY_EXISTS"
           )
         }
@@ -52,7 +52,7 @@ module.exports = {
 
           // Update old account
           const res = await Supplier.findOneAndUpdate(
-            { id: updateSupplierInput.id },
+            { _id: updateSupplierInput.id },
             { updateSupplierInput },
             { new: true }
           )
@@ -69,7 +69,8 @@ module.exports = {
     ),
   },
   Query: {
-    supplier: async (_, { id }, __) => {
+    /* fieldName:(root, args, context, info) => { result } */
+    supplier: async (_, { id }) => {
       if (!isValid(id)) {
         throw new ApolloError("Provided ID is not valid", "INVALID_OBJECT_ID")
       }
