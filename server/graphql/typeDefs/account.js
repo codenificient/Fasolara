@@ -1,6 +1,6 @@
-const { gql } = require("apollo-server")
+const { gql } = require("apollo-server");
 
-module.exports = gql`
+const account = gql`
   """
   The Account model stores a lot of necessary information to support Lara transactions
   """
@@ -57,3 +57,5 @@ module.exports = gql`
     updateAccount(updateAccountInput: UpdateAccountInput): Account
   }
 `;
+
+export default account;

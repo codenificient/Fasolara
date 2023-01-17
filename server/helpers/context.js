@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-module.exports.verifyUser = async (req) => {
+const verifyUser = async (req) => {
   // console.log(req.headers);
   req.email = null;
   req.userId = null;
@@ -35,7 +35,7 @@ module.exports.verifyUser = async (req) => {
   }
 };
 
-module.exports.getEducationLevel = async (level) => {
+const getEducationLevel = async (level) => {
   const levelsMap = [
     { 1: "Aucune education formal" },
     { 2: "Some primary education" },
@@ -51,3 +51,5 @@ module.exports.getEducationLevel = async (level) => {
   ];
   return levelsMap[level];
 };
+
+export { verifyUser, getEducationLevel };

@@ -17,13 +17,8 @@ const teamResolvers = require("./team");
 const transactionResolvers = require("./transaction");
 const villageResolvers = require("./village");
 
-const { DateTimeResolver } = require("graphql-scalars");
 
-const customScalarResolver = {
-  Date: DateTimeResolver,
-};
-
-module.exports = [
+export default [
   accountResolvers,
   addressResolvers,
   bankResolvers,
