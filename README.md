@@ -8,7 +8,7 @@ This repo encompasses several other repositories for various components on the L
 	
 	Sample site is live at https://fasolara.vercel.app/
 
-- <b>backend</b>: The initial backend server to handle operations between the frontend and the company remote database. It uses Express.JS and GraphQL
+- <b>backend</b>: The initial backend server to handle operations between the frontend and the company remote database. It uses Express.JS and GraphQL. Development for this `backend` is paused in January 2023 in favor of the more capable Apollo GraphQL `server`
 	
 	Sample site is live at https://fasolarabackend.vercel.app/graphql
 
@@ -24,33 +24,47 @@ This repo encompasses several other repositories for various components on the L
 
 ## Technology Stack
 
+<b>Language:</b>
+- TypeScript
+- JavaScript
+
 <b>Backend</b>
-	- Node.JS
-	- Express.JS
+- Node.JS
+- Express.JS
+- Apollo Server v4
+- Next.JS
+
+<b>Sample Data</b>
+- Mockaroo
+- Faker.JS
 
 <b>Frontend</b>
-	- Next.JS
+- React.JS
+- Bootstrap
+- React Bootstrap
+- TailwindCSS
 
 <b>Database</b>
-	- MongoDB
-	- GraphQL Express
-	- Apollo GraphQL
+- MongoDB Atlas
+- Mongoose
+- GraphQL Express
+- Apollo GraphQL
 
 <b>Mobile</b>
-	- React Native
+- React Native
 
 <b>Testing</b>
 - Manual 
-		- PostMan
-		- Apollo Studio
-		- GraphiQL
+	- PostMan
+	- Apollo Studio
+	- GraphiQL
 
 - Automated
-	- Cypress
+	- Cypress	
 	- Jest
 	- Mocha
 	- Chai
 
 ## Learn More
 
-See ```README.md``` on each individual subfolder for installing and running the application
+See the `README.md` inside each subfolder for more details.
