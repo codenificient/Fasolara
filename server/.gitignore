@@ -36,12 +36,19 @@ yarn-error.log*
 
 # IntelliJ
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2b35308 (undo changes in gitignore)
 .idea
 
 // files
 provinces
 villages
+<<<<<<< HEAD
 dist
 =======
 .idea
 >>>>>>> 45843a2 (server updates)
+=======
+dist
+>>>>>>> 2b35308 (undo changes in gitignore)
