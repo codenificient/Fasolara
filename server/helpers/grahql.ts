@@ -1,0 +1,44 @@
+import { GraphQLError } from 'graphql'
+import {  Types} from "mongoose" 
+
+const {ObjectId} = Types
+// Utility to match GraphQL mutation based on the operation name
+export const hasOperationName = ( req: any, operationName: string ) =>
+{
+  const { body } = req
+  return (
+    body.hasOwnProperty( "operationName" ) && body.operationName === operationName
+  )
+}
+
+// Alias query if operationName matches
+export const aliasQuery = ( req: any, operationName: string ) =>
+{
+  if ( hasOperationName( req, operationName ) )
+  {
+    req.alias = `gql${operationName}Query`
+  }
+}
+
+// Alias mutation if operationName matches
+export const aliasMutation = ( req: any, operationName: string ) =>
+{
+  if ( hasOperationName( req, operationName ) )
+  {
+    req.alias = `gql${operationName}Mutation`
+  }
+}
+
+
+export const ApolloError = ( message: string, code: string ) =>
+{
+  throw new GraphQLError( message, {
+    extensions: { code: code.toUpperCase() },
+  } )
+}
+
+export const isValid = async ( id: string ) =>
+{
+  return ObjectId.isValid( id ) && new ObjectId( id ).toString() === id
+}
+
