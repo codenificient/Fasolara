@@ -14,8 +14,8 @@ import Colors from '../constants/Colors'
 import useColorScheme from '../hooks/useColorScheme'
 import ModalScreen from '../screens/ModalScreen'
 import NotFoundScreen from '../screens/NotFoundScreen'
-import TabOneScreen from '../screens/TabOneScreen'
-import TabTwoScreen from '../screens/TabTwoScreen'
+import HomeScreen from '../screens/Home'
+import ProfileScreen from '../screens/Profile'
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types'
 import LinkingConfiguration from './LinkingConfiguration'
 
@@ -67,10 +67,10 @@ function BottomTabNavigator()
       }}>
       <BottomTab.Screen
         name="Home"
-        component={TabOneScreen}
+        component={HomeScreen}
         options={( { navigation }: RootTabScreenProps<'Home'> ) => ( {
           title: 'Home',
-          tabBarIcon: ( { color } ) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ( { color } ) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate( 'Modal' )}
@@ -89,10 +89,10 @@ function BottomTabNavigator()
       />
       <BottomTab.Screen
         name="Profile"
-        component={TabTwoScreen}
+        component={ProfileScreen}
         options={{
           title: 'Profile',
-          tabBarIcon: ( { color } ) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ( { color } ) => <TabBarIcon name="user" color={color} />,
         }}
       />
     </BottomTab.Navigator>
