@@ -1,6 +1,6 @@
 # Welcome to the FasoLara Github Monorepository
 
-This repo encompasses several other repositories for various components on the Lara system, for a proof of concept solar company.  [Work in Progress!]
+This repo encompasses several other repositories for various components on the FasoLara system, a solar energy startup.  [Work in Progress!]
 
 ## Component repositories
 

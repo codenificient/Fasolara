@@ -2,13 +2,15 @@
 
 The Next.JS based admin dashboard for the FasoLara platform
 
-We have not yet connected the dashboard to live data from Database. Currently using some generated local JSON data for illustration and frontend styling purposes
+We have recently connected the dashboard to live data from backend, and now the users and conversations on the `/messages` page is using sample data from the GraphQL backend.  The remaining pages are based on generated JSON data for illustration and visual styling purposes
 
 Curently completed scaffolding the various pages and initial routing with more changes coming soon to the Layout
 
 Visit the published website at https://fasolara.vercel.app/
 
 ## Getting Started
+
+Create a `.env` file in the root of the downloaded project directory and add the GraphQL link as `NEXT_PUBLIC_CLIENT_URI`. The Apollo server backend is currently available at https://fasolaraapollo.vercel.app/api
 
 First, run the development server:
 
