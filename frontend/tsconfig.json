@@ -31,7 +31,7 @@
     ".next/types/**/*.ts",
     "components/NavBar.tsx",
     "pages/_app.tsx"
-, "components/Visitor.js"  ],
+, "components/Visitor.tsx"  ],
   "exclude": [
     "node_modules"
   ]

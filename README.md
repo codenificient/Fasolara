@@ -1,4 +1,4 @@
-# Welcome to the FasoLara Github Metarepository
+# Welcome to the FasoLara Github Monorepository
 
 This repo encompasses several other repositories for various components on the Lara system, for a proof of concept solar company.  [Work in Progress!]
 

@@ -12,7 +12,7 @@ function RootLayout( {
 } )
 {
 	return (
-		<div className="w-screen justify-center align-middle m-0 dark:bg-dark-default">
+		<div className="w-full h-full max-w-screen-3xl justify-center items-start m-0 dark:bg-dark-default">
 			<MainHead />
 			<main>
 				<Header />

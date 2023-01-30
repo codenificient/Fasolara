@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
@@ -11,8 +12,17 @@ module.exports = {
   theme: {
     colors: {
       dark: {
-        default: "#000000",
+        default: colors.black,
       },
+      ...defaultTheme.colors,
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      "3xl": "1600px",
     },
     fontFamily: {
       sans: ["Poppins", "sans-serif"],
@@ -33,9 +43,6 @@ module.exports = {
       },
       borderRadius: {
         "4xl": "2rem",
-      },
-      screens: {
-        "3xl": "1600px",
       },
     },
   },

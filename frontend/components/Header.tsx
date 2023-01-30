@@ -8,7 +8,7 @@ import NavMenu from './NavMenu'
 const Header = (): JSX.Element =>
 {
 	return (
-		<div className={`${styles.headerWrapper}`}>
+		<div className={`${styles.headerWrapper} max-w-screen-3xl`}>
 			<Link href={"/"}>
 				<Image src={Logo} alt="FasoLara Logo" width={150} height={30} />
 			</Link>

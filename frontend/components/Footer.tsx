@@ -7,8 +7,7 @@ import styles from "../styles/components/Footer.module.scss"
 const Footer = (): JSX.Element =>
 {
 	return (
-		<div className={styles.FooterWrapper}>
-
+		<div className={`${styles.FooterWrapper} max-w-screen-3xl`}>
 			<footer className={styles.Footer}>
 				<Image src={Logo} alt="FasoLara Logo" width={220} height={40} />
 				<div className="text-center text-sm text-gray-500 my-4">
