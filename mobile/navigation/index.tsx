@@ -52,6 +52,8 @@ function RootNavigator()
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
+ * 
+ * BOTTOM TABS FOR DASHBOARD, PANELS, WALLET/ACCOUNT, ANALYTICS/STATISTICS, SETTINGS AND PROFILE
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>()
 
