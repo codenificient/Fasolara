@@ -69,7 +69,7 @@ export const icons: Link[] = [
     id: "07-126-4512",
     icon: "fas fa-map-marked",
     name: "locations",
-    to: "/locations",
+    to: "/location",
     color: "Red",
     children: [
       {
@@ -99,14 +99,14 @@ export const icons: Link[] = [
     id: "95-576-1907",
     icon: "fas fa-envelope-open",
     name: "messages",
-    to: "/messages",
+    to: "/message",
     color: "Mauv",
   },
   {
     id: "03-597-2115",
     icon: "fa-solid fa-boxes-packing",
     name: "orders",
-    to: "/orders",
+    to: "/order",
     color: "Aquamarine",
     children: [
       {
@@ -136,7 +136,7 @@ export const icons: Link[] = [
     id: "04-956-1972",
     icon: "fas fa-solar-panel",
     name: "panels",
-    to: "/panels",
+    to: "/panel",
     color: "Blue",
     children: [
       {
@@ -173,7 +173,7 @@ export const icons: Link[] = [
     id: "68-093-1982",
     icon: "fas fa-tasks",
     name: "projects",
-    to: "/projects",
+    to: "/project ",
     color: "Maroon",
     children: [
       {
@@ -261,7 +261,7 @@ export const icons: Link[] = [
     id: "22-610-6437",
     icon: "fa-solid fa-people-group",
     name: "users",
-    to: "/users",
+    to: "/user",
     color: "Orange",
     children: [
       {

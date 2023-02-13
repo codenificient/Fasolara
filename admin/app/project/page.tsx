@@ -1,3 +1,4 @@
+"use client"
 import Projects from '@proj/Projects'
 import CreateProject from '@ui/CreateProject'
 import styles from '@cs/projects.module.scss'

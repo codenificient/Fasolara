@@ -1,3 +1,4 @@
+"use client"
 import styles2 from '@css/Conversation.module.scss'
 import styles from '@css/Messages.module.scss'
 import Header from '@msg/ConversationHeader'
@@ -17,7 +18,7 @@ function Messages( { conversations } )
 	const [conversation, setConversation] = useState<Message | null>()
 	const [currentMsg, setCurrentMsg] = useState<number | null>()
 
-	if ( !conversations.length ) return <>No conversations</>
+	if ( !conversations ) return <>No conversations</>
 
 	return (
 		<div className={styles.messages_wrapper}>
@@ -62,14 +63,3 @@ function Messages( { conversations } )
 
 export default Messages
 
-export async function getStaticProps()
-{
-	const data = await client.request( GET_CONVERSATIONS )
-
-	return {
-		props: {
-			conversations: data.conversations
-		},
-		revalidate: 60,
-	}
-}

@@ -1,3 +1,4 @@
+"use client"
 import styles from "@cs/partners.module.scss"
 
 export default function Partners() {

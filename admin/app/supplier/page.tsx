@@ -1,3 +1,4 @@
+"use client"
 import styles from "@cs/suppliers.module.scss"
 
 export default function Suppliers() {

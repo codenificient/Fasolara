@@ -1,3 +1,4 @@
+"use client"
 import Address from "@c/addresses/Address"
 import Country from "@c/countries/Country"
 import Province from "@c/provinces/Province"
@@ -63,20 +64,4 @@ const Location = ( { villages, addresses, countries, provinces } ) =>
 export default Location
 
 
-export async function getStaticProps()
-{
-	const villages = await client.request( GET_VILLAGES )
-	const address = await client.request( GET_ADDRESSES )
-	const country = await client.request( GET_COUNTRIES )
-	const province = await client.request( GET_PROVINCES )
 
-	return {
-		props: {
-			villages: villages.villages,
-			addresses: address.addresses,
-			countries: country.countries,
-			provinces: province.provinces
-		},
-		revalidate: 60,
-	}
-}

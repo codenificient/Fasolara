@@ -1,6 +1,6 @@
+"use client"
 import styles from '@css/Navigation.module.scss'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { FaChevronCircleDown, FaChevronCircleRight } from 'react-icons/fa'
 
@@ -23,8 +23,11 @@ export default function NavMenu( { icons } )
 		} )
 	}
 
+	// const router = useRouter()
+	let router = {
+		pathname: ""
+	}
 
-	const router = useRouter()
 	if ( !icons ) return
 	return (
 		<span className={styles.Menu} >

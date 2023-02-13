@@ -1,3 +1,4 @@
+"use client"
 import Panel from "@c/panels/Panel"
 import { Grid } from "@chakra-ui/react"
 import styles from "@cs/panels.module.scss"
@@ -21,17 +22,3 @@ const Panels = ( { panels, users } ) =>
 }
 
 export default Panels
-
-export async function getStaticProps()
-{
-	const panel = await client.request( GET_PANELS )
-	const user = await client.request( GET_USERS )
-
-	return {
-		props: {
-			panels: panel.panels,
-			users: user.users
-		},
-		revalidate: 60,
-	}
-}

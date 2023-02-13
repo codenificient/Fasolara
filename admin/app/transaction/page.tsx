@@ -1,3 +1,4 @@
+"use client"
 import styles from "@cs/transactions.module.scss"
 
 export default function Transactions() {

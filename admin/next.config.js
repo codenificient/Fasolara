@@ -4,7 +4,16 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["randomuser.me", "picsum.photos", "cloudflare-ipfs.com", "api.unsplash.com", "pexels.com"],
+    domains: [
+      "randomuser.me",
+      "picsum.photos",
+      "cloudflare-ipfs.com",
+      "api.unsplash.com",
+      "pexels.com",
+    ],
+  },
+  experimental: {
+    appDir: true,
   },
 };
 

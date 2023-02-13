@@ -1,3 +1,4 @@
+"use client"
 import { useState } from 'react'
 
 import Visitor from '@c/Visitor'
@@ -6,7 +7,7 @@ import styles from '@cs/Home.module.scss'
 import ActiveProjects from '@proj/ActiveProjects'
 import Projects from '@proj/Projects'
 
-export default function Home()
+export default function LandingPage()
 {
 	const [notify, setNotify] = useState( true )
 	return (

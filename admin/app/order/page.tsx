@@ -1,3 +1,4 @@
+"use client"
 import Order from "@c/orders/Order"
 import styles from "@cs/orders.module.scss"
 
@@ -21,14 +22,3 @@ function Orders( { orders } )
 
 export default Orders
 
-export async function getStaticProps()
-{
-	const order = await client.request( GET_ORDERS )
-
-	return {
-		props: {
-			orders: order.orders,
-		},
-		revalidate: 60,
-	}
-}

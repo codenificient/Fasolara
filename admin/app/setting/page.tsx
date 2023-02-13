@@ -1,3 +1,4 @@
+"use client"
 import styles from "@cs/settings.module.scss"
 
 export default function Settings() {

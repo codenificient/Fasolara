@@ -1,3 +1,4 @@
+"use client"
 import styles from "@cs/accounts.module.scss"
 
 function Accounts() {

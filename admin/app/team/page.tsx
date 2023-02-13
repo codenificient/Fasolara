@@ -1,3 +1,4 @@
+"use client"
 import styles from "@cs/teams.module.scss"
 
 export default function Teams() {

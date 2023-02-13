@@ -1,3 +1,4 @@
+"use client"
 import styles from "@cs/reports.module.scss"
 
 export default function Reports() {
