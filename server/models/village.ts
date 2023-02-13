@@ -1,4 +1,17 @@
-import { Schema, model } from "mongoose"
+import { Document, model, Schema } from "mongoose";
+
+export interface IVillage extends Document {
+  name: string;
+  population: number;
+  urbanCommune: boolean;
+  dotcolor: string;
+  provinceId: string;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): IVillage;
+}
 
 const villageSchema = new Schema(
   {
@@ -23,11 +36,23 @@ const villageSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
-const Village = model("Village", villageSchema)
-export default Village
+villageSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Village = model<IVillage>("Village", villageSchema);
+export default Village;

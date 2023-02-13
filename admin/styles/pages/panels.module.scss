@@ -1,8 +1,10 @@
-@import  '../variables.scss';
+@import '../variables.scss';
 
-.text_center {
-    display: block;
-    margin: auto;
-    text-align: center;
-    width: 78vw;
+.PanelGrid {
+    background-color: $bg-dark !important;
+    margin: 0 0.5rem;
+    width: 77vw;
+    height: max-content;
+    padding: 0.5rem;
+    padding-bottom: 2rem;
 }

@@ -4,9 +4,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["randomuser.me", "picsum.photos", "cloudflare-ipfs.com"],
+    domains: ["randomuser.me", "picsum.photos", "cloudflare-ipfs.com", "api.unsplash.com", "pexels.com"],
   },
-  experimental: { images: { layoutRaw: true } },
 };
 
 module.exports = nextConfig;

@@ -1,4 +1,29 @@
-import { Schema, model } from "mongoose"
+import { Document, model, Schema } from "mongoose";
+
+export interface IProject extends Document {
+  name: string;
+  zone: string;
+  dotcolor: string;
+  addressId: string;
+  managerId: string;
+  teamIds: [string];
+  branch: string;
+  impact: number;
+  suppliers: [
+    {
+      supplierId: string;
+      hiringDate: Date;
+    }
+  ];
+  supplierId: string;
+  isComplete: boolean;
+  isActive: boolean;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): IProject;
+}
 
 const projectSchema = new Schema(
   {
@@ -43,11 +68,23 @@ const projectSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
-const Project = model("Project", projectSchema)
-export default Project
+projectSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Project = model<IProject>("Project", projectSchema);
+export default Project;

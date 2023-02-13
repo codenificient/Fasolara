@@ -1,18 +1,18 @@
-import { Document, model, Schema } from "mongoose"
+import { Document, model, Schema } from "mongoose";
 
-export interface IAddress extends Document
-{
-  name: string
-  locationId: string
-  villageId: string
-  addressType: string
-  address: string
-  dotcolor: string
-  mobileNumber: string
-  createdAt: Date
-  updatedAt: Date
-  _doc?: any,
-  View(): IAddress
+export interface IAddress extends Document {
+  name: string;
+  locationId: string;
+  villageId: string;
+  addressType: string;
+  address: string;
+  dotcolor: string;
+  mobileNumber: string;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): IAddress;
 }
 
 const addressSchema = new Schema(
@@ -45,21 +45,24 @@ const addressSchema = new Schema(
       type: String,
       default: "default",
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
 addressSchema.methods = {
-  View()
-  {
+  View() {
     return {
       ...this._doc,
-      password: undefined
-    }
-  }
-}
+      password: undefined,
+    };
+  },
+};
 
-const Address = model<IAddress>( "Address", addressSchema )
-export default Address
+const Address = model<IAddress>("Address", addressSchema);
+export default Address;

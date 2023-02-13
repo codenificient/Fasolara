@@ -1,7 +1,7 @@
 @import "../variables.scss";
 
 .sidebar_container {
-  background: $bg-dark;
+  background: $bg-dark !important;
   color: $text-dark;
   display: block;
   overflow: hidden;

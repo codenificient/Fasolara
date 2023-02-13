@@ -1,5 +1,19 @@
-import { Schema, model } from "mongoose"
+import {Document, model, Schema } from "mongoose"
 
+export interface IInvestor extends Document {
+  role: string;
+  userId: string;
+  accountID: string;
+  bonuses: [string];
+  referrals: [string];
+  startDate: Date;
+  endDate: Date;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): IInvestor;
+}
 
 const investorSchema = new Schema(
   {
@@ -34,9 +48,21 @@ const investorSchema = new Schema(
         ref: "Transaction",
       },
     ],
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    }
   },
   { timestamps: true }
 )
 
-const Investor = model("Investor", investorSchema)
+investorSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Investor = model<IInvestor>( "Investor", investorSchema )
 export default Investor

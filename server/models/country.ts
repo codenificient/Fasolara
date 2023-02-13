@@ -1,15 +1,27 @@
-import { model, Schema } from "mongoose"
+import { Document, model, Schema } from "mongoose";
 
+export interface ICountry extends Document {
+  name: string;
+  population: number;
+  continent: String;
+  polycolor: String;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): ICountry;
+}
 
 const countrySchema = new Schema(
   {
     name: String,
     population: {
       type: Number,
-      default: 0,
+      default: 801, // Vatican population - smallest
     },
     continent: {
       type: String,
+      enum: ["Africa", "Asia", "Europe"],
       default: "Africa",
     },
     locationId: {
@@ -20,11 +32,23 @@ const countrySchema = new Schema(
       type: String,
       default: "yellow",
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
-const Country = model( "Country", countrySchema )
-export default Country
+countrySchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Country = model<ICountry>("Country", countrySchema);
+export default Country;

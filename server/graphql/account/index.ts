@@ -46,6 +46,8 @@ const typeDefs = gql`
     carrier: String
     customerId: ID
     loaningBankId: ID
+    updatedAt: Date
+
   }
 
     extend type Query {

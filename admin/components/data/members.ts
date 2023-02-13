@@ -7,18 +7,18 @@ interface Member
 
 export const members: Member[] = [
 	{
-		name: 'Koren Bullivent',
-		jobTitle: 'HR Assistant I',
+		name: 'Bibata S',
+		jobTitle: 'Responsable Equipe VI',
 		imageUrl: 'https://randomuser.me/api/portraits/women/84.jpg'
 	},
 	{
-		name: 'Misha Guyer',
-		jobTitle: 'Accountant IV',
+		name: 'Malika O',
+		jobTitle: 'Responsable Equipe IV',
 		imageUrl: 'https://randomuser.me/api/portraits/women/12.jpg'
 	},
 	{
-		name: 'Isabel Pear',
-		jobTitle: 'Help Desk',
+		name: 'Fabricia T',
+		jobTitle: 'Responsable Equipe II',
 		imageUrl: 'https://randomuser.me/api/portraits/women/2.jpg'
 	}
 ]

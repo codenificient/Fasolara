@@ -15,13 +15,13 @@ const typeDefs = gql`
   type Message {
     _id: ID!
     senderId: ID
-    date: String!
+    date: Date!
     content: String
     status: String
   }
 
   type Participant {
-    userid: ID
+    userId: ID
     connect: String
     avatar: String
     name: String
@@ -34,13 +34,13 @@ const typeDefs = gql`
     status: String
     messages: [Message]
     createdBy: ID
-    createdAt: String
-    updatedAt: String
+    createdAt: Date
+    updatedAt: Date
     _doc: String
   }
 
   input ParticipantInput {
-    userid: ID!
+    userId: ID!
     connect: String
     avatar: String
     name: String
@@ -49,7 +49,7 @@ const typeDefs = gql`
 
   input MessageInput {
     senderId: ID!
-    date: String
+    date: Date
     content: String!
     status: String
   }
@@ -94,7 +94,7 @@ const typeDefs = gql`
     updateConversation(updateConvoInput: UpdateConvoInput): Conversation
     updateConvoMsg(addMsgInput: AddMsgInput): Conversation
     updateConvoPpt(addPptInput: AddPptInput): Conversation
-    removeConversation(_id: ID!): Conversation
+    removeConversation(id: ID!): Conversation
   }
 `;
 

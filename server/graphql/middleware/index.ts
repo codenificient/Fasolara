@@ -18,7 +18,7 @@ export const canModifyData = ( parent, args, context ) =>
 	if ( parent.createdBy !== context.userId || context.role !== "admin" || context.role !== "manager" )
 	{
 		return ApolloError(
-			"Not authorized to Edit as Owner",
+			"Not authorized to Edit as Owner or Admin",
 			"NOT_AUTHORIZED",
 		)
 	}

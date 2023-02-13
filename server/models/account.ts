@@ -1,17 +1,19 @@
-import { Document, Schema, model } from "mongoose"
+import { Document, model, Schema } from "mongoose";
 
-export interface IAccount extends Document
-{
-  customerId: string
-  loaningBankId: string
-  balance: number
-  debtAmount: number
-  lifetimeEarning: number
-  accountNumber: string
-  solarGroupId: string
-  carrier: string
-  _doc?: any,
-  View(): IAccount
+export interface IAccount extends Document {
+  customerId: string;
+  loaningBankId: string;
+  balance: number;
+  debtAmount: number;
+  lifetimeEarning: number;
+  accountNumber: string;
+  solarGroupId: string;
+  carrier: string;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): IAccount;
 }
 
 const accountSchema = new Schema(
@@ -39,20 +41,23 @@ const accountSchema = new Schema(
     accountNumber: String,
     solarGroupId: String,
     carrier: String,
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
 accountSchema.methods = {
-  View()
-  {
+  View() {
     return {
       ...this._doc,
-    }
-  }
-}
+    };
+  },
+};
 
-const Account = model<IAccount>("Account", accountSchema)
-export default Account
+const Account = model<IAccount>("Account", accountSchema);
+export default Account;

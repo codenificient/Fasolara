@@ -1,4 +1,17 @@
-import { Schema, model } from "mongoose"
+import {Document, model, Schema } from "mongoose";
+
+export interface ISalary extends Document {
+  userId: string;
+  amount: number;
+  jobTitle: string;
+  startDate: Date;
+  endDate: Date;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): ISalary;
+}
 
 const salarySchema = new Schema(
   {
@@ -16,11 +29,23 @@ const salarySchema = new Schema(
       default: Date.now,
     },
     endDate: Date,
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
-const Salary = model("Salary", salarySchema)
-export default Salary
+salarySchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Salary = model<ISalary>("Salary", salarySchema);
+export default Salary;

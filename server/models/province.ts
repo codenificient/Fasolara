@@ -1,4 +1,18 @@
-import { Schema, model } from "mongoose"
+import { Document, model, Schema } from "mongoose";
+
+export interface IProvince extends Document {
+  name: string;
+  region: string;
+  seat: string;
+  countryId: string;
+  zone: string;
+  polycolor: string;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): IProvince;
+}
 
 const provinceSchema = new Schema(
   {
@@ -27,13 +41,25 @@ const provinceSchema = new Schema(
     },
     zone: {
       type: String,
-      enum: ["sahelienne", "soudanaise", "subsoudainaise"], // add more
+      enum: ["sahelienne", "soudanaise", "sudano-sahelienne"], // add more
+    },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
   },
   {
     timestamps: true,
   }
-)
+);
 
-const Province = model("Province", provinceSchema)
-export default Province
+provinceSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Province = model<IProvince>("Province", provinceSchema);
+export default Province;

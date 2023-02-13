@@ -1,4 +1,17 @@
-import { Schema, model } from "mongoose"
+import { Document, model, Schema } from "mongoose";
+
+export interface ISupplier extends Document {
+  name: string;
+  accountID: string;
+  addressId: string;
+  isActive: boolean;
+  area: [string];
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): ISupplier;
+}
 
 const supplierSchema = new Schema(
   {
@@ -18,16 +31,29 @@ const supplierSchema = new Schema(
       type: Boolean,
       default: false,
     },
-
-    area: {
-      type: String,
-      trim: true,
+    area: [
+      {
+        type: String,
+        trim: true,
+      },
+    ],
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
   },
   {
     timestamps: true,
   }
-)
+);
 
-const Supplier = model("Supplier", supplierSchema)
-export default Supplier
+supplierSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Supplier = model<ISupplier>("Supplier", supplierSchema);
+export default Supplier;

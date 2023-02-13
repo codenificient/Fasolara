@@ -1,8 +1,23 @@
 @import  '../variables.scss';
 
-.text_center {
+.LocationWrapper {
     display: block;
     margin: auto;
+    margin-left: 0.5rem;
     text-align: center;
-    width: 78vw;
+    width: 77vw;
+    color: azure;
+    background: $bg-dark;
+
+    .CardWrapper {
+        background: $bg-darker;
+    }
+
+    .TabList {
+        font-weight: 600;
+
+        [aria-selected="true"] {
+            color: $theme-yellow;
+        }
+    }
 }

@@ -19,7 +19,7 @@ const typeDefs = gql`
     createdBy: ID
     createdAt: Date
     updatedAt: Date
-       isActive: Boolean
+    isActive: Boolean
     isArchived: Boolean
   }
 
@@ -27,11 +27,11 @@ const typeDefs = gql`
     id: ID
     isDisabled: Boolean
     userId: ID
-        content: String
+    content: String
     index: Int
     updatedAt: Date
-        createdBy: ID
-               isActive: Boolean
+    createdBy: ID
+    isActive: Boolean
     isArchived: Boolean
   }
 
@@ -43,7 +43,7 @@ const typeDefs = gql`
     index: Int
     updatedAt: Date
     createdBy: ID
-           isActive: Boolean
+    isActive: Boolean
     isArchived: Boolean
   }
 

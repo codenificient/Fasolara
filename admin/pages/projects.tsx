@@ -7,7 +7,7 @@ export default function ProjectsList() {
 	return (
 			<div className={styles.projects_container}>
 				<div className={styles.grid}>
-					<CreateProject />
+					{/* <CreateProject /> */}
 					<Projects />
 					<Projects />
 					<Projects />

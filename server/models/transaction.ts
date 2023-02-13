@@ -1,4 +1,22 @@
-import { Schema, model } from "mongoose"
+import { Document, model, Schema } from "mongoose";
+
+export interface ITransaction extends Document {
+  customerId: string;
+  accountId: string;
+  beneficiaryId: string;
+  amount: number;
+  tax: number;
+  taxRate: number;
+  currency: string;
+  memo: string;
+  status: string;
+  kind: string;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): ITransaction;
+}
 
 const transactionSchema = new Schema(
   {
@@ -37,11 +55,23 @@ const transactionSchema = new Schema(
         "deposit",
       ],
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const Transaction = model("Transaction", transactionSchema)
-export default Transaction
+transactionSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Transaction = model<ITransaction>("Transaction", transactionSchema);
+export default Transaction;

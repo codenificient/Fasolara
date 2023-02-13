@@ -6,76 +6,21 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import express from 'express'
-import { DateTimeResolver } from 'graphql-scalars'
-import { gql } from 'graphql-tag'
 import { useServer } from 'graphql-ws/lib/use/ws'
 import { createServer } from 'http'
 import mongoose from 'mongoose'
 import { WebSocketServer } from 'ws'
+import { resolvers, typeDefs } from '../graphql/index.js'
+
 
 dotenv.config()
 
-import { resolvers as accountResolvers, typeDefs as accountTypes } from '../graphql/account/index.js'
-import { resolvers as addressResolvers, typeDefs as addressTypes } from '../graphql/address/index.js'
-import { resolvers as bankResolvers, typeDefs as bankTypes } from '../graphql/bank/index.js'
-import { resolvers as commentResolvers, typeDefs as commentTypes } from '../graphql/comment/index.js'
-import { resolvers as convoResolvers, typeDefs as convoTypes } from '../graphql/conversation/index.js'
-import { resolvers as userResolvers, typeDefs as userTypes } from '../graphql/user/index.js'
+mongoose.set( 'strictQuery', true )
+
 import { verifyUser } from '../helpers/context.js'
 
 const PORT = process.env.PORT || 4000
 
-
-// Schema definition
-const typeDefs = gql`
-scalar Date
-  type Query {
-    _empty: String
-  }
-
-  type Mutation {
-    _empty: String
-  }
-
-  type Subscription {
-    _empty: String
-  }
-
-  ${accountTypes}
-  ${addressTypes}
-  ${bankTypes} 
-  ${commentTypes} 
-  ${convoTypes}
-  ${userTypes}
-`
-
-const resolvers = {
-	Date: DateTimeResolver,
-	Query: {
-		...accountResolvers.Query,
-		...addressResolvers.Query,
-		...bankResolvers.Query,
-		...commentResolvers.Query,
-		...convoResolvers.Query,
-		...userResolvers.Query,
-	},
-	Mutation: {
-		...accountResolvers.Mutation,
-		...addressResolvers.Mutation,
-		...bankResolvers.Mutation,
-		...commentResolvers.Mutation,
-		...convoResolvers.Mutation,
-		...userResolvers.Mutation,
-	},
-	Subscription: {
-		...accountResolvers.Subscription,
-		...addressResolvers.Subscription,
-		...bankResolvers.Subscription,
-		...commentResolvers.Subscription,
-		...convoResolvers.Subscription,
-		...userResolvers.Subscription
-	}
-}
 
 // Create schema, which will be used separately by ApolloServer and
 // the WebSocket server.

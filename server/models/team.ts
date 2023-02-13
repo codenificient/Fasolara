@@ -1,5 +1,19 @@
-import { model, Schema } from "mongoose"
+import { Document, model, Schema } from "mongoose";
 
+export interface ITeam extends Document {
+  name: string;
+  motto: string;
+  specialty: string;
+  managerId: string;
+  astManagerId: string;
+  teamLeadId: string;
+  memberIds: [string];
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): ITeam;
+}
 
 const teamSchema = new Schema(
   {
@@ -34,7 +48,15 @@ const teamSchema = new Schema(
   {
     timestamps: true,
   }
-)
+);
 
-const Team = model( "Team", teamSchema )
-export default Team
+teamSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Team = model<ITeam>("Team", teamSchema);
+export default Team;

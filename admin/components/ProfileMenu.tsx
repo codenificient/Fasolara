@@ -9,7 +9,7 @@ export default function ProfileMenu()
 
 
 			<div className={styles.profile}>
-				<Avatar image={'/assets/admin.png'} wSize="90" iSize="70" />
+				<Avatar image={'/assets/admin.png'} wSize="90" iSize={70} />
 				<span className={styles.namerole}>
 					<h4 className={styles.Name}>Christian Tioye</h4>
 					<span className={styles.role}>admin</span>

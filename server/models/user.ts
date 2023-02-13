@@ -1,32 +1,31 @@
-import { Document, model, Schema } from "mongoose"
+import { Document, model, Schema } from "mongoose";
 
-export interface IUser extends Document
-{
-  _id: string
-  cnib: String
-  firstname: String
-  midname: String
-  lastname: String
-  username: String
-  fullName: String
-  mobileNumber: String
-  addressId: string
-  accountId: string
-  dob: Date
-  role: String
-  isActive: Boolean
-  email: String
-  password: String
-  token: String
-  avatar: String
-  resetToken: String
-  activationToken: String
-  teamId: String
-  createdAt: Date
-  updatedAt: Date
-  createdBy: String
-  _doc?: any,
-  View(): IUser
+export interface IUser extends Document {
+  _id: string;
+  cnib: string;
+  firstname: string;
+  midname: string;
+  lastname: string;
+  username: string;
+  mobileNumber: string;
+  addressId: string;
+  accountId: string;
+  dob: Date;
+  role: string;
+  isActive: Boolean;
+  email: string;
+  password: string;
+  token: string;
+  avatar: string;
+  resetToken: string;
+  activationToken: string;
+  teamId: string;
+  createdAt: Date;
+  updatedAt: Date;
+  createdBy: string;
+  _doc?: any;
+  View(): IUser;
+  fullName(): string;
 }
 
 const userSchema = new Schema(
@@ -50,10 +49,15 @@ const userSchema = new Schema(
       required: true,
       trim: true,
     },
+    dob: Date,
     username: { type: String, default: null },
     email: { type: String, unique: true },
     password: {
       type: String,
+    },
+    avatar: {
+      type: String,
+      trim: true,
     },
     token: {
       type: String,
@@ -96,16 +100,21 @@ const userSchema = new Schema(
     },
   },
   { timestamps: true }
-)
+);
 
 userSchema.methods = {
-  View()
-  {
+  View() {
     return {
       ...this._doc,
+    };
+  },
+  fullName() {
+    if (this.midname) {
+      return this.firstname + " " + this.midname + " " + this.lastname;
     }
-  }
-}
+    return this.firstname + " " + this.lastname;
+  },
+};
 
-const User = model<IUser>( "User", userSchema )
-export default User 
+const User = model<IUser>("User", userSchema);
+export default User;

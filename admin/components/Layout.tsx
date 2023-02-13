@@ -1,10 +1,9 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import React from 'react'
-import Sidebar from './Sidebar'
+import LeftSidebar from './Sidebar'
 import Sidebare from './Sidebare'
 
-function Layout({ user = undefined, loading = false, children }) {
+function Layout( { user = undefined, loading = false, children } )
+{
 	return (
 		<div className="ext_wrapper">
 			<Head>
@@ -13,7 +12,7 @@ function Layout({ user = undefined, loading = false, children }) {
 				<link rel="icon" href="/laraOne.png" />
 			</Head>
 
-			<Sidebar />
+			<LeftSidebar />
 
 			<main>
 				<div>{children}</div>

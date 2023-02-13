@@ -3,23 +3,28 @@
 .navigation_container {
   display: flex;
   margin: auto;
-  height: 85%;
+  height: 84%;
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-weight: bold;
+
+  &:hover {
+    color: $bg-darker;
+  }
 }
 
 .Name {
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   text-transform: uppercase;
+
   &:hover {
     color: $theme-yellow;
   }
 }
 
-span .Center:hover {
+span .Menu:hover {
   color: $theme-yellow;
 }
 
@@ -31,11 +36,13 @@ span .Center:hover {
   color: $text-lighter;
 }
 
+.SubInline i,
 .Inline i {
   color: $theme-yellow;
 }
 
 .Inline a:hover,
+.MenuItem:hover,
 .MenuItem a:hover {
   color: $theme-yellow;
 }
@@ -44,7 +51,7 @@ span .Center:hover {
 .MenuItem {
   font-size: large;
   cursor: pointer;
-  margin: 2.8rem 0;
+  margin: 0.8rem 0;
 }
 
 .MenuItem {
@@ -55,4 +62,40 @@ span .Center:hover {
 .Inline {
   display: block;
   cursor: pointer;
+}
+
+.Menu {
+  width: 70%;
+  text-transform: uppercase;
+}
+
+.SubMenu {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+
+  .SubInline {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .SubChildren {
+    font-size: large;
+    cursor: pointer;
+    margin: 0.8rem 1.5rem;
+
+    &.Shown {
+      display: flex;
+    }
+
+    i {
+      color: $theme-yellow;
+    }
+
+    &.Hidden {
+      display: none;
+      height: 0;
+    }
+  }
 }

@@ -7,27 +7,27 @@ interface Project
 
 export const projects: Project[] = [
     {
-		id: "Dori",
+		id: "Dori-SEN003",
 		imageUrl: '/assets/astronergy.png',
 		progress: 100
     },
     {
-		id: "Ouahigouya",
+		id: "Ouahigouya-YTG001",
 		imageUrl: '/assets/CanadianSolar.png',
 		progress: 100
     },
     {
-		id: "Gaoua",
+		id: "Gaoua-PNI001",
 		imageUrl: '/assets/JASolar.png',
 		progress: 96
     },
     {
-		id: "Banfora",
+		id: "Banfora-CMO002",
 		imageUrl: '/assets/powergo.png',
 		progress: 79
     },
     {
-		id: "Koudougou",
+		id: "Koudougou-BKD001",
 		imageUrl: '/assets/renesola.png',
 		progress: 58
     },

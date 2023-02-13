@@ -1,5 +1,29 @@
-import { Schema, model } from "mongoose"
+import { Document, model, Schema } from "mongoose";
 
+export interface IOrder extends Document {
+  orderDate: Date;
+  userId: string;
+  deliveryUserId: string;
+  supplierId: string;
+  quantity: number;
+  purchaseCost: number;
+  finalCost: number;
+  currency: string;
+  finalCurrency: string;
+  status: string;
+  updates: [IUpdate];
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): IOrder;
+}
+
+interface IUpdate {
+  userId: string;
+  comment: String;
+  date: Date;
+}
 
 const orderSchema = new Schema(
   {
@@ -65,11 +89,36 @@ const orderSchema = new Schema(
         "Manual Verification Required",
       ],
     },
+    updates: [
+      {
+        userId: {
+          type: Schema.Types.ObjectId,
+          ref: "User",
+        },
+        comment: String,
+        date: {
+          type: Date,
+          default: new Date(),
+        },
+      },
+    ],
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
-const Order = model("Order", orderSchema)
-export default Order
+orderSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Order = model<IOrder>("Order", orderSchema);
+export default Order;

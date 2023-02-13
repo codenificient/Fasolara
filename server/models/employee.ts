@@ -1,4 +1,27 @@
-import { Schema, model } from "mongoose"
+import { Document, model, Schema } from "mongoose";
+
+export interface IEmployee extends Document {
+  userId: string;
+  accountID: string;
+  teamId: string;
+  salaryId: string;
+  educationLevel: number;
+  birthday: String;
+  role: String;
+  promotions: [
+    {
+      jobTitle: string;
+      baseSalary: number;
+      startDate: Date;
+      endDate: Date;
+    }
+  ];
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): IEmployee;
+}
 
 const employeeSchema = new Schema(
   {
@@ -28,9 +51,21 @@ const employeeSchema = new Schema(
         endDate: Date,
       },
     ],
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
-)
+);
 
-const Employee = model("Employee", employeeSchema)
-export default Employee
+employeeSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Employee = model<IEmployee>("Employee", employeeSchema);
+export default Employee;

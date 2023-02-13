@@ -1,8 +1,8 @@
-@import  '../variables.scss';
+@import '../variables.scss';
 
-.text_center {
-    display: block;
-    margin: auto;
-    text-align: center;
-    width: 78vw;
+.GridWrapper {
+    background-color: $bg-dark;
+    margin: 0 0.5rem;
+    width: 77vw;
+    height: 100%;
 }

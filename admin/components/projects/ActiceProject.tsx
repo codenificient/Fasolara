@@ -1,9 +1,9 @@
-import Image from 'next/image'
+import Image from "next/image";
 import styles from '@css/ActiveProjects.module.scss'
 
 export default function ActiveProject({ img = '', date, leader, due, status, featured = false }) {
 	return (
-		<span>
+        <span>
 			{featured ? (
 				<span className={styles.project_details}>
 					<p className={styles.project_featured}>{img}</p>
@@ -15,7 +15,12 @@ export default function ActiveProject({ img = '', date, leader, due, status, fea
 			) : (
 				<span className={styles.activeproject_container}>
 					<span className={styles.project_details}>
-						{img ? <Image  width={300}  height={60}  className={styles.project_detail} src={img} alt={img} layout="raw" /> : <p className={styles.project_detail}>Missing Image</p>}
+						{img ? <Image
+                            width={300}
+                            height={60}
+                            className={styles.project_detail}
+                            src={img}
+                            alt={img} /> : <p className={styles.project_detail}>Missing Image</p>}
 						<p className={styles.project_detail}>{date}</p>
 						<p className={styles.project_detail}>{leader}</p>
 						<p className={styles.project_detail}>{due}</p>
@@ -24,5 +29,5 @@ export default function ActiveProject({ img = '', date, leader, due, status, fea
 				</span>
 			)}
 		</span>
-	)
+    );
 }

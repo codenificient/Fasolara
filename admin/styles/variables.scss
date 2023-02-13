@@ -1,10 +1,12 @@
 $bg-primary: #010101;
 $bg-secondary: #141414;
 $bg-dark: #1f1f1f;
+$bg-darker: #272727;
 $bg-gray: #303030;
 $bg-green: green;
 $bg-lighter: #282828;
 $bg-pureblack: #000000;
+$bg-transparent: transparent;
 
 $text-color: #aaa;
 $text-secondary: #ccc;
@@ -21,7 +23,7 @@ $text-dark: #8d8d8d99;
 $theme-yellow: #fca320;
 $theme-orange: #f24e1e;
 
-$theme-font: "Poppins Semibold";
+$theme-font: 'Poppins', sans-serif;
 
 $box-shadow-yellow: #fca3201a;
 $box-shadow-black: #3b4451;
@@ -35,4 +37,4 @@ $box-shadow-inset-lighter: inset -16.5697px -16.5697px 41.4243px #3b4451,
   inset 16.5697px 16.5697px 41.4243px #000000;
 $box-shadow-avatar: inset -12.446px -12.446px 31.1151px #fca320,
   inset 12.446px 12.446px 31.1151px #000000;
-$box-shadow-sidebare:  -7px -7px 19px 0px #fca3201a;
+$box-shadow-sidebare: -7px -7px 19px 0px #fca3201a;

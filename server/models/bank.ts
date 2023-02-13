@@ -1,14 +1,14 @@
-import { Document, model, Schema } from "mongoose"
+import { Document, model, Schema } from "mongoose";
 
-export interface IBank extends Document
-{
-  name: string
-  addressId: string
-  branch: string
-  createdAt: Date
-  updatedAt: Date
-  _doc?: any,
-  View(): IBank
+export interface IBank extends Document {
+  name: string;
+  addressId: string;
+  branch: string;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): IBank;
 }
 
 const bankSchema = new Schema(
@@ -27,21 +27,24 @@ const bankSchema = new Schema(
       required: true,
       trim: true,
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
-)
+);
 
 bankSchema.methods = {
-  View()
-  {
+  View() {
     return {
       ...this._doc,
-      password: undefined
-    }
-  }
-}
+      password: undefined,
+    };
+  },
+};
 
-const Bank = model<IBank>( "Bank", bankSchema )
-export default Bank
+const Bank = model<IBank>("Bank", bankSchema);
+export default Bank;

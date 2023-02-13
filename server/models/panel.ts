@@ -1,4 +1,34 @@
-import { Schema, model } from "mongoose"
+import { Document, model, Schema } from "mongoose";
+
+export interface IPanel extends Document {
+  id: string;
+  serialNumber: string;
+  installCost: number;
+  installDate: Date;
+  orderId: string;
+  groupId: string;
+  isActive: boolean;
+  isInstalled: boolean;
+  isReplacement: boolean;
+  ratedCapacity: [
+    {
+      date: Date;
+      capacity: number;
+    }
+  ];
+  maintenanceDates: [
+    {
+      start: Date;
+      complete: Date;
+      comment: string;
+    }
+  ];
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): IPanel;
+}
 
 const panelSchema = new Schema(
   {
@@ -39,11 +69,23 @@ const panelSchema = new Schema(
       default: false,
     },
     groupId: String,
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const Panel = model("Panel", panelSchema);
-export default Panel
+panelSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Panel = model<IPanel>("Panel", panelSchema);
+export default Panel;

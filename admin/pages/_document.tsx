@@ -1,4 +1,6 @@
+import { ColorModeScript } from '@chakra-ui/react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
+import theme from '../lib/theme'
 
 class MyDocument extends Document
 {
@@ -24,6 +26,7 @@ class MyDocument extends Document
 					<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet" />
 				</Head>
 				<body>
+					<ColorModeScript initialColorMode={theme.config.initialColorMode} />
 					<Main />
 					<NextScript />
 				</body>

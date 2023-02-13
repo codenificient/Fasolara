@@ -37,15 +37,14 @@ const projects = [
 export default function ActiveProjects() {
 	return (
 		<div className={styles.activeprojects_container}>
-			{/* <div className={styles.title}>Active Projects</div> */}
 			<div className={styles.project_list}>
                 <ActiveProject img="Projets Recents" date="Lancement" leader="Leader" due="Délais" status="Status" featured />
-                <ActiveProject img="/assets/astronergy.png"  date="25 May 2020" leader="Alimata Traore" due="10 July 2020" status="In Progress" />
-                <ActiveProject   img="/assets/CanadianSolar.png" date="09 March 2021" leader="Bibata Sanogo" due="27 April 2021" status="In Progress" />
-                <ActiveProject   img="/assets/JASolar.png" date="18 November 2020" leader="Cader Ilboudo" due="12 February 2021" status="In Progress" />
-                <ActiveProject   img="/assets/powergo.png" date="25 July 2020" leader="Daouda Momo" due="23 October 2021" status="In Progress" />
-                <ActiveProject img="/assets/renesola.png"  date="07 January 2023" leader="Malika Ouedraogo" due="01 August 2025" status="In Progress" />
-                <ActiveProject img="/assets/Vikram.png"  date="23 September 2023" leader="Fabrice Tiendrebeogo" due="14 March 2026" status="In Progress" />
+                <ActiveProject img="/assets/astronergy.png"  date="25 Mai 2020" leader="Alimata Traore" due="10 Jul 2020" status="En Progrès" />
+                <ActiveProject   img="/assets/CanadianSolar.png" date="09 Mar 2021" leader="Bibata Sanogo" due="27 Avr 2021" status="En Progrès" />
+                <ActiveProject   img="/assets/JASolar.png" date="18 Nov 2020" leader="Cader Ilboudo" due="12 Fev 2021" status="En Progrès" />
+                <ActiveProject   img="/assets/powergo.png" date="25 Jul 2020" leader="Daouda Momo" due="23 Oct 2021" status="En Progrès" />
+                <ActiveProject img="/assets/renesola.png"  date="07 Jan 2023" leader="Malika Ouedraogo" due="01 Aou 2025" status="En Progrès" />
+                <ActiveProject img="/assets/Vikram.png"  date="23 Sep 2023" leader="Fabrice Tiendrebeogo" due="14 Mar 2026" status="En Progrès" />
 			</div>
 		</div>
 	)
