@@ -1,20 +1,21 @@
 "use client"
 import User from "@c/users/User"
 import styles from "@cs/users.module.scss"
-import { notFound } from 'next/navigation'
 
+import { useQuery } from "@apollo/client"
 import { Grid } from '@chakra-ui/react'
+import { GET_USERS } from "lib/queries"
 
-export default function Users( { users } )
+export default function Users()
 {
-	if ( !users ) return <>No users</>
+	const { data: user } = useQuery( GET_USERS )
+	if ( !user ) return <>No users</>
 
 	return (
 		<Grid templateColumns="repeat(auto-fit, minmax(380px, 1fr));" gap={6} className={styles.UsersWrapper}>
 			{
-				users.map( ( user, idx ) => <User user={user} index={idx} /> )
+				user?.users.map( ( user, idx ) => <User key={user.id} user={user} index={idx} /> )
 			}
 		</Grid>
 	)
 }
-

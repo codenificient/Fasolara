@@ -1,19 +1,19 @@
-import Image from "next/image";
+import Image from "next/image"
 
 import styles from '@css/Avatar.module.scss'
 
 interface Props
 {
-	image: string
-	wSize: string
-	iSize: number
+    image: string
+    wSize: string
+    iSize: number
 }
 
 const Avatar: React.FC<Props> = ( { image, wSize, iSize } ) =>
 {
-	return (
+    return (
         <span className={styles.avatar_container} style={{ width: wSize + 'px', height: wSize + 'px' }}>
-			<Image
+            <Image
                 className={styles.avatar}
                 src={image}
                 width={iSize}
@@ -21,10 +21,10 @@ const Avatar: React.FC<Props> = ( { image, wSize, iSize } ) =>
                 alt={`image of ${image}`}
                 style={{
                     maxWidth: "100%",
-                    height: "auto"
+                    height: iSize
                 }} />
-		</span >
-    );
+        </span >
+    )
 }
 
 export default Avatar

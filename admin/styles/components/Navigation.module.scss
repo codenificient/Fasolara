@@ -9,10 +9,6 @@
   align-items: center;
   margin-bottom: 1rem;
   font-weight: bold;
-
-  &:hover {
-    color: $bg-darker;
-  }
 }
 
 .Name {
@@ -60,12 +56,17 @@ span .Menu:hover {
 }
 
 .Inline {
-  display: block;
+  display: flex;
   cursor: pointer;
+  flex-direction: row;
+
+  svg {
+  color: $theme-yellow !important;
+  }
 }
 
 .Menu {
-  width: 70%;
+  width:80%;
   text-transform: uppercase;
 }
 
@@ -76,21 +77,26 @@ span .Menu:hover {
 
   .SubInline {
     display: flex;
-    flex-direction: row;
+    width: 100%;
     justify-content: space-between;
+
+    .Row {
+      display: flex;
+      flex-direction: row;
+      // color: $theme-yellow !important;
+    }
   }
 
   .SubChildren {
+    display: flex;
+    width: 95%;
+    flex-direction: row;
     font-size: large;
     cursor: pointer;
-    margin: 0.8rem 1.5rem;
+    margin: 0.8rem 1rem;
 
     &.Shown {
       display: flex;
-    }
-
-    i {
-      color: $theme-yellow;
     }
 
     &.Hidden {

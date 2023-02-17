@@ -1,4 +1,5 @@
 import styles from "@css/Sidebar.module.scss"
+import { Icon } from '@iconify/react'
 import Image from "next/image"
 import Link from "next/link"
 import Navigation from "./Navigation"
@@ -7,7 +8,7 @@ export default function LeftSidebar()
 {
   return (
     <div className={styles.sidebar_container} >
-      <div className={styles.title}>
+      <div className={styles.Logo}>
         <Link href="/">
           <Image
             className={styles.logo}
@@ -23,14 +24,14 @@ export default function LeftSidebar()
       </div>
       <Navigation />
       <span className={styles.Logout}>
-        <Link key="13-931-2871" href="/logout" passHref className={styles.Line}>
-
-          <i
-            className="fas fa-sign-out-alt Icon"
-            style={{ color: "#f24e1e", fontSize: "25px" }}
+        <Link href={"/api/auth/signout"} className={styles.Line}>
+          <Icon
+            icon="icon-park-outline:logout"
+            className={styles.Inline}
+            style={{ fontSize: "26px" }}
+            color="#f24e1e"
           />
           <span className={styles.Name}>Logout</span>
-
         </Link>
       </span>
     </div>

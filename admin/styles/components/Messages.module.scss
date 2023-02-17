@@ -19,10 +19,11 @@
         flex-direction: row;
         justify-content: space-between;
         margin-left: 0.5rem;
+        color: $text-greyer;
 
         .UserName {
           font-weight: bold;
-          color: $text-greyest;
+          // color: $text-greyest;
           font-size: large;
         }
 
@@ -97,28 +98,33 @@
 .searchBox {
   display: block;
   margin: 1rem;
-}
 
-.searchBox input {
-  width: 20vw;
-  font-weight: bold;
-  line-height: 2.5rem;
-  padding-left: 4rem;
-  border-radius: 30px;
-  background-color: $bg-gray;
-  color: $text-color;
-  font-size: large;
-  border: 0;
-  position: relative;
-}
+  input {
+    width: 20vw;
+    font-weight: 500;
+    line-height: 2.5rem;
+    padding-left: 4rem;
+    border-radius: 30px;
+    background-color: $bg-gray;
+    color: $text-color !important;
+    font-size: large;
+    border: 0;
+    position: relative;
 
-.searchBox span {
-  position: absolute;
-  z-index: 10;
-  font-size: 16px;
-  line-height: calc(1.5em + 0.9rem + 2px);
-  color: $text-light;
-  transform: translate(30px, -38px);
+    &::selection,
+    &:focus {
+      outline: 1px solid $text-lighter;
+    }
+  }
+
+  .SearchIcon {
+    svg {
+      z-index: 10;
+      font-size: 25px;
+      color: $text-grey;
+      transform: translate(30px, -30px);
+    }
+  }
 }
 
 .message {
@@ -126,6 +132,7 @@
   flex-direction: row;
   margin-right: 0.5rem;
   padding-left: 1rem;
+  color: $text-grey;
 }
 
 .MessageInfo {

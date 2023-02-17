@@ -17,7 +17,7 @@ const ConversationItem = ( { convo } ) =>
 						<span className={styles.Time}>{human( new Date( convo.messages[convo.messages.length - 1].date ) )}</span>
 					</span>
 					<span className={styles.StatusContainer}>
-						<span className={styles.content}>{shorten( convo.messages[0].content, 70 )}</span>
+						<span className={styles.content}>{shorten( convo.messages[convo.messages.length - 1].content, 70 )}</span>
 					</span>
 				</span>
 			</div>

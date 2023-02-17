@@ -15,7 +15,7 @@ const Member: NextPage<Props> = ( { name, jobTitle, imageUrl } ) =>
 	// console.log({ name })
 	return (
 		<div className={styles.teammate}>
-			<Avatar image={imageUrl} iSize={50} wSize="65" />
+			<Avatar image={imageUrl} iSize={35} wSize="45" />
 			<h5 className={styles.name}>{name}</h5>
 			<p className={styles.jobTitle}>{jobTitle}</p>
 		</div>

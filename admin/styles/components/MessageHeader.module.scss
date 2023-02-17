@@ -20,8 +20,7 @@
     margin-left: 0.5rem;
 
     .UserName {
-      color: $text-color;
-      // color: $text-light;
+      color: $text-greyer;
     }
 
     .StatusContainer {
@@ -31,6 +30,7 @@
       .UserStatus {
         font-weight: normal;
         font-size: medium;
+        color: $text-grey;
       }
 
       .Online,

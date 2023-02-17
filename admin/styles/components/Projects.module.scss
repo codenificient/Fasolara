@@ -1,24 +1,21 @@
-@import  '../variables.scss';
+@import '../variables.scss';
 
 .projects_container {
 	display: block;
 	color: $text-lighter;
-	// width: 78vw;
+	width: 78vw;
 	height: 100%;
 	text-align: center;
 	border-radius: 10px;
 	padding: 5px;
-	padding-left: 15px;
 	// margin: 0.5rem; 
 	/* border: 1px solid #8d8d8d80; */
 }
 
 
 .grid {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(13vw, 1fr));
 	flex-wrap: wrap;
 	grid-gap: 0.5rem;
 	width: 100%;
@@ -35,54 +32,63 @@
 
 .project_container {
 	display: block;
-	width: 15vw;
+	width: inherit;
 	height: 500px;
-	// padding: 5px;
+	padding: 5px;
 	background: $bg-darker;
 	//  background-color: #f1bd89; 
 	//  background-color: #fffdd0; 
-	color: $text-darker;
+	color: $text-color;
 	border-radius: 10px;
 	text-align: left;
 	/* box-shadow: 6px 6px 17px #1d1b1c, -6px -6px 17px #141414; */
 	/* box-shadow: 8px 8px 4px #1c1c1c, -8px -8px 4px #222222; */
-	
+
 	// box-shadow: -7px -7px 19px 0px $box-shadow-yellow;
 	/* border: 1px solid #8d8d8d80; */
-}
 
-.project_img {
-	display: flex;
-	width: 100%;
-	max-height: 55px;
-	margin: 0 auto;
-	object-fit: contain;
-	/* background-color: #fca32030; */
-}
+	.project_img {
+		display: flex;
+		width: 100%;
+		max-height: 55px;
+		margin: 0 auto;
+		object-fit: contain;
+		/* background-color: #fca32030; */
+	}
 
-.heading {
-	margin: 10px;
-	color: $text-lighter;
-	font-size: large;
-}
+	.heading {
+		margin: 10px;
+		color: $text-lighter;
+		font-size: large;
+	}
 
-.teammate {
-	display: flex;
-	margin: auto;
-	flex-direction: column;
-	text-align: center;
-}
+	.teammate {
+		display: flex;
+		margin: auto;
+		flex-direction: column;
+		text-align: center;
+	}
 
-.name {
-	margin: 7px 0;
-	color: $text-grey;
-	font-size: large;
-}
 
-.jobTitle {
-	overflow: hidden;
-	font-size: smaller;
-	margin-bottom: 10px;
+	.name {
+		margin: 7px 0;
+		color: $text-greyest;
+		font-size: large;
+	}
+
+	.jobTitle {
+		overflow: hidden;
+		font-size: smaller;
+		margin-bottom: 10px;
+		color: $text-grey;
+	}
+
+	.grid {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+	}
 }
 
 .between {

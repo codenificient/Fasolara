@@ -10,7 +10,7 @@ Visit the published website at https://fasolara.vercel.app/
 
 ## Getting Started
 
-Create a `.env` file in the root of the downloaded project directory and add the GraphQL link as `NEXT_PUBLIC_CLIENT_URI`. The Apollo server backend is currently available at https://fasolaraapollo.vercel.app/api
+Create a `.env` file in the root of the downloaded project directory and add the GraphQL link as `NEXT_PUBLIC_CLIENT_DEV` for development environment. The Apollo server backend is currently available at https://fasolaraapollo.vercel.app/api
 
 First, run the development server:
 
@@ -27,6 +27,22 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+### February 2023 edit:
+
+Currently all normal pages and routes are moved into the Next.JS 13 app directory and authentication is added to secure all routes. 
+
+## Roadmap
+
+-  [x] Create a skeleton of the main user interface
+- [x] Create the main user interface with dummy data
+- [x] Connect to the admin dashboard with the backend server
+- [x] Enable the login functionality to secure all routes
+- [ ] Add form to create new objects 
+- [ ] Add modal for editing existing objects
+- [ ] Add admin role to remove existing objects
+- [ ] Add integration tests for all routes and GraphQL queries
+
 
 ## Learn More
 

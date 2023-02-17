@@ -12,15 +12,15 @@ export default function Project( { number, members, image, progress } )
 			<div className={styles.title}>
 				<span className={styles.between}>
 					<h4 className={styles.heading}>Projet {number}</h4>
-					<Icon classes={'fa-solid fa-pen-to-square'} colors="#FCA320" size={'23px'} />
+					<Icon classes={'fa6-solid:pen-to-square'} colors="#FCA320" size={'23px'} />
 				</span>
 
 				<Image
                     className={styles.project_img}
                     src={image}
                     alt={image}
-                    width={200}
-                    height={45} />
+                    width={100}
+                    height={40} />
 			</div>
 			<div>
 				<h4 className={styles.heading}>Membres d'équipe:</h4>
