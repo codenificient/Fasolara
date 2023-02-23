@@ -1,4 +1,4 @@
-import {Document, model, Schema } from "mongoose"
+import { Document, model, Schema } from "mongoose";
 
 export interface IInvestor extends Document {
   role: string;
@@ -51,10 +51,10 @@ const investorSchema = new Schema(
     createdBy: {
       type: Schema.Types.ObjectId,
       ref: "User",
-    }
+    },
   },
   { timestamps: true }
-)
+);
 
 investorSchema.methods = {
   View() {
@@ -64,5 +64,5 @@ investorSchema.methods = {
   },
 };
 
-const Investor = model<IInvestor>( "Investor", investorSchema )
-export default Investor
+const Investor = model<IInvestor>("Investor", investorSchema);
+export default Investor;

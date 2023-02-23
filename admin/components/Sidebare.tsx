@@ -1,9 +1,10 @@
-import Activities from './Activities'
-import Agenda from './Agenda'
+import Activities from './activities/Activities'
+import Agenda from './agendas/Agendas'
 import ProfileMenu from './ProfileMenu'
 import styles from '@css/Sidebare.module.scss'
+import React from 'react'
 
-export default function Sidebar() {
+const Sidebare= () => {
 	return (
 		<div className={styles.sidebare_container}>
             <ProfileMenu />
@@ -12,3 +13,5 @@ export default function Sidebar() {
 		</div>
 	)
 }
+
+export const MemoizedSidebare = React.memo( Sidebare )

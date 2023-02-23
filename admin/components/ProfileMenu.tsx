@@ -6,12 +6,10 @@ export default function ProfileMenu()
 {
 	return (
 		<div className={styles.profilemenu_container}>
-
-
 			<div className={styles.profile}>
 				<Avatar image={'/assets/admin.png'} wSize="90" iSize={70} />
 				<span className={styles.namerole}>
-					<h4 className={styles.Name}>Christian Tioye</h4>
+					<h5 className={styles.Name}>Christian Tioye</h5>
 					<span className={styles.role}>admin</span>
 				</span>
 			</div>

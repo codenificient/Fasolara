@@ -2,9 +2,10 @@ import styles from "@css/Sidebar.module.scss"
 import { Icon } from '@iconify/react'
 import Image from "next/image"
 import Link from "next/link"
+import React from "react"
 import Navigation from "./Navigation"
 
-export default function LeftSidebar()
+const LeftSidebar = () =>
 {
   return (
     <div className={styles.sidebar_container} >
@@ -17,7 +18,6 @@ export default function LeftSidebar()
             width={200}
             height={100}
             style={{
-              maxWidth: "100%",
               height: "150px"
             }} />
         </Link>
@@ -37,3 +37,5 @@ export default function LeftSidebar()
     </div>
   )
 }
+
+export const MemoizedSidebar = React.memo( LeftSidebar )

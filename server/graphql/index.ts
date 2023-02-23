@@ -17,15 +17,15 @@ import { resolvers as villageResolvers, typeDefs as villageTypes } from './villa
 const typeDefs = gql`
 scalar Date
   type Query {
-    _empty: String
+    _base: String
   }
 
   type Mutation {
-    _empty: String
+    _base: String
   }
 
   type Subscription {
-    _empty: String
+    _base: String
   }
 
   ${accountTypes}

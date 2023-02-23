@@ -1,22 +1,13 @@
 import
-	{
-		Heading,
-		Avatar,
-		Box,
-		Center,
-		Text,
-		Stack,
-		Button,
-		Link,
-		Badge,
-		useColorModeValue,
-	} from '@chakra-ui/react'
+{
+	Avatar, Badge, Box, Button, Center, Heading, Stack, Text, useColorModeValue
+} from '@chakra-ui/react'
 import React from 'react'
-	
-import { IUserProps } from 'lib/types'
-import styles from "@cs/users.module.scss"
 
-const User: React.FC<IUserProps> = ( { index, user: { fullName, avatar, dob, role, username}}) =>
+import styles from "@cs/users.module.scss"
+import { IUserProps } from 'lib/types'
+
+const User: React.FC<IUserProps> = ( { index, user: { fullName, avatar, dob, role, username } } ) =>
 {
 	return (
 		<Center py={6} >
@@ -31,7 +22,7 @@ const User: React.FC<IUserProps> = ( { index, user: { fullName, avatar, dob, rol
 				<Avatar
 					size={'xl'}
 					src={
-						avatar || `https://randomuser.me/api/portraits/women/${65+index}.jpg`
+						avatar || `https://randomuser.me/api/portraits/women/${65 + index}.jpg`
 					}
 					mb={4}
 					pos={'relative'}
@@ -47,7 +38,7 @@ const User: React.FC<IUserProps> = ( { index, user: { fullName, avatar, dob, rol
 						right: 3,
 					}}
 				/>
-				<Heading fontSize={'2xl'} fontFamily={'body'}>
+				<Heading fontSize={'2xl'} mb="4">
 					{fullName}
 				</Heading>
 				<Text fontWeight={600} color={'gray.500'} mb={4}>
@@ -78,7 +69,7 @@ const User: React.FC<IUserProps> = ( { index, user: { fullName, avatar, dob, rol
 					</Badge>
 				</Stack>
 
-				<Stack mt={8} direction={'row'} spacing={4}>
+				<Stack mt={8} direction={'row'} spacing={4} color="#aaa">
 					<Button
 						flex={1}
 						fontSize={'sm'}
@@ -93,7 +84,6 @@ const User: React.FC<IUserProps> = ( { index, user: { fullName, avatar, dob, rol
 						fontSize={'sm'}
 						rounded={'full'}
 						bg={'212121'}
-						color={'white'}
 						boxShadow={
 							'0px 1px 25px -5px rgb(27 27 27 / 48%), 0 10px 10px -5px rgb(27 27 27 / 43%)'
 						}

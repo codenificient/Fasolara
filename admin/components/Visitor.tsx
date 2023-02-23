@@ -20,7 +20,7 @@ const Visitor: React.FC<Props> = ( { visible } ) =>
       const visitors = await data.json()
       setCount( visitors.count )
     }
-    fetchData()
+    if (process.env.NODE_ENV === "production") fetchData()
   }, [] )
 
   if ( !count ) return

@@ -61,7 +61,7 @@ const typeDefs = gql`
     finalCost: Float
     finalCurrency: String
     updatedAt: Date
-	update: UpdateInput
+    update: UpdateInput
   }
 
     input UpdateInput {

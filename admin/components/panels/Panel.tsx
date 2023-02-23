@@ -6,7 +6,7 @@ import { BsThreeDotsVertical } from "react-icons/bs"
 
 const Panel: React.FC<IPanelProps> = ( { index, panel: { serialNumber, installCost, orderId, groupId, isActive, isInstalled, isReplacement, ratedCapacity, maintenanceDates, createdAt, updatedAt }, user } ) => (
 	<Card maxW='md' className={styles.PanelWrapper}>
-		<CardHeader>
+		<CardHeader className={styles.CardHeader}>
 			<Flex >
 				<Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
 					<Avatar name={user?.username} src={user?.avatar}/>
@@ -43,6 +43,7 @@ const Panel: React.FC<IPanelProps> = ( { index, panel: { serialNumber, installCo
 			sx={{
 				'& > button': {
 					minW: '100px',
+					color: '#aaa'
 				},
 			}}
 		>

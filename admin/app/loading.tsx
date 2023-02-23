@@ -1,24 +1,17 @@
+"use client"
+
+import { Box, SkeletonCircle, SkeletonText, Stack } from '@chakra-ui/react'
 
 const Loading = () =>
 {
 	return (
-		<div>
+		<Stack>
 			<p>Loading...</p>
-			<ul className='list-disc pl-6 mt-4 space-y-2'>
-				{
-					[...Array( 20 ).keys()].map( i => (
-						<li key={i}>
-							<span className='inline-block h-5 animate-pulse w-full'
-								style={{
-									animationDelay: `${i * 0.5}s`,
-									animationDuration: "1s"
-								}}
-							/>
-						</li>
-					) )
-				}
-			</ul>
-		</div>
+			<Box padding='6' boxShadow='lg' bg='#434343'>
+				<SkeletonCircle size='20' />
+				<SkeletonText mt='4' noOfLines={20} spacing='4' skeletonHeight='4' />
+			</Box>
+		</Stack>
 	)
 }
 

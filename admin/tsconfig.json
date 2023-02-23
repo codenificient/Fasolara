@@ -23,6 +23,7 @@
       "@data/*": ["components/data/*"],
       "@proj/*": ["components/projects/*"],
       "@msg/*": ["components/messages/*"],
+      "@usr/*": ["components/users/*"],
       "@cs/*": ["styles/pages/*"],
       "@s/*": ["styles/*"],
       "@css/*": ["styles/components/*"]
@@ -34,5 +35,10 @@
     ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "semi": false
+  }
 }

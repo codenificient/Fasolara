@@ -1,9 +1,8 @@
 "use client"
-import Order from "@c/orders/Order"
-import styles from "@cs/orders.module.scss"
-
 import { Grid } from "@chakra-ui/react"
-import client from "lib/client"
+
+import styles from "@cs/orders.module.scss"
+import Order from "@c/orders/Order"
 import { GET_ORDERS } from "lib/queries"
 import { useQuery } from "@apollo/client"
 

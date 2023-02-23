@@ -34,11 +34,26 @@ Currently all normal pages and routes are moved into the Next.JS 13 app director
 
 ## Roadmap
 
+- [x] Create the Figma design for Admin Dashboard
 -  [x] Create a skeleton of the main user interface
 - [x] Create the main user interface with dummy data
+- [x] Upgrade to Next.JS 13
+- [x] Convert all pages to the app directory
 - [x] Connect to the admin dashboard with the backend server
 - [x] Enable the login functionality to secure all routes
 - [ ] Add form to create new objects 
+- [ ]  Decide on a validation library
+- [ ]  Add a table for list of objects
+- [ ]  Create more charts
+- [ ]  Bring back Tailwind CSS
+- [ ]  Add media queries
+- [ ] Add new layout for login and signup pages
+- [ ] Update sidebar to reflect authentication status
+- [ ] Update Profile menu to reflect authentication
+- [ ] Update Projects page to use database objects
+- [ ] Add transactions page
+- [ ] Update sidebar to include remaining pages
+- [ ] Redefine role based authorization
 - [ ] Add modal for editing existing objects
 - [ ] Add admin role to remove existing objects
 - [ ] Add integration tests for all routes and GraphQL queries

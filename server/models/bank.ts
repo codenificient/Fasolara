@@ -41,7 +41,6 @@ bankSchema.methods = {
   View() {
     return {
       ...this._doc,
-      password: undefined,
     };
   },
 };

@@ -10,8 +10,8 @@ import MessageHeader from '@msg/MessageHeader'
 import { GET_CONVERSATIONS } from 'lib/queries'
 import { Message } from 'lib/types'
 
-import { useState } from 'react'
 import { Icon } from '@iconify/react'
+import { useState } from 'react'
 
 function Messages()
 {

@@ -1,8 +1,10 @@
-@import  '../variables.scss';
+@import '../variables.scss';
 
-.text_center {
-    display: block;
-    margin: auto;
-    text-align: center;
-    width: 78vw;
+.NewAddressWrapper {
+    background-color: $bg-dark;
+
+    .AddressForm {
+        padding: 3rem;
+        background-color: $bg-darker;
+    }
 }

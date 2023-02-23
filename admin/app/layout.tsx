@@ -1,12 +1,11 @@
 "use client"
-import LeftSidebar from '@c/Sidebar'
-import Sidebare from '@c/Sidebare'
+import { MemoizedSidebar } from '@c/Sidebar'
+import { MemoizedSidebare } from '@c/Sidebare'
 import { ChakraProvider } from '@chakra-ui/react'
 import '@s/globals.scss'
 import Providers from 'lib/client'
-import { SessionProvider, useSession } from 'next-auth/react'
+import { SessionProvider } from 'next-auth/react'
 import { ReactNode, Suspense } from 'react'
-
 
 export default function RootLayout( {
 	children,
@@ -21,17 +20,17 @@ export default function RootLayout( {
 					<div className="ext_wrapper">
 						<Suspense fallback={<h2>Loading...</h2>}>
 							<ChakraProvider>
-								<LeftSidebar />
+								<MemoizedSidebar />
 								<main>
 									<Providers>
 										{children}
 									</Providers>
 								</main>
-								<Sidebare />
+								<MemoizedSidebare />
 							</ChakraProvider>
 						</Suspense>
 					</div>
-					<script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
+					<script defer src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
 				</body>
 			</SessionProvider>
 		</html>

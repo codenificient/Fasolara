@@ -4,7 +4,7 @@ import CreateProject from '@ui/CreateProject'
 import styles from '@cs/projects.module.scss'
 
 
-export default function ProjectsList() {
+export default function ProjectDashboard() {
 	return (
 			<div className={styles.projects_container}>
 				<div className={styles.grid}>

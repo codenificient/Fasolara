@@ -1,46 +1,74 @@
-// import { Schema, model } from "mongoose"
-// const geocoder = require("../utils/geocoder")
+import { Document, model, Schema } from "mongoose";
+import geocoder from "../helpers/geocoder.js";
 
-// const locationSchema = new Schema(
-//   {
-//     locationId: {
-//       type: String,
-//       required: [true, "Please add a location ID"],
-//       unique: true,
-//       trim: true,
-//     },
-//     address: {
-//       type: String,
-//       required: [true, "Please provide a valid address"],
-//     },
-//     location: {
-//       type: {
-//         type: String,
-//         enum: ["Point"],
-//       },
-//       coordinates: {
-//         type: [Number],
-//         index: "2dsphere",
-//       },
-//       formattedAddress: String,
-//     },
-//   },
-//   {
-//     timestamps: true,
-//   }
-// )
+export interface ILocation extends Document {
+  address: string;
+  location: {
+    locationType: string;
+    coordinates: Array<number>;
+    formattedAddress: string;
+  };
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _doc?: any;
+  View(): ILocation;
+}
 
-// // Geocode and create a location
-// locationSchema.pre("save", async function (next) {
-//   const loc = await geocoder.geocode(this.address)
-//   this.location = {
-//     type: "Point",
-//     coordinates: [loc[0].longitude, loc[0].latitude],
-//     formattedAddress: loc[0].formattedAddress,
-//   }
-//   // do not save address into mongo
-//   this.address = undefined
-//   next()
-// })
+enum LocationType {
+  Point = "Point",
+  City = "City",
+  Province = "Province",
+  Country = "Country",
+  Continent = "Continent",
+}
 
-// module.exports = model("Location", locationSchema)
+const locationSchema = new Schema(
+  {
+    address: {
+      type: String,
+      required: [true, "Please provide a valid address"],
+    },
+    location: {
+      locationType: {
+        type: String,
+        enum: ["Point", "City", "Province", "Country", "Continent"],
+        default: "Point",
+      },
+      coordinates: {
+        type: [Number],
+        index: "2dsphere",
+      },
+      formattedAddress: String,
+    },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+// Geocode and create a location
+locationSchema.pre("save", async function (next) {
+  const loc = await geocoder.geocode(this.address);
+  this.location = {
+    locationType: "Point",
+    coordinates: [loc[0].latitude, loc[0].longitude],
+    formattedAddress: loc[0].formattedAddress,
+  };
+  next();
+});
+
+locationSchema.methods = {
+  View() {
+    return {
+      ...this._doc,
+    };
+  },
+};
+
+const Location = model<ILocation>("Location", locationSchema);
+export default Location;

@@ -43,7 +43,7 @@ const addressSchema = new Schema(
     },
     dotcolor: {
       type: String,
-      default: "default",
+      default: "#ff3f1f",
     },
     createdBy: {
       type: Schema.Types.ObjectId,
@@ -59,7 +59,6 @@ addressSchema.methods = {
   View() {
     return {
       ...this._doc,
-      password: undefined,
     };
   },
 };

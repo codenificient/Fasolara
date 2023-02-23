@@ -12,7 +12,6 @@ import mongoose from 'mongoose'
 import { WebSocketServer } from 'ws'
 import { resolvers, typeDefs } from '../graphql/index.js'
 
-
 dotenv.config()
 
 mongoose.set( 'strictQuery', true )
@@ -87,13 +86,13 @@ mongoose
 		console.log( "MongoDB is connected" )
 		return httpServer.listen( PORT, () =>
 		{
-			console.log( `🚀 Query endpoint ready at http://localhost:${PORT}/graphql` )
-			console.log( `🚀 Subscription endpoint ready at ws://localhost:${PORT}/graphql` )
+			console.log( `🚀 Query endpoint ready at http://localhost:${PORT}/api` )
+			console.log( `🚀 Subscription endpoint ready at ws://localhost:${PORT}/api` )
 		} )
 	} )
 	.then( ( res ) =>
 	{
-		console.log( `Server running at http://localhost:${PORT}/graphql` )
+		console.log( `Server running at http://localhost:${PORT}/api` )
 	} )
 	.catch( ( error ) => console.log( error ) )
 

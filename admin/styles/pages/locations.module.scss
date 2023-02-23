@@ -1,12 +1,11 @@
-@import  '../variables.scss';
+@import '../variables.scss';
 
 .LocationWrapper {
     display: block;
     margin: auto;
-    margin-left: 0.5rem;
     text-align: center;
-    width: 77vw;
-    color: azure;
+    width: 100%;
+    color: $text-color;
     background: $bg-dark;
 
     .CardWrapper {

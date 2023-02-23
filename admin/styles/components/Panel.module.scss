@@ -2,4 +2,11 @@
 
 .PanelWrapper {
 	background-color: $bg-darker !important;
+	color: $text-greyer !important;
+
+	.CardHeader {
+		font-weight: bold;
+		color: $text-color !important;
+
+	}
 }

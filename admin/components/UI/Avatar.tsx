@@ -20,7 +20,7 @@ const Avatar: React.FC<Props> = ( { image, wSize, iSize } ) =>
                 height={iSize}
                 alt={`image of ${image}`}
                 style={{
-                    maxWidth: "100%",
+                    // maxWidth: "100%",
                     height: iSize
                 }} />
         </span >

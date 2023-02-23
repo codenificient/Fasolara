@@ -17,5 +17,10 @@
     "excludeDirectories": ["**/node_modules", "_build"],
     "excludeFiles": ["build/fileWhichChangesOften.ts"]
   },
-  "include": ["*/**/*.ts"]
+  "include": ["*/**/*.ts"],
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "semi": false
+  }
 }

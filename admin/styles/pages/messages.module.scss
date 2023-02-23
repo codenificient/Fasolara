@@ -1,11 +1,11 @@
-@import  '../variables.scss';
+@import '../variables.scss';
 
 .messages_wrapper {
 	display: flex;
-	width: 78vw;
-      height: 97vh;
+	width: 100%;
+	height: 100%;
 	/* background: #f85656; */
 	margin-left: 0.5rem;
-    align-items: start;
-    justify-content: space-between;
+	align-items: start;
+	justify-content: space-between;
 }

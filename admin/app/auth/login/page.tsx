@@ -3,7 +3,6 @@ import
 {
 	Box,
 	Button,
-	Checkbox,
 	Flex,
 	FormControl, FormErrorMessage, FormLabel, Input,
 	VStack
@@ -11,8 +10,6 @@ import
 import "@s/variables.scss"
 import { Field, Formik } from "formik"
 import { signIn } from "next-auth/react"
-
-
 
 const LoginPage = () =>
 {
@@ -76,14 +73,7 @@ const LoginPage = () =>
 									/>
 									<FormErrorMessage>{errors.password}</FormErrorMessage>
 								</FormControl>
-								<Field
-									as={Checkbox}
-									id="rememberMe"
-									name="rememberMe"
-									colorScheme="purple"
-								>
-									Remember me?
-								</Field>
+
 								<Button type="submit" colorScheme="yellow" width="full">
 									Login
 								</Button>
