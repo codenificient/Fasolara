@@ -259,10 +259,10 @@ const resolvers = {
     /* fieldName:(root, args, context, info) => { result } */
     conversation: combineResolvers(
       isAuthenticated,
-      async (_, __, { userId }) => {
+      async (_, __, { user } ) => {
         try {
           const conversation = await Conversation.findOne({
-            participants: { userId },
+            participants: { userId: user.id },
           }).populate({
             path: "participants.userId",
             model: "User",

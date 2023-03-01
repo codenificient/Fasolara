@@ -66,16 +66,16 @@ const typeDefs = gql`
 const resolvers = {
     Query: {
         /* fieldName:(root, args, context, info) => { result } */
-        comment: combineResolvers( isAuthenticated, async ( _, __, { userId } ) =>
+        comment: combineResolvers( isAuthenticated, async ( _, __,  {user } ) =>
         {
             try
             {
-                const account = await Comment.findOne( { customerId: userId } )
-                if ( !account )
+                const comment = await Comment.findOne({ userId: user.id });
+                if ( !comment )
                 {
-                    return ApolloError( "Account not found", "ACCOUNT_NOT_FOUND" )
+                    return ApolloError( "comment not found", "COMMENT_NOT_FOUND" )
                 }
-                return account
+                return comment
             }
             catch ( error )
             {

@@ -45,7 +45,7 @@ Currently all normal pages and routes are moved into the Next.JS 13 app director
 - [ ]  Decide on a validation library
 - [ ]  Add a table for list of objects
 - [ ]  Create more charts
-- [ ]  Bring back Tailwind CSS
+- [x ]  Bring back Tailwind CSS
 - [ ]  Add media queries
 - [ ] Add new layout for login and signup pages
 - [ ] Update sidebar to reflect authentication status

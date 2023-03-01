@@ -14,6 +14,7 @@ const typeDefs = gql`
   type User {
     id: ID
     cnib: String
+    nationality: String
     firstname: String
     midname: String
     lastname: String
@@ -109,7 +110,7 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     /* field:(root, args, context, info) => { result } */
-    user: combineResolvers(isAuthenticated, async (_, __, { email }) => {
+    user: combineResolvers(isAuthenticated, async (_, __, {email} ) => {
       try {
         const user = await User.findOne({ email });
         if (!user) {

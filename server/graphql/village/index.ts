@@ -66,7 +66,7 @@ const resolvers = {
 	Query: {
 		villages: async () => await Village.find(),
 		getVillage: async ( _, { id }, ) => await Village.findById( id ),
-		village: combineResolvers( isAuthenticated, async ( _, __, { villageId } ) =>
+		village: combineResolvers( isAuthenticated, async ( root, args, {villageId}  ) =>
 		{
 			try
 			{
@@ -84,7 +84,7 @@ const resolvers = {
 		} ),
 	},
 	Mutation: {
-		createVillage: async ( _, { createVillageInput } ) =>
+		createVillage: async ( root, { createVillageInput } ) =>
 		{
 			try
 			{

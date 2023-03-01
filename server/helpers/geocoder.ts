@@ -1,10 +1,9 @@
-const NodeGeocoder = require("node-geocoder");
+//@ts-ignore
+import NodeGeocoder, { GenericOptions } from "node-geocoder";
 
-const options = {
-  provider: process.env.GEOCODER_PROVIDER,
-  apiKey: process.env.GEOCODER_PROVIDER,
-  formatter: null, 
+const generic: GenericOptions = {
+  provider: "openstreetmap",
 };
 
-const geocoder = NodeGeocoder(options);
-export default geocoder
+const geocoder = NodeGeocoder(generic);
+export default geocoder;

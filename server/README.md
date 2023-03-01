@@ -8,25 +8,35 @@ This repo replaces Express GraphQL with Apollo GraphQL. Will enventually support
 - <b>typeDefs</b>: user, login, registerUser, account, address, bank, comment, country, employee, order, panel, project, province, salary, supplier, team, transaction, village
 - <b>resolvers</b>: user, login, registerUser, account, address, bank, comment, country, employee, order, panel, project, province, salary, supplier, team, transaction, village
 
-
 ## Functionalities to Implement
 
-- <b>Models</b>: location, session
-	-  create, update, delete, read
-- <b>Resolvers</b>: account, address, location, panel, project, transaction
-	- create, update, delete, Read
-- <b>typeDefs</b>:  location, session
-	- Create, Update, Delete, Get
-- <b>Subscription</b>: All
+- <b>Models</b>: location, session, agenda, activity
+  - create, update, delete, read
+- <b>Resolvers</b>: location, session, agenda, activity
+  - create, update, delete, Read
+- <b>typeDefs</b>: location, session, activity, agenda
+  - Create, Update, Delete, Get
+- <b>Subscription</b>: location, session, activity, agenda
 
 # Database Design
 
 ![Organizational Chart](chart.png "Lara Stakeholder Chart")
 
+Roadmap
+
+- [ ] Add extra resolvers for fetching related data
+- [ ] Add resolvers for updating specific fields
+- [ ] Implement role based authorization for mutations
+- [ ] Add role based authorization for sensitive queries
+- [ ] Add remaining tests
+- [ ] Add gh actions
+- [ ] Add swagger api for docs
+
+
 ## Testing
 
 - <b>Apollo Server</b>
-	-	Supertest
-	- EasyGraphQLTester
-	- Mocha
-	- Chai
+  - Supertest
+  - EasyGraphQLTester
+  - Mocha
+  - Chai

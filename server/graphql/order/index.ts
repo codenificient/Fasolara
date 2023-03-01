@@ -89,11 +89,11 @@ const typeDefs = gql`
 
 const resolvers = {
 	Query: {
-		pastOrders: combineResolvers( isAuthenticated, async ( _, __, { userId } ) =>
+		pastOrders: combineResolvers( isAuthenticated, async ( _, __, {user}  ) =>
 		{
 			try
 			{
-				return await Order.find( { userId } )
+				return await Order.find({ userId: user.id });
 			}
 			catch ( error )
 			{
@@ -101,7 +101,7 @@ const resolvers = {
 				throw error
 			}
 		} ),
-		getOrder: async ( _, { id }, __ ) =>
+		getOrder: async ( _, { id }) =>
 		{
 			if ( !isValid( id ) )
 			{

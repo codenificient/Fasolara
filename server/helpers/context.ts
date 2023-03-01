@@ -1,38 +1,37 @@
-import { Request, Response } from "express"
-import jwt from "jsonwebtoken"
-import User from "../models/user.js"
+import { Request, Response } from "express";
+import jwt from "jsonwebtoken";
+import User from "../models/user.js";
 
+export const verifyUser = async (req: Request, res: Response) => {
+  try {
+    const bearerHeader = req.headers.authorization;
 
-export const verifyUser = async ( req: Request, res: Response ) =>
-{
-  try
-  {
-    const bearerHeader = req.headers.authorization
-
-    if ( bearerHeader )
-    {
-      const token = bearerHeader.split( " " )[1]
-      //   console.log(token)
-      const payload = jwt.verify( token, process.env.JWT_SECRET )
-      req.email = payload.email
-      const user = await User.findOne( { email: payload.email } )
-      if ( user && ( user.role == "employee" || user.role == "manager" || user.role == "admin" ) )
-      {
-        req.teamId = user.teamId
+    if (bearerHeader) {
+      const token = bearerHeader.split(" ")[1];
+      // console.log(token);
+      const payload = jwt.verify(token, process.env.JWT_SECRET);
+      // console.log({ payload });
+      req.email = payload.email;
+      const user = await User.findOne({ email: payload.email });
+      if (
+        user &&
+        (user.role == "employee" ||
+          user.role == "manager" ||
+          user.role == "admin")
+      ) {
+        req.teamId = user.teamId;
       }
-      req.userId = user.id
-      req.addressId = user.addressId
-      req.role = user.role
+      req.user = user;
+      req.addressId = user.addressId;
+      req.role = user.role;
     }
-  } catch ( error )
-  {
-    console.log( error )
-    throw error
+  } catch (error) {
+    console.log(error);
+    throw error;
   }
-}
+};
 
-export const getEducationLevel = ( level: number ) =>
-{
+export const getEducationLevel = (level: number) => {
   const levelsMap = [
     { 1: "Aucune education formal" },
     { 2: "Some primary education" },
@@ -45,6 +44,6 @@ export const getEducationLevel = ( level: number ) =>
     { 9: "License Universitaire" },
     { 10: "2 Licenses ou 1 Master Universitaire" },
     { 11: "Doctorat Universitaire" },
-  ]
-  return levelsMap[level]
-}
+  ];
+  return levelsMap[level];
+};

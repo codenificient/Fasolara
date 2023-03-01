@@ -63,11 +63,11 @@ const typeDefs = gql`
 const resolvers = {
 	Query: {
 		/* fieldName:(root, args, context, info) => { result } */
-		country: combineResolvers( isAuthenticated, async ( _, __, { countryId } ) =>
+		country: combineResolvers( isAuthenticated, async ( _, __,  {user}  ) =>
 		{
 			try
 			{
-				const country = await Country.findById( countryId )
+				const country = await Country.findOne({nationality: user.nationality });
 				if ( !country )
 				{
 					return ApolloError( "Country not found", "COUNTRY_NOT_FOUND" )

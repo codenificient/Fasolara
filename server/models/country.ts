@@ -2,6 +2,7 @@ import { Document, model, Schema } from "mongoose";
 
 export interface ICountry extends Document {
   name: string;
+  nationality: string;
   population: number;
   continent: String;
   polycolor: String;

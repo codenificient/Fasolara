@@ -1,8 +1,9 @@
 import { Document, model, Schema } from "mongoose";
 
 export interface IUser extends Document {
-  _id: string;
+  id: string;
   cnib: string;
+  nationality: string;
   firstname: string;
   midname: string;
   lastname: string;
@@ -27,6 +28,7 @@ export interface IUser extends Document {
   View(): IUser;
   fullName(): string;
 }
+
 
 const userSchema = new Schema(
   {

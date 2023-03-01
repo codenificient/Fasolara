@@ -1,16 +1,18 @@
-declare global
-{
-	namespace Express
-	{
-		interface Request
-		{
-			userId: String
-			email: String
-			addressId: String
-			role: String
-			teamId: String
-		}
-	}
+import { IUser } from "../models/user"
+
+declare global {
+  namespace Express {
+    interface Request {
+      user?: IUser;
+      email: string;
+      token?: string;
+      addressId?: string;
+      role?: string;
+      teamId?: string;
+      groupId?: string;
+      villageId?: string;
+    }
+  }
 }
 
-export { }
+export {};

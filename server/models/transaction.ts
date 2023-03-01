@@ -1,9 +1,10 @@
 import { Document, model, Schema } from "mongoose";
 
 export interface ITransaction extends Document {
-  customerId: string;
-  accountId: string;
-  beneficiaryId: string;
+  senderId: string;
+  receiverId: string;
+  srcAccountId: string;
+  destAccountId: string;
   amount: number;
   tax: number;
   taxRate: number;
@@ -20,11 +21,19 @@ export interface ITransaction extends Document {
 
 const transactionSchema = new Schema(
   {
-    customerId: {
+    senderId: {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    accountId: {
+    receiverId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    srcAccountId: {
+      type: Schema.Types.ObjectId,
+      ref: "Account",
+    },
+    destAccountId: {
       type: Schema.Types.ObjectId,
       ref: "Account",
     },

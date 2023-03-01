@@ -2,6 +2,7 @@ import { Document, model, Schema } from "mongoose";
 import geocoder from "../helpers/geocoder.js";
 
 export interface ILocation extends Document {
+  name: string;
   address: string;
   location: {
     locationType: string;
@@ -25,6 +26,7 @@ enum LocationType {
 
 const locationSchema = new Schema(
   {
+    name: String,
     address: {
       type: String,
       required: [true, "Please provide a valid address"],

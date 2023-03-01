@@ -14,13 +14,8 @@
     "watchDirectory": "useFsEvents",
     "fallbackPolling": "dynamicPriority",
     "synchronousWatchDirectory": true,
-    "excludeDirectories": ["**/node_modules", "_build"],
+    "excludeDirectories": ["**/node_modules", "_build", "dist"],
     "excludeFiles": ["build/fileWhichChangesOften.ts"]
   },
-  "include": ["*/**/*.ts"],
-  "prettier": {
-    "trailingComma": "es5",
-    "singleQuote": true,
-    "semi": false
-  }
+  "include": ["*/**/*.ts"]
 }
