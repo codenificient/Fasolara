@@ -1,17 +1,22 @@
+import { VStack } from "native-base"
 import { StyleSheet } from 'react-native'
 import Card from '../components/Card/Index'
 
-import { Text, View } from '../components/Themed'
+import NewCard from '../components/NewCard'
+import AppBar from "../components/PageComponent/AppBar"
+import { Text } from '../components/Themed'
 import { RootTabScreenProps } from '../types'
 
 export default function TabOneScreen( { navigation }: RootTabScreenProps<'Home'> )
 {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to FasoLara Mobile (WIP)</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Card />
-    </View>
+    <>
+      <AppBar title="Home" />
+      <VStack style={styles.container} space={4}>
+        <Text style={styles.title}>Welcome to FasoLara Mobile (WIP)</Text>
+        <NewCard />
+      </VStack>
+    </>
   )
 }
 
