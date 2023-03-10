@@ -48,6 +48,7 @@ const LoginPage = () =>
 										id="email"
 										name="email"
 										type="email"
+										data-cy="loginEmail"
 										variant="filled"
 									/>
 								</FormControl>
@@ -58,6 +59,7 @@ const LoginPage = () =>
 										id="password"
 										name="password"
 										type="password"
+										data-cy="loginPass"
 										variant="filled"
 										validate={( value ) =>
 										{
@@ -74,7 +76,7 @@ const LoginPage = () =>
 									<FormErrorMessage>{errors.password}</FormErrorMessage>
 								</FormControl>
 
-								<Button type="submit" colorScheme="yellow" width="full">
+								<Button data-cy="submit" type="submit" colorScheme="yellow" width="full">
 									Login
 								</Button>
 							</VStack>

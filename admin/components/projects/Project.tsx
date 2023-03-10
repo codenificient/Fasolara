@@ -11,7 +11,7 @@ export default function Project( { number, members, image, progress } )
         <div className={styles.project_container}>
 			<div className={styles.title}>
 				<span className={styles.between}>
-					<h4 className={styles.heading}>Projet {number}</h4>
+					<h4 data-cy="project-sample" className={styles.heading}>Projet {number}</h4>
 					<Icon classes={'fa6-solid:pen-to-square'} colors="#FCA320" size={'23px'} />
 				</span>
 

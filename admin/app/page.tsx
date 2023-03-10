@@ -7,7 +7,7 @@ import styles from '@cs/Home.module.scss'
 import ActiveProjects from '@proj/ActiveProjects'
 import Projects from '@proj/Projects'
 
-export default function LandingPage()
+const LandingPage = () =>
 {
 	const [notify, setNotify] = useState( true )
 	return (
@@ -19,3 +19,5 @@ export default function LandingPage()
 		</div>
 	)
 }
+
+export default LandingPage

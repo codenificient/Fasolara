@@ -39,7 +39,7 @@ export default function ActiveProjects() {
 		<div className={styles.activeprojects_container}>
 			<div className={styles.project_list}>
                 <ActiveProject img="Projets Recents" date="Lancement" leader="Leader" due="Délais" status="Status" featured />
-                <ActiveProject img="/assets/astronergy.png"  date="25 Mai 2020" leader="Alimata Traore" due="10 Jul 2020" status="En Progrès" />
+                <ActiveProject img="/assets/astronergy.png"  date="25 Mai 2020" leader="Alimata Traore" due="10 Jul 2020" status="En Progrès" data-cy="activeProject" />
                 <ActiveProject   img="/assets/CanadianSolar.png" date="09 Mar 2021" leader="Bibata Sanogo" due="27 Avr 2021" status="En Progrès" />
                 <ActiveProject   img="/assets/JASolar.png" date="18 Nov 2020" leader="Cader Ilboudo" due="12 Fev 2021" status="En Progrès" />
                 <ActiveProject   img="/assets/powergo.png" date="25 Jul 2020" leader="Daouda Momo" due="23 Oct 2021" status="En Progrès" />
