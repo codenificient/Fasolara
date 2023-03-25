@@ -24,7 +24,7 @@ const Card = () =>
 					bg: "violet.400"
 				}} _text={{
 					color: "warmGray.50",
-					fontWeight: "700",s
+					fontWeight: "700",
 					fontSize: "xs"
 				}} position="absolute" bottom="0" px="3" py="1.5">
 					PHOTOS
