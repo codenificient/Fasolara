@@ -13,8 +13,8 @@ interface IContext {
   villageId?: string;
 }
 
-export const isAuthenticated = (root, args, { user }: IContext) => {
-  if (!user) {
+export const isAuthenticated = (root, args, { user, email }: IContext) => {
+  if (!user || !email) {
     return ApolloError(
       "Access Denied! Please login to continue",
       "USER_ACCESS_DENIED"
