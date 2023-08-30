@@ -42,7 +42,7 @@
     "@types/jest": "^29.4.0",
     "@types/node": "^18.11.18",
     "autoprefixer": "^10.4.13",
-    "cypress": "^12.7.0",
+    "cypress": "^13.0.0",
     "eslint": "8.14.0",
     "eslint-config-next": "^13.1.6",
     "global-jsdom": "^8.7.0",
