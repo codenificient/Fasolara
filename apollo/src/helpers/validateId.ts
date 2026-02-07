@@ -1,10 +1,8 @@
-const {
-  Types: { ObjectId },
-} = require( "mongoose" )
+import { Types } from "mongoose"
 
 const isValid = async ( id: string ) =>
 {
-  return ObjectId.isValid( id ) && new ObjectId( id ).toString() === id
+  return Types.ObjectId.isValid( id ) && new Types.ObjectId( id ).toString() === id
 }
 
 export { isValid }

@@ -169,7 +169,7 @@ const resolvers = {
 				}
 			}
 		),
-		deleteAccount: async ( _, { id } ) => await Account.findByIdAndRemove( id )
+		deleteAccount: async ( _, { id } ) => await Account.findByIdAndDelete( id )
 	},
 	Subscription: {
 		accountCreated: {

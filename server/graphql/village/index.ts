@@ -155,7 +155,7 @@ const resolvers = {
 				}
 			}
 		),
-		removeVillage: async ( _, { id } ) => await Village.findByIdAndRemove( id )
+		removeVillage: async ( _, { id } ) => await Village.findByIdAndDelete( id )
 	},
 	Subscription: {
 		villageCreated: {

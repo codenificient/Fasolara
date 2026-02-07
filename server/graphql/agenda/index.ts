@@ -150,7 +150,7 @@ const resolvers = {
     ),
     removeAgenda: combineResolvers(
       isAdmin,
-      async (id: string) => await Agenda.findByIdAndRemove({ _id: id })
+      async (id: string) => await Agenda.findByIdAndDelete({ _id: id })
     ),
   },
   Subscription: {

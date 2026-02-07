@@ -30,7 +30,7 @@ export const isAdmin = combineResolvers(
 );
 
 export const canModifyData = (root, args, { role, user }) => {
-  if (root.createdBy !== user.id || role !== "admin" || role !== "manager") {
+  if (root.createdBy !== user.id || role !== "admin" && role !== "manager") {
     return ApolloError(
       "Not authorized to Edit as Owner or Admin",
       "NOT_AUTHORIZED"
@@ -44,7 +44,7 @@ interface Role {
 }
 
 export const canViewProject = (root, args, { role }) => {
-  if (role !== "admin" || role !== "manager" || role !== "employee") {
+  if (role !== "admin" && role !== "manager" && role !== "employee") {
     return ApolloError("Not authorized to View as Employee", "NOT_AUTHORIZED");
   }
   return skip;

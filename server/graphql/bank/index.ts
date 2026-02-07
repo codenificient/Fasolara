@@ -131,7 +131,7 @@ const resolvers = {
         }
       }
     ),
-    removeBank: async (id: string) => await Bank.findByIdAndRemove({ _id: id }),
+    removeBank: async (id: string) => await Bank.findByIdAndDelete({ _id: id }),
   },
   Subscription: {
     bankCreated: {

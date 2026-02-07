@@ -143,7 +143,7 @@ const resolvers = {
 				throw error
 			}
 		} ),
-		removeCountry: async ( id: string ) => await Country.findByIdAndRemove( id )
+		removeCountry: async ( id: string ) => await Country.findByIdAndDelete( id )
 	},
 	Subscription: {
 		countryCreated: {

@@ -152,7 +152,7 @@ const resolvers = {
       }
     ),
     removeInvestor: async (id: string) =>
-      await Investor.findByIdAndRemove({ _id: id }),
+      await Investor.findByIdAndDelete({ _id: id }),
   },
   Subscription: {
     investorCreated: {

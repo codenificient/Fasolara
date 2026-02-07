@@ -253,7 +253,7 @@ const resolvers = {
       }
     ),
     removeConversation: async (id: string) =>
-      await Conversation.findByIdAndRemove(id),
+      await Conversation.findByIdAndDelete(id),
   },
   Query: {
     /* fieldName:(root, args, context, info) => { result } */

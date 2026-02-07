@@ -147,7 +147,7 @@ const resolvers = {
                 throw error
             }
         } ),
-        removeComment: async ( id: string ) => await Comment.findByIdAndRemove( id )
+        removeComment: async ( id: string ) => await Comment.findByIdAndDelete( id )
     },
     Subscription: {
         commentCreated: {

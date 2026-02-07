@@ -146,7 +146,7 @@ const resolvers = {
       }
     ),
     removeProvince: async (id: string) =>
-      await Province.findByIdAndRemove({ _id: id }),
+      await Province.findByIdAndDelete({ _id: id }),
   },
   Subscription: {
     provinceCreated: {

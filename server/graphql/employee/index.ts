@@ -169,7 +169,7 @@ const resolvers = {
       }
     ),
     removeEmployee: async (id: string) =>
-      await Employee.findByIdAndRemove({ _id: id }),
+      await Employee.findByIdAndDelete({ _id: id }),
   },
   Subscription: {
     employeeCreated: {

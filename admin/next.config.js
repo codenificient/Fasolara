@@ -4,17 +4,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      "randomuser.me",
-      "picsum.photos",
-      "cloudflare-ipfs.com",
-      "api.unsplash.com",
-      "pexels.com",
+    remotePatterns: [
+      { protocol: "https", hostname: "randomuser.me" },
+      { protocol: "https", hostname: "picsum.photos" },
+      { protocol: "https", hostname: "cloudflare-ipfs.com" },
+      { protocol: "https", hostname: "api.unsplash.com" },
+      { protocol: "https", hostname: "pexels.com" },
     ],
-  },
-  experimental: {
-    appDir: true,
-    forceSwcTransforms: true,
   },
 };
 

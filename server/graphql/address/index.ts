@@ -163,7 +163,7 @@ const resolvers = {
         }
       }
     ),
-    removeAddress: async (_, { id }) => await Address.findByIdAndRemove(id),
+    removeAddress: async (_, { id }) => await Address.findByIdAndDelete(id),
   },
   Subscription: {
     addressCreated: {

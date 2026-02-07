@@ -193,7 +193,7 @@ const resolvers = {
       }
     ),
     removeLocation: async (id: string) =>
-      await Location.findByIdAndRemove({ _id: id }),
+      await Location.findByIdAndDelete({ _id: id }),
   },
   Subscription: {
     locationCreated: {
